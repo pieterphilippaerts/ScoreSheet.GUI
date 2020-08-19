@@ -41,6 +41,7 @@
         <conv:CultureRestartConverter x:Key="CultureRestartConverter"/>
     </Window.Resources>
     <Window.InputBindings>
+        <KeyBinding Key="P" Modifiers="Ctrl" Command="{Binding Print}" />
         <KeyBinding Key="O" Modifiers="Control" Command="{Binding Open}"/>
         <KeyBinding Key="S" Modifiers="Ctrl"  Command="{Binding SaveAs}"/>
         <KeyBinding Key="F11" Command="{Binding FullScreen}"/>
@@ -70,7 +71,7 @@
                 </MenuItem>
                 <MenuItem Header="{x:Static l:Resources.MainWindow_MenuSaveAs}" Command="{Binding SaveAs}" Visibility="{Binding IsEnabled, Converter={StaticResource VisibilityConverter}, RelativeSource={x:Static RelativeSource.Self}}" InputGestureText="Ctrl+S" />
                 <Separator/>
-                <MenuItem Header="{x:Static l:Resources.MainWindow_MenuPrint}" Command="{Binding Print}">
+                <MenuItem Header="{x:Static l:Resources.MainWindow_MenuPrint}" Command="{Binding Print}" InputGestureText="Ctrl+P">
                     <MenuItem.Icon>
                         <Image Source="/images/ico_print.png"/>
                     </MenuItem.Icon>
