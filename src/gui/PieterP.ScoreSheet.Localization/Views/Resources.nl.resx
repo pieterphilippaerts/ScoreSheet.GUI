@@ -319,7 +319,7 @@
     <value>Blanco wedstrijdblad aanmaken</value>
   </data>
   <data name="WelcomeWindow_BlankMatchDesc" xml:space="preserve">
-    <value>Alle data moet manueel ingevuld worden; kies deze optie voor niet-competitie wedstrijden (bijv. vriendenmatchen)</value>
+    <value>Alle data moet manueel ingevuld worden; kies deze optie voor niet-competitie wedstrijden (bijv. vriendenmatchen).</value>
   </data>
   <data name="WelcomeWindow_Message" xml:space="preserve">
     <value>Klik op de actie die je wil uitvoeren.</value>
@@ -328,7 +328,7 @@
     <value>Nieuwe speeldag beginnen</value>
   </data>
   <data name="WelcomeWindow_NewMatchDayDesc" xml:space="preserve">
-    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag</value>
+    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag.</value>
   </data>
   <data name="WelcomeWindow_OpenMatch" xml:space="preserve">
     <value>Bestaand wedstrijdblad openen</value>

@@ -664,7 +664,7 @@ namespace PieterP.ScoreSheet.Localization.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All data must be entered manually; choose this option for non-competition matches (eg friends matches).
+        ///   Looks up a localized string similar to All data must be entered manually; choose this option for non-competition matches (eg friends matches)..
         /// </summary>
         public static string WelcomeWindow_BlankMatchDesc {
             get {
@@ -673,7 +673,7 @@ namespace PieterP.ScoreSheet.Localization.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Click on the thing that you want to do.
+        ///   Looks up a localized string similar to Click on the thing that you want to do..
         /// </summary>
         public static string WelcomeWindow_Message {
             get {
@@ -691,7 +691,7 @@ namespace PieterP.ScoreSheet.Localization.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a date, and automatically get all matches on that match day.
+        ///   Looks up a localized string similar to Select a date, and automatically get all matches on that match day..
         /// </summary>
         public static string WelcomeWindow_NewMatchDayDesc {
             get {

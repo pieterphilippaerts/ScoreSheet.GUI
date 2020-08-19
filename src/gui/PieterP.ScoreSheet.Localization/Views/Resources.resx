@@ -301,16 +301,16 @@
     <value>Create a blank score sheet</value>
   </data>
   <data name="WelcomeWindow_BlankMatchDesc" xml:space="preserve">
-    <value>All data must be entered manually; choose this option for non-competition matches (eg friends matches)</value>
+    <value>All data must be entered manually; choose this option for non-competition matches (eg friends matches).</value>
   </data>
   <data name="WelcomeWindow_Message" xml:space="preserve">
-    <value>Click on the thing that you want to do</value>
+    <value>Click on the thing that you want to do.</value>
   </data>
   <data name="WelcomeWindow_NewMatchDay" xml:space="preserve">
     <value>Start new match day</value>
   </data>
   <data name="WelcomeWindow_NewMatchDayDesc" xml:space="preserve">
-    <value>Select a date, and automatically get all matches on that match day</value>
+    <value>Select a date, and automatically get all matches on that match day.</value>
   </data>
   <data name="WelcomeWindow_OpenMatch" xml:space="preserve">
     <value>Open existing score sheet</value>
