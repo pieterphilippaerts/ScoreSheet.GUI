@@ -1504,7 +1504,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to email the data to the leisure competition responsibles.
+        ///   Looks up a localized string similar to Use this window to email the data to the leisure competition responsibles..
         /// </summary>
         public static string Wizard_EmailDesc {
             get {
@@ -1531,7 +1531,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to export matches.
+        ///   Looks up a localized string similar to Use this window to export matches..
         /// </summary>
         public static string Wizard_ExportDesc {
             get {
@@ -1558,7 +1558,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to install a database update .
+        ///   Looks up a localized string similar to Use this window to install a database update..
         /// </summary>
         public static string Wizard_InstallUpdateDesc {
             get {
@@ -1576,7 +1576,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to select the match type.
+        ///   Looks up a localized string similar to Use this window to select the match type..
         /// </summary>
         public static string Wizard_MatchTypeDesc {
             get {
@@ -1594,7 +1594,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select a date, and automatically get all matches of that match day.
+        ///   Looks up a localized string similar to Select a date, and automatically get all matches of that match day..
         /// </summary>
         public static string Wizard_NewMatchDayDesc {
             get {
@@ -1630,7 +1630,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to print referee score cards or match score sheets.
+        ///   Looks up a localized string similar to Use this window to print referee score cards or match score sheets..
         /// </summary>
         public static string Wizard_PrintDesc {
             get {
@@ -1711,7 +1711,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to update the database of the application.
+        ///   Looks up a localized string similar to Use this window to update the database of the application..
         /// </summary>
         public static string Wizard_UpdateDesc {
             get {
@@ -1758,7 +1758,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use this window to upload data to the competition website.
+        ///   Looks up a localized string similar to Use this window to upload data to the competition website..
         /// </summary>
         public static string Wizard_UploadDesc {
             get {

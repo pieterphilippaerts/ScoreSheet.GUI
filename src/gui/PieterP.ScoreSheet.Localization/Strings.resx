@@ -601,7 +601,7 @@ Are you sure you want to delete this data?</value>
     <value>Email data</value>
   </data>
   <data name="Wizard_EmailDesc" xml:space="preserve">
-    <value>Use this window to email the data to the leisure competition responsibles</value>
+    <value>Use this window to email the data to the leisure competition responsibles.</value>
   </data>
   <data name="Wizard_EmailMessage" xml:space="preserve">
     <value>You can email the data of multiple matches in one go. If you do not want to upload the data of certain matches, you can deselect them.</value>
@@ -610,7 +610,7 @@ Are you sure you want to delete this data?</value>
     <value>Export matches</value>
   </data>
   <data name="Wizard_ExportDesc" xml:space="preserve">
-    <value>Use this window to export matches</value>
+    <value>Use this window to export matches.</value>
   </data>
   <data name="Wizard_ExportMessage" xml:space="preserve">
     <value>You can export the data of multiple matches in one go to the competition website. If you do not want to export the data of certain matches, you can deselect them.</value>
@@ -619,19 +619,19 @@ Are you sure you want to delete this data?</value>
     <value>Install update</value>
   </data>
   <data name="Wizard_InstallUpdateDesc" xml:space="preserve">
-    <value>Use this window to install a database update </value>
+    <value>Use this window to install a database update.</value>
   </data>
   <data name="Wizard_MatchType" xml:space="preserve">
     <value>Select match type</value>
   </data>
   <data name="Wizard_MatchTypeDesc" xml:space="preserve">
-    <value>Use this window to select the match type</value>
+    <value>Use this window to select the match type.</value>
   </data>
   <data name="Wizard_NewMatchDay" xml:space="preserve">
     <value>Start new match day</value>
   </data>
   <data name="Wizard_NewMatchDayDesc" xml:space="preserve">
-    <value>Select a date, and automatically get all matches of that match day</value>
+    <value>Select a date, and automatically get all matches of that match day.</value>
   </data>
   <data name="Wizard_NoFileSelected" xml:space="preserve">
     <value>You must select an existing file!</value>
@@ -643,7 +643,7 @@ Are you sure you want to delete this data?</value>
     <value>Print documents</value>
   </data>
   <data name="Wizard_PrintDesc" xml:space="preserve">
-    <value>Use this window to print referee score cards or match score sheets</value>
+    <value>Use this window to print referee score cards or match score sheets.</value>
   </data>
   <data name="Wizard_RankWarning" xml:space="preserve">
     <value>The player order you selected is invalid. Players must be ranked according to rank/index. Are you sure you want to continue with the chosen setup?</value>
@@ -670,7 +670,7 @@ Are you sure you want to delete this data?</value>
     <value>Update database</value>
   </data>
   <data name="Wizard_UpdateDesc" xml:space="preserve">
-    <value>Use this window to update the database of the application</value>
+    <value>Use this window to update the database of the application.</value>
   </data>
   <data name="Wizard_UpdateFile" xml:space="preserve">
     <value>ScoreSheet update file</value>
@@ -689,7 +689,7 @@ After the file has been saved, you can then attach the USB stick or portable har
     <value>Upload data</value>
   </data>
   <data name="Wizard_UploadDesc" xml:space="preserve">
-    <value>Use this window to upload data to the competition website</value>
+    <value>Use this window to upload data to the competition website.</value>
   </data>
   <data name="Wizard_UploadMessage" xml:space="preserve">
     <value>You can upload the data of multiple matches in one go to the competition website. If you do not want to upload the data of certain matches, you can deselect them.</value>

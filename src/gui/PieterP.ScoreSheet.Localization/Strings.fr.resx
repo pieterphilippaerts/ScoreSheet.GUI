@@ -601,7 +601,7 @@
     <value>Envoyer les données par email</value>
   </data>
   <data name="Wizard_EmailDesc" xml:space="preserve">
-    <value>Cette fenêtre permet d'envoyer par email les résultats aux responsables de la compétition récréative</value>
+    <value>Cette fenêtre permet d'envoyer par email les résultats aux responsables de la compétition récréative.</value>
   </data>
   <data name="Wizard_EmailMessage" xml:space="preserve">
     <value>Vous pouvez envoyer par email les données de plusieurs rencontres en une seule fois. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
@@ -610,7 +610,7 @@
     <value>Exporter les rencontres</value>
   </data>
   <data name="Wizard_ExportDesc" xml:space="preserve">
-    <value>Cette fenêtre permet d'exporter les rencontres</value>
+    <value>Cette fenêtre permet d'exporter les rencontres.</value>
   </data>
   <data name="Wizard_ExportMessage" xml:space="preserve">
     <value>Vous pouvez exporter les données de plusieurs rencontres en une seule fois. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
@@ -619,19 +619,19 @@
     <value>Installer la mise à jour</value>
   </data>
   <data name="Wizard_InstallUpdateDesc" xml:space="preserve">
-    <value>Cette fenêtre permet d'installer une mise à jour de la base de données</value>
+    <value>Cette fenêtre permet d'installer une mise à jour de la base de données.</value>
   </data>
   <data name="Wizard_MatchType" xml:space="preserve">
     <value>Sélectionner le type de rencontre</value>
   </data>
   <data name="Wizard_MatchTypeDesc" xml:space="preserve">
-    <value>Cette fenêtre permet de sélectionner le type de rencontre</value>
+    <value>Cette fenêtre permet de sélectionner le type de rencontre.</value>
   </data>
   <data name="Wizard_NewMatchDay" xml:space="preserve">
     <value>Démarrer une nouvelle journée de compétition</value>
   </data>
   <data name="Wizard_NewMatchDayDesc" xml:space="preserve">
-    <value>Sélectionnez une date, et vous recevrez automatiquement toutes les rencontres pour cette journée de compétition</value>
+    <value>Sélectionnez une date, et vous recevrez automatiquement toutes les rencontres pour cette journée de compétition.</value>
   </data>
   <data name="Wizard_NoFileSelected" xml:space="preserve">
     <value>Vous devez sélectionner un fichier existant !</value>
@@ -670,7 +670,7 @@
     <value>Mettre à jour la base de données</value>
   </data>
   <data name="Wizard_UpdateDesc" xml:space="preserve">
-    <value>Cette fenêtre permet de mettre à jour la base de données de l'application</value>
+    <value>Cette fenêtre permet de mettre à jour la base de données de l'application.</value>
   </data>
   <data name="Wizard_UpdateFile" xml:space="preserve">
     <value>Fichier de mise à jour de ScoreSheet</value>
@@ -689,7 +689,7 @@ Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le dis
     <value>Envoyer les données</value>
   </data>
   <data name="Wizard_UploadDesc" xml:space="preserve">
-    <value>Cette fenêtre permet d'envoyer les données au site web de la compétition</value>
+    <value>Cette fenêtre permet d'envoyer les données au site web de la compétition.</value>
   </data>
   <data name="Wizard_UploadMessage" xml:space="preserve">
     <value>Vous pouvez envoyer les données de plusieurs rencontres en une seule fois au site web de la compétition. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
