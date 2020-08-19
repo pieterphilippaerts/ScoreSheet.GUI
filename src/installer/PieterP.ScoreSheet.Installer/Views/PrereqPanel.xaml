@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.Installer.Views.PrereqPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.Installer.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.Installer.Views"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Installer.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <UserControl.Resources>
+        <conv:BoolToBrushConverter x:Key="BackgroundConverter" TrueValue="#ABFF87" FalseValue="#FF7777" />
+        <conv:BoolToBrushConverter x:Key="BorderConverter" TrueValue="DarkGreen" FalseValue="DarkRed" />
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="TrueIsCollapsedConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="SymbolConverter">
+            <conv:BoolToObjectConverter.TrueValue>✓</conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>⚠</conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock FontSize="20" Margin="5" Text="{x:Static l:Strings.Prereq_Title}"/>
+            <TextBlock Margin="5 0 5 5" TextWrapping="Wrap" Text="{x:Static l:Strings.Prereq_Message}"/>
+        </StackPanel>
+        <Border Margin="5" Grid.Row="1" BorderBrush="DarkGray" BorderThickness="1">
+            <ScrollViewer >
+                <StackPanel>
+                    <TextBlock FontWeight="Bold" Margin="5" Text="{x:Static l:Strings.Prereq_Requirements}"/>
+                    <ItemsControl ItemsSource="{Binding Prereqs}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock FontWeight="Bold" Margin="5" Text="{Binding IsOk, Converter={StaticResource SymbolConverter}}" Grid.Column="0" Grid.Row="0"/>
+                                        <TextBlock Text="{Binding Description}" Margin="5 5 5 0" TextWrapping="Wrap" Grid.Column="1" Grid.Row="0" VerticalAlignment="Center"/>
+                                        <Button Visibility="{Binding ShowLink, Converter={StaticResource VisibilityConverter}}" Margin="5 0 5 5" Grid.Column="1" Grid.Row="1" Style="{StaticResource LinkButton}" Content="{Binding LinkText}" Command="{Binding Click}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        <StackPanel Grid.Row="2">
+            <TextBlock FontWeight="Bold" Margin="5 5 5 0" Text="{x:Static l:Strings.Prereq_Directory}"/>
+            <TextBlock Margin="5 0 5 5" Text="{Binding InstallPath}" TextWrapping="Wrap"/>
+            <TextBlock Visibility="{Binding ArePrereqsMet, Converter={StaticResource TrueIsCollapsedConverter}}" Padding="5" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Red" TextWrapping="Wrap" TextAlignment="Center" Text="{x:Static l:Strings.Prereq_Warning}"/>
+            <Button HorizontalAlignment="Right" Padding="15 5" Command="{Binding Install}" Content="{x:Static l:Strings.Prereq_Install}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

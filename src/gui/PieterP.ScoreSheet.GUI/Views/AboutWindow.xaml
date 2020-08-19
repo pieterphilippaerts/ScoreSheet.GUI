@@ -1,0 +1,56 @@
+﻿<Window x:Class="PieterP.ScoreSheet.GUI.Views.AboutWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views;assembly=ScoreSheet.Localization"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views"
+        xmlns:behaviors="clr-namespace:PieterP.ScoreSheet.GUI.Behaviors"
+        mc:Ignorable="d"
+        Title="{x:Static l:Resources.AboutWindow_Title}" Height="450" Width="650" Background="Black" WindowStartupLocation="CenterOwner" 
+        ResizeMode="NoResize" ShowInTaskbar="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Image Source="/images/about2.png" Grid.Column="0" VerticalAlignment="Bottom" Width="253" Height="350" />
+        <DockPanel LastChildFill="True" Grid.Column="1">
+            <Grid DockPanel.Dock="Bottom" Margin="16 0 20 20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel Canvas.Top="280" Canvas.Left="450" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom" Grid.Column="0">
+                    <Button Margin="2" Style="{StaticResource LinkButton}" Content="{x:Static l:Resources.AboutWindow_ProgramDirectory}"  Command="{Binding ProgramFolder}" />
+                    <Button Margin="2" Style="{StaticResource LinkButton}" Content="{x:Static l:Resources.AboutWindow_DataDirectory}"  Command="{Binding DataFolder}" />
+                </StackPanel>
+                <Button Command="{Binding Close}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="100" Height="30" Grid.Column="1" Content="{x:Static l:Resources.AboutWindow_Close}"/>
+            </Grid>
+            <StackPanel Orientation="Vertical" Margin="10 10 10 10">
+                <TextBlock Foreground="White" FontSize="26px" Margin="6 10 0 0">ScoreSheet</TextBlock>
+                <TextBlock x:Name="CopyrightText" Foreground="WhiteSmoke" Margin="6 0 0 0" FontSize="12px" Text="{x:Static l:Resources.AboutWindow_Copyright}"/>
+                <StackPanel Orientation="Horizontal" Margin="0 5 0 0">
+                    <TextBlock Foreground="WhiteSmoke" Padding="6" Text="{x:Static l:Resources.AboutWindow_Version}"/>
+                    <StackPanel Orientation="Vertical" Margin="0 6 0 0">
+                        <TextBlock Foreground="White" FontWeight="Bold" Text="{Binding Version}" />
+                        <TextBlock Foreground="White" Text="{Binding BuildDate}"  />
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="WhiteSmoke" Padding="6" Text="{x:Static l:Resources.AboutWindow_Website}"/>
+                    <StackPanel Orientation="Vertical" Margin="0 6 0 0">
+                        <Button Style="{StaticResource LinkButton}" FontWeight="Bold" Content="{Binding WebsiteText}" Command="{Binding Website}"/>
+                        <Button Visibility="Collapsed" Margin="0 4 0 0" Style="{StaticResource LinkButton}" FontWeight="Bold" Content="{Binding GitText}" Command="{Binding Git}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Foreground="WhiteSmoke" Padding="6" Text="{x:Static l:Resources.AboutWindow_Support}"/>
+                    <Button Margin="0 6 0 0" Style="{StaticResource LinkButton}" FontWeight="Bold" Content="{Binding SupportText}"  Command="{Binding Support}" />
+                </StackPanel>
+                <TextBlock Foreground="WhiteSmoke" Padding="6" TextWrapping="Wrap" Text="{x:Static l:Resources.AboutWindow_Attribution}"/>
+                <TextBlock Visibility="Collapsed" Foreground="WhiteSmoke" Padding="6" TextWrapping="Wrap" Text="{x:Static l:Resources.AboutWindow_OpenSource}"/>
+            </StackPanel>
+        </DockPanel>
+    </Grid>
+</Window>

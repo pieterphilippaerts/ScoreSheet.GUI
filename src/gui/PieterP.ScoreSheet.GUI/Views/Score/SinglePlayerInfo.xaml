@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Score.SinglePlayerInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Score;assembly=ScoreSheet.Localization"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Score"
+             mc:Ignorable="d" 
+             d:DesignHeight="18" d:DesignWidth="500">
+    <StackPanel Orientation="Horizontal">
+        <TextBlock Text="{Binding Position}" Width="24" Height="18" TextAlignment="Center" VerticalAlignment="Center" />
+        <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
+            <TextBox Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}" Width="254" Style="{DynamicResource EditableTextBoxStyle}"></TextBox>
+        </Border>
+        <Button Height="18" Width="18" Command="{Binding Browse}">...</Button>
+        <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
+            <TextBox Text="{Binding ComputerNumber.Value, UpdateSourceTrigger=PropertyChanged}" Width="46" Style="{DynamicResource EditableCenteredTextBoxStyle}"></TextBox>
+        </Border>
+        <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
+            <TextBox Text="{Binding StrengthListPosition.Value, UpdateSourceTrigger=PropertyChanged}" Width="20" Style="{DynamicResource EditableCenteredTextBoxStyle}"></TextBox>
+        </Border>
+        <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
+            <TextBox Text="{Binding Index.Value, UpdateSourceTrigger=PropertyChanged}" Width="28" Style="{DynamicResource EditableCenteredTextBoxStyle}"></TextBox>
+        </Border>
+        <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
+            <TextBox Text="{Binding Ranking.Value, UpdateSourceTrigger=PropertyChanged}" Width="28" Style="{DynamicResource EditableCenteredTextBoxStyle}"></TextBox>
+        </Border>
+        <Viewbox Width="28" Height="18" StretchDirection="DownOnly">
+            <TextBlock Text="{Binding IndividualWins.Value}" Height="18" TextAlignment="Center"></TextBlock>
+        </Viewbox>
+        <Border Background="Transparent" BorderThickness="0">
+            <CheckBox IsChecked="{Binding Captain.Value}" Width="18" Height="18" Background="{DynamicResource EditableBackgroundBrush}" />
+        </Border>
+    </StackPanel>
+</UserControl>

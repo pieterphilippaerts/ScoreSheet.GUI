@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.ChiefReferee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             mc:Ignorable="d" d:DesignHeight="100"
+             Width="10.35cm">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition  Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2.8cm"/>
+            <ColumnDefinition Width="2.8cm"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" BorderBrush="Black" BorderThickness="1 1 1 0.5">
+            <TextBlock TextAlignment="Center" FontWeight="Bold" FontSize="0.4cm" Text="HOOFDSCHEIDSRECHTER"/>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5">
+            <TextBlock TextAlignment="Center">Naam + Voornaam</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 0.5">
+            <TextBlock TextAlignment="Center">Club</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5">
+            <TextBlock TextAlignment="Center">Handtekening</TextBlock>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1 0.5 0.5 1">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="0.05cm 0.05cm 0 0.05cm" Text="{Binding Name.Value}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0.05cm 0 0.15cm 0.05cm">Aansluitingsnummer:</TextBlock>
+                    <TextBlock Text="{Binding ComputerNumber.Value}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 1">
+            <StackPanel Orientation="Vertical">
+                <TextBlock Margin="0.05cm 0.05cm 0 0.05cm" Text="{Binding ClubName.Value}"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0.05cm 0 0.15cm 0.05cm">Clubnr:</TextBlock>
+                    <TextBlock Text="{Binding ClubId.Value}"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 1 1">
+
+        </Border>
+    </Grid>
+</UserControl>

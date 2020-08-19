@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Wizards.SelectPlayersPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Wizards"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Wizards;assembly=ScoreSheet.Localization"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime.InteropServices"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="634">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Padding="15 4 15 4" Margin="10" Command="{Binding Cancel}" Content="{x:Static l:Resources.Cancel}"/>
+                <Button x:Name="TheRestoreButton" Padding="35 4 35 4" Margin="10" Command="{Binding Select}" Content="{x:Static l:Resources.OK}"/>
+            </StackPanel>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="15 5 15 5">
+                <TextBlock Text="{Binding Team}" FontWeight="Bold" FontSize="16px" Margin="5 0" />
+                <ItemsControl ItemsSource="{Binding Players}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:SelectedPlayerPanel Margin="2" IsRelevant="{Binding DataContext.IsRelevant.Value, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectPlayersPanel}}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+                <TextBlock Text="{x:Static l:Resources.SelectPlayers_ChiefReferee}" FontWeight="Bold" FontSize="16px" Margin="5 5 5 0" />
+                <local:SelectedPlayerPanel DataContext="{Binding ChiefReferee}" HideWO="True" />
+                <TextBlock Text="{x:Static l:Resources.SelectPlayers_RoomCommissioner}" FontWeight="Bold" FontSize="16px" Margin="5 5 5 0" />
+                <local:SelectedPlayerPanel DataContext="{Binding RoomCommissioner}" HideWO="True" />
+            </StackPanel>
+            <Grid Grid.Row="0" Grid.Column="1" Margin="15">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBox Margin="0 0 0 5" Text="{Binding Filter.Value, UpdateSourceTrigger=PropertyChanged}" />
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <ListBox x:Name="TheListBox" ItemsSource="{Binding AvailablePlayers.Value}" Grid.Row="0" SelectionChanged="TheListBox_SelectionChanged" PreviewMouseMove="TheListBox_PreviewMouseMove" SelectedItem="{Binding SelectedPlayer.Value}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Caption}"/>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemContainerStyle>
+                            <Style TargetType="{x:Type ListBoxItem}">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsSelectable}" Value="False">
+                                        <Setter Property="IsHitTestVisible" Value="False"/>
+                                        <Setter Property="TextBlock.FontSize" Value="14px"/>
+                                        <Setter Property="TextBlock.FontWeight" Value="Bold"/>
+                                        <Setter Property="TextBlock.Margin"  Value="5 5 0 0"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ListBox.ItemContainerStyle>
+                    </ListBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Visibility="{Binding ShowAllPlayers, Converter={StaticResource VisibilityConverter}}" VerticalAlignment="Top">
+                        <Button Content="{x:Static l:Resources.SelectPlayers_RelevantPlayers}" Background="White" Command="{Binding SwitchToRelevant}" VerticalAlignment="Top" BorderBrush="{x:Static SystemColors.ActiveBorderBrush}">
+                            <Button.Style>
+                                <Style  TargetType="{x:Type Button}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsRelevant.Value}" Value="True">
+                                            <Setter Property="FontWeight"  Value="Bold" />
+                                            <Setter Property="Padding" Value="14 5"/>
+                                            <Setter Property="BorderThickness" Value="1 0 1 1"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsRelevant.Value}" Value="False">
+                                            <Setter Property="Padding" Value="10 3"/>
+                                            <Setter Property="BorderThickness" Value="1 0 0 1"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                        <Button Content="{x:Static l:Resources.SelectPlayers_AllPlayers}" Background="White" Command="{Binding SwitchToAll}" VerticalAlignment="Top" BorderBrush="{x:Static SystemColors.ActiveBorderBrush}">
+                            <Button.Style>
+                                <Style  TargetType="{x:Type Button}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsRelevant.Value}" Value="False">
+                                            <Setter Property="FontWeight"  Value="Bold" />
+                                            <Setter Property="Padding" Value="14 5"/>
+                                            <Setter Property="BorderThickness" Value="1 0 1 1"/>
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsRelevant.Value}" Value="True">
+                                            <Setter Property="Padding" Value="10 3"/>
+                                            <Setter Property="BorderThickness" Value="0 0 1 1"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</UserControl>

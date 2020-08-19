@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Information.AwayMatchesOverview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Information"
+            xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Information;assembly=ScoreSheet.Localization"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <conv:PointsConverter x:Key="PointsConverter" Win="DarkGreen" Lose="DarkRed" Draw="Black" />
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock FontSize="56" FontWeight="Bold" Margin="15" Text="{x:Static l:Resources.AwayMatchesOverview_AwayMatches}"/>
+        <Grid Margin="50 0 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <ItemsControl ItemsSource="{Binding AwayMatches}" Grid.Column="0">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="48" Text="{Binding HomeTeam.Value}" Margin="5 5 35 5" HorizontalAlignment="Right"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl ItemsSource="{Binding AwayMatches}" Grid.Column="1">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="48" FontWeight="Bold" Text="{Binding HomeMatchesWon.Value}" Margin="10 5" HorizontalAlignment="Right">
+                            <TextBlock.Foreground>
+                                <MultiBinding Converter="{StaticResource PointsConverter}">
+                                    <Binding Path="HomeClubId.Value" />
+                                    <Binding Path="AwayClubId.Value" />
+                                    <Binding Path="HomeMatchesWon.Value" />
+                                    <Binding Path="AwayMatchesWon.Value" />
+                                </MultiBinding>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl ItemsSource="{Binding AwayMatches}" Grid.Column="2">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="48" Margin="5" Text="-">
+                            <TextBlock.Foreground>
+                                <MultiBinding Converter="{StaticResource PointsConverter}">
+                                    <Binding Path="HomeClubId.Value" />
+                                    <Binding Path="AwayClubId.Value" />
+                                    <Binding Path="HomeMatchesWon.Value" />
+                                    <Binding Path="AwayMatchesWon.Value" />
+                                </MultiBinding>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl ItemsSource="{Binding AwayMatches}" Grid.Column="3">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="48" FontWeight="Bold" Text="{Binding AwayMatchesWon.Value}" Margin="10 5">
+                            <TextBlock.Foreground>
+                                <MultiBinding Converter="{StaticResource PointsConverter}">
+                                    <Binding Path="HomeClubId.Value" />
+                                    <Binding Path="AwayClubId.Value" />
+                                    <Binding Path="HomeMatchesWon.Value" />
+                                    <Binding Path="AwayMatchesWon.Value" />
+                                </MultiBinding>
+                            </TextBlock.Foreground>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ItemsControl ItemsSource="{Binding AwayMatches}" Grid.Column="4">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="48" Text="{Binding AwayTeam.Value}" Margin="35 5 5 5"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+    </StackPanel>
+</UserControl>

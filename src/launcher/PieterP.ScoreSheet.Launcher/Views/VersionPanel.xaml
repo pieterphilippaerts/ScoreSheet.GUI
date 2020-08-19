@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.Launcher.Views.VersionPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.Launcher.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.Launcher.Views"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Launcher.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" Width="175">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="TrueIsCollapsedConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="TrueIsVisibleConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <Border BorderBrush="DarkGray" BorderThickness="1" CornerRadius="4" Background="#E0F8F8F8" Margin="3">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Title}" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" FontSize="14" Foreground="Black" />
+            <TextBlock Text="{Binding SubTitle}" TextAlignment="Center" Grid.Row="1" TextWrapping="Wrap" Foreground="Black" />
+            <TextBlock Text="{x:Static l:Strings.Version_Unavailable}" TextAlignment="Center" FontWeight="Bold" Grid.Row="2" Foreground="Red" Visibility="{Binding IsAvailable, Converter={StaticResource TrueIsCollapsedConverter}}"/>
+            <TextBlock Grid.Row="3" Foreground="Black" Visibility="{Binding Default, Converter={StaticResource TrueIsVisibleConverter}}" TextAlignment="Center" Text="{x:Static l:Strings.Version_Default}"/>
+            <Button Grid.Row="3" Visibility="{Binding Default, Converter={StaticResource TrueIsCollapsedConverter}}" Style="{StaticResource LinkButton}" HorizontalAlignment="Center" Command="{Binding SetDefault}" Content="{x:Static l:Strings.Version_SetAsDefault}"/>
+        </Grid>
+    </Border>
+</UserControl>

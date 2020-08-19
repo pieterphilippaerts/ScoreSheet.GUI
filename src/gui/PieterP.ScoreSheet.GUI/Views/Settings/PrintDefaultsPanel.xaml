@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.PrintDefaultsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Settings;assembly=ScoreSheet.Localization"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="264" d:DesignWidth="346">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.PrintDefaults_Description}"/>
+        <RadioButton GroupName="PrintGroup" Margin="5" IsChecked="{Binding PrintDirect.Value}" Content="{x:Static l:Resources.PrintDefaults_Direct}"/>
+        <RadioButton GroupName="PrintGroup" Margin="5 0 5 5" x:Name="TheAdobeCheck" IsChecked="{Binding PrintViaAdobe.Value}" Content="{x:Static l:Resources.PrintDefaults_Adobe}"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBox IsReadOnly="True" Margin="25 0 5 0" Width="275" Text="{Binding AdobePath.Value}" IsEnabled="{Binding IsChecked, ElementName=TheAdobeCheck}"/>
+            <Button Padding="3 0" IsEnabled="{Binding IsChecked, ElementName=TheAdobeCheck}" Command="{Binding Browse}">...</Button>
+        </StackPanel>
+        <Button Style="{StaticResource LinkButton}" HorizontalAlignment="Left" Command="{Binding Search}" Margin="190 0 0 0" IsEnabled="{Binding IsChecked, ElementName=TheAdobeCheck}" Content="{x:Static l:Resources.PrintDefaults_Search}"/>
+
+        <CheckBox Margin="5 25 5 5" IsChecked="{Binding PrintSponsors.Value}" Content="{x:Static l:Resources.PrintDefaults_Sponsors}"/>
+
+        <TextBlock Margin="5 5 5 0" Text="{x:Static l:Resources.PrintDefaults_ScoreCardLayout}"/>
+        <ComboBox Margin="20 5" ItemsSource="{Binding RefereeTypes}" SelectedItem="{Binding PrintRefereeType.Value}" DisplayMemberPath="Name"></ComboBox>
+    </StackPanel>
+</UserControl>

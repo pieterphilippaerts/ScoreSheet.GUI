@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ScoreSheet Web Service</title>
+    <style>
+        body {
+            font-family: monospace;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <p>The web service API and documentation are currently a work in progress. At this moment, the API supports the following functions:</p>
+    <ul>
+        <li><strong><a href="/api/matches.json">/api/matches.json</a></strong> (GET): Returns extensive information about the matches that are currently open in the application.</li>
+        <li>
+            <strong>/api/points.json</strong> (GET): Returns the points of a certain match. This method expects two URL parameters:
+            <ul>
+                <li><strong>MatchNr</strong>: The match ID (eg 'PVLBH06/003'). The score sheet with this match ID must be opened in the application.</li>
+                <li><strong>MatchIndex</strong>: The match number (eg. 1 for the first match, 2 for the second match, etc.)</li>
+            </ul>
+        </li>
+        <li>
+            <strong>/api/points.json</strong> (PUT): Adjusts the points of a certain match. This method expects two URL parameters:
+            <ul>
+                <li><strong>MatchNr</strong>: The match ID (eg 'PVLBH06/003'). The score sheet with this match ID must be opened in the application.</li>
+                <li><strong>MatchIndex</strong>: The match number (eg. 1 for the first match, 2 for the second match, etc.)</li>
+            </ul>
+            The request data must be a Json string that corresponds to the output from <strong>/api/points.json</strong> (GET).
+        </li>
+    </ul>
+    <p>
+        ScoreSheet also comes with one simple visualization (<a href="/points.html">/points.html</a>). You can adjust this visualization or upload your own
+        files (HTML, JavaScript, CSS, ...) in the directory <strong>$WWWDIR$</strong>
+    </p>
+</body>
+</html>

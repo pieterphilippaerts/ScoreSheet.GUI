@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Controls.BigButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="600" x:Name="TheParent">
+    <Button x:Name="TheButton" Background="Transparent" Command="{Binding Command, ElementName=TheParent}" CommandParameter="{Binding CommandParameter, ElementName=TheParent}">
+        <Button.Template>
+            <ControlTemplate TargetType="{x:Type Button}">
+                <Border x:Name="TheBorder" BorderThickness="1" BorderBrush="Transparent" CornerRadius="8">
+                    <Grid x:Name="TheGrid">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Height="{Binding ImageSize, ElementName=TheParent}" Grid.Column="0" Margin="10" StretchDirection="DownOnly">
+                            <Image x:Name="TheImage" Source="{Binding Image}"  Stretch="None" >
+                                <Image.Effect>
+                                    <DropShadowEffect Color="DarkGray" Direction="248" BlurRadius="16" ShadowDepth="3" />
+                                </Image.Effect>
+                            </Image>
+                        </Viewbox>
+                        <StackPanel Grid.Column="1" Margin="10">
+                            <TextBlock x:Name="TheTitle" Text="{Binding Title}" Foreground="#0033BD" FontSize="12pt"/>
+                            <TextBlock x:Name="TheDescription" Text="{Binding Description}" TextWrapping="Wrap" FontSize="8.25pt"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                
+                <ControlTemplate.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter TargetName="TheBorder" Property="BorderBrush" Value="#CBE2FD" />
+                        <Setter TargetName="TheBorder" Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStop Offset="0" Color="#CFE6FF"/>
+                                        <GradientStop Offset="1" Color="#FDFEFF"/>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter TargetName="TheBorder" Property="Background">
+                            <Setter.Value>
+                                <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                                    <LinearGradientBrush.GradientStops>
+                                        <GradientStop Offset="0" Color="#CCD4DB"/>
+                                        <GradientStop Offset="1" Color="#F0F8FF"/>
+                                    </LinearGradientBrush.GradientStops>
+                                </LinearGradientBrush>
+                            </Setter.Value>
+                        </Setter>
+                    </Trigger>
+                    <Trigger Property="IsEnabled" Value="False">
+                        <Setter TargetName="TheTitle" Property="Foreground" Value="DarkGray" />
+                        <Setter TargetName="TheDescription" Property="Foreground" Value="DarkGray" />
+                        <Setter TargetName="TheImage" Property="IsEnabled" Value="False" />
+                    </Trigger>
+                </ControlTemplate.Triggers>
+            </ControlTemplate>
+        </Button.Template>
+    </Button>
+</UserControl>

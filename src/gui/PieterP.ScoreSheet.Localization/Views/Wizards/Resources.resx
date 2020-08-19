@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Handicap_Description" xml:space="preserve">
+    <value>For non-official matches it is possible to play with pre-gift (better known as 'handicap'). If you wish, you can select the handicap table that you want to use below.
+
+The handicap points will be printed on the referee score cards.</value>
+  </data>
+  <data name="Handicap_UseHandicap" xml:space="preserve">
+    <value>Play with pre-gift</value>
+  </data>
+  <data name="NewCustomMatch_Description" xml:space="preserve">
+    <value>You can choose which game type you use for an unofficial match. The game type has an impact on what the score sheet looks like.</value>
+  </data>
+  <data name="NewDivisionDay_Description" xml:space="preserve">
+    <value>Open all the matches of a specific division on a given day</value>
+  </data>
+  <data name="NewDivisionDay_Loading" xml:space="preserve">
+    <value>... loading data ...</value>
+  </data>
+  <data name="NewDivisionDay_Message" xml:space="preserve">
+    <value>Select for a given region a division and a date, and ScoreSheet will open all the corresponding matches (regardless of the clubs that are playing). This feature can be used for specific events (eg youth competition) where multiple matches of different clubs are played at one venue.</value>
+  </data>
+  <data name="NewDivisionDay_National" xml:space="preserve">
+    <value>National</value>
+  </data>
+  <data name="NewDivisionDay_Title" xml:space="preserve">
+    <value>Open division day</value>
+  </data>
+  <data name="NewMatchday_Description" xml:space="preserve">
+    <value>The list below shows all available match days. Choose the match day for which you want to generate the score sheets and click on OK.</value>
+  </data>
+  <data name="NewMatchday_OpenAway" xml:space="preserve">
+    <value>Also open score sheets for away matches</value>
+  </data>
+  <data name="NewMatchday_OpenBye" xml:space="preserve">
+    <value>Open bye matches that are scheduled this week</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Print_Description" xml:space="preserve">
+    <value>Select what you want to print from the selected match:</value>
+  </data>
+  <data name="Print_Handicap" xml:space="preserve">
+    <value>Use handicap</value>
+  </data>
+  <data name="Print_Print" xml:space="preserve">
+    <value>Print</value>
+  </data>
+  <data name="Print_Results" xml:space="preserve">
+    <value>Match results</value>
+  </data>
+  <data name="Print_ScoreCards" xml:space="preserve">
+    <value>Referee score cards</value>
+  </data>
+  <data name="RestoreBackups_Description" xml:space="preserve">
+    <value>Old match results were found in the backup directory of this program. These are usually files left behind after a program crash. You can open these score sheets again by selecting them and clicking on 'Repair'.</value>
+  </data>
+  <data name="SelectExportType_Csv" xml:space="preserve">
+    <value>Contains the match details that you can then upload to the competition website</value>
+  </data>
+  <data name="SelectExportType_Description" xml:space="preserve">
+    <value>You can export the selected matches to multiple file types. Select the file type you want to export to below.</value>
+  </data>
+  <data name="SelectExportType_Pdf" xml:space="preserve">
+    <value>Contains score sheets that can be viewed or printed via a PDF reader</value>
+  </data>
+  <data name="SelectExportType_Xps" xml:space="preserve">
+    <value>Contains score sheets that can be viewed or printed via an XPS reader</value>
+  </data>
+  <data name="SelectMatches_NonCompetitiveMessage" xml:space="preserve">
+    <value>This is a non-competitive match and should not be uploaded</value>
+  </data>
+  <data name="SelectMatches_UploadMessage" xml:space="preserve">
+    <value>This match has already been successfully uploaded to the competition website</value>
+  </data>
+  <data name="SelectMatches_ValidationErrors" xml:space="preserve">
+    <value>This match contains validation errors</value>
+  </data>
+  <data name="SelectPlayers_AllPlayers" xml:space="preserve">
+    <value>All players</value>
+  </data>
+  <data name="SelectPlayers_ChiefReferee" xml:space="preserve">
+    <value>Chief referee</value>
+  </data>
+  <data name="SelectPlayers_RelevantPlayers" xml:space="preserve">
+    <value>Relevant players</value>
+  </data>
+  <data name="SelectPlayers_RoomCommissioner" xml:space="preserve">
+    <value>Room commissioner</value>
+  </data>
+  <data name="UpdateFromInternet_Description" xml:space="preserve">
+    <value>You can update the data in the database of the program via this window. This data includes all information about the planned competition matches, as well as the member list of the home club and all visiting clubs.
+
+This data is best updated weekly, since in principle it can change every week (eg changes to the member lists). Outdated data can lead to errors on the match sheet, and therefore also to fines!</value>
+  </data>
+  <data name="UpdateFromInternet_Next" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="UpdateFromInternet_RefreshList" xml:space="preserve">
+    <value>Refresh the list</value>
+  </data>
+  <data name="UpdateFromInternet_SelectClub" xml:space="preserve">
+    <value>Select your club:</value>
+  </data>
+  <data name="UpdateFromInternet_SelectProvince" xml:space="preserve">
+    <value>Select your province:</value>
+  </data>
+  <data name="UpdateFromInternet_Updating" xml:space="preserve">
+    <value>updating;
+please wait</value>
+  </data>
+  <data name="UpdateStart_File" xml:space="preserve">
+    <value>Update with an update file</value>
+  </data>
+  <data name="UpdateStart_FileDesc" xml:space="preserve">
+    <value>You have an update file on a USB stick, and you want to use this file to bring the database up-to-date. This method can be used if this computer has no internet connection.</value>
+  </data>
+  <data name="UpdateStart_FileInfo" xml:space="preserve">
+    <value>How do I create an update file?</value>
+  </data>
+  <data name="UpdateStart_Internet" xml:space="preserve">
+    <value>Update via the Internet</value>
+  </data>
+  <data name="UpdateStart_InternetDesc" xml:space="preserve">
+    <value>The latest data is downloaded from the KBTTB website. This is the simplest option, but requires an active internet connection.</value>
+  </data>
+  <data name="UpdatingFromInternet_Description" xml:space="preserve">
+    <value>The data is now being downloaded from the KBTTB website. This process may take a while, depending on the size of your club and the speed of your internet connection.</value>
+  </data>
+</root>

@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.ScoreVisualizationPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization;assembly=ScoreSheet.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="264" d:DesignWidth="346">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Strings.ScoreVisualization_Message}"/>
+        <TextBlock Margin="5 10 5 0" FontWeight="Bold" Text="{x:Static l:Strings.ScoreVisualization_OverviewScreen}"/>
+        <ComboBox Margin="5" ItemsSource="{Binding AvailableVisualizations}" SelectedItem="{Binding OverviewVisualization.Value}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock TextWrapping="Wrap"><Run Text="{Binding Name}" FontWeight="Bold"/> - <Run Text="{Binding Description}"/></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <TextBlock Margin="5 10 5 0" FontWeight="Bold" Text="{x:Static l:Strings.ScoreVisualization_SecondScreen}"/>
+        <ComboBox Margin="5" ItemsSource="{Binding AvailableVisualizations}" SelectedItem="{Binding SecondScreenVisualization.Value}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock TextWrapping="Wrap"><Run Text="{Binding Name}" FontWeight="Bold"/> - <Run Text="{Binding Description}"/></TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+    </StackPanel>
+</UserControl>

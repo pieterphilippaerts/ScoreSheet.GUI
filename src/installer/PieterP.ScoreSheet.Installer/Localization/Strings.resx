@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_ChangesMade" xml:space="preserve">
+    <value>Changes made</value>
+  </data>
+  <data name="App_NoChangesMade" xml:space="preserve">
+    <value>No changes made</value>
+  </data>
+  <data name="App_TlsEnabled" xml:space="preserve">
+    <value>TLS 1.1 and 1.2 have been successfully switched on!</value>
+  </data>
+  <data name="App_TlsNotEnabled" xml:space="preserve">
+    <value>An error occurred while turning on TLS 1.1 and 1.2. You may not have the correct rights to make these changes.</value>
+  </data>
+  <data name="InstallationComplete_Close" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="InstallationComplete_Error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="InstallationComplete_ErrorMessage" xml:space="preserve">
+    <value>An unexpected problem occurred during the installation of ScoreSheet. If this problem persists, please contact the program managers at score@pieterp.be.</value>
+  </data>
+  <data name="InstallationComplete_Message" xml:space="preserve">
+    <value>The installation of ScoreSheet has been successfully completed.</value>
+  </data>
+  <data name="InstallationComplete_Ready" xml:space="preserve">
+    <value>Ready!</value>
+  </data>
+  <data name="InstallationComplete_Start" xml:space="preserve">
+    <value>Start ScoreSheet</value>
+  </data>
+  <data name="Installing_GUI" xml:space="preserve">
+    <value>Installing user interface</value>
+  </data>
+  <data name="Installing_GUINotFound" xml:space="preserve">
+    <value>Unable to find the "GUI" installation package.</value>
+  </data>
+  <data name="Installing_Launcher" xml:space="preserve">
+    <value>Installing launcher</value>
+  </data>
+  <data name="Installing_LauncherNotFound" xml:space="preserve">
+    <value>Unable to find the "LAUNCHER" installation package.</value>
+  </data>
+  <data name="Installing_Message" xml:space="preserve">
+    <value>The installer is now installing ScoreSheet. Please be patient.</value>
+  </data>
+  <data name="Installing_ShortcutDesktop" xml:space="preserve">
+    <value>Creating desktop shortcut</value>
+  </data>
+  <data name="Installing_ShortcutStartMenu" xml:space="preserve">
+    <value>Creating start menu shortcut</value>
+  </data>
+  <data name="Installing_Title" xml:space="preserve">
+    <value>Installing</value>
+  </data>
+  <data name="Main_Title" xml:space="preserve">
+    <value>ScoreSheet Installer</value>
+  </data>
+  <data name="Prereq_Directory" xml:space="preserve">
+    <value>Install directory</value>
+  </data>
+  <data name="Prereq_Install" xml:space="preserve">
+    <value>Install ScoreSheet</value>
+  </data>
+  <data name="Prereq_Message" xml:space="preserve">
+    <value>This program will install ScoreSheet on your system.</value>
+  </data>
+  <data name="Prereq_Netfx" xml:space="preserve">
+    <value>.NET Framework 4.5 or higher required</value>
+  </data>
+  <data name="Prereq_NetfxDownload" xml:space="preserve">
+    <value>download the .NET Framework 4.5</value>
+  </data>
+  <data name="Prereq_NetfxErr" xml:space="preserve">
+    <value>The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.5 or higher.</value>
+  </data>
+  <data name="Prereq_NetfxOk" xml:space="preserve">
+    <value>Your version of the .NET Framework is sufficient.</value>
+  </data>
+  <data name="Prereq_ReadMore" xml:space="preserve">
+    <value>Read more information about this</value>
+  </data>
+  <data name="Prereq_Requirements" xml:space="preserve">
+    <value>System requirements</value>
+  </data>
+  <data name="Prereq_Title" xml:space="preserve">
+    <value>Welcome to ScoreSheet</value>
+  </data>
+  <data name="Prereq_Tls" xml:space="preserve">
+    <value>TLS 1.1 or higher required</value>
+  </data>
+  <data name="Prereq_TlsEnable" xml:space="preserve">
+    <value>Enable TLS 1.1/1.2 support</value>
+  </data>
+  <data name="Prereq_TlsErrW7" xml:space="preserve">
+    <value>The support for TLS 1.1 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it.</value>
+  </data>
+  <data name="Prereq_TlsErrWV" xml:space="preserve">
+    <value>Windows Vista does not support TLS 1.1 by default, but it can be turned on in an unofficial way. The ScoreSheet download page contains more information about this.</value>
+  </data>
+  <data name="Prereq_TlsOk" xml:space="preserve">
+    <value>This system supports TLS 1.1 or higher.</value>
+  </data>
+  <data name="Prereq_Warning" xml:space="preserve">
+    <value>ATTENTION: you can install ScoreSheet, but as long as the above requirements are not met, ScoreSheet may not work correctly!</value>
+  </data>
+  <data name="Prereq_Windows" xml:space="preserve">
+    <value>Windows Vista or higher required</value>
+  </data>
+  <data name="Prereq_WindowsErr" xml:space="preserve">
+    <value>You're running on an old version of Windows. This version is no longer supported.</value>
+  </data>
+  <data name="Prereq_WindowsOk" xml:space="preserve">
+    <value>Your version of Windows is sufficient.</value>
+  </data>
+</root>

@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.LayoutPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Settings;assembly=ScoreSheet.Localization"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="264" d:DesignWidth="346">
+    <UserControl.Resources>
+        <conv:ThemeStringToVisiblityConverter x:Key="StringConverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Resources.Layout_Description}"/>
+        <ComboBox Margin="15 5" ItemsSource="{Binding AvailableThemes}" DisplayMemberPath="Name" SelectedValuePath="Path" SelectedValue="{Binding SelectedTheme.Value}" />
+        <StackPanel Visibility="{Binding SelectedTheme.Value, Converter={StaticResource StringConverter}}">
+            <Grid Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="5" VerticalAlignment="Center" Text="{x:Static l:Resources.Layout_Background}"/>
+                <Button Margin="5" Grid.Row="0" Grid.Column="1" Width="32" Height="32" Background="{Binding SelectedBackgroundColor.Value}" Command="{Binding SelectBackgroundColor}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="DarkGray" Cursor="Hand"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Grid.Row="1" Grid.Column="0" Margin="5" VerticalAlignment="Center" Text="{x:Static l:Resources.Layout_TextField}"/>
+                <Button Margin="5" Grid.Row="1" Grid.Column="1" Width="32" Height="32" Background="{Binding SelectedTextBoxColor.Value}" Command="{Binding SelectTextBoxColor}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="DarkGray" Cursor="Hand"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="5" VerticalAlignment="Center" Text="{x:Static l:Resources.Layout_Text}"/>
+                <Button Margin="5" Grid.Row="2" Grid.Column="1" Width="32" Height="32" Background="{Binding SelectedTextColor.Value}"  Command="{Binding SelectTextColor}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="DarkGray" Cursor="Hand"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Grid.Row="0" Grid.Column="3" Margin="5" VerticalAlignment="Center" Text="{x:Static l:Resources.Layout_ErrorBackground}"/>
+                <Button Margin="5" Grid.Row="0" Grid.Column="4" Width="32" Height="32" Background="{Binding SelectedErrorBackgroundColor.Value}" Command="{Binding SelectErrorBackgroundColor}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="DarkGray" Cursor="Hand"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock Grid.Row="1" Grid.Column="3" Margin="5" VerticalAlignment="Center" Text="{x:Static l:Resources.Layout_ErrorText}"/>
+                <Button Margin="5" Grid.Row="1" Grid.Column="4" Width="32" Height="32" Background="{Binding SelectedErrorTextColor.Value}" Command="{Binding SelectErrorTextColor}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Border Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="DarkGray" Cursor="Hand"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+            <TextBlock Foreground="DarkGray" TextAlignment="Center" Text="{x:Static l:Resources.Layout_Info}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

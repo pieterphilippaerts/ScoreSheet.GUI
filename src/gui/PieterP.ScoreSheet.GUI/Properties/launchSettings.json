@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PieterP.ScoreSheet.GUI": {
+      "commandName": "Project",
+      "commandLineArgs": "launched"
+    }
+  }
+}

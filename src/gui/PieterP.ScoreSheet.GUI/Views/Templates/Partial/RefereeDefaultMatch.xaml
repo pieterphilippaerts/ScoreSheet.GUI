@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.RefereeDefaultMatch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Templates;assembly=ScoreSheet.Localization"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid Margin="0.5cm 0.3cm 0.5cm 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" FontSize="0.45cm" FontWeight="Bold" Text="{Binding Title}"/>
+        <Viewbox StretchDirection="DownOnly" Grid.Row="1" Grid.Column="0">
+            <StackPanel  Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding HomePlayer}"/>
+                <TextBlock TextAlignment="Center">-</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding AwayPlayer}"/>
+            </StackPanel>
+        </Viewbox>
+        <Grid Grid.Row="2" Height="1.5cm" >
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="0.5" />
+            <Border Grid.Row="1" Grid.Column="4" BorderBrush="Black" BorderThickness="0.5" />
+        </Grid>
+        <Grid Grid.Row="3" Margin="0.2cm">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal">
+                <TextBlock FontSize="0.35cm" Margin="0 0 0.2cm 0" Text="{x:Static l:Resources.RefereeDefaultMatch_Match}"/>
+                <TextBlock FontSize="0.35cm" Text="{Binding MatchNumber}"/>
+            </StackPanel>
+            <TextBlock Grid.Column="1" FontSize="0.35cm" Text="{x:Static l:Resources.RefereeDefaultMatch_Result}"/>
+        </Grid>
+        
+        <TextBlock Grid.Row="4" Text="{Binding Referee}" FontSize="0.25cm"/>
+
+        <Canvas Grid.Row="5" Height="0.5cm">
+            <TextBlock Canvas.Top="0.075cm" FontSize="0.5cm" Visibility="{Binding ShowScissors, RelativeSource={RelativeSource FindAncestor, AncestorType=local:RefereeDefaultMatch}}">✁</TextBlock>
+        </Canvas>
+    </Grid>
+</UserControl>

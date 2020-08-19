@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Information.AwayTitle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Information"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Information;assembly=ScoreSheet.Localization"
+             mc:Ignorable="d" 
+             Margin="20 10 0 10">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="ActiveConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <SolidColorBrush Color="#C00D3D52"/>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <SolidColorBrush Color="#28000000"/>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="ActiveForegroundConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <SolidColorBrush Color="White"/>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <SolidColorBrush Color="Black"/>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <UserControl.Background>
+        <Binding Path="IsActive" Converter="{StaticResource ActiveConverter}" />
+    </UserControl.Background>
+    <Viewbox StretchDirection="DownOnly" HorizontalAlignment="Left">
+        <TextBlock Margin="20 10 0 10" Text="{x:Static l:Resources.AwayMatchesOverview_AwayMatchesTitle}" Foreground="{Binding IsActive, Converter={StaticResource ActiveForegroundConverter}}" FontSize="40" FontWeight="Bold"/>
+    </Viewbox>
+</UserControl>

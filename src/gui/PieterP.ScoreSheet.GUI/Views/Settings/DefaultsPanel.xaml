@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.DefaultsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Settings;assembly=ScoreSheet.Localization"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="264" d:DesignWidth="346">
+    <StackPanel>
+        <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.Defaults_Description}"/>
+        <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.Defaults_Address}"/>
+        <TextBox AcceptsReturn="True" Margin="5 0 5 10" Height="65" Text="{Binding DefaultAddress.Value}"/>
+        <CheckBox Margin="5" x:Name="TheDefaultTwoByTwoCheck" IsChecked="{Binding DefaultTwoByTwo.Value}" Content="{x:Static l:Resources.Defaults_TwoByTwo}"/>
+        <CheckBox Margin="25 0 5 5" IsEnabled="{Binding IsChecked, ElementName=TheDefaultTwoByTwoCheck}" IsChecked="{Binding DefaultTwoByTwoExceptSuper.Value}" Content="{x:Static l:Resources.Defaults_ExceptSuperLeague}"/>
+    </StackPanel>
+</UserControl>

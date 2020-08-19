@@ -1,0 +1,55 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.OfficialSinglePlayerInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="28" d:DesignWidth="550">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="XConverter" TrueValue="✗" FalseValue="" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.4cm" />
+            <ColumnDefinition Width="0.7cm" />
+            <ColumnDefinition Width="0.8cm" />
+            <ColumnDefinition Width="0.9cm" />
+            <ColumnDefinition Width="0.7cm" />
+            <ColumnDefinition Width="0.8cm" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" BorderBrush="Black" BorderThickness="1 0 0.5 0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Position}" Margin="0.05cm 0 0 0"/>
+                <TextBlock Text="{Binding Name.Value}" Margin="0.2cm 0 0 0"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0 0.5 0">
+            <TextBlock TextAlignment="Center"  Text="{Binding ComputerNumber.Value}"/>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0 0.5 0">
+            <TextBlock  TextAlignment="Center"  Text="{Binding StrengthListPosition.Value}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="3" BorderBrush="Black" BorderThickness="0.5 0 0.5 0">
+            <TextBlock TextAlignment="Center"  Text="{Binding Index.Value}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="4" BorderBrush="Black" BorderThickness="0.5 0 0.5 0">
+            <TextBlock  TextAlignment="Center"  Text="{Binding Ranking.Value}"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="5" BorderBrush="Black" BorderThickness="0.5 0 0.5 0">
+            <Viewbox StretchDirection="DownOnly">
+                <TextBlock TextAlignment="Center"  Text="{Binding IndividualWins.Value}"/>
+            </Viewbox>
+        </Border>
+
+        <Border Grid.Row="0" Grid.Column="6" BorderBrush="Black" BorderThickness="0.5 0 1 0">
+            <TextBlock TextAlignment="Center" FontWeight="Bold" Text="{Binding Captain.Value, Converter={StaticResource XConverter}}"/>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,62 @@
+﻿
+Versie 2019.2020.16
+ - aanpassing m.b.t. melding wo/ff
+ - bugfix voor clubs die in een andere provincie spelen dan waar ze geregistreerd zijn
+ - bugfix: bij de individuele score van een speler die WO is komt nu WO te staan i.p.v. 0
+ - kleine cosmetische aanpassingen op de printout van het wedstrijdblad
+
+Versie 2019.2020.15
+ - kleine aanpassingen
+ - 'afdeling' wordt nu getoond op het wedstrijdblad van de vrijetijdscompetitie
+ - kleine verbeteringen aan het overzichtsscherm
+ - bugfix voor foute setstanden bij WO
+
+Versie 2019.2020.14
+ - kleine taalfoutjes opgelost
+ - bug dat tweede scherm de gegevens niet toont opgelost
+ - layout van overzichtscherm en tweede scherm aangepast
+
+Versie 2019.2020.13
+ - optioneel tonen van uitslag in navigatiebalk
+ - aanpassing WSDL-endpoint AFTT
+ - kleine bugfixes
+
+Versie 2019.2020.12
+ - ondersteuning voor Frans
+ - kleine bugfixes
+ - kleine visuele aanpassingen op de scheidsrechterblaadjes
+
+Versie 2019.2020.11
+ - ondersteuning voor de aanpassing van vrijtijdsspelers op sterktelijst
+ - handicap mogelijk gemaakt voor officiële wedstrijden
+ - validatie toegevoegd bij het afdrukken van het wedstrijdblad
+ - de applicatie geeft nu boven de statusbalk aan wanneer de applicatie verouderd is
+
+Versie 2019.2020.10
+ - bugfix bij het valideren van wedstrijden die niet van de thuisclub zijn
+
+Versie 2019.2020.9
+ - bugfix voor Json web service
+
+Versie 2019.2020.8
+ - Kleine bugfixes en aanpassingen
+ - Performantieverbeteringen bij het wisselen tussen matchen
+
+Versie 2019.2020.7
+ - Verbeteringen aan het spelerselectiescherm
+ - Keuze voor visualisatie van het overzichtscherm en het tweede scherm
+ - Ondersteuning voor het doorsturen van wedstrijdbladen van de vrijetijdscompetitie in Limburg
+ - Verbeteringen geïmplementeerd in het updatemechanisme
+ - Kleine visuele wijzigingen
+
+Versie 2019.2020.6
+ - Klassement en scheidsrechter zichtbaar op scheidsrechterblaadjes
+ - Probleem met TAB-toets bij invoer setstanden opgelost
+ - Fout lokaal bij clubs met meerdere lokalen opgelost
+ - Onscherpe lijnen op het wedstrijdblad verscherpt
+ - Bye standaard uit, laatst-geselecteerde opties op het 'nieuwe wedstrijddag'-scherm worden onthouden
+ - Onofficiële wedstrijden worden niet meer geüpload bij 'live updates'
+ - Kleine visuele wijzigingen
+
+Versie 2019.2020.5
+ - Eerste publieke beta-versie

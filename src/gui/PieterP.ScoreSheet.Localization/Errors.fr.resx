@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppUpdate_InvalidHash" xml:space="preserve">
+    <value>Le hash code du fichier téléchargé ne correspond pas à celui attendu.</value>
+  </data>
+  <data name="CompetitiveMatch_MatchSystemNotFound" xml:space="preserve">
+    <value>Le MatchSystem requis ({0}) est introuvable.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdAwayCaptain" xml:space="preserve">
+    <value>L'identifiant du capitaine visiteur est invalide.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdChiefReferee" xml:space="preserve">
+    <value>L'identifiant du juge arbitre est invalide.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdHomeCaptain" xml:space="preserve">
+    <value>L'identifiant du capitaine visité est invalide.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdPlayer" xml:space="preserve">
+    <value>Identifiant '{0}' invalide pour le joueur {1} de l'équipe {2}.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdRoomCommissioner" xml:space="preserve">
+    <value>L'identifiant du commissaire de salle est invalide.</value>
+  </data>
+  <data name="CsvExporter_InvalidSeasonId" xml:space="preserve">
+    <value>L'identifiant de la saison actuelle est introuvable. Mettre à jour la base de données pour corriger ce problème.</value>
+  </data>
+  <data name="CsvExporter_NoClubIdAway" xml:space="preserve">
+    <value>L'identifiant du club de l'équipe visiteuse est invalide.</value>
+  </data>
+  <data name="CsvExporter_NoClubIdHome" xml:space="preserve">
+    <value>L'identifiant du club de l'équipe visitée est invalide.</value>
+  </data>
+  <data name="CsvExporter_NoMatchId" xml:space="preserve">
+    <value>L'identifiant de la rencontre est invalide.</value>
+  </data>
+  <data name="ExportService_TemplateError" xml:space="preserve">
+    <value>Le template correspondant au viewmodel {0} est introuvable.</value>
+  </data>
+  <data name="LiveUpdate_UploadError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi de résultats partiels 'live update'.</value>
+  </data>
+  <data name="Logger_UnknownError" xml:space="preserve">
+    <value>Une erreur inconnue est survenue.</value>
+  </data>
+  <data name="Main_OpenError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'ouverture de la feuille de match. Plus d'information à trouver dans le fichier de log.</value>
+  </data>
+  <data name="Main_SaveError" xml:space="preserve">
+    <value>Une erreur est survenue lors de la sauvegarde de la feuille de match. Plus d'information à trouver dans le fichier de log.</value>
+  </data>
+  <data name="MatchUploader_NoCredentials" xml:space="preserve">
+    <value>Données d'identification introuvables dans la base de données.</value>
+  </data>
+  <data name="PlayerstoString_DataError" xml:space="preserve">
+    <value>[PlayersToStringConverter] PlayerInfo n'était pas unique ou double!</value>
+  </data>
+  <data name="TabTUpdater_AdditionalDivisionError" xml:space="preserve">
+    <value>Une erreur est survenue lors du téléchargement des divisions supplémentaires.</value>
+  </data>
+  <data name="TabTUpdater_CannotFindDivision" xml:space="preserve">
+    <value>Impossible de retrouver la division de la rencontre {0}.</value>
+  </data>
+  <data name="TabTUpdater_CannotFindDivisionWMatchWTeam" xml:space="preserve">
+    <value>Impossible de retrouver la division {0} de la rencontre {1} de l'équipe {2}.</value>
+  </data>
+  <data name="TabTUpdater_DivisionError" xml:space="preserve">
+    <value>Une erreur est survenue lors du téléchargement de la division '{0}'.</value>
+  </data>
+  <data name="TabTUpdater_InvalidMatchDate" xml:space="preserve">
+    <value>L'équipe {0} a une rencontre sans date (et qui n'est pas une rencontre 'bye').</value>
+  </data>
+  <data name="TabTUpdater_MatchDetailsError" xml:space="preserve">
+    <value>Erreur lors de la création des détails de la rencontre pour l'équipe {0}.</value>
+  </data>
+  <data name="TabTUpdater_MatchSystemNotFound" xml:space="preserve">
+    <value>Impossible de retrouver le MatchSystem pour le type {0} (rencontre {1} de l'équipe {2} dans la division {3}).</value>
+  </data>
+  <data name="TabTUpdater_MembersListError" xml:space="preserve">
+    <value>Erreur lors du téléchargement de la liste de force du club {0}.</value>
+  </data>
+  <data name="TabTUpdater_NoClubs" xml:space="preserve">
+    <value>GetClubs a retourné une liste vide des clubs.</value>
+  </data>
+  <data name="TabTUpdater_NoUniqueId" xml:space="preserve">
+    <value>GetClubs a retourné une liste contenant un club sans identifiant unique.</value>
+  </data>
+  <data name="TabT_CategoryError" xml:space="preserve">
+    <value>Catégorie invalide trouvée pour le club {0} ({1}).</value>
+  </data>
+  <data name="TabT_CultureError" xml:space="preserve">
+    <value>Langue reçue {0} invalide. Retour à la langue par défaut 'Anglais'.</value>
+  </data>
+  <data name="TabT_DatabaseNameEmpty" xml:space="preserve">
+    <value>Le nom de la base de données utilisée par TabT est vide.</value>
+  </data>
+  <data name="TabT_MatchInfoError" xml:space="preserve">
+    <value>Impossible d'analyser les informations de la rencontre {0}.</value>
+  </data>
+  <data name="TabT_MatchSystemDefinitionError" xml:space="preserve">
+    <value>Impossible d'analyser le MatchSystem MatchDefinition retourné à la position '{0}'.</value>
+  </data>
+  <data name="TabT_MatchSystemParseError" xml:space="preserve">
+    <value>Impossible d'analyser l'une des valeurs retournées du MatchSystem '{0}' ({1}).</value>
+  </data>
+  <data name="TabT_MemberError" xml:space="preserve">
+    <value>Impossible d'analyser les informations du joueur {0} {1}.</value>
+  </data>
+  <data name="TabT_NoMatchDefinitionsError" xml:space="preserve">
+    <value>MatchDefinitions introuvables dans le MatchSystem '{0}' ({1}).</value>
+  </data>
+  <data name="TabT_ParseAllowedQuotaError" xml:space="preserve">
+    <value>Impossible d'analyser le quota autorisé: {0}.</value>
+  </data>
+  <data name="TabT_ParseCurrentQuotaError" xml:space="preserve">
+    <value>Impossible d'analyser le quota actuel: {0}.</value>
+  </data>
+  <data name="TabT_SeasonIdError" xml:space="preserve">
+    <value>Identifiant de saison '{0}' invalide pour la saison '{1}'.</value>
+  </data>
+  <data name="TabT_SeasonsWarning" xml:space="preserve">
+    <value>La liste des saisons est vide.</value>
+  </data>
+  <data name="TabT_TeamDataError" xml:space="preserve">
+    <value>Données d'équipe invalides retrouvées pour l'une des équipes du club {0}.</value>
+  </data>
+  <data name="TabT_VenueError" xml:space="preserve">
+    <value>Identifiant VenueId/ClubVenueId invalide retrouvé pour le club {0} ({1}).</value>
+  </data>
+  <data name="TabT_VersionError" xml:space="preserve">
+    <value>Impossible d'analyser la version reçue du service web: {0}.</value>
+  </data>
+  <data name="Validation_BothGenders" xml:space="preserve">
+    <value>La feuille de match indique que la rencontre est simultanément messieurs et dames.</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
+    <value>S'il n'y a pas d'arbitres officiels, le juge arbitre doit être le capitaine de l'équipe visitée</value>
+  </data>
+  <data name="Validation_ClubIdNotFound" xml:space="preserve">
+    <value>Impossible de retrouver l'identifiant du club {0} dans la base de données.</value>
+  </data>
+  <data name="Validation_InvalidDate" xml:space="preserve">
+    <value>La date de la rencontre est invalide.</value>
+  </data>
+  <data name="Validation_InvalidEndHour" xml:space="preserve">
+    <value>L'heure de fin est invalide.</value>
+  </data>
+  <data name="Validation_InvalidIndex" xml:space="preserve">
+    <value>L'index {0} est manquant ou invalide.</value>
+  </data>
+  <data name="Validation_InvalidMemberId" xml:space="preserve">
+    <value>Le numéro d'affiliation {0} est invalide.</value>
+  </data>
+  <data name="Validation_InvalidPlayerId" xml:space="preserve">
+    <value>L'identifiant du joueur {0} est manquant ou invalide.</value>
+  </data>
+  <data name="Validation_InvalidPlayerOrder" xml:space="preserve">
+    <value>Les joueurs de {0} ne sont pas dans le bon ordre.</value>
+  </data>
+  <data name="Validation_InvalidPlayerPosition" xml:space="preserve">
+    <value>La position du joueur {0} est manquante ou invalide.</value>
+  </data>
+  <data name="Validation_InvalidRanking" xml:space="preserve">
+    <value>Le classement de {0} est manquant ou invalide.</value>
+  </data>
+  <data name="Validation_InvalidRoomCommissionerId" xml:space="preserve">
+    <value>L'identifiant du commissaire de salle est invalide.</value>
+  </data>
+  <data name="Validation_InvalidStartHour" xml:space="preserve">
+    <value>L'heure de début est invalide.</value>
+  </data>
+  <data name="Validation_MultipleMatchTypes" xml:space="preserve">
+    <value>Plusieurs types de rencontres sont sélectionnées.</value>
+  </data>
+  <data name="Validation_NoAddress" xml:space="preserve">
+    <value>L'adresse du local n'est pas remplie.</value>
+  </data>
+  <data name="Validation_NoClubId" xml:space="preserve">
+    <value>L'identifiant du club {0} n'est pas rempli.</value>
+  </data>
+  <data name="Validation_NoDate" xml:space="preserve">
+    <value>La date de la rencontre n'est pas remplie.</value>
+  </data>
+  <data name="Validation_NoEndHour" xml:space="preserve">
+    <value>L'heure de fin est manquante.</value>
+  </data>
+  <data name="Validation_NoGender" xml:space="preserve">
+    <value>La feuille de match n'indique pas s'il s'agit d'une rencontre messieurs ou dames.</value>
+  </data>
+  <data name="Validation_NoMatchId" xml:space="preserve">
+    <value>L'identifiant de la rencontre n'est pas rempli.</value>
+  </data>
+  <data name="Validation_NoMatchType" xml:space="preserve">
+    <value>Le type de rencontre n'est pas indiqué.</value>
+  </data>
+  <data name="Validation_NoName" xml:space="preserve">
+    <value>Le nom {0} n'est pas rempli.</value>
+  </data>
+  <data name="Validation_NoRoomCommissionerId" xml:space="preserve">
+    <value>Le numéro d'affiliation du commissaire de salle n'est pas rempli.</value>
+  </data>
+  <data name="Validation_NoRoomCommissionerName" xml:space="preserve">
+    <value>Le nom du commissaire de salle n'est pas rempli.</value>
+  </data>
+  <data name="Validation_NoSeries" xml:space="preserve">
+    <value>La série n'est pas remplie.</value>
+  </data>
+  <data name="Validation_NoStartHour" xml:space="preserve">
+    <value>L'heure de début n'est pas remplie.</value>
+  </data>
+  <data name="Validation_PlayerByeFieldsWrong" xml:space="preserve">
+    <value>Tous les champs {0}, excepté l'identifiant du joueur, doivent être vides pour une rencontre 'bye'.</value>
+  </data>
+  <data name="Validation_PlayerByeIdWrong" xml:space="preserve">
+    <value>L'identifiant {0} doit être un point d'interrogation.</value>
+  </data>
+  <data name="Validation_PlayerFfFieldsWrong" xml:space="preserve">
+    <value>Tous les champs {0}, excepté l'identifiant du joueur, doivent être vides si un point d'interrogation est utilisé comme identifiant du joueur.</value>
+  </data>
+  <data name="Validation_PlayerNotFound" xml:space="preserve">
+    <value>Impossible de retrouver {0} avec l'identifiant {1} dans la liste de force.</value>
+  </data>
+  <data name="Validation_ScoreError" xml:space="preserve">
+    <value>La feuille de match contient des résultats invalides.</value>
+  </data>
+  <data name="Validation_ScoreIncomplete" xml:space="preserve">
+    <value>La liste des sets est incomplète.</value>
+  </data>
+  <data name="Validation_SuperCheck" xml:space="preserve">
+    <value>La division est indiquée comme 'Super', mais 'Super Division' n'est pas coché.</value>
+  </data>
+  <data name="Validation_TooManyWO" xml:space="preserve">
+    <value>Il ne peut y avoir qu'un seul joueur WO dans {0}.</value>
+  </data>
+  <data name="Validation_UnofficialDate" xml:space="preserve">
+    <value>La date de la feuille de match ne correspond pas à la date officielle ({0}).</value>
+  </data>
+  <data name="Validation_UnofficialMatchId" xml:space="preserve">
+    <value>L'identifiant de rencontre ne correspond pas aux données officielles ({0}).</value>
+  </data>
+  <data name="Validation_UnofficialName" xml:space="preserve">
+    <value>Le nom de {0} ne correspond pas aux données officielles.</value>
+  </data>
+  <data name="Validation_UnofficialSeries" xml:space="preserve">
+    <value>La série ne correspond pas aux données officielles ({0}).</value>
+  </data>
+  <data name="Validation_WrongDate" xml:space="preserve">
+    <value>La date de la feuille de match ne correspond pas à la date d'aujourd'hui.</value>
+  </data>
+  <data name="Validation_WrongIndex" xml:space="preserve">
+    <value>L'index {0} ne correspond pas aux données de la base de données.</value>
+  </data>
+  <data name="Validation_WrongName" xml:space="preserve">
+    <value>Le nom {0} ne correspond pas aux données de la base de données.</value>
+  </data>
+  <data name="Validation_WrongPlayerPosition" xml:space="preserve">
+    <value>La position {0} ne correspond pas aux données de la base de données.</value>
+  </data>
+  <data name="Validation_WrongRanking" xml:space="preserve">
+    <value>Le classement {0} ne correspond pas aux données de la base de données.</value>
+  </data>
+  <data name="Validation_WrongRoomCommissionerId" xml:space="preserve">
+    <value>L'identifiant du commissaire de salle est invalide (ou cette personne n'est pas membre du club visité).</value>
+  </data>
+  <data name="WindowService_NoDialogError" xml:space="preserve">
+    <value>Il n'y a pour le moment pas de fenêtre de dialogue ouverte.</value>
+  </data>
+  <data name="WindowService_PopupError" xml:space="preserve">
+    <value>Impossible de retrouver le 'popup' correspondant au 'viewmodel' {0}.</value>
+  </data>
+  <data name="WindowService_WindowError" xml:space="preserve">
+    <value>Impossible de retrouver la fenêtre correspondante au 'viewmodel' {0}.</value>
+  </data>
+  <data name="Wizard_ClubUpdateFailed" xml:space="preserve">
+    <value>Une erreur est survenue lors du téléchargement de la liste des clubs. Il est possible que vous n'ayez pas accès à Internet, ou que le serveur soit injoignable. Plus d'information sur cette erreur à trouver dans l'écran de log.</value>
+  </data>
+  <data name="Wizard_FileReadError" xml:space="preserve">
+    <value>Le fichier spécifié ne peut pas être chargé. Vérifiez que vous avez sélectionné le bon fichier.</value>
+  </data>
+  <data name="Wizard_InvalidCredentials" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi des données. Vous n'avez pas les permissions requises pour envoyer ces données.</value>
+  </data>
+  <data name="Wizard_InvalidSelection" xml:space="preserve">
+    <value>L'utilisateur a sélectionné dans la fenêtre NewMatchday une entrée qui n'est pas un Match ou une DateTime.</value>
+  </data>
+  <data name="Wizard_NetworkError" xml:space="preserve">
+    <value>Une erreur réseau est survenue lors de l'envoi des données.</value>
+  </data>
+  <data name="Wizard_ServerError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi des données. Le serveur a détecté un certain nombre d'erreurs de validation des données.</value>
+  </data>
+  <data name="Wizard_UpdateError" xml:space="preserve">
+    <value>Une erreur est survenue lors du téléchargement des données. Plus d'information sur cette erreur à trouver dans l'écran de log.</value>
+  </data>
+</root>

@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppUpdate_InvalidActionType" xml:space="preserve">
+    <value>La mise à jour contient un type d'action non valide.</value>
+  </data>
+  <data name="AppUpdate_MissingHash" xml:space="preserve">
+    <value>Le hash code est manquant dans les infos de mise à jour. Impossible de vérifier l'intégrité du fichier téléchargé.</value>
+  </data>
+  <data name="AppUpdate_Restart" xml:space="preserve">
+    <value>Une mise à jour de l'application a été installée. Redémarrez l'application pour utiliser sa dernière version.</value>
+  </data>
+  <data name="App_ApplicationStarted" xml:space="preserve">
+    <value>Application démarrée le {0} à {1}</value>
+  </data>
+  <data name="App_ApplicationStopped" xml:space="preserve">
+    <value>Application arrêtée le {0} à {1}</value>
+  </data>
+  <data name="App_MultipleInstances" xml:space="preserve">
+    <value>Une autre instance de ScoreSheet est déjà démarrée. Vous ne pouvez exécuter qu'une seule instance de ScoreSheet à la fois.</value>
+  </data>
+  <data name="App_UnknownError" xml:space="preserve">
+    <value>Erreur inconnue.</value>
+  </data>
+  <data name="CompetitiveMatch_MatchBackedUp" xml:space="preserve">
+    <value>Rencontre backupée sur disque le {0}</value>
+  </data>
+  <data name="CompetitiveMatch_MatchSaved" xml:space="preserve">
+    <value>Rencontre sauvegardée sur disque le {0}</value>
+  </data>
+  <data name="ExportButton_Email" xml:space="preserve">
+    <value>Envoyer {0} rencontre(s) par email</value>
+  </data>
+  <data name="ExportButton_Export" xml:space="preserve">
+    <value>Exporter {0} rencontre(s)</value>
+  </data>
+  <data name="ExportButton_Upload" xml:space="preserve">
+    <value>Uploader {0} rencontre(s)</value>
+  </data>
+  <data name="Handicap_Men" xml:space="preserve">
+    <value>Tableau d'handicaps officiel messieurs</value>
+  </data>
+  <data name="Handicap_Women" xml:space="preserve">
+    <value>Tableau d'handicaps officiel dames</value>
+  </data>
+  <data name="Layout_Custom" xml:space="preserve">
+    <value>Thème personnalisé</value>
+  </data>
+  <data name="Layout_Default" xml:space="preserve">
+    <value>Standard</value>
+  </data>
+  <data name="Layout_HighContrast" xml:space="preserve">
+    <value>Contraste élevé</value>
+  </data>
+  <data name="Layout_PieterP" xml:space="preserve">
+    <value>Thème PieterP.be</value>
+  </data>
+  <data name="Layout_Yellow" xml:space="preserve">
+    <value>Jaune</value>
+  </data>
+  <data name="LevelInfo_National" xml:space="preserve">
+    <value>Nationale</value>
+  </data>
+  <data name="LevelInfo_Provincial" xml:space="preserve">
+    <value>Provinciale</value>
+  </data>
+  <data name="LevelInfo_Regional" xml:space="preserve">
+    <value>Régionale</value>
+  </data>
+  <data name="LevelInfo_Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="Limburg_EmailError" xml:space="preserve">
+    <value>Impossible de se connecter avec le serveur mail. Plus d'information à trouver dans le fichier log.</value>
+  </data>
+  <data name="Limburg_EmailSent" xml:space="preserve">
+    <value>La connexion avec le serveur mail est réussie.</value>
+  </data>
+  <data name="Limburg_ExportError" xml:space="preserve">
+    <value>Une erreur inattendue est survenue lors de l'exportation PDF des résultats des rencontres. Consultez le fichier log pour obtenir les détails de l'erreur.</value>
+  </data>
+  <data name="Limburg_ResultsError" xml:space="preserve">
+    <value>Une erreur inattendue est survenue lors de l'envoi par email des résultats. Consultez le fichier log pour obtenir les détails de l'erreur.</value>
+  </data>
+  <data name="Limburg_ResultsSent" xml:space="preserve">
+    <value>L'email avec les résultats a correctement été envoyé à {0}.</value>
+  </data>
+  <data name="LiveUpdate_ServerErrors" xml:space="preserve">
+    <value>Erreurs de validation serveur:</value>
+  </data>
+  <data name="LiveUpdate_Uploaded" xml:space="preserve">
+    <value>La ligne CSV suivante a été envoyée:</value>
+  </data>
+  <data name="Main_FirstStart" xml:space="preserve">
+    <value>C'est la première fois que vous démarrez cette version de ScoreSheet. Voulez-vous modifier les réglages ?</value>
+  </data>
+  <data name="Main_NoData" xml:space="preserve">
+    <value>La base de données est actuellement vide. Voulez-vous le mettre à jour?</value>
+  </data>
+  <data name="Main_Overview" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Main_ScoreSheetFiles" xml:space="preserve">
+    <value>Fichiers de ScoreSheet</value>
+  </data>
+  <data name="Main_ScoreSheetUpdateFile" xml:space="preserve">
+    <value>Fichiers de mise à jour de ScoreSheet</value>
+  </data>
+  <data name="Main_UploadWarningFooter" xml:space="preserve">
+    <value>Êtes-vous certain de fermer ces rencontres sans avoir envoyé les résultats au site web de la compétition ?</value>
+  </data>
+  <data name="Main_UploadWarningHeader" xml:space="preserve">
+    <value>Les rencontres officielles suivantes ont été modifiées mais n'ont pas encore été envoyées au site web de la compétition.</value>
+  </data>
+  <data name="MatchSystemInfo_Description" xml:space="preserve">
+    <value>{0} contre {1}, {2} matches
+{3} sets gagnants de {4} points</value>
+  </data>
+  <data name="MatchSystem_AwayPlayer" xml:space="preserve">
+    <value>du joueur visiteur {0}</value>
+  </data>
+  <data name="MatchSystem_Cup" xml:space="preserve">
+    <value>Coupe</value>
+  </data>
+  <data name="MatchSystem_FreeTime" xml:space="preserve">
+    <value>Compétition récréative</value>
+  </data>
+  <data name="MatchSystem_HomePlayer" xml:space="preserve">
+    <value>du joueur visité {0}</value>
+  </data>
+  <data name="MatchSystem_InterclubMen" xml:space="preserve">
+    <value>Interclub Messieurs</value>
+  </data>
+  <data name="MatchSystem_InterclubMenOld" xml:space="preserve">
+    <value>Interclub Messieurs (ancien système)</value>
+  </data>
+  <data name="MatchSystem_InterclubWomenVeterans" xml:space="preserve">
+    <value>Interclub Dames / Vétérans</value>
+  </data>
+  <data name="MatchSystem_InterclubWomenVeteransOld" xml:space="preserve">
+    <value>Interclub Dames / Vétérans (ancien système)</value>
+  </data>
+  <data name="MatchSystem_Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="MatchSystem_SuperOld" xml:space="preserve">
+    <value>Super (ancien système, sans transfert)</value>
+  </data>
+  <data name="MatchSystem_TheAwayCaptain" xml:space="preserve">
+    <value>du capitaine visiteur</value>
+  </data>
+  <data name="MatchSystem_TheAwayTeam" xml:space="preserve">
+    <value>de l'équipe visiteuse</value>
+  </data>
+  <data name="MatchSystem_TheChiefReferee" xml:space="preserve">
+    <value>du juge-arbitre</value>
+  </data>
+  <data name="MatchSystem_TheHomeCaptain" xml:space="preserve">
+    <value>du capitaine visité</value>
+  </data>
+  <data name="MatchSystem_TheHomeTeam" xml:space="preserve">
+    <value>de l'équipe visitée</value>
+  </data>
+  <data name="MatchSystem_Youth" xml:space="preserve">
+    <value>Jeunes (2x2)</value>
+  </data>
+  <data name="MatchTracker_Away" xml:space="preserve">
+    <value>&lt;visiteur&gt;</value>
+  </data>
+  <data name="MatchTracker_Home" xml:space="preserve">
+    <value>&lt;visité&gt;</value>
+  </data>
+  <data name="Match_Draw" xml:space="preserve">
+    <value>{0} a fait match nul avec {1}-{2}</value>
+  </data>
+  <data name="Match_Empty" xml:space="preserve">
+    <value>&lt;vide&gt;</value>
+  </data>
+  <data name="Match_Invalid" xml:space="preserve">
+    <value>Cette rencontre est incomplète ou contient des erreurs</value>
+  </data>
+  <data name="Match_Lost" xml:space="preserve">
+    <value>{0} a perdu avec {1}-{2}</value>
+  </data>
+  <data name="Match_MatchTitle" xml:space="preserve">
+    <value>{0} contre {1} ({2})</value>
+  </data>
+  <data name="Match_Won" xml:space="preserve">
+    <value>{0} a gagné avec {1}-{2}</value>
+  </data>
+  <data name="MemberList_AutoUpdateFailed" xml:space="preserve">
+    <value>Il y a eu un problème lors de la mise à jour de la liste des joueurs du club {0}</value>
+  </data>
+  <data name="MemberList_AutoUpdateSucceeded" xml:space="preserve">
+    <value>Mise à jour automatique de la liste des joueurs de {0} réussie</value>
+  </data>
+  <data name="PlayersToNames_AwayPlayer" xml:space="preserve">
+    <value>Joueur visiteur</value>
+  </data>
+  <data name="PlayersToNames_Double" xml:space="preserve">
+    <value>Double</value>
+  </data>
+  <data name="PlayersToNames_HomePlayer" xml:space="preserve">
+    <value>Joueur visité</value>
+  </data>
+  <data name="PlayersToNames_Player" xml:space="preserve">
+    <value>Joueur</value>
+  </data>
+  <data name="PlayerType_FreeTime" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="PlayerType_RecreationalReserve" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="PrintValidationErrorsContinue" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir imprimer la rencontre?</value>
+  </data>
+  <data name="Print_AcrobatNotFound" xml:space="preserve">
+    <value>Impossible de trouver Adobe Acrobat Reader aux localisations standard.</value>
+  </data>
+  <data name="Print_AllFiles" xml:space="preserve">
+    <value>Tous les fichiers</value>
+  </data>
+  <data name="Print_ValidationErrorsFound" xml:space="preserve">
+    <value>La rencontre que vous souhaitez imprimer contient des erreurs de validation</value>
+  </data>
+  <data name="RefereeLayout_1by8" xml:space="preserve">
+    <value>Lay-out à découper (1x8)</value>
+  </data>
+  <data name="RefereeLayout_2by4" xml:space="preserve">
+    <value>Lay-out à découper (2x4)</value>
+  </data>
+  <data name="RefereeLayout_PerTable" xml:space="preserve">
+    <value>Une page par table</value>
+  </data>
+  <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
+    <value>Arbitre: visiteur</value>
+  </data>
+  <data name="RefereeTemplate_RefereeHome" xml:space="preserve">
+    <value>Arbitre: visité</value>
+  </data>
+  <data name="RestoreBackup_RestoreMultiple" xml:space="preserve">
+    <value>Restaurer {0} rencontres</value>
+  </data>
+  <data name="RestoreBackup_RestoreNothing" xml:space="preserve">
+    <value>Ne rien restaurer</value>
+  </data>
+  <data name="RestoreBackup_RestoreOne" xml:space="preserve">
+    <value>Restaurer 1 rencontre</value>
+  </data>
+  <data name="RestoredMatch_Against" xml:space="preserve">
+    <value>{0} contre {1}</value>
+  </data>
+  <data name="RestoredMatch_Empty" xml:space="preserve">
+    <value>&lt;vide&gt;</value>
+  </data>
+  <data name="RestoredMatch_MatchInfo" xml:space="preserve">
+    <value>Match #{0} qui a été joué sur {1}</value>
+  </data>
+  <data name="ScoreVisualization_Compact" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="ScoreVisualization_CompactDesc" xml:space="preserve">
+    <value>Afficher les résultats de toutes les rencontres en cours en un seul aperçu.</value>
+  </data>
+  <data name="ScoreVisualization_Default" xml:space="preserve">
+    <value>Complet</value>
+  </data>
+  <data name="ScoreVisualization_DefaultDesc" xml:space="preserve">
+    <value>Afficher les résultats complets, rencontre par rencontre.</value>
+  </data>
+  <data name="ScoreVisualization_Message" xml:space="preserve">
+    <value>Sélectionnez la visualisation que vous désirez utiliser pour l'écran d'aperçu et le second écran.</value>
+  </data>
+  <data name="ScoreVisualization_OverviewScreen" xml:space="preserve">
+    <value>Écran d'aperçu</value>
+  </data>
+  <data name="ScoreVisualization_SecondScreen" xml:space="preserve">
+    <value>Second écran</value>
+  </data>
+  <data name="Screen_Primary" xml:space="preserve">
+    <value>écran principal</value>
+  </data>
+  <data name="SetScoreViewModel_NaturalNumber" xml:space="preserve">
+    <value>Vous devez entrer un nombre naturel.</value>
+  </data>
+  <data name="Settings_AutoUpload" xml:space="preserve">
+    <value>Upload automatique</value>
+  </data>
+  <data name="Settings_Defaults" xml:space="preserve">
+    <value>Valeurs par défaut</value>
+  </data>
+  <data name="Settings_FollowAway" xml:space="preserve">
+    <value>Suivre les rencontres en déplacement</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Langue</value>
+  </data>
+  <data name="Settings_Layout" xml:space="preserve">
+    <value>Lay-out</value>
+  </data>
+  <data name="Settings_Limburg" xml:space="preserve">
+    <value>Compétition récréative du Limbourg</value>
+  </data>
+  <data name="Settings_LiveUpdates" xml:space="preserve">
+    <value>Live Updates</value>
+  </data>
+  <data name="Settings_Printing" xml:space="preserve">
+    <value>Impression</value>
+  </data>
+  <data name="Settings_ScoreVisualization" xml:space="preserve">
+    <value>Visualisation du score</value>
+  </data>
+  <data name="Settings_SecondScreen" xml:space="preserve">
+    <value>Second écran</value>
+  </data>
+  <data name="Settings_Startup" xml:space="preserve">
+    <value>Paramètres de démarrage</value>
+  </data>
+  <data name="Settings_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Settings_Various" xml:space="preserve">
+    <value>Divers</value>
+  </data>
+  <data name="Settings_WebService" xml:space="preserve">
+    <value>Service Web</value>
+  </data>
+  <data name="Status_Dirty" xml:space="preserve">
+    <value>La feuille de match contient des modifications non sauvegardées</value>
+  </data>
+  <data name="Status_Emailed" xml:space="preserve">
+    <value>Les résultats ont été correctement envoyés par email aux responsables de la compétition récréative</value>
+  </data>
+  <data name="Status_Saved" xml:space="preserve">
+    <value>La feuille de match a correctement été sauvegardée sur le disque</value>
+  </data>
+  <data name="Status_Uploaded" xml:space="preserve">
+    <value>La feuille de match a correctement été envoyée au site web de la compétition</value>
+  </data>
+  <data name="Status_UploadError" xml:space="preserve">
+    <value>Un problème est survenu lors de l'envoi de la feuille de match au site web de la compétition. Réessayez manuellement pour déterminer l'erreur.</value>
+  </data>
+  <data name="SubstitutePlayerInfo_NoSubstitute" xml:space="preserve">
+    <value>Aucun remplacement</value>
+  </data>
+  <data name="SubstitutePlayerInfo_Substitute" xml:space="preserve">
+    <value>Remplacement dans la rencontre #{0}</value>
+  </data>
+  <data name="TabTUpdater_AddedClub" xml:space="preserve">
+    <value>Club {0} ({1}) ajouté</value>
+  </data>
+  <data name="TabTUpdater_AdditionalDivisionsDownloaded" xml:space="preserve">
+    <value>Divisions supplémentaires téléchargées</value>
+  </data>
+  <data name="TabTUpdater_BeginClubUpdate" xml:space="preserve">
+    <value>La mise à jour des clubs commence</value>
+  </data>
+  <data name="TabTUpdater_BeginMatchUpdate" xml:space="preserve">
+    <value>La mise à jour de la base de données commence</value>
+  </data>
+  <data name="TabTUpdater_Canceled" xml:space="preserve">
+    <value>L'utilisateur a annulé la mise à jour.</value>
+  </data>
+  <data name="TabTUpdater_ClubsUpdated" xml:space="preserve">
+    <value>La mise à jour des clubs a réussi.</value>
+  </data>
+  <data name="TabTUpdater_DivisionsDownloaded" xml:space="preserve">
+    <value>Divisions téléchargées</value>
+  </data>
+  <data name="TabTUpdater_DownloadingSeason" xml:space="preserve">
+    <value>En cours de téléchargement des données de la saison {0}</value>
+  </data>
+  <data name="TabTUpdater_Finished" xml:space="preserve">
+    <value>Terminé !</value>
+  </data>
+  <data name="TabTUpdater_InvalidDateInfo" xml:space="preserve">
+    <value>Cette rencontre [{0} - {1} ({2})] sera reprise sous les 'Rencontres avec une date inconnue' !</value>
+  </data>
+  <data name="TabTUpdater_MatchDetailsDownloaded" xml:space="preserve">
+    <value>Détails de la rencontre de l'équipe {0} dans {1} téléchargés</value>
+  </data>
+  <data name="TabTUpdater_MatchPlanned" xml:space="preserve">
+    <value>La rencontre {0} - {1} ({2}) est planifiée pour la semaine du {3}</value>
+  </data>
+  <data name="TabTUpdater_MemberListDownloaded" xml:space="preserve">
+    <value>Liste de force de {0} téléchargée</value>
+  </data>
+  <data name="TabTUpdater_MemberListsDownloaded" xml:space="preserve">
+    <value>Listes de force provinciales (messieurs) téléchargées</value>
+  </data>
+  <data name="TabTUpdater_NoTeams" xml:space="preserve">
+    <value>Il n'y a aucune équipe de votre club inscrite sur le site web officiel de la compétition de la FRBTT. Réessayez ultérieurement.</value>
+  </data>
+  <data name="TabTUpdater_NoWeek" xml:space="preserve">
+    <value>L'équipe {0} de la division '{1}' a une rencontre dont la semaine ne peut pas être trouvée !</value>
+  </data>
+  <data name="TabTUpdater_Stats" xml:space="preserve">
+    <value>L'opération a utilisé les appels au service web suivants : {0}</value>
+  </data>
+  <data name="TabTUpdater_TeamsDownloaded" xml:space="preserve">
+    <value>Équipes de {0} téléchargées</value>
+  </data>
+  <data name="TabTUpdater_UpdateFailed" xml:space="preserve">
+    <value>La mise à jour n'a pas (complètement) réussi. Les détails sont à trouver dans les logs.</value>
+  </data>
+  <data name="TabTUpdater_UpdateSucceeded" xml:space="preserve">
+    <value>La mise à jour des rencontres a réussi.</value>
+  </data>
+  <data name="TabTUpdater_Warning" xml:space="preserve">
+    <value>ATTENTION : Vous n'avez pas entré de nom d'utilisateur / mot de passe. Cela peut causer des erreurs !</value>
+  </data>
+  <data name="TabT_APIVersion" xml:space="preserve">
+    <value>Utilisation de la version {0} de l'API</value>
+  </data>
+  <data name="TabT_DatabaseName" xml:space="preserve">
+    <value>Le nom de la base de données de TabT est '{0}'</value>
+  </data>
+  <data name="TabT_QuotaInfo" xml:space="preserve">
+    <value>Pour le moment, {0} du quota est utilisé sur un total de {1}.</value>
+  </data>
+  <data name="UpdateStatusToString_Downloading" xml:space="preserve">
+    <value>Téléchargement en cours de la mise à jour</value>
+  </data>
+  <data name="UpdateStatusToString_Error" xml:space="preserve">
+    <value>Erreur lors de la vérification de la mise à jour</value>
+  </data>
+  <data name="UpdateStatusToString_Installing" xml:space="preserve">
+    <value>Installation en cours de la mise à jour</value>
+  </data>
+  <data name="UpdateStatusToString_NoUpdate" xml:space="preserve">
+    <value>Aucune mise à jour disponible</value>
+  </data>
+  <data name="UpdateStatusToString_Searching" xml:space="preserve">
+    <value>Recherche en cours d'une mise à jour</value>
+  </data>
+  <data name="UpdateStatusToString_Unknown" xml:space="preserve">
+    <value>Statut inconnu</value>
+  </data>
+  <data name="UpdateStatusToString_Updated" xml:space="preserve">
+    <value>Mise à jour de l'application réussie ! Redémarrez l'application.</value>
+  </data>
+  <data name="UpdateText_Outdated" xml:space="preserve">
+    <value>Cette version du programme est obsolète. Veuillez mettre à jour le programme.</value>
+  </data>
+  <data name="UpdateText_Updated" xml:space="preserve">
+    <value>Une nouvelle version du programme est disponible. Redémarrez l'application pour utiliser la nouvelle version.</value>
+  </data>
+  <data name="Various_DeleteWarning" xml:space="preserve">
+    <value>Vous êtes sur le point de supprimer toutes les données des rencontres précédemment encodées. Ces données contiennent les scores complets, les joueurs, et tout ce qui a été encodé manuellement. Vous pourrez continuer à utiliser le programme comme auparavant, mais si vous ouvrez une journée de compétition pour laquelle des résultats avaient été encodés, ceux-ci seront à nouveau vides.
+
+Êtes-vous certain de vouloir effacer ces données ?</value>
+  </data>
+  <data name="Various_InvalidLogin" xml:space="preserve">
+    <value>La combinaison nom d'utilisateur / mot de passe introduite n'est pas valide !</value>
+  </data>
+  <data name="Various_NetworkError" xml:space="preserve">
+    <value>Une erreur inattendue est survenue lors de la connexion au site web de la compétition.</value>
+  </data>
+  <data name="Various_NoPassword" xml:space="preserve">
+    <value>Vous n'avez pas introduit de mot de passe.</value>
+  </data>
+  <data name="Various_NoUsername" xml:space="preserve">
+    <value>Vous n'avez pas introduit de nom d'utilisateur.</value>
+  </data>
+  <data name="Various_ValidLogin" xml:space="preserve">
+    <value>La combinaison nom d'utilisateur / mot de passe introduite est valide.</value>
+  </data>
+  <data name="WebService_AllIPs" xml:space="preserve">
+    <value>Toutes les adresses IP</value>
+  </data>
+  <data name="WebService_UnblockAddressMessage" xml:space="preserve">
+    <value>Afin que le service web fonctionne correctement, l'administrateur de cet ordinateur doit d'abord explicitement donner les droits à l'utilisateur Windows courant d'écouter le host et le port que vous avez sélectionné. Voulez-vous que ScoreSheet demande les permissions pour que l'utilisateur '{0}' puisse écouter l'url '{1}') ?</value>
+  </data>
+  <data name="Wizard_AllFiles" xml:space="preserve">
+    <value>Tous les fichiers</value>
+  </data>
+  <data name="Wizard_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Wizard_Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Wizard_Email" xml:space="preserve">
+    <value>Envoyer les données par email</value>
+  </data>
+  <data name="Wizard_EmailDesc" xml:space="preserve">
+    <value>Cette fenêtre permet d'envoyer par email les résultats aux responsables de la compétition récréative</value>
+  </data>
+  <data name="Wizard_EmailMessage" xml:space="preserve">
+    <value>Vous pouvez envoyer par email les données de plusieurs rencontres en une seule fois. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
+  </data>
+  <data name="Wizard_Export" xml:space="preserve">
+    <value>Exporter les rencontres</value>
+  </data>
+  <data name="Wizard_ExportDesc" xml:space="preserve">
+    <value>Cette fenêtre permet d'exporter les rencontres</value>
+  </data>
+  <data name="Wizard_ExportMessage" xml:space="preserve">
+    <value>Vous pouvez exporter les données de plusieurs rencontres en une seule fois. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
+  </data>
+  <data name="Wizard_InstallUpdate" xml:space="preserve">
+    <value>Installer la mise à jour</value>
+  </data>
+  <data name="Wizard_InstallUpdateDesc" xml:space="preserve">
+    <value>Cette fenêtre permet d'installer une mise à jour de la base de données</value>
+  </data>
+  <data name="Wizard_MatchType" xml:space="preserve">
+    <value>Sélectionner le type de rencontre</value>
+  </data>
+  <data name="Wizard_MatchTypeDesc" xml:space="preserve">
+    <value>Cette fenêtre permet de sélectionner le type de rencontre</value>
+  </data>
+  <data name="Wizard_NewMatchDay" xml:space="preserve">
+    <value>Démarrer une nouvelle journée de compétition</value>
+  </data>
+  <data name="Wizard_NewMatchDayDesc" xml:space="preserve">
+    <value>Sélectionnez une date, et vous recevrez automatiquement toutes les rencontres pour cette journée de compétition</value>
+  </data>
+  <data name="Wizard_NoFileSelected" xml:space="preserve">
+    <value>Vous devez sélectionner un fichier existant !</value>
+  </data>
+  <data name="Wizard_NoMatches" xml:space="preserve">
+    <value>Aucune rencontre à domicile n'a lieu à la date que vous avez sélectionnée.</value>
+  </data>
+  <data name="Wizard_Print" xml:space="preserve">
+    <value>Imprimer les documents</value>
+  </data>
+  <data name="Wizard_PrintDesc" xml:space="preserve">
+    <value>Cette fenêtre permet d'imprimer les feuilles d'arbitrage ou les feuilles de matchs.</value>
+  </data>
+  <data name="Wizard_RankWarning" xml:space="preserve">
+    <value>L'ordre des joueurs que vous avez sélectionné n'est pas valide. Les joueurs doivent être classés selon leur classement / index. Êtes-vous certain de vouloir continuer avec la configuration choisie ?</value>
+  </data>
+  <data name="Wizard_Restore" xml:space="preserve">
+    <value>Restaurer les feuilles de matchs retrouvées</value>
+  </data>
+  <data name="Wizard_RestoreDesc" xml:space="preserve">
+    <value>Cette fenêtre permet de restaurer les feuilles de matchs retrouvées dans le dossier de backup.</value>
+  </data>
+  <data name="Wizard_SelectPlayers" xml:space="preserve">
+    <value>Sélectionnez les joueurs</value>
+  </data>
+  <data name="Wizard_SelectPlayersDesc" xml:space="preserve">
+    <value>Sélectionnez les joueurs qui composent l'équipe. Glissez chaque joueur de la liste à droite vers les cases à gauche.</value>
+  </data>
+  <data name="Wizard_ServerErrors" xml:space="preserve">
+    <value>Le serveur a retourné les erreurs suivantes :</value>
+  </data>
+  <data name="Wizard_UnknownMatchDate" xml:space="preserve">
+    <value>Rencontres avec une date inconnue</value>
+  </data>
+  <data name="Wizard_Update" xml:space="preserve">
+    <value>Mettre à jour la base de données</value>
+  </data>
+  <data name="Wizard_UpdateDesc" xml:space="preserve">
+    <value>Cette fenêtre permet de mettre à jour la base de données de l'application</value>
+  </data>
+  <data name="Wizard_UpdateFile" xml:space="preserve">
+    <value>Fichier de mise à jour de ScoreSheet</value>
+  </data>
+  <data name="Wizard_UpdateFileHelp" xml:space="preserve">
+    <value>Afin de mettre à jour la base de données via un fichier de mise à jour, vous devez bien entendu d'abord disposer d'un fichier de mise à jour. Vous devez créer ce fichier sur un autre ordinateur qui a, lui, une connexion Internet.
+
+Démarrez le programme ScoreSheet sur l'ordinateur qui a une connexion Internet, et mettez à jour la base de données en utilisant l'option 'Mettre à jour la base de données via la connexion Internet'. Lorsque cela est fait, vous pouvez exporter ces données mises à jour vers un fichier de mise à jour en cliquant sur 'Options', 'Mises à jour de la base de données', et ensuite sur 'Sauvegarder le fichier de mise à jour'. Donnez un nom à ce fichier, et sauvegardez-le sur une clé USB ou un disque dur portable.
+
+Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le disque dur portable à cet ordinateur-ci, et vous pouvez mettre à jour les données de cet ordinateur en utilisant l'option 'Mettre à jour la base de données via un fichier de mise à jour'.</value>
+  </data>
+  <data name="Wizard_UpdateSuccessful" xml:space="preserve">
+    <value>La mise à jour a réussi !</value>
+  </data>
+  <data name="Wizard_Upload" xml:space="preserve">
+    <value>Envoyer les données</value>
+  </data>
+  <data name="Wizard_UploadDesc" xml:space="preserve">
+    <value>Cette fenêtre permet d'envoyer les données au site web de la compétition</value>
+  </data>
+  <data name="Wizard_UploadMessage" xml:space="preserve">
+    <value>Vous pouvez envoyer les données de plusieurs rencontres en une seule fois au site web de la compétition. Si vous ne voulez pas envoyer les données de certaines rencontres, vous pouvez désélectionner celles-ci.</value>
+  </data>
+  <data name="Wizard_UploadSuccessful" xml:space="preserve">
+    <value>Les données ont été correctement envoyées !</value>
+  </data>
+  <data name="Wizard_ValidationWarning" xml:space="preserve">
+    <value>Vous avez sélectionné des rencontres qui contiennent des erreurs de validation. Êtes-vous certain de vouloir continuer ?</value>
+  </data>
+</root>

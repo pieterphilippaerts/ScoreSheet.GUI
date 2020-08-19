@@ -1,0 +1,42 @@
+﻿<ContentControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.UnofficialScoreTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates"
+             xmlns:partials="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             mc:Ignorable="d" 
+             Width="29.7cm" Height="21cm">
+    <Canvas Background="White">
+        <Viewbox Width="26cm" Stretch="Uniform" Canvas.Left="1.85cm" Canvas.Top="2.5cm">
+            <Canvas Width="24.35cm" Height="15.1cm">
+                <Border BorderBrush="Black" BorderThickness="1px" Width="6.15cm" Height="2.32cm">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Padding="0.05cm 0cm" FontSize="0.35cm">Lokaal:<LineBreak/>Str.Nr.:<LineBreak/>Plaats:</TextBlock>
+                        <TextBlock FontWeight="Bold" FontSize="0.35cm" Text="{Binding Address.Value}"/>
+                    </StackPanel>
+                </Border>
+                <TextBlock FontWeight="Bold" Canvas.Left="8.8cm" Canvas.Top="0.5cm" FontSize="0.4cm">Tafeltennis - Vrije Tijd</TextBlock>
+                <TextBlock Canvas.Left="9.2cm" Canvas.Top="1cm" FontSize="0.35cm">Ontmoetingsformulier</TextBlock>
+                <partials:MatchInfo Canvas.Left="15.56cm" LevelVisibility="Hidden"></partials:MatchInfo>
+                <StackPanel Orientation="Vertical" Canvas.Top="2.51cm">
+                    <partials:UnofficialTeamInfo Title="THUISPLOEG" DataContext="{Binding HomeTeam}" />
+                    <partials:UnofficialTeamInfo Margin="0 0.2cm 0 0" Title="BEZOEKERS" DataContext="{Binding AwayTeam}" />
+                </StackPanel>
+                <partials:ChiefReferee Margin="0 0.2cm 0 0" Canvas.Top="10.31cm" DataContext="{Binding ChiefReferee}"/>
+                <partials:Captains Margin="0 0.2cm 0 0" Canvas.Left="10.76cm" Canvas.Top="10.31cm" Article632Visibility="Collapsed" />
+                <partials:Matches Canvas.Left="10.76cm" Canvas.Top="2.51cm" />
+                <Border BorderBrush="Black" BorderThickness="1px" Width="14.15cm" Height="1.75cm" Canvas.Top="13.31cm">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="0.05cm 0.05cm 0 0.05cm">Eventueel voorbehoud:</TextBlock>
+                        <TextBlock  Grid.Row="1" Margin="0.05cm 0 0.05cm 0.05cm" Width="14cm" Text="{Binding Comments.Value}" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" />
+                    </Grid>
+                </Border>
+            </Canvas>
+        </Viewbox>
+    </Canvas>
+</ContentControl>

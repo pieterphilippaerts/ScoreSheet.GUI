@@ -1,0 +1,64 @@
+﻿<ContentControl  x:Class="PieterP.ScoreSheet.GUI.Views.Templates.VttlScoreTemplate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates"
+      xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+      xmlns:partials="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+      mc:Ignorable="d" 
+      Width="29.7cm" Height="21cm">
+    <ContentControl.Resources>
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Hidden</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </ContentControl.Resources>
+    <Canvas Background="White">
+        <Image Source="/images/templates/vttl_sponsors_2021.png" Canvas.Left="0.7cm" Width="28cm" Canvas.Top="0.85cm" Visibility="{Binding ShowSponsors.Value, Converter={StaticResource VisibilityConverter}}" />
+        <Border BorderBrush="Black" BorderThickness="1px" Width="6.15cm" Height="2.32cm" Canvas.Left="4.19cm" Canvas.Top="5.19cm">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Padding="0.05cm 0cm" FontSize="0.35cm">Lokaal:<LineBreak/>Str.Nr.:<LineBreak/>Plaats:</TextBlock>
+                <TextBlock FontWeight="Bold" FontSize="0.35cm" Text="{Binding Address.Value}"/>
+            </StackPanel>
+        </Border>
+        <TextBlock FontWeight="Bold" Canvas.Left="11.9cm" Canvas.Top="5.3cm" FontSize="0.4cm">VLAAMSE TAFELTENNISLIGA v.z.w.</TextBlock>
+        <TextBlock Canvas.Left="13.26cm" Canvas.Top="5.8cm" FontSize="0.35cm">SCHEIDSRECHTERSBLAD</TextBlock>
+        <TextBlock Canvas.Left="17.57cm" Canvas.Top="5.9cm" FontSize="0.25cm">© VTTL</TextBlock>
+        <partials:MatchType Canvas.Left="10.8cm" Canvas.Top="6.41cm"></partials:MatchType>
+        <partials:MatchInfo Canvas.Left="19.75cm" Canvas.Top="5.19cm"></partials:MatchInfo>
+        <StackPanel Orientation="Vertical" Canvas.Left="4.19cm" Canvas.Top="7.7cm">
+            <partials:OfficialTeamInfo Title="THUISPLOEG" DataContext="{Binding HomeTeam}" />
+            <partials:OfficialTeamInfo Margin="0 0.2cm 0 0" Title="BEZOEKERS" DataContext="{Binding AwayTeam}" />
+        </StackPanel>
+        <partials:ChiefReferee Margin="0 0.2cm 0 0" Canvas.Left="4.19cm" Canvas.Top="15.5cm" DataContext="{Binding ChiefReferee}"/>
+        <partials:Captains Margin="0 0.2cm 0 0" Canvas.Left="14.95cm" Canvas.Top="15.5cm" />
+        <partials:Matches Canvas.Left="14.95cm" Canvas.Top="7.7cm" />
+        <Border BorderBrush="Black" BorderThickness="1px" Width="14.15cm" Height="1.75cm" Canvas.Left="4.19cm" Canvas.Top="18.50cm">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Margin="0.05cm 0.05cm 0 0.05cm">Eventueel voorbehoud:</TextBlock>
+                <TextBlock  Grid.Row="1" Margin="0.05cm 0 0.05cm 0.05cm" Width="14cm" Text="{Binding Comments.Value}" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" />
+            </Grid>
+        </Border>
+        <Border BorderBrush="Black" BorderThickness="1px" Width="9.86cm" Height="1.75cm" Canvas.Left="18.59cm" Canvas.Top="18.50cm">
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0.05cm 0.05cm 0 0.05cm">Naam+Voornaam zaalcommissaris:</TextBlock>
+                    <TextBlock Margin="0.05cm 0.05cm 0.05cm 0.05cm" Grid.Row="1" Text="{Binding RoomCommissioner.Name.Value}" TextWrapping="Wrap"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="0.05cm 0.05cm 0 0.05cm">Aansluitingsnummer:</TextBlock>
+                    <TextBlock Margin="0.05cm 0.05cm 0.05cm 0.05cm" Grid.Row="1" Text="{Binding RoomCommissioner.ComputerNumber.Value}" TextWrapping="Wrap"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Canvas>
+</ContentControl>

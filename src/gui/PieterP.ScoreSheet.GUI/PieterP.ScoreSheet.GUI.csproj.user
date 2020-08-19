@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\Pieter\source\repos\scoresheet\src\gui\PieterP.ScoreSheet.GUI\Properties\PublishProfiles\NetFXProfile.pubxml</_LastSelectedProfileId>
+    <ActiveDebugFramework>net45</ActiveDebugFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Update="Views\AboutWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Controls\BigButton.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Controls\Zoomable.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ErrorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Information\MatchesOverview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SaveWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\Address.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\Comments.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\CompetitiveMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\CompetitiveMatchInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\CompetitiveMatchType.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\DoublePlayerInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\PersonDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\ScoreHeader.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\SinglePlayerInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\TeamInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Score\SubstitutePlayerInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Settings\SettingsWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\Partial\AfttPlayers.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\Partial\RefereeDefaultMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\Partial\UnofficialSinglePlayerInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\Partial\UnofficialTeamInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\RefereeDefaultTemplate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\RefereeHorizontalTemplate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\RefereeTableTemplate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Templates\UnofficialScoreTemplate.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UpdateAppWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\WelcomeWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\ChooseHandicapPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\NewCustomMatchPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\NewMatchdayPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\RestoreBackupsPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\SelectedPlayerPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\SelectExportTypePanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\SelectMatchesPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\SelectPlayersPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\UpdateFromInternetPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\UpdateStartPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\UpdatingFromInternetPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\WizardWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Views\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Controls\BigButton.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Controls\Zoomable.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ErrorWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Information\MatchesOverview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SaveWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\Address.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\Comments.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\CompetitiveMatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\CompetitiveMatchInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\CompetitiveMatchType.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\DoublePlayerInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\PersonDetails.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\ScoreHeader.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\SinglePlayerInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\TeamInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\BaseDictionary.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\DefaultTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\ContrastTheme.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Score\SubstitutePlayerInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Settings\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\Partial\AfttPlayers.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\Partial\RefereeDefaultMatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\Partial\UnofficialSinglePlayerInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\Partial\UnofficialTeamInfo.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\RefereeDefaultTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\RefereeHorizontalTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\RefereeTableTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Templates\UnofficialScoreTemplate.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UpdateAppWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\WelcomeWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\ChooseHandicapPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\NewCustomMatchPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\NewMatchdayPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\RestoreBackupsPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\SelectedPlayerPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\SelectExportTypePanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\SelectMatchesPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\SelectPlayersPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\UpdateFromInternetPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\UpdateStartPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\UpdatingFromInternetPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\WizardWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

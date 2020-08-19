@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.Captains"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d" 
+             Width="13.5cm" Height="2.6cm">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="YesNoConverter" TrueValue="JA" FalseValue="NEE" />
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Border Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1 1 0.5 0.5">
+            <TextBlock TextAlignment="Center">Kapitein Thuisploeg</TextBlock>
+        </Border>
+        <Border Grid.Column="2" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="0.5 1 1 0.5">
+            <TextBlock TextAlignment="Center">Kapitein Bezoekers</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5">
+            <TextBlock TextAlignment="Center">Naam + Voornaam</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 0.5">
+            <TextBlock TextAlignment="Center">Handtekening</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 0.5">
+            <TextBlock TextAlignment="Center">Naam + Voornaam</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="3" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5">
+            <TextBlock TextAlignment="Center">Handtekening</TextBlock>
+        </Border>
+        
+        <Border Grid.Row="2" Grid.Column="0" BorderBrush="Black" BorderThickness="1 0.5 0.5 0.5">
+            <TextBlock Margin="0.15cm" TextWrapping="Wrap" Text="{Binding HomeCaptain.Name.Value}"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 0.5">
+            
+        </Border>
+        <Border Grid.Row="2" Grid.Column="2" BorderBrush="Black" BorderThickness="0.5 0.5 0.5 0.5">
+            <TextBlock Margin="0.15cm" TextWrapping="Wrap" Text="{Binding AwayCaptain.Name.Value}"/>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="3" BorderBrush="Black" BorderThickness="0.5 0.5 1 0.5">
+            
+        </Border>
+
+        <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4" BorderBrush="Black" BorderThickness="1 0.5 1 1" Visibility="{Binding Article632Visibility, RelativeSource={RelativeSource FindAncestor, AncestorType=local:Captains}}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0.05cm 0.05cm 0 0.05cm">Akkoord om de wedstrijden twee aan twee te spelen:</TextBlock>
+                <TextBlock FontWeight="Bold" Margin="0.2cm 0.05cm" Text="{Binding Article632.Value, Converter={StaticResource YesNoConverter}}"/>
+                <TextBlock Margin="0 0.05cm 0.05cm 0.05cm">(Art. 6.32)</TextBlock>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

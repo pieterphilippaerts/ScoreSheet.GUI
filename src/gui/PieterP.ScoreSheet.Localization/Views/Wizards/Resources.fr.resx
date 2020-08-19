@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Handicap_Description" xml:space="preserve">
+    <value>Pour des rencontres non officielles, il est possible de jouer des matchs avec des 'points d'avance' (plus connus sous le terme 'handicap'). Si vous le désirez, vous pouvez sélectionner ci-dessous le tableau d'handicap que vous voulez utilisez.
+
+Les points d'handicap seront imprimés sur les feuilles d'arbitrage.</value>
+  </data>
+  <data name="Handicap_UseHandicap" xml:space="preserve">
+    <value>Jouer avec handicap</value>
+  </data>
+  <data name="NewCustomMatch_Description" xml:space="preserve">
+    <value>Pour une rencontre non officielle, vous pouvez choisir le type de match que vous voulez. Le type de jeu a un impact sur l'aspect de la feuille de match.</value>
+  </data>
+  <data name="NewDivisionDay_Description" xml:space="preserve">
+    <value>Ouvrir toutes les rencontres d'une division pour un jour donné</value>
+  </data>
+  <data name="NewDivisionDay_Loading" xml:space="preserve">
+    <value>… en cours de chargement des données…</value>
+  </data>
+  <data name="NewDivisionDay_Message" xml:space="preserve">
+    <value>Sélectionnez pour une certaine région une division et une date, et ScoreSheet ouvrira toutes les rencontres correspondantes (indépendamment des clubs qui jouent). Cette fonctionnalité peut être utilisée pour des événements particuliers (p.ex. une compétition jeunes) où plusieurs rencontres de différents clubs se jouent au même endroit.</value>
+  </data>
+  <data name="NewDivisionDay_National" xml:space="preserve">
+    <value>National</value>
+  </data>
+  <data name="NewDivisionDay_Title" xml:space="preserve">
+    <value>Ouvrir division-jour</value>
+  </data>
+  <data name="NewMatchday_Description" xml:space="preserve">
+    <value>La liste ci-dessous montre toutes les journées de compétition disponibles. Choisissez une journée de compétition pour laquelle vous voulez générer une feuille de match et cliquez sur OK.</value>
+  </data>
+  <data name="NewMatchday_OpenAway" xml:space="preserve">
+    <value>Générer aussi les feuilles de matchs pour les rencontres en déplacement</value>
+  </data>
+  <data name="NewMatchday_OpenBye" xml:space="preserve">
+    <value>Ouvrir les rencontres bye qui sont planifiées cette semaine</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="Print_Description" xml:space="preserve">
+    <value>Sélectionnez ce que vous voulez imprimer de la rencontre sélectionnée:</value>
+  </data>
+  <data name="Print_Handicap" xml:space="preserve">
+    <value>Jouer avec handicap</value>
+  </data>
+  <data name="Print_Print" xml:space="preserve">
+    <value>Imprimer</value>
+  </data>
+  <data name="Print_Results" xml:space="preserve">
+    <value>Feuille de match</value>
+  </data>
+  <data name="Print_ScoreCards" xml:space="preserve">
+    <value>Feuilles d'arbitrage</value>
+  </data>
+  <data name="RestoreBackups_Description" xml:space="preserve">
+    <value>D'anciens résultats de rencontres ont été trouvées dans le dossier backup du programme. Il s'agit la plupart du temps de fichiers résiduels à un plantage du programme. Vous pouvez rouvrir ces feuilles de matchs en les sélectionnant et en cliquant sur 'Restaurer'.</value>
+  </data>
+  <data name="SelectExportType_Csv" xml:space="preserve">
+    <value>Contient les détails de la rencontre que vous pouvez alors envoyer au site web de la compétition.</value>
+  </data>
+  <data name="SelectExportType_Description" xml:space="preserve">
+    <value>Vous pouvez exporter les rencontres sélectionnées vers différents types de fichier. Sélectionnez ci-dessous le type de fichier vers lequel vous voulez exporter.</value>
+  </data>
+  <data name="SelectExportType_Pdf" xml:space="preserve">
+    <value>Contient des feuilles de matchs qui pourront être visualisées ou imprimées via un lecteur PDF</value>
+  </data>
+  <data name="SelectExportType_Xps" xml:space="preserve">
+    <value>Contient des feuilles de matchs qui pourront être visualisées ou imprimées via un lecteur XPS</value>
+  </data>
+  <data name="SelectMatches_NonCompetitiveMessage" xml:space="preserve">
+    <value>Ceci est une rencontre récréative et ne devrait pas être envoyée</value>
+  </data>
+  <data name="SelectMatches_UploadMessage" xml:space="preserve">
+    <value>Cette rencontre a déjà été correctement envoyée au site web de la compétition</value>
+  </data>
+  <data name="SelectMatches_ValidationErrors" xml:space="preserve">
+    <value>Cette rencontre contient des erreurs de validation</value>
+  </data>
+  <data name="SelectPlayers_AllPlayers" xml:space="preserve">
+    <value>Tous les joueurs</value>
+  </data>
+  <data name="SelectPlayers_ChiefReferee" xml:space="preserve">
+    <value>Juge-arbitre</value>
+  </data>
+  <data name="SelectPlayers_RelevantPlayers" xml:space="preserve">
+    <value>Liste de force applicable</value>
+  </data>
+  <data name="SelectPlayers_RoomCommissioner" xml:space="preserve">
+    <value>Commissaire de salle</value>
+  </data>
+  <data name="UpdateFromInternet_Description" xml:space="preserve">
+    <value>Cette fenêtre permet de mettre à jour la base de données du programme. Ces données comportent toutes les informations sur les rencontres planifiées, ainsi que la liste de force du club visité et de tous les clubs visiteurs.
+
+Ces données devraient être mises à jour chaque semaine, du fait qu'elles peuvent en principe être modifiées chaque semaine (p.ex. des adaptations dans les liste de force). Des données obsolètes peuvent mener à des erreurs sur la feuille de match, et donc aussi à des amendes !</value>
+  </data>
+  <data name="UpdateFromInternet_Next" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="UpdateFromInternet_RefreshList" xml:space="preserve">
+    <value>Rafraîchir la liste</value>
+  </data>
+  <data name="UpdateFromInternet_SelectClub" xml:space="preserve">
+    <value>Sélectionnez votre club :</value>
+  </data>
+  <data name="UpdateFromInternet_SelectProvince" xml:space="preserve">
+    <value>Sélectionnez votre province :</value>
+  </data>
+  <data name="UpdateFromInternet_Updating" xml:space="preserve">
+    <value>Mise à jour en cours;
+Veuillez patienter</value>
+  </data>
+  <data name="UpdateStart_File" xml:space="preserve">
+    <value>Mettre à jour la base de données avec un fichier de mise à jour</value>
+  </data>
+  <data name="UpdateStart_FileDesc" xml:space="preserve">
+    <value>Vous avez un fichier de mise à jour sur une clé USB, et vous voulez utiliser ce fichier pour mettre à jour la base de données. Cette méthode peut être utilisée si cet ordinateur n'a pas de connexion internet.</value>
+  </data>
+  <data name="UpdateStart_FileInfo" xml:space="preserve">
+    <value>Comment créer un fichier de mise à jour ?</value>
+  </data>
+  <data name="UpdateStart_Internet" xml:space="preserve">
+    <value>Mettre à jour la base de données via Internet</value>
+  </data>
+  <data name="UpdateStart_InternetDesc" xml:space="preserve">
+    <value>Les données les plus récentes sont téléchargées depuis le site web de la FRBTT. Il s'agit de l'option la plus simple, mais elle nécessite une connexion Internet active.</value>
+  </data>
+  <data name="UpdatingFromInternet_Description" xml:space="preserve">
+    <value>Les données sont en ce moment téléchargées depuis le site web de la FRBTT. Ce processus peut prendre un certain temps, en fonction de la taille de votre club et de la vitesse de votre connexion Internet.</value>
+  </data>
+</root>

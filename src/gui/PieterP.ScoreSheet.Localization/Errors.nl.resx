@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppUpdate_InvalidHash" xml:space="preserve">
+    <value>De hash van het gedownloade bestand komt niet overeen met de verwachtte hash. </value>
+  </data>
+  <data name="CompetitiveMatch_MatchSystemNotFound" xml:space="preserve">
+    <value>Het vereiste matchsysteem ({0}) kon niet gevonden worden.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdAwayCaptain" xml:space="preserve">
+    <value>Het computernummer van de uitkapitein is ongeldig.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdChiefReferee" xml:space="preserve">
+    <value>Het computernummer van de hoofdscheidsrechter is ongeldig.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdHomeCaptain" xml:space="preserve">
+    <value>Het computernummer van de thuiskapitein is ongeldig.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdPlayer" xml:space="preserve">
+    <value>Ongeldig computernummer '{0}' voor speler {1} in het team {2}.</value>
+  </data>
+  <data name="CsvExporter_InvalidIdRoomCommissioner" xml:space="preserve">
+    <value>Het computernummer van de zaalcommissaris is ongeldig.</value>
+  </data>
+  <data name="CsvExporter_InvalidSeasonId" xml:space="preserve">
+    <value>Kan het volgnummer van het huidige seizoen niet vinden. Update de database om dit probleem te verhelpen.</value>
+  </data>
+  <data name="CsvExporter_NoClubIdAway" xml:space="preserve">
+    <value>Er is geen aanwijzingsnummer ingevuld voor het uitteam.</value>
+  </data>
+  <data name="CsvExporter_NoClubIdHome" xml:space="preserve">
+    <value>Er is geen aanwijzingsnummer ingevuld voor het thuisteam.</value>
+  </data>
+  <data name="CsvExporter_NoMatchId" xml:space="preserve">
+    <value>Er is geen matchnummer ingevuld op het wedstrijdblad.</value>
+  </data>
+  <data name="ExportService_TemplateError" xml:space="preserve">
+    <value>Kan de template die overeenkomt met het viewmodel {0} niet vinden.</value>
+  </data>
+  <data name="LiveUpdate_UploadError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het uploaden van een 'live update'-resultaat</value>
+  </data>
+  <data name="Logger_UnknownError" xml:space="preserve">
+    <value>Onbekende fout opgetreden.</value>
+  </data>
+  <data name="Main_OpenError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het openen van het wedstrijdblad. Meer informatie kan u in het logboek vinden.</value>
+  </data>
+  <data name="Main_SaveError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het opslaan van het wedstrijdblad. Meer informatie kan u in het logboek vinden.</value>
+  </data>
+  <data name="MatchUploader_NoCredentials" xml:space="preserve">
+    <value>Er zijn geen opgeslagen inloggegevens gevonden in de database.</value>
+  </data>
+  <data name="PlayerstoString_DataError" xml:space="preserve">
+    <value>[PlayersToStringConverter] PlayerInfo was geen enkel of dubbel!</value>
+  </data>
+  <data name="TabTUpdater_AdditionalDivisionError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het downloaden van de extra divisies</value>
+  </data>
+  <data name="TabTUpdater_CannotFindDivision" xml:space="preserve">
+    <value>Kan de divisie van match {0} niet vinden.</value>
+  </data>
+  <data name="TabTUpdater_CannotFindDivisionWMatchWTeam" xml:space="preserve">
+    <value>Kan de divisie {0} voor de match {1} van team {2} niet vinden</value>
+  </data>
+  <data name="TabTUpdater_DivisionError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het downloaden van de divisie '{0}'</value>
+  </data>
+  <data name="TabTUpdater_InvalidMatchDate" xml:space="preserve">
+    <value>Ploeg {0} heeft een wedstrijd zonder datum (en die geen bye-wedstrijd is)</value>
+  </data>
+  <data name="TabTUpdater_MatchDetailsError" xml:space="preserve">
+    <value>Fout bij het aanmaken van matchdetails voor ploeg {0}</value>
+  </data>
+  <data name="TabTUpdater_MatchSystemNotFound" xml:space="preserve">
+    <value>Kan het matchsysteem van type {0} (match {1} van team {2} in divisie {3}) niet vinden</value>
+  </data>
+  <data name="TabTUpdater_MembersListError" xml:space="preserve">
+    <value>Fout bij het downloaden van de sterktelijst van club {0}</value>
+  </data>
+  <data name="TabTUpdater_NoClubs" xml:space="preserve">
+    <value>GetClubs heeft een lege lijst van clubs teruggestuurd.</value>
+  </data>
+  <data name="TabTUpdater_NoUniqueId" xml:space="preserve">
+    <value>De lijst van GetClubs bevat een club zonder uniek ID</value>
+  </data>
+  <data name="TabT_CategoryError" xml:space="preserve">
+    <value>Ongeldige categorie gevonden voor club {0} ({1})</value>
+  </data>
+  <data name="TabT_CultureError" xml:space="preserve">
+    <value>Ongeldige taal ontvangen: {0}. De standaardwaarde 'Engels' wordt teruggegeven.</value>
+  </data>
+  <data name="TabT_DatabaseNameEmpty" xml:space="preserve">
+    <value>De naam van de TabT-database is leeg.</value>
+  </data>
+  <data name="TabT_MatchInfoError" xml:space="preserve">
+    <value>Kan de matchinformatie van match {0} niet correct ontleden</value>
+  </data>
+  <data name="TabT_MatchSystemDefinitionError" xml:space="preserve">
+    <value>Kan de MatchSystem MatchDefinition op positie '{0}' dat terggegeven werd niet interpreteren.</value>
+  </data>
+  <data name="TabT_MatchSystemParseError" xml:space="preserve">
+    <value>Kan voor MatchSystem '{0}' ({1}) één van de teruggegeven waardes niet correct ontleden.</value>
+  </data>
+  <data name="TabT_MemberError" xml:space="preserve">
+    <value>Kan de spelersinformatie niet ontleden voor {0} {1}</value>
+  </data>
+  <data name="TabT_NoMatchDefinitionsError" xml:space="preserve">
+    <value>Geen MatchDefinitions gevonden in het MatchSystem '{0}' ({1})</value>
+  </data>
+  <data name="TabT_ParseAllowedQuotaError" xml:space="preserve">
+    <value>Kan het toegelaten quota niet correct ontleden: {0}</value>
+  </data>
+  <data name="TabT_ParseCurrentQuotaError" xml:space="preserve">
+    <value>Kan het huidige quota niet correct ontleden: {0}</value>
+  </data>
+  <data name="TabT_SeasonIdError" xml:space="preserve">
+    <value>Ongeldig seizoens-ID: '{0}' voor seizoen '{1}'</value>
+  </data>
+  <data name="TabT_SeasonsWarning" xml:space="preserve">
+    <value>De lijst met seizoenen is leeg.</value>
+  </data>
+  <data name="TabT_TeamDataError" xml:space="preserve">
+    <value>Ongeldige team data gevonden in één van de teams van club {0}</value>
+  </data>
+  <data name="TabT_VenueError" xml:space="preserve">
+    <value>Ongeldig VenueId/ClubVenueId gevonden voor club {0} ({1})</value>
+  </data>
+  <data name="TabT_VersionError" xml:space="preserve">
+    <value>Kan het versietype dat van de webservice ontvangen werd niet ontleden: {0}</value>
+  </data>
+  <data name="Validation_BothGenders" xml:space="preserve">
+    <value>Er is aangeduid dat het om een mannen- én vrouwenwedstrijd gaat</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
+    <value>Als er geen officiële scheidsrechter is, moet de hoofdscheidsrechter de thuiskapitein zijn</value>
+  </data>
+  <data name="Validation_ClubIdNotFound" xml:space="preserve">
+    <value>Kan het aanwijzingsnummer van {0} niet in de clubs-database vinden</value>
+  </data>
+  <data name="Validation_InvalidDate" xml:space="preserve">
+    <value>De datum van de match is ongeldig</value>
+  </data>
+  <data name="Validation_InvalidEndHour" xml:space="preserve">
+    <value>Het einduur is ongeldig</value>
+  </data>
+  <data name="Validation_InvalidIndex" xml:space="preserve">
+    <value>De index van {0} is niet ingevuld of ongeldig</value>
+  </data>
+  <data name="Validation_InvalidMemberId" xml:space="preserve">
+    <value>Het aansluitingsnummer van {0} is ongeldig</value>
+  </data>
+  <data name="Validation_InvalidPlayerId" xml:space="preserve">
+    <value>Het computernummer van {0} is niet ingevuld of ongeldig</value>
+  </data>
+  <data name="Validation_InvalidPlayerOrder" xml:space="preserve">
+    <value>De spelers van {0} staan niet in de juiste volgorde</value>
+  </data>
+  <data name="Validation_InvalidPlayerPosition" xml:space="preserve">
+    <value>Het volgnummer van {0} is niet ingevuld of ongeldig</value>
+  </data>
+  <data name="Validation_InvalidRanking" xml:space="preserve">
+    <value>Het klassement van {0} is niet ingevuld</value>
+  </data>
+  <data name="Validation_InvalidRoomCommissionerId" xml:space="preserve">
+    <value>Het aansluitingsnummer van de zaalcommissaris is ongeldig</value>
+  </data>
+  <data name="Validation_InvalidStartHour" xml:space="preserve">
+    <value>Het startuur is ongeldig</value>
+  </data>
+  <data name="Validation_MultipleMatchTypes" xml:space="preserve">
+    <value>Er zijn meerdere wedstrijdtypes aangeduid</value>
+  </data>
+  <data name="Validation_NoAddress" xml:space="preserve">
+    <value>Het adres van het lokaal is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoClubId" xml:space="preserve">
+    <value>Het aanwijzingsnummer van {0} is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoDate" xml:space="preserve">
+    <value>De datum van de match is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoEndHour" xml:space="preserve">
+    <value>Het einduur is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoGender" xml:space="preserve">
+    <value>Er is niet aangeduid of het om een mannen- of vrouwenwedstrijd gaat</value>
+  </data>
+  <data name="Validation_NoMatchId" xml:space="preserve">
+    <value>Het matchnummer is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoMatchType" xml:space="preserve">
+    <value>Er is niet aangeduid om welk type wedstrijd het gaat</value>
+  </data>
+  <data name="Validation_NoName" xml:space="preserve">
+    <value>De naam van {0} is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoRoomCommissionerId" xml:space="preserve">
+    <value>Het aansluitingsnummer van de zaalcommissaris is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoRoomCommissionerName" xml:space="preserve">
+    <value>De naam van de zaalcommissaris is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoSeries" xml:space="preserve">
+    <value>De reeks is niet ingevuld</value>
+  </data>
+  <data name="Validation_NoStartHour" xml:space="preserve">
+    <value>Het startuur is niet ingevuld</value>
+  </data>
+  <data name="Validation_PlayerByeFieldsWrong" xml:space="preserve">
+    <value>Alle veldjes van {0}, behalve het computernummer, moeten leeg zijn bij een bye</value>
+  </data>
+  <data name="Validation_PlayerByeIdWrong" xml:space="preserve">
+    <value>Het computernummer van {0} moet een vraagteken zijn</value>
+  </data>
+  <data name="Validation_PlayerFfFieldsWrong" xml:space="preserve">
+    <value>Alle veldjes van {0}, behalve het computernummer, moeten leeg zijn als u een vraagteken als computernummer gebruikt</value>
+  </data>
+  <data name="Validation_PlayerNotFound" xml:space="preserve">
+    <value>Kan {0} met computernummer {1} niet terugvinden in de sterktelijst</value>
+  </data>
+  <data name="Validation_ScoreError" xml:space="preserve">
+    <value>Er zit een fout in de lijst met setstanden</value>
+  </data>
+  <data name="Validation_ScoreIncomplete" xml:space="preserve">
+    <value>De lijst met setstanden is onvolledig</value>
+  </data>
+  <data name="Validation_SuperCheck" xml:space="preserve">
+    <value>De afdeling staat op 'super', maar het vinkje bij 'Super Afdeling' staat niet aan</value>
+  </data>
+  <data name="Validation_TooManyWO" xml:space="preserve">
+    <value>Er kan maximum één speler WO zijn in {0}</value>
+  </data>
+  <data name="Validation_UnofficialDate" xml:space="preserve">
+    <value>De datum komt niet overeen met de officiële gegevens ({0})</value>
+  </data>
+  <data name="Validation_UnofficialMatchId" xml:space="preserve">
+    <value>Het matchnummer komt niet overeen met de officiële gegevens ({0})</value>
+  </data>
+  <data name="Validation_UnofficialName" xml:space="preserve">
+    <value>De naam van {0} komt niet overeen met de officiële gegevens</value>
+  </data>
+  <data name="Validation_UnofficialSeries" xml:space="preserve">
+    <value>De reeks komt niet overeen met de officiële gegevens ({0})</value>
+  </data>
+  <data name="Validation_WrongDate" xml:space="preserve">
+    <value>De datum op het wedstrijdblad komt niet overeen met de datum van vandaag</value>
+  </data>
+  <data name="Validation_WrongIndex" xml:space="preserve">
+    <value>De index van {0} komt niet overeen met de gegevens in de database</value>
+  </data>
+  <data name="Validation_WrongName" xml:space="preserve">
+    <value>De naam van {0} komt niet overeen met de gegevens in de database</value>
+  </data>
+  <data name="Validation_WrongPlayerPosition" xml:space="preserve">
+    <value>Het volgnummer van {0} komt niet overeen met de gegevens in de database</value>
+  </data>
+  <data name="Validation_WrongRanking" xml:space="preserve">
+    <value>Het klassement van {0} komt niet overeen met de gegevens in de database</value>
+  </data>
+  <data name="Validation_WrongRoomCommissionerId" xml:space="preserve">
+    <value>Het computernummer van de zaalcommissaris is ongeldig (of die persoon is niet aangesloten bij de thuisclub)</value>
+  </data>
+  <data name="WindowService_NoDialogError" xml:space="preserve">
+    <value>Er zijn momenteel geen dialoogvensters open.</value>
+  </data>
+  <data name="WindowService_PopupError" xml:space="preserve">
+    <value>Kan de popup die overeenkomt met het viewmodel {0} niet vinden.</value>
+  </data>
+  <data name="WindowService_WindowError" xml:space="preserve">
+    <value>Kan het venster dat overeenkomt met het viewmodel {0} niet vinden.</value>
+  </data>
+  <data name="Wizard_ClubUpdateFailed" xml:space="preserve">
+    <value>Er is een fout opgetreden tijdens het downloaden van de clublijst. Mogelijk heb je geen internettoegang, of is de competitieserver onbereikbaar. Je kan meer informatie over deze fout vinden in het logboek-scherm.</value>
+  </data>
+  <data name="Wizard_FileReadError" xml:space="preserve">
+    <value>Het opgegeven bestand kon niet ingeladen worden! Controleer dat u het juiste bestand geselecteerd heeft.</value>
+  </data>
+  <data name="Wizard_InvalidCredentials" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan tijdens het uploaden van de data. Je hebt niet de vereiste machtigingen om deze gegevens te uploaden.</value>
+  </data>
+  <data name="Wizard_InvalidSelection" xml:space="preserve">
+    <value>De gebruiker heeft in het venster NewMatchday een item geselecteerd dat geen Match of DateTime is</value>
+  </data>
+  <data name="Wizard_NetworkError" xml:space="preserve">
+    <value>Er heeft zich een netwerkfout voorgedaan tijdens het uploaden van de data.</value>
+  </data>
+  <data name="Wizard_ServerError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan tijdens het uploaden van de data. De server heeft een aantal fouten in de gegevens vastgesteld.</value>
+  </data>
+  <data name="Wizard_UpdateError" xml:space="preserve">
+    <value>Er is een fout opgetreden tijdens het downloaden van de gegevens. Je kan meer informatie over deze fout vinden in het meldingen-scherm.</value>
+  </data>
+</root>

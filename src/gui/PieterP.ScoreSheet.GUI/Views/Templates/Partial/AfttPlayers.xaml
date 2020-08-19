@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.AfttPlayers"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" Width="8.5cm">
+    <UserControl.Resources>
+        <conv:AfttTemplateSelector x:Key="AfttSelector"/>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.4cm" />
+            <ColumnDefinition Width="0.65cm" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0.65cm" />
+            <ColumnDefinition Width="0.85cm" />
+        </Grid.ColumnDefinitions>
+        <Border Grid.Row="0" Grid.Column="0" Background="#1076B8">
+            <TextBlock TextAlignment="Center" FontSize="0.28cm" Foreground="White">#</TextBlock>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="1" Background="#1076B8">
+            <TextBlock TextAlignment="Center" FontSize="0.28cm" Foreground="White">Lf.</TextBlock>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="2" Background="#1076B8">
+            <TextBlock TextAlignment="Left" FontSize="0.28cm" Foreground="White" Text="Nom et Prénom"/>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="3" Background="#1076B8">
+            <TextBlock TextAlignment="Center" FontSize="0.28cm" Foreground="White">Cl.</TextBlock>
+        </Border>
+        <Border Grid.Row="0" Grid.Column="4" Background="#1076B8">
+            <TextBlock TextAlignment="Center" FontSize="0.28cm" Foreground="White">Vict.</TextBlock>
+        </Border>
+        <Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5">
+            <ItemsControl ItemsSource="{Binding Players}" ItemTemplateSelector="{StaticResource AfttSelector}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </Border>
+    </Grid>
+</UserControl>

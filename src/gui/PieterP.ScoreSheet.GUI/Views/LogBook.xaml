@@ -1,0 +1,32 @@
+﻿<Popup x:Class="PieterP.ScoreSheet.GUI.Views.LogBook"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+       xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+        xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views;assembly=ScoreSheet.Localization"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views"
+        mc:Ignorable="d" Width="780" Height="550">
+    <Popup.Resources>
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Hidden</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </Popup.Resources>
+    <Border BorderThickness="1" BorderBrush="DarkGray">
+        <DockPanel LastChildFill="True">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="{x:Static SystemColors.ControlBrush}">
+                <TextBlock Padding="7 4" VerticalAlignment="Center" Text="{x:Static l:Resources.LogBook_Show}"/>
+                <ToggleButton Padding="7 4" IsChecked="{Binding ShowError.Value}" Margin="5" Content="{x:Static l:Resources.LogBook_Errors}"/>
+                <ToggleButton Padding="7 4" IsChecked="{Binding ShowWarning.Value}" Margin="5" Content="{x:Static l:Resources.LogBook_Warnings}"/>
+                <ToggleButton Padding="7 4" IsChecked="{Binding ShowInformation.Value}" Margin="5" Content="{x:Static l:Resources.LogBook_Messages}"/>
+                <ToggleButton Padding="7 4" IsChecked="{Binding ShowDebug.Value}" Margin="5" Visibility="{Binding IsDebug, Converter={StaticResource VisibilityConverter}}" Content="{x:Static l:Resources.LogBook_Debug}"/>
+            </StackPanel>
+            <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="Message" BorderThickness="0 1 0 0"/>
+        </DockPanel>    
+    </Border>
+</Popup>

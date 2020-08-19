@@ -1,0 +1,47 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.LanguagePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Settings;assembly=ScoreSheet.Localization"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="264" d:DesignWidth="346">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="WeightConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <FontWeight>Bold</FontWeight>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <FontWeight>Normal</FontWeight>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:CultureImageConverter x:Key="ImageConverter" />
+        <conv:CultureNameConverter x:Key="NameConverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Resources.Language_Description}"/>
+        <ListBox Margin="5" Height="160" ItemsSource="{Binding AvailableCultures}" SelectedItem="{Binding ActiveCulture.Value}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="3">
+                        <Image Source="{Binding ., Converter={StaticResource ImageConverter}}" Width="16" Height="16" />
+                        <TextBlock Padding="5" Margin="5 0 0 0" VerticalAlignment="Center" Text="{Binding ., Converter={StaticResource NameConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Margin="5" TextWrapping="Wrap" Foreground="Red" FontWeight="Bold" Visibility="{Binding MustRestart.Value, Converter={StaticResource VisibilityConverter}}" Text="{Binding RestartMessage.Value}"/>
+        <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Resources.Language_HelpMessage}"/>
+        <Button Margin="5 0" Style="{StaticResource LinkButton}" Content="{x:Static l:Resources.Language_HelpLink}"  Command="{Binding OpenHelpUrl}" />
+    </StackPanel>
+</UserControl>

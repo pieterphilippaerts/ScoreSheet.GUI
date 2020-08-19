@@ -1,0 +1,65 @@
+﻿<Window x:Class="PieterP.ScoreSheet.GUI.Views.SaveWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+        xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views"
+        xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views;assembly=ScoreSheet.Localization"
+        mc:Ignorable="d"
+        Title="ScoreSheet - PieterP.be" Height="350" Width="550" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="{x:Static SystemColors.ControlBrush}">
+    <Window.Resources>
+        <conv:MatchTitleConverter x:Key="MatchTitleConverter"/>
+        <conv:MatchConverter x:Key="MatchConverter"/>
+    </Window.Resources>
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Padding="10 4 10 4" Margin="10" Command="{Binding Cancel}" Content="{x:Static l:Resources.SaveWindow_Cancel}"/>
+                <Button Padding="20 4 20 4" Margin="10" CommandParameter="{Binding ElementName=TheListBox, Path=SelectedItems}" Command="{Binding Discard}" Content="{x:Static l:Resources.SaveWindow_DiscardAll}" />
+                <Button Padding="20 4 20 4" Margin="10" CommandParameter="{Binding ElementName=TheListBox, Path=SelectedItems}" Command="{Binding Save}" Content="{x:Static l:Resources.SaveWindow_SaveAll}" />
+            </StackPanel>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="15">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="/images/comment_warning_48.png" Height="48" Width="48" />
+                <TextBlock TextWrapping="Wrap" Padding="5" Grid.Column="1" Text="{x:Static l:Resources.SaveWindow_Description}" />
+            </Grid>
+            <ListBox x:Name="TheListBox" Grid.Row="1" Margin="15,1,15,19"  ScrollViewer.CanContentScroll="False" ItemsSource="{Binding Matches}">
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Focusable" Value="False"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Grid.Column="0">
+                                <TextBlock Text="{Binding ., Converter={StaticResource MatchTitleConverter}}" FontWeight="Bold" Margin="3 3 3 0" FontSize="12px"/>
+                                <TextBlock Text="{Binding ., Converter={StaticResource MatchConverter}}" Margin="3 3 3 0" />
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </DockPanel>
+</Window>

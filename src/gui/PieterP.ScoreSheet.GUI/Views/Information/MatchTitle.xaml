@@ -1,0 +1,56 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Information.MatchTitle"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Information"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Margin="20 5 0 5" FontSize="40" FontWeight="Bold">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="ActiveBackgroundConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <SolidColorBrush Color="#C00D3D52"/>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <SolidColorBrush Color="#28000000"/>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="ActiveForegroundConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <SolidColorBrush Color="White"/>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <SolidColorBrush Color="Black"/>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <UserControl.Background>
+        <Binding Path="IsActive" Converter="{StaticResource ActiveBackgroundConverter}" />
+    </UserControl.Background>
+    <UserControl.Foreground>
+        <Binding Path="IsActive" Converter="{StaticResource ActiveForegroundConverter}" />
+    </UserControl.Foreground>
+    <Grid Margin="10 5">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Grid.Row="0" Grid.Column="0" StretchDirection="DownOnly" Margin="5 5 5 0" HorizontalAlignment="Left">
+            <TextBlock  Text="{Binding HomeTeam.Value}"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="0" StretchDirection="DownOnly" Margin="5 0 5 5" HorizontalAlignment="Left">
+            <TextBlock Text="{Binding AwayTeam.Value}"/>
+        </Viewbox>
+        <Viewbox Grid.Row="0" Grid.Column="1" StretchDirection="DownOnly" Margin="5 0 5 5" HorizontalAlignment="Left">
+            <TextBlock Margin="5 5 5 0"  Text="{Binding HomeScore.Value}"/>
+        </Viewbox>
+        <Viewbox Grid.Row="1" Grid.Column="1" StretchDirection="DownOnly" Margin="5 0 5 5" HorizontalAlignment="Left">
+            <TextBlock Margin="5 0 5 5" Text="{Binding AwayScore.Value}"/>
+        </Viewbox>
+    </Grid>
+</UserControl>

@@ -1,0 +1,101 @@
+html {
+	font-family: Helvetica;
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: stretch;
+	flex-direction: column;
+}
+
+	#teams {
+		display: flex;
+		flex-direction: row;
+	}
+
+		#teams .home,
+		#teams .away {
+			width: 0;
+			flex-grow: 1;
+			font-weight: bold;
+		}
+
+		#teams .home {
+			text-align: left;
+		}
+
+		#teams .away {
+			text-align: right;
+		}
+
+	#scores {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+		flex-direction: row;
+		font-weight: bold;
+	}
+
+	#scores.winning {
+		color: green;
+	}
+
+	#scores.losing {
+		color: red;
+	}
+
+		#scores .home,
+		#scores .away {
+			width: 0;
+			flex-grow: 1;
+		}
+
+		#scores .home {
+			text-align: right;
+		}
+
+		#scores .divider {
+			text-align: center;
+		}
+
+		#scores .away {
+			text-align: left;
+		}
+
+@media (orientation: landscape)	{
+	#teams {
+		font-size: 5vh;
+		margin: 5vh 5vh;
+	}
+
+	#scores * {
+		font-size: 30vh;
+		margin: 5vh 5vh;
+	}
+}
+
+@media (orientation: portrait)	{
+	#teams {
+		font-size: 5vw;
+		margin: 3vw 3vw;
+	}
+
+	#scores * {
+		font-size: 25vw;
+		margin: 3vw 3vw;
+	}
+}

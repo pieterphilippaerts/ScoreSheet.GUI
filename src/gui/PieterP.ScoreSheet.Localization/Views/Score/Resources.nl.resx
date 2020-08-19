@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Address_Title" xml:space="preserve">
+    <value>LOKAAL</value>
+  </data>
+  <data name="Comments_Title" xml:space="preserve">
+    <value>EVENTUEEL VOORBEHOUD</value>
+  </data>
+  <data name="CompetitiveMatchInfo_Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="CompetitiveMatchInfo_Level" xml:space="preserve">
+    <value>Afdeling</value>
+  </data>
+  <data name="CompetitiveMatchInfo_MatchId" xml:space="preserve">
+    <value>Match N°</value>
+  </data>
+  <data name="CompetitiveMatchInfo_Series" xml:space="preserve">
+    <value>Reeks</value>
+  </data>
+  <data name="CompetitiveMatchInfo_StartHour" xml:space="preserve">
+    <value>Aanvangsuur</value>
+  </data>
+  <data name="CompetitiveMatchInfo_StopHour" xml:space="preserve">
+    <value>Einde match</value>
+  </data>
+  <data name="CompetitiveMatchType_Cup" xml:space="preserve">
+    <value>Beker</value>
+  </data>
+  <data name="CompetitiveMatchType_Interclub" xml:space="preserve">
+    <value>Interclub</value>
+  </data>
+  <data name="CompetitiveMatchType_Men" xml:space="preserve">
+    <value>Heren</value>
+  </data>
+  <data name="CompetitiveMatchType_Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="CompetitiveMatchType_Veterans" xml:space="preserve">
+    <value>Veteranen</value>
+  </data>
+  <data name="CompetitiveMatchType_Women" xml:space="preserve">
+    <value>Dames</value>
+  </data>
+  <data name="CompetitiveMatchType_Youth" xml:space="preserve">
+    <value>Jeugd</value>
+  </data>
+  <data name="CompetitiveMatch_Agreed2v2" xml:space="preserve">
+    <value>Akkoord om de wedstrijden twee aan twee te spelen</value>
+  </data>
+  <data name="CompetitiveMatch_Article632" xml:space="preserve">
+    <value>(artikel 6.32)</value>
+  </data>
+  <data name="CompetitiveMatch_AwayCaptain" xml:space="preserve">
+    <value>KAPITEIN BEZOEKERS</value>
+  </data>
+  <data name="CompetitiveMatch_AwayTeam" xml:space="preserve">
+    <value>BEZOEKERS</value>
+  </data>
+  <data name="CompetitiveMatch_ChiefReferee" xml:space="preserve">
+    <value>HOOFDSCHEIDSRECHTER</value>
+  </data>
+  <data name="CompetitiveMatch_HomeCaptain" xml:space="preserve">
+    <value>KAPITEIN THUISPLOEG</value>
+  </data>
+  <data name="CompetitiveMatch_HomeTeam" xml:space="preserve">
+    <value>THUISPLOEG</value>
+  </data>
+  <data name="CompetitiveMatch_RoomCommissioner" xml:space="preserve">
+    <value>ZAALCOMMISSARIS</value>
+  </data>
+  <data name="CompetitiveMatch_Yes" xml:space="preserve">
+    <value>ja</value>
+  </data>
+  <data name="DoublePlayerInfo_Double" xml:space="preserve">
+    <value>Dubbel:</value>
+  </data>
+  <data name="PersonDetails_AffiliateNumber" xml:space="preserve">
+    <value>Aansluitingsnummer:</value>
+  </data>
+  <data name="PersonDetails_Club" xml:space="preserve">
+    <value>Club:</value>
+  </data>
+  <data name="PersonDetails_ClubId" xml:space="preserve">
+    <value>Clubnr:</value>
+  </data>
+  <data name="PersonDetails_Name" xml:space="preserve">
+    <value>Naam:</value>
+  </data>
+  <data name="ScoreHeader_Matches" xml:space="preserve">
+    <value>WEDSTR</value>
+  </data>
+  <data name="ScoreHeader_Points" xml:space="preserve">
+    <value>BEHAALDE PUNTEN</value>
+  </data>
+  <data name="ScoreHeader_Sets" xml:space="preserve">
+    <value>SETS</value>
+  </data>
+  <data name="ScoreHeader_Title" xml:space="preserve">
+    <value>VOLGORDE DER WEDSTRIJDEN</value>
+  </data>
+  <data name="SubstitutePlayerInfo_Substitute" xml:space="preserve">
+    <value>Wissel:</value>
+  </data>
+  <data name="SuspectSemantics_FFDesc" xml:space="preserve">
+    <value>de speler geeft op nadat de wedstrijd reeds begonnen was</value>
+  </data>
+  <data name="SuspectSemantics_Number" xml:space="preserve">
+    <value>(getal)</value>
+  </data>
+  <data name="SuspectSemantics_NumberDesc" xml:space="preserve">
+    <value>de score van de speler</value>
+  </data>
+  <data name="SuspectSemantics_Title" xml:space="preserve">
+    <value>GELDIGE INVOER</value>
+  </data>
+  <data name="SuspectSemantics_Warning" xml:space="preserve">
+    <value>Opgelet met de semantiek van 'FF' en 'WO'. Forfait (FF) wil zeggen dat de match begonnen werd, maar dat één van de spelers opgegeven heeft. In dit geval krijgt de andere speler de match toegekend als winstmatch. Een Walk Over (WO) wil zeggen dat de match niet gespeeld is. In dit geval telt de match niet als individuele overwinning. Een FF kan dus voorkomen in elke set (maar hoogstens één keer per match). Een WO kan enkel voorkomen in de eerste set van de wedstrijd.</value>
+  </data>
+  <data name="SuspectSemantics_WODesc" xml:space="preserve">
+    <value>de wedstrijd werd niet gespeeld (en telt niet mee als een individuele overwinning); een WO mag enkel in de eerste set voorkomen</value>
+  </data>
+  <data name="TeamInfo_Captain" xml:space="preserve">
+    <value>Kapi-
+tein</value>
+  </data>
+  <data name="TeamInfo_ClubId" xml:space="preserve">
+    <value>Aanwijzingsnummer</value>
+  </data>
+  <data name="TeamInfo_ComputerNumber" xml:space="preserve">
+    <value>Computer
+nummer</value>
+  </data>
+  <data name="TeamInfo_Forfeit" xml:space="preserve">
+    <value>FF</value>
+  </data>
+  <data name="TeamInfo_Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="TeamInfo_Position" xml:space="preserve">
+    <value>Volg
+num</value>
+  </data>
+  <data name="TeamInfo_Ranking" xml:space="preserve">
+    <value>Klasse
+ment</value>
+  </data>
+  <data name="TeamInfo_Team" xml:space="preserve">
+    <value>Ploeg</value>
+  </data>
+  <data name="TeamInfo_Wins" xml:space="preserve">
+    <value>Ind.
+overw</value>
+  </data>
+</root>

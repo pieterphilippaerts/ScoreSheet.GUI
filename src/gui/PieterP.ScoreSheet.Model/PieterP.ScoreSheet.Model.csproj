@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!--<TargetFrameworks>netstandard2.1;net45</TargetFrameworks>-->
+    <TargetFramework>net45</TargetFramework>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <TransformOnBuild>true</TransformOnBuild>
+    <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+    <Version>2020.2021.1</Version>
+    <AssemblyVersion>2020.2021.1.0</AssemblyVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="WebServer\400.html" />
+    <None Remove="WebServer\404.html" />
+    <None Remove="WebServer\500.html" />
+    <None Remove="WebServer\index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="PInvoke.Kernel32" Version="0.6.6" />
+    <PackageReference Include="PInvoke.Shell32" Version="0.6.6" />
+  </ItemGroup>
+      
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel.Https" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Win32.Registry" Version="4.6.0" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="4.6.0" />
+    <PackageReference Include="System.Text.Json" Version="4.6.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <Reference Include="System.Web" />
+    <Reference Include="System.Security" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="WebServer\400.html" />
+    <EmbeddedResource Include="WebServer\404.html" />
+    <EmbeddedResource Include="WebServer\500.html" />
+    <EmbeddedResource Include="WebServer\Index.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\PieterP.ScoreSheet.Connector\PieterP.ScoreSheet.Connector.csproj" />
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Cells\PieterP.Shared.Cells.csproj" />
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Services\PieterP.Shared.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Information\Application.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Application.g.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Information\Application.g.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

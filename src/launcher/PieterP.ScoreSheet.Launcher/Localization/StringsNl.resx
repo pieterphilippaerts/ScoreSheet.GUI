@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="App_ChangesMade" xml:space="preserve">
+    <value>Wijziging doorgevoerd</value>
+  </data>
+  <data name="App_NoChangesMade" xml:space="preserve">
+    <value>Wijziging niet doorgevoerd</value>
+  </data>
+  <data name="App_NoVersionFound" xml:space="preserve">
+    <value>Er is een fout opgetreden bij het starten van ScoreSheet. Er kon geen geïnstalleerde versie gevonden worden.</value>
+  </data>
+  <data name="App_Title" xml:space="preserve">
+    <value>ScoreSheet Opstartprogramma</value>
+  </data>
+  <data name="App_TlsEnabled" xml:space="preserve">
+    <value>TLS 1.1 en 1.2 zijn succesvol aangezet!</value>
+  </data>
+  <data name="App_TlsNotEnabled" xml:space="preserve">
+    <value>Er is een fout opgetreden bij het aanzetten van TLS 1.1 en 1.2. Mogelijk heeft u niet de juiste rechten om deze wijzigingen te maken.</value>
+  </data>
+  <data name="Main_Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Main_CreatedOn" xml:space="preserve">
+    <value>aangemaakt op {0}</value>
+  </data>
+  <data name="Main_CreateNewProfile" xml:space="preserve">
+    <value>nieuw profiel aanmaken</value>
+  </data>
+  <data name="Main_DebugMode" xml:space="preserve">
+    <value>Indien er een probleem is met het programma (bijvoorbeeld als het crasht), kan je het programma in 'debug-modus' opstarten. Dit zal het probleem niet oplossen, maar in deze modus gaat het programma extra veel informatie opslaan in de logbestanden die dan de oorzaak van de fout kunnen aanwijzen.</value>
+  </data>
+  <data name="Main_Default" xml:space="preserve">
+    <value>default</value>
+  </data>
+  <data name="Main_DefaultProfile" xml:space="preserve">
+    <value>(standaardprofiel)</value>
+  </data>
+  <data name="Main_HighestInstalled" xml:space="preserve">
+    <value>Hoogst-geïnstalleerde versie</value>
+  </data>
+  <data name="Main_InstalledOn" xml:space="preserve">
+    <value>geïnstalleerd op {0}</value>
+  </data>
+  <data name="Main_ModifyStartOptions" xml:space="preserve">
+    <value>Startopties wijzigen</value>
+  </data>
+  <data name="Main_ModifyStartOptionsMessage" xml:space="preserve">
+    <value>Hieronder vind je de ScoreSheet-startopties die je kan wijzigen. Je kan dit eenmalig doen, of je kan nieuwe standaardwaardes instellen.</value>
+  </data>
+  <data name="Main_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Main_Profile" xml:space="preserve">
+    <value>Profiel</value>
+  </data>
+  <data name="Main_ProfileName" xml:space="preserve">
+    <value>Profielnaam:</value>
+  </data>
+  <data name="Main_ProfileNameValidation" xml:space="preserve">
+    <value>De profielnaam mag geen speciale symbolen bevatten die niet geldig zijn in een directorynaam.</value>
+  </data>
+  <data name="Main_Recommended" xml:space="preserve">
+    <value>(aangeraden optie)</value>
+  </data>
+  <data name="Main_Start" xml:space="preserve">
+    <value>Starten</value>
+  </data>
+  <data name="Main_StartDebugMode" xml:space="preserve">
+    <value>In debug-modus opstarten</value>
+  </data>
+  <data name="Main_Version" xml:space="preserve">
+    <value>Versie</value>
+  </data>
+  <data name="Prereq_Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="Prereq_Netfx" xml:space="preserve">
+    <value>.NET Framework 4.5 of hoger vereist</value>
+  </data>
+  <data name="Prereq_NetfxDownload" xml:space="preserve">
+    <value>.NET Framework 4.5 downloaden</value>
+  </data>
+  <data name="Prereq_NetfxErr" xml:space="preserve">
+    <value>De versie van het .NET Framework dat op deze computer geïnstalleerd is, is te oud. Je moet .NET Framework versie 4.5 of hoger installeren.</value>
+  </data>
+  <data name="Prereq_NetfxOk" xml:space="preserve">
+    <value>Jouw versie van het .NET Framework voldoet.</value>
+  </data>
+  <data name="Prereq_ReadMore" xml:space="preserve">
+    <value>Meer informatie hierover lezen</value>
+  </data>
+  <data name="Prereq_Tls" xml:space="preserve">
+    <value>TLS 1.1 of hoger vereist</value>
+  </data>
+  <data name="Prereq_TlsEnable" xml:space="preserve">
+    <value>TLS 1.1/1.2-ondersteuning aanzetten</value>
+  </data>
+  <data name="Prereq_TlsErrW7" xml:space="preserve">
+    <value>De ondersteuning voor TLS 1.1 of hoger staat niet aan op dit systeem. Hierdoor kan ScoreSheet mogelijk geen data downloaden van de competitiewebsite. Gelukkig ondersteunt Windows 7 dit protocol wel, dus je kan het gewoon aanzetten.</value>
+  </data>
+  <data name="Prereq_TlsErrWV" xml:space="preserve">
+    <value>Windows Vista biedt standaard geen ondersteuning voor TLS 1.1, maar het kan op een onofficiële manier wel aangezet worden.</value>
+  </data>
+  <data name="Prereq_TlsOk" xml:space="preserve">
+    <value>Dit systeem ondersteunt TLS 1.1 of hoger.</value>
+  </data>
+  <data name="Prereq_Uhoh" xml:space="preserve">
+    <value>Uhoh!</value>
+  </data>
+  <data name="Prereq_Warning" xml:space="preserve">
+    <value>Je systeem voldoet niet aan de vereisten om ScoreSheet correct te laten werken. Hieronder krijg je een overzicht van de vereisten die al dan niet voldaan zijn.</value>
+  </data>
+  <data name="Prereq_Windows" xml:space="preserve">
+    <value>Windows Vista of hoger vereist</value>
+  </data>
+  <data name="Prereq_WindowsErr" xml:space="preserve">
+    <value>Je werkt op een te oude versie van Windows. Deze versie wordt niet meer ondersteund.</value>
+  </data>
+  <data name="Prereq_WindowsOk" xml:space="preserve">
+    <value>Jouw versie van Windows voldoet.</value>
+  </data>
+  <data name="Profile_Default" xml:space="preserve">
+    <value>(standaard)</value>
+  </data>
+  <data name="Profile_SetAsDefault" xml:space="preserve">
+    <value>instellen als standaard</value>
+  </data>
+  <data name="Version_Default" xml:space="preserve">
+    <value>(standaard)</value>
+  </data>
+  <data name="Version_SetAsDefault" xml:space="preserve">
+    <value>instellen als standaard</value>
+  </data>
+  <data name="Version_Unavailable" xml:space="preserve">
+    <value>Onbeschikbaar</value>
+  </data>
+</root>

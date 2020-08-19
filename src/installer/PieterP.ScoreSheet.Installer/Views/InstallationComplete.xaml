@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.Installer.Views.InstallationComplete"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.Installer.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.Installer.Views"
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Installer.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="400">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="TrueIsCollapsedConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="TrueIsVisibleConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel Visibility="{Binding HasError, Converter={StaticResource TrueIsCollapsedConverter}}">
+            <TextBlock FontSize="20" Margin="5" Text="{x:Static l:Strings.InstallationComplete_Ready}"/>
+            <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Strings.InstallationComplete_Message}"/>
+            <Button Margin="20" Height="60" Width="200" HorizontalAlignment="Center" Command="{Binding Launch}" Content="{x:Static l:Strings.InstallationComplete_Start}"/>
+        </StackPanel>
+        <StackPanel Visibility="{Binding HasError, Converter={StaticResource TrueIsVisibleConverter}}">
+            <TextBlock FontSize="20" Margin="5" Text="{x:Static l:Strings.InstallationComplete_Error}"/>
+            <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Strings.InstallationComplete_ErrorMessage}"/>
+            <TextBox AcceptsReturn="True" IsReadOnly="True" Height="200" Text="{Binding Error, Mode=OneWay}" Margin="5" Foreground="Red" TextWrapping="Wrap" />
+            <Button HorizontalAlignment="Center" Margin="5" Padding="20 5" Command="{Binding Close}" Content="{x:Static l:Strings.InstallationComplete_Close}"/>
+        </StackPanel>
+    </StackPanel>
+</UserControl>

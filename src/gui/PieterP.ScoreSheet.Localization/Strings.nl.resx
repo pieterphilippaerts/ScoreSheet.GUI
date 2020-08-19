@@ -1,0 +1,703 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppUpdate_InvalidActionType" xml:space="preserve">
+    <value>Ongeldig actietype gevonden tussen de update acties.</value>
+  </data>
+  <data name="AppUpdate_MissingHash" xml:space="preserve">
+    <value>De updateinfo bevat geen hash-code. Kan de integriteit van het gedownloade bestand niet verifiëren.</value>
+  </data>
+  <data name="AppUpdate_Restart" xml:space="preserve">
+    <value>Er is een update van de applicatie geïnstalleerd. Herstart de applicatie om de laatste versie te gebruiken.</value>
+  </data>
+  <data name="App_ApplicationStarted" xml:space="preserve">
+    <value>Applicatie gestart op {0} om {1}</value>
+  </data>
+  <data name="App_ApplicationStopped" xml:space="preserve">
+    <value>Applicatie gestopt op {0} om {1}</value>
+  </data>
+  <data name="App_MultipleInstances" xml:space="preserve">
+    <value>Een andere instantie van ScoreSheet is al opgestart. U kan slechts één instantie tegelijk opstarten.</value>
+  </data>
+  <data name="App_UnknownError" xml:space="preserve">
+    <value>Onbekende fout.</value>
+  </data>
+  <data name="CompetitiveMatch_MatchBackedUp" xml:space="preserve">
+    <value>Match gebackupped op de schijf op {0}</value>
+  </data>
+  <data name="CompetitiveMatch_MatchSaved" xml:space="preserve">
+    <value>Match opgeslagen op de schijf op {0}</value>
+  </data>
+  <data name="ExportButton_Email" xml:space="preserve">
+    <value>E-mail {0} match(en)</value>
+  </data>
+  <data name="ExportButton_Export" xml:space="preserve">
+    <value>Exporteer {0} wedstrijd(en)</value>
+  </data>
+  <data name="ExportButton_Upload" xml:space="preserve">
+    <value>Upload {0} wedstrijd(en)</value>
+  </data>
+  <data name="Handicap_Men" xml:space="preserve">
+    <value>Officiële Handicaptabel Heren</value>
+  </data>
+  <data name="Handicap_Women" xml:space="preserve">
+    <value>Officiële Handicaptabel Dames</value>
+  </data>
+  <data name="Layout_Custom" xml:space="preserve">
+    <value>Aangepast thema</value>
+  </data>
+  <data name="Layout_Default" xml:space="preserve">
+    <value>Standaard</value>
+  </data>
+  <data name="Layout_HighContrast" xml:space="preserve">
+    <value>Hoog-contrast</value>
+  </data>
+  <data name="Layout_PieterP" xml:space="preserve">
+    <value>PieterP.be Kleurenthema</value>
+  </data>
+  <data name="Layout_Yellow" xml:space="preserve">
+    <value>Geel</value>
+  </data>
+  <data name="LevelInfo_National" xml:space="preserve">
+    <value>Nationaal</value>
+  </data>
+  <data name="LevelInfo_Provincial" xml:space="preserve">
+    <value>Provinciaal</value>
+  </data>
+  <data name="LevelInfo_Regional" xml:space="preserve">
+    <value>Landelijk</value>
+  </data>
+  <data name="LevelInfo_Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="Limburg_EmailError" xml:space="preserve">
+    <value>Kon niet connecteren met de mailserver. U vindt meer details in het logboek.</value>
+  </data>
+  <data name="Limburg_EmailSent" xml:space="preserve">
+    <value>The connectie met de mailserver is gelukt.</value>
+  </data>
+  <data name="Limburg_ExportError" xml:space="preserve">
+    <value>Er is een onverwachte fout opgetreden bij het exporteren van de wedstrijdresultaten naar PDF. Raadpleeg het logboek voor de details van de fout.</value>
+  </data>
+  <data name="Limburg_ResultsError" xml:space="preserve">
+    <value>Er is een onverwachte fout opgetreden tijdens het e-mailen van de resultaten. Raadpleeg het logboek voor de details van de fout.</value>
+  </data>
+  <data name="Limburg_ResultsSent" xml:space="preserve">
+    <value>Een e-mail met de resultaten was succesvol gestuurd naar {0}</value>
+  </data>
+  <data name="LiveUpdate_ServerErrors" xml:space="preserve">
+    <value>Server validatiefouten:</value>
+  </data>
+  <data name="LiveUpdate_Uploaded" xml:space="preserve">
+    <value>De volgende CSV-lijn was geüpload:</value>
+  </data>
+  <data name="Main_FirstStart" xml:space="preserve">
+    <value>Dit is de eerste keer dat u deze versie van ScoreSheet opstart. Wilt u de instellingen nu aanpassen?</value>
+  </data>
+  <data name="Main_NoData" xml:space="preserve">
+    <value>De database is momenteel leeg. Wil je hem updaten?</value>
+  </data>
+  <data name="Main_Overview" xml:space="preserve">
+    <value>Overzicht</value>
+  </data>
+  <data name="Main_ScoreSheetFiles" xml:space="preserve">
+    <value>ScoreSheet-bestanden</value>
+  </data>
+  <data name="Main_ScoreSheetUpdateFile" xml:space="preserve">
+    <value>ScoreSheet updatebestand</value>
+  </data>
+  <data name="Main_UploadWarningFooter" xml:space="preserve">
+    <value>Weet u zeker dat u deze wedstrijden wil sluiten zonder de resultaten te uploaden naar de competitiewebsite?</value>
+  </data>
+  <data name="Main_UploadWarningHeader" xml:space="preserve">
+    <value>De volgende competitiewedstrijden zijn aangepast maar zijn nog niet geüpload naar de competitiewebsite:</value>
+  </data>
+  <data name="MatchSystemInfo_Description" xml:space="preserve">
+    <value>{0} tegen {1}, {2} wedstrijden
+{3} winnende sets tot {4} punten</value>
+  </data>
+  <data name="MatchSystem_AwayPlayer" xml:space="preserve">
+    <value>uitspeler {0}</value>
+  </data>
+  <data name="MatchSystem_Cup" xml:space="preserve">
+    <value>Beker</value>
+  </data>
+  <data name="MatchSystem_FreeTime" xml:space="preserve">
+    <value>Vrijetijdscompetitie</value>
+  </data>
+  <data name="MatchSystem_HomePlayer" xml:space="preserve">
+    <value>thuisspeler {0}</value>
+  </data>
+  <data name="MatchSystem_InterclubMen" xml:space="preserve">
+    <value>Interclub Heren</value>
+  </data>
+  <data name="MatchSystem_InterclubMenOld" xml:space="preserve">
+    <value>Interclub Heren (oud systeem)</value>
+  </data>
+  <data name="MatchSystem_InterclubWomenVeterans" xml:space="preserve">
+    <value>Interclub Dames/Veteranen</value>
+  </data>
+  <data name="MatchSystem_InterclubWomenVeteransOld" xml:space="preserve">
+    <value>Interclub Dames/Veteranen (oud systeem)</value>
+  </data>
+  <data name="MatchSystem_Super" xml:space="preserve">
+    <value>Super</value>
+  </data>
+  <data name="MatchSystem_SuperOld" xml:space="preserve">
+    <value>Super (oud systeem, zonder transfer)</value>
+  </data>
+  <data name="MatchSystem_TheAwayCaptain" xml:space="preserve">
+    <value>de uitkapitein</value>
+  </data>
+  <data name="MatchSystem_TheAwayTeam" xml:space="preserve">
+    <value>de uitploeg</value>
+  </data>
+  <data name="MatchSystem_TheChiefReferee" xml:space="preserve">
+    <value>de hoofscheidsrechter</value>
+  </data>
+  <data name="MatchSystem_TheHomeCaptain" xml:space="preserve">
+    <value>de thuiskapitein</value>
+  </data>
+  <data name="MatchSystem_TheHomeTeam" xml:space="preserve">
+    <value>de thuisploeg</value>
+  </data>
+  <data name="MatchSystem_Youth" xml:space="preserve">
+    <value>Jeugd (2x2)</value>
+  </data>
+  <data name="MatchTracker_Away" xml:space="preserve">
+    <value>&lt;uit&gt;</value>
+  </data>
+  <data name="MatchTracker_Home" xml:space="preserve">
+    <value>&lt;thuis&gt;</value>
+  </data>
+  <data name="Match_Draw" xml:space="preserve">
+    <value>{0} heeft gelijk gespeeld met {1}-{2}</value>
+  </data>
+  <data name="Match_Empty" xml:space="preserve">
+    <value>&lt;leeg&gt;</value>
+  </data>
+  <data name="Match_Invalid" xml:space="preserve">
+    <value>Deze match is nog onvolledig of bevat fouten</value>
+  </data>
+  <data name="Match_Lost" xml:space="preserve">
+    <value>{0} is verloren met {1}-{2}</value>
+  </data>
+  <data name="Match_MatchTitle" xml:space="preserve">
+    <value>{0} tegen {1} ({2})</value>
+  </data>
+  <data name="Match_Won" xml:space="preserve">
+    <value>{0} is gewonnen met {1}-{2}</value>
+  </data>
+  <data name="MemberList_AutoUpdateFailed" xml:space="preserve">
+    <value>Er was een probleem bij het updaten van de spelerslijst van club {0}</value>
+  </data>
+  <data name="MemberList_AutoUpdateSucceeded" xml:space="preserve">
+    <value>Auto-update van de spelerslijst van {0} gelukt</value>
+  </data>
+  <data name="PlayersToNames_AwayPlayer" xml:space="preserve">
+    <value>Uitspeler</value>
+  </data>
+  <data name="PlayersToNames_Double" xml:space="preserve">
+    <value>Dubbel</value>
+  </data>
+  <data name="PlayersToNames_HomePlayer" xml:space="preserve">
+    <value>Thuisspeler</value>
+  </data>
+  <data name="PlayersToNames_Player" xml:space="preserve">
+    <value>Speler</value>
+  </data>
+  <data name="PlayerType_FreeTime" xml:space="preserve">
+    <value>V</value>
+  </data>
+  <data name="PlayerType_RecreationalReserve" xml:space="preserve">
+    <value>R</value>
+  </data>
+  <data name="PrintValidationErrorsContinue" xml:space="preserve">
+    <value>Weet u zeker dat u de wedstrijd wil afdrukken?</value>
+  </data>
+  <data name="Print_AcrobatNotFound" xml:space="preserve">
+    <value>Adobe Acrobat Reader kon niet gevonden worden op de standaard locaties.</value>
+  </data>
+  <data name="Print_AllFiles" xml:space="preserve">
+    <value>Alle bestanden</value>
+  </data>
+  <data name="Print_ValidationErrorsFound" xml:space="preserve">
+    <value>De wedstrijd die u wil afdrukken bevat validatiefouten:</value>
+  </data>
+  <data name="RefereeLayout_1by8" xml:space="preserve">
+    <value>Layout om te knippen (1x8)</value>
+  </data>
+  <data name="RefereeLayout_2by4" xml:space="preserve">
+    <value>Layout om te knippen (2x4)</value>
+  </data>
+  <data name="RefereeLayout_PerTable" xml:space="preserve">
+    <value>Één blad per tafel</value>
+  </data>
+  <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
+    <value>Scheidsrechter: uit</value>
+  </data>
+  <data name="RefereeTemplate_RefereeHome" xml:space="preserve">
+    <value>Scheidsrechter: thuis</value>
+  </data>
+  <data name="RestoreBackup_RestoreMultiple" xml:space="preserve">
+    <value>Herstel {0} matchen</value>
+  </data>
+  <data name="RestoreBackup_RestoreNothing" xml:space="preserve">
+    <value>Herstel niets</value>
+  </data>
+  <data name="RestoreBackup_RestoreOne" xml:space="preserve">
+    <value>Herstel 1 match</value>
+  </data>
+  <data name="RestoredMatch_Against" xml:space="preserve">
+    <value>{0} tegen {1}</value>
+  </data>
+  <data name="RestoredMatch_Empty" xml:space="preserve">
+    <value>&lt;leeg&gt;</value>
+  </data>
+  <data name="RestoredMatch_MatchInfo" xml:space="preserve">
+    <value>Match #{0} die doorging op {1}</value>
+  </data>
+  <data name="ScoreVisualization_Compact" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="ScoreVisualization_CompactDesc" xml:space="preserve">
+    <value>Toont de resultaten van alle wedstrijden in één enkel overzicht.</value>
+  </data>
+  <data name="ScoreVisualization_Default" xml:space="preserve">
+    <value>Uitgebereid</value>
+  </data>
+  <data name="ScoreVisualization_DefaultDesc" xml:space="preserve">
+    <value>Toont uitgebreide resultaten, wedstrijd per wedstrijd.</value>
+  </data>
+  <data name="ScoreVisualization_Message" xml:space="preserve">
+    <value>Selecteer de visualisatie die u wilt gebruiken voor het overzichtsscherm en het tweede scherm.</value>
+  </data>
+  <data name="ScoreVisualization_OverviewScreen" xml:space="preserve">
+    <value>Overzichtscherm</value>
+  </data>
+  <data name="ScoreVisualization_SecondScreen" xml:space="preserve">
+    <value>Tweede scherm</value>
+  </data>
+  <data name="Screen_Primary" xml:space="preserve">
+    <value>primair beeldscherm</value>
+  </data>
+  <data name="SetScoreViewModel_NaturalNumber" xml:space="preserve">
+    <value>Je moet een natuurlijk getal opgeven.</value>
+  </data>
+  <data name="Settings_AutoUpload" xml:space="preserve">
+    <value>Auto-upload</value>
+  </data>
+  <data name="Settings_Defaults" xml:space="preserve">
+    <value>Standaardwaarden</value>
+  </data>
+  <data name="Settings_FollowAway" xml:space="preserve">
+    <value>Uitwedstrijden volgen</value>
+  </data>
+  <data name="Settings_Language" xml:space="preserve">
+    <value>Taal</value>
+  </data>
+  <data name="Settings_Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Settings_Limburg" xml:space="preserve">
+    <value>Limburgse vrijetijdscompetitie</value>
+  </data>
+  <data name="Settings_LiveUpdates" xml:space="preserve">
+    <value>Live Updates</value>
+  </data>
+  <data name="Settings_Printing" xml:space="preserve">
+    <value>Printen</value>
+  </data>
+  <data name="Settings_ScoreVisualization" xml:space="preserve">
+    <value>Visualisatie van de score</value>
+  </data>
+  <data name="Settings_SecondScreen" xml:space="preserve">
+    <value>Tweede scherm</value>
+  </data>
+  <data name="Settings_Startup" xml:space="preserve">
+    <value>Opstartinstellingen</value>
+  </data>
+  <data name="Settings_Upload" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+  <data name="Settings_Various" xml:space="preserve">
+    <value>Varia</value>
+  </data>
+  <data name="Settings_WebService" xml:space="preserve">
+    <value>Web Service</value>
+  </data>
+  <data name="Status_Dirty" xml:space="preserve">
+    <value>Het wedstrijdblad bevat onopgeslagen wijzigingen</value>
+  </data>
+  <data name="Status_Emailed" xml:space="preserve">
+    <value>De resultaten zijn succesvol per e-mail doorgestuurd naar de verantwoordelijken van de vrijetijdscompetitie</value>
+  </data>
+  <data name="Status_Saved" xml:space="preserve">
+    <value>Het wedstrijdblad werd succesvol opgeslagen op de harde schijf</value>
+  </data>
+  <data name="Status_Uploaded" xml:space="preserve">
+    <value>Het wedstrijdblad werd succesvol geüpload naar de competitiewebsite</value>
+  </data>
+  <data name="Status_UploadError" xml:space="preserve">
+    <value>Er was een probleem bij het uploaden van het wedstrijdblad naar de competitiewebsite. Probeer het manueel opnieuw om te zien wat de fout was.</value>
+  </data>
+  <data name="SubstitutePlayerInfo_NoSubstitute" xml:space="preserve">
+    <value>Geen wissel</value>
+  </data>
+  <data name="SubstitutePlayerInfo_Substitute" xml:space="preserve">
+    <value>Wissel in match #{0}</value>
+  </data>
+  <data name="TabTUpdater_AddedClub" xml:space="preserve">
+    <value>Club {0} ({1}) toegevoegd</value>
+  </data>
+  <data name="TabTUpdater_AdditionalDivisionsDownloaded" xml:space="preserve">
+    <value>Extra divisies gedownload</value>
+  </data>
+  <data name="TabTUpdater_BeginClubUpdate" xml:space="preserve">
+    <value>De update van de clubs begint</value>
+  </data>
+  <data name="TabTUpdater_BeginMatchUpdate" xml:space="preserve">
+    <value>De update van de database begint</value>
+  </data>
+  <data name="TabTUpdater_Canceled" xml:space="preserve">
+    <value>De gebruiker heeft de update geannuleerd.</value>
+  </data>
+  <data name="TabTUpdater_ClubsUpdated" xml:space="preserve">
+    <value>De update van de clubs is geslaagd.</value>
+  </data>
+  <data name="TabTUpdater_DivisionsDownloaded" xml:space="preserve">
+    <value>Divisies gedownload</value>
+  </data>
+  <data name="TabTUpdater_DownloadingSeason" xml:space="preserve">
+    <value>Bezig met downloaden van de data van seizoen {0}</value>
+  </data>
+  <data name="TabTUpdater_Finished" xml:space="preserve">
+    <value>Gedaan!</value>
+  </data>
+  <data name="TabTUpdater_InvalidDateInfo" xml:space="preserve">
+    <value>Deze wedstrijd [{0} - {1} ({2})] zal te vinden zijn onder 'Wedstrijden met onbekende datum'!</value>
+  </data>
+  <data name="TabTUpdater_MatchDetailsDownloaded" xml:space="preserve">
+    <value>Matchdetails van ploeg {0} in {1} gedownload</value>
+  </data>
+  <data name="TabTUpdater_MatchPlanned" xml:space="preserve">
+    <value>De wedstrijd {0} - {1} ({2}) wordt gepland in de week van {3}</value>
+  </data>
+  <data name="TabTUpdater_MemberListDownloaded" xml:space="preserve">
+    <value>Sterktelijst van {0} gedownload</value>
+  </data>
+  <data name="TabTUpdater_MemberListsDownloaded" xml:space="preserve">
+    <value>Provinciale (heren-)sterktelijsten gedownload</value>
+  </data>
+  <data name="TabTUpdater_NoTeams" xml:space="preserve">
+    <value>Er zijn nog geen teams van jouw club ingeschreven op de competitiewebsite. Probeer later opnieuw.</value>
+  </data>
+  <data name="TabTUpdater_NoWeek" xml:space="preserve">
+    <value>Ploeg {0} uit divisie '{1}' heeft een wedstrijd waarvan de week niet gevonden kon worden!</value>
+  </data>
+  <data name="TabTUpdater_Stats" xml:space="preserve">
+    <value>De volgende web service-oproepen werden gebruikt : {0}</value>
+  </data>
+  <data name="TabTUpdater_TeamsDownloaded" xml:space="preserve">
+    <value>Teams van {0} gedownload</value>
+  </data>
+  <data name="TabTUpdater_UpdateFailed" xml:space="preserve">
+    <value>De update is niet (helemaal) gelukt. Meer uitleg vind je in de logs.</value>
+  </data>
+  <data name="TabTUpdater_UpdateSucceeded" xml:space="preserve">
+    <value>De update van de matchen is geslaagd</value>
+  </data>
+  <data name="TabTUpdater_Warning" xml:space="preserve">
+    <value>OPGELET: Je hebt nog geen gebruikersnaam/paswoord ingevuld. Dit kan mogelijk fouten veroorzaken!</value>
+  </data>
+  <data name="TabT_APIVersion" xml:space="preserve">
+    <value>Versie {0} van de API wordt gebruikt</value>
+  </data>
+  <data name="TabT_DatabaseName" xml:space="preserve">
+    <value>De naam van de TabT-database is '{0}'</value>
+  </data>
+  <data name="TabT_QuotaInfo" xml:space="preserve">
+    <value>Momenteel is er {0} quota gebruikt uit een totaal van {1}.</value>
+  </data>
+  <data name="UpdateStatusToString_Downloading" xml:space="preserve">
+    <value>Bezig met downloaden van update</value>
+  </data>
+  <data name="UpdateStatusToString_Error" xml:space="preserve">
+    <value>Fout bij het controleren op updates</value>
+  </data>
+  <data name="UpdateStatusToString_Installing" xml:space="preserve">
+    <value>Bezig met installeren van update</value>
+  </data>
+  <data name="UpdateStatusToString_NoUpdate" xml:space="preserve">
+    <value>Geen update beschikbaar</value>
+  </data>
+  <data name="UpdateStatusToString_Searching" xml:space="preserve">
+    <value>Bezig met zoeken naar update</value>
+  </data>
+  <data name="UpdateStatusToString_Unknown" xml:space="preserve">
+    <value>Status is onbekend</value>
+  </data>
+  <data name="UpdateStatusToString_Updated" xml:space="preserve">
+    <value>Installatie van de update geslaagd! Herstart het programma.</value>
+  </data>
+  <data name="UpdateText_Outdated" xml:space="preserve">
+    <value>Deze versie van het programma is verouderd. Gelieve het programma te updaten.</value>
+  </data>
+  <data name="UpdateText_Updated" xml:space="preserve">
+    <value>Er is een nieuwe versie van het programma beschikbaar. Herstart de applicatie om de nieuwe versie te gebruiken.</value>
+  </data>
+  <data name="Various_DeleteWarning" xml:space="preserve">
+    <value>U staat op het punt om alle data te verwijderen van matchen die eerder ingegeven zijn. Deze data bevat de setstanden, de spelers, en alles wat manueel ingegeven is. U kan het programma hierna blijven gebruiken zoals daarvoor, maar indien u een speeldag opent waar al uitslagen waren ingegeven dan zullen die nu terug leeg zijn.
+
+Weet u zeker dat u deze data wilt verwijderen?</value>
+  </data>
+  <data name="Various_InvalidLogin" xml:space="preserve">
+    <value>De opgegeven gebruikersnaam/paswoord-combinatie is ongeldig!</value>
+  </data>
+  <data name="Various_NetworkError" xml:space="preserve">
+    <value>Er heeft zich een onverwachte fout voorgedaan tijdens het connecteren met de competitiewebsite.</value>
+  </data>
+  <data name="Various_NoPassword" xml:space="preserve">
+    <value>U heeft geen paswoord opgegeven.</value>
+  </data>
+  <data name="Various_NoUsername" xml:space="preserve">
+    <value>U heeft geen gebruikersnaam opgegeven.</value>
+  </data>
+  <data name="Various_ValidLogin" xml:space="preserve">
+    <value>De opgegeven gebruikersnaam/paswoord-combinatie is geldig.</value>
+  </data>
+  <data name="WebService_AllIPs" xml:space="preserve">
+    <value>Alle IP-adressen</value>
+  </data>
+  <data name="WebService_UnblockAddressMessage" xml:space="preserve">
+    <value>Om de webservice correct te laten werken moet de beheerder van deze computer eerst expliciet toegang geven aan de huidige Windows-gebruiker om te luisteren op de door jouw geselecteerde host en poort. Wil je dat ScoreSheet toegang vraagt om gebruiker '{0}' te laten luisteren op de url '{1}'?</value>
+  </data>
+  <data name="Wizard_AllFiles" xml:space="preserve">
+    <value>Alle bestanden</value>
+  </data>
+  <data name="Wizard_Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Wizard_Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="Wizard_Email" xml:space="preserve">
+    <value>E-mail data</value>
+  </data>
+  <data name="Wizard_EmailDesc" xml:space="preserve">
+    <value>In dit venster kan u de resultaten e-mailen naar de verantwoordelijken van de vrijetijdscompetitie</value>
+  </data>
+  <data name="Wizard_EmailMessage" xml:space="preserve">
+    <value>U kan in één keer de data van meerdere matchen in één keer e-mailen. Indien u de data van bepaalde wedstrijden niet wil uploaden, dan kan u deze deselecteren.</value>
+  </data>
+  <data name="Wizard_Export" xml:space="preserve">
+    <value>Exporteer wedstrijden</value>
+  </data>
+  <data name="Wizard_ExportDesc" xml:space="preserve">
+    <value>In dit venster kan u wedstrijddata exporteren.</value>
+  </data>
+  <data name="Wizard_ExportMessage" xml:space="preserve">
+    <value>U kan in één keer de data van meerdere matchen exporteren. Indien u de data van bepaalde wedstrijden niet wil exporteren, dan kan u deze deselecteren.</value>
+  </data>
+  <data name="Wizard_InstallUpdate" xml:space="preserve">
+    <value>Update installeren</value>
+  </data>
+  <data name="Wizard_InstallUpdateDesc" xml:space="preserve">
+    <value>Hier kan u de database van het programma bijwerken</value>
+  </data>
+  <data name="Wizard_MatchType" xml:space="preserve">
+    <value>Speltype selecteren</value>
+  </data>
+  <data name="Wizard_MatchTypeDesc" xml:space="preserve">
+    <value>Hier kan u het speltype kiezen.</value>
+  </data>
+  <data name="Wizard_NewMatchDay" xml:space="preserve">
+    <value>Nieuwe speeldag beginnen</value>
+  </data>
+  <data name="Wizard_NewMatchDayDesc" xml:space="preserve">
+    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag</value>
+  </data>
+  <data name="Wizard_NoFileSelected" xml:space="preserve">
+    <value>U moet een bestaand bestand selecteren!</value>
+  </data>
+  <data name="Wizard_NoMatches" xml:space="preserve">
+    <value>Op de dag die u selecteerde gaan geen thuiswedstrijden door.</value>
+  </data>
+  <data name="Wizard_Print" xml:space="preserve">
+    <value>Documenten afdrukken</value>
+  </data>
+  <data name="Wizard_PrintDesc" xml:space="preserve">
+    <value>Hier kan u de scheidsrechterblaadjes of het wedstrijdblad afdrukken.</value>
+  </data>
+  <data name="Wizard_RankWarning" xml:space="preserve">
+    <value>De spelersvolgorde die u geselecteerd heeft, is ongeldig. Spelers moeten volgens klassement/index gerangschikt worden. Weet u zeker dat u wil doorgaan met de gekozen opstelling?</value>
+  </data>
+  <data name="Wizard_Restore" xml:space="preserve">
+    <value>Gevonden wedstijdbladen herstellen</value>
+  </data>
+  <data name="Wizard_RestoreDesc" xml:space="preserve">
+    <value>In dit venster kan u wedstrijdbladen herstellen die gevonden werden in de backupdirectory.</value>
+  </data>
+  <data name="Wizard_SelectPlayers" xml:space="preserve">
+    <value>Selecteer spelers</value>
+  </data>
+  <data name="Wizard_SelectPlayersDesc" xml:space="preserve">
+    <value>Selecteer de spelers die je in het team wil. Sleep de juiste spelers uit de lijst aan de rechterkant naar de vakjes aan de linkerkant.</value>
+  </data>
+  <data name="Wizard_ServerErrors" xml:space="preserve">
+    <value>De server stuurde de volgende fouten door:</value>
+  </data>
+  <data name="Wizard_UnknownMatchDate" xml:space="preserve">
+    <value>Wedstrijden met onbekende datum</value>
+  </data>
+  <data name="Wizard_Update" xml:space="preserve">
+    <value>Database Bijwerken</value>
+  </data>
+  <data name="Wizard_UpdateDesc" xml:space="preserve">
+    <value>In dit venster kan u de database van de applicatie up-to-date brengen.</value>
+  </data>
+  <data name="Wizard_UpdateFile" xml:space="preserve">
+    <value>ScoreSheet updatebestand</value>
+  </data>
+  <data name="Wizard_UpdateFileHelp" xml:space="preserve">
+    <value>Om de database te updaten door middel van een updatebestand, moet u natuurlijk eerst een updatebestand hebben. Dit bestand moet u aanmaken op een andere computer die wél een internetconnectie heeft.
+
+Start het ScoreSheet-programma op de computer met internetconnectie op, en update de database door gebruik te maken van de optie 'Database bijwerken via het Internet'. Eenmaal dit gedaan is, kan u die bijgewerkte data exporteren naar een updatebestand door in het menu te klikken op 'Opties', 'Database updates', en vervolgens op 'Updatebestand wegschrijven'. Geef dit updatebestand een naam, en schrijf het weg op een USB-stick of draagbare harde schijf.
+
+Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schijf aan deze computer hangen, en kan u middels de optie 'Database bijwerken met een updatebestand' de gegevens op deze computer bijwerken.</value>
+  </data>
+  <data name="Wizard_UpdateSuccessful" xml:space="preserve">
+    <value>De update is zonder fouten geslaagd!</value>
+  </data>
+  <data name="Wizard_Upload" xml:space="preserve">
+    <value>Upload data</value>
+  </data>
+  <data name="Wizard_UploadDesc" xml:space="preserve">
+    <value>In dit venster kan u de data uploaden naar de competitiewebsite.</value>
+  </data>
+  <data name="Wizard_UploadMessage" xml:space="preserve">
+    <value>U kan in één keer de data van meerdere matchen in één keer uploaden naar de competitiewebsite. Indien u de data van bepaalde wedstrijden niet wil uploaden, dan kan u deze deselecteren.</value>
+  </data>
+  <data name="Wizard_UploadSuccessful" xml:space="preserve">
+    <value>De data is succesvol geüpload!</value>
+  </data>
+  <data name="Wizard_ValidationWarning" xml:space="preserve">
+    <value>U heeft wedstrijden geselecteerd met validatiefouten in. Weet u zeker dat u wil verdergaan?</value>
+  </data>
+</root>

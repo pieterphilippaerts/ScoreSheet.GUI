@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoUpload_Description" xml:space="preserve">
+    <value>Afin de ne pas oublier d'envoyer les feuilles de matchs au site web de la compétition, ScoreSheet peut les envoyer automatiquement dès qu'elles sont imprimées.</value>
+  </data>
+  <data name="AutoUpload_Enable" xml:space="preserve">
+    <value>Envoyer automatiquement les feuilles de matchs lorsqu'elles sont imprimées</value>
+  </data>
+  <data name="AutoUpload_NonCompetitive" xml:space="preserve">
+    <value>Les rencontres non-compétitives (comme dans la compétition récréative du Limbourg) ne sont jamais envoyées.</value>
+  </data>
+  <data name="AutoUpload_Warning" xml:space="preserve">
+    <value>ATTENTION: une feuille de match ne sera envoyée que si elle ne contient aucune erreur de validation! Si vous désirez ignorer des erreurs de validation dans des feuilles de matchs, il vous faut les envoyer manuellement via le menu 'Upload'.</value>
+  </data>
+  <data name="AwayMatches_AwayMatchesToday" xml:space="preserve">
+    <value>Nombre de rencontres en déplacement aujourd'hui:</value>
+  </data>
+  <data name="AwayMatches_Description" xml:space="preserve">
+    <value>ScoreSheet peut périodiquement vérifier sur le site web de la compétition si des résultats (intermédiaires) sont disponibles pour des équipes qui jouent en déplacement le même jour. Les résultats de ces équipes seront alors affichées dans l'aperçu des rencontres.</value>
+  </data>
+  <data name="AwayMatches_ExtraInfo" xml:space="preserve">
+    <value>Cette fonctionnalité ne fonctionne que si le club où jouent les équipes en déplacement utilise la possibilité 'live updates'. Il est donc possible que vous ne puissiez voir les résultats de toutes les équipes en déplacement.</value>
+  </data>
+  <data name="AwayMatches_FollowAway" xml:space="preserve">
+    <value>Suivre les rencontres en déplacement</value>
+  </data>
+  <data name="AwayMatches_Warning" xml:space="preserve">
+    <value>Cette fonctionnalité ne fonctionne que si 'live updates' est activé pour toutes les rencontres!</value>
+  </data>
+  <data name="Defaults_Address" xml:space="preserve">
+    <value>Adresse du local du club visité: (à laisser vide pour que soit utilisée l'adresse connue dans la base de données)</value>
+  </data>
+  <data name="Defaults_Description" xml:space="preserve">
+    <value>Lors de la création d'une nouvelle feuille de match, ces réglages remplaceront les valeurs par défaut.</value>
+  </data>
+  <data name="Defaults_ExceptSuperLeague" xml:space="preserve">
+    <value>… sauf pour la Super Division</value>
+  </data>
+  <data name="Defaults_TwoByTwo" xml:space="preserve">
+    <value>Sélectionner 'deux par deux' par défaut</value>
+  </data>
+  <data name="Language_Description" xml:space="preserve">
+    <value>Choisir ci-dessous la langue de l'interface utilisateur du programme.</value>
+  </data>
+  <data name="Language_HelpLink" xml:space="preserve">
+    <value>En savoir plus</value>
+  </data>
+  <data name="Language_HelpMessage" xml:space="preserve">
+    <value>Nous recherchons encore de l'aide pour traduire ce programme. Avez-vous trouvé une erreur de langue ou voulez-vous traduire le programme dans une nouvelle langue? Cliquez alors sur le lien ci-dessous…</value>
+  </data>
+  <data name="Language_RestartDe" xml:space="preserve">
+    <value>Sie müssen das Programm neu starten, damit diese Änderung wirksam wird.</value>
+  </data>
+  <data name="Language_RestartEn" xml:space="preserve">
+    <value>You must restart the program for this change to take effect.</value>
+  </data>
+  <data name="Language_RestartFr" xml:space="preserve">
+    <value>Vous devez redémarrer le programme pour que cette modification soit prise en compte.</value>
+  </data>
+  <data name="Language_RestartNl" xml:space="preserve">
+    <value>U moet het programma herstarten om deze wijziging door te voeren.</value>
+  </data>
+  <data name="Layout_Background" xml:space="preserve">
+    <value>Couleur de fond:</value>
+  </data>
+  <data name="Layout_Description" xml:space="preserve">
+    <value>Sélectionnez le thème que vous désirez utiliser pour la feuille de match.</value>
+  </data>
+  <data name="Layout_ErrorBackground" xml:space="preserve">
+    <value>Erreur (arrière-plan):</value>
+  </data>
+  <data name="Layout_ErrorText" xml:space="preserve">
+    <value>Erreur (texte):</value>
+  </data>
+  <data name="Layout_Info" xml:space="preserve">
+    <value>Cliquez sur la couleur pour la modifier</value>
+  </data>
+  <data name="Layout_Text" xml:space="preserve">
+    <value>Couleur du texte:</value>
+  </data>
+  <data name="Layout_TextField" xml:space="preserve">
+    <value>Couleur champ de texte:</value>
+  </data>
+  <data name="LimburgFreeTime_AddressWarning" xml:space="preserve">
+    <value>Bien que le mot de passe soit sauvegardé de façon sécurisée, nous vous déconseillons d'utiliser une adresse email personnelle. Il serait préférable que vous créiez une adresse gratuite de type Hotmail ou Gmail, qui puisse être gérée par le club et utilisée uniquement pour envoyer ces résultats.</value>
+  </data>
+  <data name="LimburgFreeTime_CC" xml:space="preserve">
+    <value>Envoyer une copie des emails à l'adresse email du club</value>
+  </data>
+  <data name="LimburgFreeTime_Description" xml:space="preserve">
+    <value>Les résultats de la compétition récréative du Limbourg ne peuvent pas être envoyés, mais doivent être envoyés par email au comité de la compétition récréative. Si vous encodez les paramètres d'email demandés ci-dessous, ScoreSheet peut envoyer les feuilles de matchs directement depuis le programme.</value>
+  </data>
+  <data name="LimburgFreeTime_EmailSettings" xml:space="preserve">
+    <value>Paramètres d'adresse email</value>
+  </data>
+  <data name="LimburgFreeTime_Host" xml:space="preserve">
+    <value>Host:</value>
+  </data>
+  <data name="LimburgFreeTime_MailFrom" xml:space="preserve">
+    <value>Email du club:</value>
+  </data>
+  <data name="LimburgFreeTime_MailFromDesc" xml:space="preserve">
+    <value>Ceci est l'adresse email du club (ou de quelqu'un du club) qu'un personne en charge de la compétition récréative peut utiliser si il a des questions au sujet de la feuille de match.</value>
+  </data>
+  <data name="LimburgFreeTime_MailTo" xml:space="preserve">
+    <value>Envoyer vers:</value>
+  </data>
+  <data name="LimburgFreeTime_MailToDesc" xml:space="preserve">
+    <value>Ceci est l'adresse email de la personne responsable des résultats de la compétition récréative, telle que désignée par le comité provincial.</value>
+  </data>
+  <data name="LimburgFreeTime_Password" xml:space="preserve">
+    <value>Mot de passe:</value>
+  </data>
+  <data name="LimburgFreeTime_Port" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="LimburgFreeTime_SmtpHelp" xml:space="preserve">
+    <value>Aide pour déterminer les bons paramètres SMTP</value>
+  </data>
+  <data name="LimburgFreeTime_SmtpSettings" xml:space="preserve">
+    <value>Paramètres SMTP</value>
+  </data>
+  <data name="LimburgFreeTime_TestSettings" xml:space="preserve">
+    <value>Tester les paramètres email</value>
+  </data>
+  <data name="LimburgFreeTime_Username" xml:space="preserve">
+    <value>Nom d'utilisateur:</value>
+  </data>
+  <data name="LimburgFreeTime_UseStartTls" xml:space="preserve">
+    <value>Utiliser STARTTLS</value>
+  </data>
+  <data name="LimburgFreeTime_Warning" xml:space="preserve">
+    <value>ATTENTION: cette fonctionnalité n'a pas encore été officiellement approuvée par les responsables de la compétition récréative.</value>
+  </data>
+  <data name="LiveUpdates_Description" xml:space="preserve">
+    <value>ScoreSheet peut envoyer à intervalles réguliers les résultats intermédiaires au site web de la compétition. De cette façon, il est possible pour quelqu'un qui n'est pas présent dans la salle de suivre les rencontres via le site web de la compétition. Cette option est recommandée pour les rencontres de Super Division, mais peut aussi être utilisée pour les rencontres de tous les autres niveaux.</value>
+  </data>
+  <data name="LiveUpdates_Enable" xml:space="preserve">
+    <value>Activer 'Live Updates'</value>
+  </data>
+  <data name="LiveUpdates_FollowAwayWarning" xml:space="preserve">
+    <value>Si 'Live Updates' n'est pas activé pour toutes les rencontres, l'option 'Suivre les rencontres en déplacement' ne fonctionnera pas.</value>
+  </data>
+  <data name="LiveUpdates_NonCompetitive" xml:space="preserve">
+    <value>Les rencontres non-compétitives (comme dans la compétition récréative du Limbourg) ne sont jamais envoyées.</value>
+  </data>
+  <data name="LiveUpdates_OnlySuper" xml:space="preserve">
+    <value>… mais uniquement pour les rencontres de Super Division</value>
+  </data>
+  <data name="LiveUpdates_UploadWarning" xml:space="preserve">
+    <value>ATTENTION : si cette option est sélectionnée, vous devez encore, envoyer la rencontre à la fin de la journée, comme d'habitude.</value>
+  </data>
+  <data name="PrintDefaults_Adobe" xml:space="preserve">
+    <value>Imprimer via Adobe Acrobat (Reader)</value>
+  </data>
+  <data name="PrintDefaults_Description" xml:space="preserve">
+    <value>Vous pouvez imprimer les feuilles de matchs directement depuis l'application, ou choisir de le faire via Adobe Acrobat (Reader). Si vous ne parvenez pas à imprimer directement depuis l'application, il est préférable de choisir l'option Adobe Acrobat (Reader).</value>
+  </data>
+  <data name="PrintDefaults_Direct" xml:space="preserve">
+    <value>Imprimer directement depuis l'application</value>
+  </data>
+  <data name="PrintDefaults_ScoreCardLayout" xml:space="preserve">
+    <value>Mise en page des feuilles d'arbitrage:</value>
+  </data>
+  <data name="PrintDefaults_Search" xml:space="preserve">
+    <value>Rechercher automatiquement</value>
+  </data>
+  <data name="PrintDefaults_Sponsors" xml:space="preserve">
+    <value>Imprimer les sponsors sur la feuille de match</value>
+  </data>
+  <data name="SecondScreen_Auto" xml:space="preserve">
+    <value>Choisir automatiquement un écran</value>
+  </data>
+  <data name="SecondScreen_Description" xml:space="preserve">
+    <value>ScoreSheet supporte l'affichage des résultats intermédiaires sur un écran supplémentaire ou sur un projecteur. Pour utiliser cette possibilité, vous devez configurer cet écran supplémentaire dans l'affichage Windows en mode 'bureau étendu'.</value>
+  </data>
+  <data name="SecondScreen_Enable" xml:space="preserve">
+    <value>Activer le support de plusieurs écrans</value>
+  </data>
+  <data name="SecondScreen_Manual" xml:space="preserve">
+    <value>Choisir manuellement un écran</value>
+  </data>
+  <data name="Settings_Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="Settings_Description" xml:space="preserve">
+    <value>Dans cette fenêtre, vous pouvez modifier les paramètres de l'application</value>
+  </data>
+  <data name="Settings_Title" xml:space="preserve">
+    <value>Modifier les paramètres</value>
+  </data>
+  <data name="Startup_Info" xml:space="preserve">
+    <value>Par défaut, c'est la version la plus récente du programme qui est exécutée, et les données de l'utilisateur sont sauvegardées dans le profil par défaut. Cependant, vous pouvez aussi choisir de démarrer une version plus ancienne (par exemple lorsque vous rencontrez des problèmes avec une nouvelle version), ou de créer un profil supplémentaire. Le profil supplémentaire peut être utilisé pour sauvegarder les données d'un autre club (ce qui est pratique si un ordinateur est utilisé par plusieurs clubs).
+
+Vous pouvez modifier ces propriétés de démarrage en maintenant appuyé le touche SHIFT pendant le démarrage du programme. Vous accèderez alors à un écran de démarrage où vous pourrez modifier ces réglages.</value>
+  </data>
+  <data name="Upload_Description" xml:space="preserve">
+    <value>Pour pouvoir envoyer les résultats au site web de la compétition, vous devez posséder un nom d'utilisateur et un mot de passe avec les permissions requises. Si vous désirez ne pas devoir encoder ces données à chaque fois, vous pouvez les sauvegarder (de façon sécurisée).</value>
+  </data>
+  <data name="Upload_Password" xml:space="preserve">
+    <value>Mot de passe:</value>
+  </data>
+  <data name="Upload_Test" xml:space="preserve">
+    <value>Tester la combinaison nom d'utilisateur / mot de passe</value>
+  </data>
+  <data name="Upload_Username" xml:space="preserve">
+    <value>Nom d'utilisateur :</value>
+  </data>
+  <data name="Various_CapsLock" xml:space="preserve">
+    <value>Activer CAPS-LOCK au démarrage du programme</value>
+  </data>
+  <data name="Various_DeleteOld" xml:space="preserve">
+    <value>Supprimer les anciennes données de rencontres</value>
+  </data>
+  <data name="Various_FullScreen" xml:space="preserve">
+    <value>Démarrer automatiquement en mode plein écran</value>
+  </data>
+  <data name="Various_HideNav" xml:space="preserve">
+    <value>Cacher automatiquement la barre de navigation</value>
+  </data>
+  <data name="Various_HideNavInfo" xml:space="preserve">
+    <value>(fonctionne uniquement en mode plein écran)</value>
+  </data>
+  <data name="Various_ShowResultsInNavigation" xml:space="preserve">
+    <value>Afficher les résultats dans la barre de navigation</value>
+  </data>
+  <data name="WebService_Activated" xml:space="preserve">
+    <value>Le service web est maintenant actif</value>
+  </data>
+  <data name="WebService_Description" xml:space="preserve">
+    <value>Vous pouvez rendre disponibles les résultats des rencontres que vous encodez via un service web JSON.
+
+Cette option est destinée à une utilisation avancée. Pour une expérience plus conviviale, choisissez l'option 'Second écran'.</value>
+  </data>
+  <data name="WebService_Enable" xml:space="preserve">
+    <value>Activer le service web JSON</value>
+  </data>
+  <data name="WebService_Error" xml:space="preserve">
+    <value>Un erreur est survenue au démarrage du service web. Consultez le fichier log pour en déterminer la cause.</value>
+  </data>
+  <data name="WebService_ModifyInfo" xml:space="preserve">
+    <value>Vous ne pouvez modifier le host et le port que si vous désactivez le service web.</value>
+  </data>
+  <data name="WebService_OpenBrowser" xml:space="preserve">
+    <value>Ouvrir le service dans un navigateur web</value>
+  </data>
+  <data name="WebService_OpenMoreInfo" xml:space="preserve">
+    <value>Aller à la page d'aide en ligne</value>
+  </data>
+  <data name="WebService_Port" xml:space="preserve">
+    <value>Port:</value>
+  </data>
+  <data name="WebService_UnblockAddress" xml:space="preserve">
+    <value>Donner les permissions pour cette URL</value>
+  </data>
+</root>

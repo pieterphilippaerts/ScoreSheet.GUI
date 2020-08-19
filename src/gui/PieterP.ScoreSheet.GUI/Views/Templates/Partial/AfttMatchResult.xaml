@@ -1,0 +1,90 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.AfttMatchResult"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             mc:Ignorable="d">
+    <UserControl.Resources>
+        <conv:IndexToObjectConverter x:Key="BackgroundConverter">
+            <conv:IndexToObjectConverter.EvenValue>
+                <SolidColorBrush Color="#F9F9F8"/>
+            </conv:IndexToObjectConverter.EvenValue>
+            <conv:IndexToObjectConverter.UnevenValue>
+                <SolidColorBrush Color="White"/>
+            </conv:IndexToObjectConverter.UnevenValue>
+        </conv:IndexToObjectConverter>
+        <conv:PlayersToAfttNamesConverter x:Key="PlayerConverter"/>
+        <conv:SetInputToVisibilityConverter x:Key="HyphenConverter" />
+    </UserControl.Resources>
+    <Grid Background="{Binding Position, Converter={StaticResource BackgroundConverter}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.45cm" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="4.5cm"/>
+            <ColumnDefinition Width="1.32cm"/>
+            <ColumnDefinition Width="1.5cm"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.57cm"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="0" BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
+            <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding Position}" VerticalAlignment="Center"/>
+        </Border>
+        <Border Grid.Column="1"  BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
+            <Viewbox StretchDirection="DownOnly" VerticalAlignment="Center">
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerConverter}}"/>
+            </Viewbox>
+        </Border>
+        <Border Grid.Column="2" BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
+            <Viewbox StretchDirection="DownOnly" VerticalAlignment="Center">
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerConverter}}"/>
+            </Viewbox>
+        </Border>
+        <ItemsControl ItemsSource="{Binding Sets}" Grid.Column="3">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="DarkGray" BorderThickness="0 0 0.75 0" Width="0.9cm">
+                        <Viewbox StretchDirection="DownOnly">
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <TextBlock FontSize="0.35cm" Text="{Binding LeftScore.Value}"/>
+                                <TextBlock FontSize="0.35cm" Text="-">
+                                    <TextBlock.Visibility>
+                                        <MultiBinding Converter="{StaticResource HyphenConverter}">
+                                            <Binding Path="LeftScore.Value" />
+                                            <Binding Path="RightScore.Value" />
+                                        </MultiBinding>
+                                    </TextBlock.Visibility>
+                                </TextBlock>
+                                <TextBlock FontSize="0.35cm" Text="{Binding RightScore.Value}"/>
+                            </StackPanel>
+                        </Viewbox>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Border Grid.Column="4" BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
+            <StackPanel VerticalAlignment="Center"  Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding HomeSets.Value}"/>
+                <TextBlock>-</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding AwaySets.Value}"/>
+            </StackPanel>
+        </Border>
+        <Border Grid.Column="5"  BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding HomeMatches.Value}"/>
+                <TextBlock>-</TextBlock>
+                <TextBlock TextAlignment="Center" FontSize="0.35cm" Text="{Binding AwayMatches.Value}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="Handicap_Description" xml:space="preserve">
+    <value>Voor niet-officiële matchen kan eventueel met voorgift (beter bekend als 'handicap') gespeeld worden. Indien u dit wenst, kan u hieronder de handicap-tabel selecteren die u wilt gebruiken.
+
+De voorgift-punten zullen afgeprint worden op de scheidsrechtersblaadjes.</value>
+  </data>
+  <data name="Handicap_UseHandicap" xml:space="preserve">
+    <value>Met voorgift spelen</value>
+  </data>
+  <data name="NewCustomMatch_Description" xml:space="preserve">
+    <value>Voor een niet-officiële match kan je zelf kiezen welk speltype je gebruikt. Het speltype heeft een weerslag op hoe het wedstrijdblad er uit ziet.</value>
+  </data>
+  <data name="NewDivisionDay_Description" xml:space="preserve">
+    <value>Open alle wedstrijden van een divisie voor een gegeven dag</value>
+  </data>
+  <data name="NewDivisionDay_Loading" xml:space="preserve">
+    <value>... bezig met laden van data ...</value>
+  </data>
+  <data name="NewDivisionDay_Message" xml:space="preserve">
+    <value>Selecteer voor een bepaalde regio een divisie en een datum, en ScoreSheet opent alle bijbehorende wedstrijden (ongeacht de clubs die spelen). Deze functie kan worden gebruikt voor specifieke evenementen (bijv. jeugdcompetitie) waarbij meerdere wedstrijden van verschillende clubs op één locatie worden gespeeld.</value>
+  </data>
+  <data name="NewDivisionDay_National" xml:space="preserve">
+    <value>Nationaal</value>
+  </data>
+  <data name="NewDivisionDay_Title" xml:space="preserve">
+    <value>Open divisie-dag</value>
+  </data>
+  <data name="NewMatchday_Description" xml:space="preserve">
+    <value>De lijst hieronder toont alle beschikbare speeldagen. Kies de speeldag waarvan je de wedstrijdbladen wil genereren en klik op OK.</value>
+  </data>
+  <data name="NewMatchday_OpenAway" xml:space="preserve">
+    <value>Genereer ook wedstrijdbladen voor uitwedstrijden</value>
+  </data>
+  <data name="NewMatchday_OpenBye" xml:space="preserve">
+    <value>Open bye-wedstrijden die deze week gespeeld worden</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Print_Description" xml:space="preserve">
+    <value>Selecteer wat u van de geselecteerde wedstrijd wil afdrukken:</value>
+  </data>
+  <data name="Print_Handicap" xml:space="preserve">
+    <value>Handicap gebruiken</value>
+  </data>
+  <data name="Print_Print" xml:space="preserve">
+    <value>Afdrukken</value>
+  </data>
+  <data name="Print_Results" xml:space="preserve">
+    <value>Wedstrijdblad</value>
+  </data>
+  <data name="Print_ScoreCards" xml:space="preserve">
+    <value>Scheidsrechterblaadjes</value>
+  </data>
+  <data name="RestoreBackups_Description" xml:space="preserve">
+    <value>Er werden nog oude wedstrijdbladen gevonden in de backupdirectory van dit programma. Dit zijn meestal bestanden die achtergebleven zijn na een crash van het programma. U kan deze wedstrijdbladen terug openen door ze te selecteren en op 'Herstellen' te klikken.</value>
+  </data>
+  <data name="SelectExportType_Csv" xml:space="preserve">
+    <value>Bevat de matchdetails die u dan kan uploaden naar de competitiewebsite</value>
+  </data>
+  <data name="SelectExportType_Description" xml:space="preserve">
+    <value>U kan de geselecteerde wedstrijden naar meerdere bestandstypes exporteren. Kies hieronder het bestandstype waar u naar wil exporteren.</value>
+  </data>
+  <data name="SelectExportType_Pdf" xml:space="preserve">
+    <value>Bevat wedstrijdbladen die bekeken of afgedrukt kunnen worden via een PDF-reader</value>
+  </data>
+  <data name="SelectExportType_Xps" xml:space="preserve">
+    <value>Bevat wedstrijdbladen die bekeken of afgedrukt kunnen worden via een XPS-reader</value>
+  </data>
+  <data name="SelectMatches_NonCompetitiveMessage" xml:space="preserve">
+    <value>Dit is een niet-competitieve match en hoeft niet geüpload te worden</value>
+  </data>
+  <data name="SelectMatches_UploadMessage" xml:space="preserve">
+    <value>Deze match is al succesvol geüpload naar de competitiewebsite</value>
+  </data>
+  <data name="SelectMatches_ValidationErrors" xml:space="preserve">
+    <value>Deze match bevat validatiefouten</value>
+  </data>
+  <data name="SelectPlayers_AllPlayers" xml:space="preserve">
+    <value>Alle spelers</value>
+  </data>
+  <data name="SelectPlayers_ChiefReferee" xml:space="preserve">
+    <value>Hoofdscheidsrechter</value>
+  </data>
+  <data name="SelectPlayers_RelevantPlayers" xml:space="preserve">
+    <value>Relevante sterktelijst</value>
+  </data>
+  <data name="SelectPlayers_RoomCommissioner" xml:space="preserve">
+    <value>Zaalcommissaris</value>
+  </data>
+  <data name="UpdateFromInternet_Description" xml:space="preserve">
+    <value>In dit venster kan u de database van het programma up-to-date brengen. Deze data omvat alle informatie van de geplande competitiewedstrijden, en ook de sterktelijst van de thuisclub en alle bezoekende clubs.
+
+Deze data wordt best wekelijks geupdate, aangezien ze in principe elke week kan wijzigen (bijv. aanpassingen aan de sterktelijsten). Verouderde data kan leiden tot fouten op het wedstrijdblad, en dus ook tot boetes!</value>
+  </data>
+  <data name="UpdateFromInternet_Next" xml:space="preserve">
+    <value>Volgende</value>
+  </data>
+  <data name="UpdateFromInternet_RefreshList" xml:space="preserve">
+    <value>Vernieuw de lijst</value>
+  </data>
+  <data name="UpdateFromInternet_SelectClub" xml:space="preserve">
+    <value>Selecteer uw club:</value>
+  </data>
+  <data name="UpdateFromInternet_SelectProvince" xml:space="preserve">
+    <value>Selecteer uw provincie:</value>
+  </data>
+  <data name="UpdateFromInternet_Updating" xml:space="preserve">
+    <value>Bezig met updaten;
+even geduld a.u.b.</value>
+  </data>
+  <data name="UpdateStart_File" xml:space="preserve">
+    <value>Database bijwerken met een updatebestand</value>
+  </data>
+  <data name="UpdateStart_FileDesc" xml:space="preserve">
+    <value>U heeft een updatebestand op USB-stick staan, en u wil dit bestand gebruiken om de database up-to-date te brengen. Deze methode kan gebruikt worden indien deze computer geen internetverbinding heeft.</value>
+  </data>
+  <data name="UpdateStart_FileInfo" xml:space="preserve">
+    <value>Hoe maak ik een updatebestand aan?</value>
+  </data>
+  <data name="UpdateStart_Internet" xml:space="preserve">
+    <value>Database bijwerken via het Internet</value>
+  </data>
+  <data name="UpdateStart_InternetDesc" xml:space="preserve">
+    <value>De laatste data wordt gedownload van de competitiewebsite. Dit is de eenvoudigste optie, maar vereist wel een actieve internetconnectie.</value>
+  </data>
+  <data name="UpdatingFromInternet_Description" xml:space="preserve">
+    <value>De data wordt nu gedownload van de competitiewebsite. Dit proces kan even duren, afhankelijk van de grootte van uw club en de snelheid van uw internetconnectie.</value>
+  </data>
+</root>

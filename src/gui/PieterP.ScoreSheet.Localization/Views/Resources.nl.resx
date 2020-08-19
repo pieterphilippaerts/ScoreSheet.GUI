@@ -1,0 +1,348 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutWindow_Attribution" xml:space="preserve">
+    <value>Dit programma maakt dankbaar gebruik van de competitiedatabase die beheerd wordt door de KBTTB en de koppelingen hiermee die beschikbaar gemaakt zijn door Gaëtan Frenoy. Ook willen we specifiek Bruno Van Damme, David Waefelaer en Michèle Messiaen bedanken voor hun bijdrage aan het programma, alsook iedereen die een suggestie doorstuurde of een fout heeft gemeld.</value>
+  </data>
+  <data name="AboutWindow_Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="AboutWindow_Copyright" xml:space="preserve">
+    <value>Copyright © {0}, PieterP.be</value>
+  </data>
+  <data name="AboutWindow_DataDirectory" xml:space="preserve">
+    <value>Data-folder</value>
+  </data>
+  <data name="AboutWindow_OpenSource" xml:space="preserve">
+    <value>De broncode van dit programma is beschikbaar op de bovenstaande BitBucket-link. Wil je meehelpen? Contacteer ons dan!</value>
+  </data>
+  <data name="AboutWindow_ProgramDirectory" xml:space="preserve">
+    <value>Programma-folder</value>
+  </data>
+  <data name="AboutWindow_Support" xml:space="preserve">
+    <value>Support:</value>
+  </data>
+  <data name="AboutWindow_Title" xml:space="preserve">
+    <value>Over ScoreSheet...</value>
+  </data>
+  <data name="AboutWindow_Version" xml:space="preserve">
+    <value>Versie:</value>
+  </data>
+  <data name="AboutWindow_Website" xml:space="preserve">
+    <value>Website:</value>
+  </data>
+  <data name="AskPasswordWindow_Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="AskPasswordWindow_Description" xml:space="preserve">
+    <value>Geef hieronder de gebruikersnaam en het overeenkomstige paswoord in dat u wil gebruiken om te connecteren met de competitiewebsite.</value>
+  </data>
+  <data name="AskPasswordWindow_InvalidUsernamePassword" xml:space="preserve">
+    <value>De opgegeven gebruikersnaam/paswoord-combinatie was ongeldig!</value>
+  </data>
+  <data name="AskPasswordWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AskPasswordWindow_Password" xml:space="preserve">
+    <value>Paswoord:</value>
+  </data>
+  <data name="AskPasswordWindow_RememberLogin" xml:space="preserve">
+    <value>Logingegevens onthouden</value>
+  </data>
+  <data name="AskPasswordWindow_Username" xml:space="preserve">
+    <value>Gebruikersnaam:</value>
+  </data>
+  <data name="ErrorWindow_Description" xml:space="preserve">
+    <value>Er is een onverwachte fout opgetreden! Dit duidt meestal op een fout in het programma, of corrupte databestanden. Indien deze fout zich blijft voordoen, neemt u best contact op met de auteurs van dit programma op het e-mailadres score@pieterp.be Naast een beschrijving van wat u bezig was toen de fout zich voordeed, plakt u best ook onderstaande tekst in die email.</value>
+  </data>
+  <data name="ErrorWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorWindow_UnexpectedError" xml:space="preserve">
+    <value>Onverwachte Fout</value>
+  </data>
+  <data name="ErrorWindow_UnrecoverableMessage" xml:space="preserve">
+    <value>Omwille van de aard van de fout moet het programma worden afgesloten.</value>
+  </data>
+  <data name="LogBook_Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="LogBook_Errors" xml:space="preserve">
+    <value>Fouten</value>
+  </data>
+  <data name="LogBook_Messages" xml:space="preserve">
+    <value>Meldingen</value>
+  </data>
+  <data name="LogBook_Show" xml:space="preserve">
+    <value>Toon:</value>
+  </data>
+  <data name="LogBook_Warnings" xml:space="preserve">
+    <value>Waarschuwingen</value>
+  </data>
+  <data name="MainWindow_LogBook" xml:space="preserve">
+    <value>Logboek</value>
+  </data>
+  <data name="MainWindow_MenuAbout" xml:space="preserve">
+    <value>Over ScoreSheet</value>
+  </data>
+  <data name="MainWindow_MenuCanChangeOfficialFields" xml:space="preserve">
+    <value>Officiële velden onveranderbaar maken</value>
+  </data>
+  <data name="MainWindow_MenuClose" xml:space="preserve">
+    <value>_Sluiten</value>
+  </data>
+  <data name="MainWindow_MenuCloseAll" xml:space="preserve">
+    <value>_Alles sluiten</value>
+  </data>
+  <data name="MainWindow_MenuDivisionDay" xml:space="preserve">
+    <value>Wedstrijddag (voor een specifieke divisie)</value>
+  </data>
+  <data name="MainWindow_MenuEmail" xml:space="preserve">
+    <value>E-mail resultaten vrijetijdscompetitie</value>
+  </data>
+  <data name="MainWindow_MenuExit" xml:space="preserve">
+    <value>Afsluiten</value>
+  </data>
+  <data name="MainWindow_MenuExport" xml:space="preserve">
+    <value>Exporteer wedstrijden</value>
+  </data>
+  <data name="MainWindow_MenuFile" xml:space="preserve">
+    <value>_Bestand</value>
+  </data>
+  <data name="MainWindow_MenuFullScreen" xml:space="preserve">
+    <value>Volledig scherm</value>
+  </data>
+  <data name="MainWindow_MenuHelp" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="MainWindow_MenuMatchDay" xml:space="preserve">
+    <value>Wedstrijddag (voor deze club)</value>
+  </data>
+  <data name="MainWindow_MenuNew" xml:space="preserve">
+    <value>_Nieuw</value>
+  </data>
+  <data name="MainWindow_MenuOpen" xml:space="preserve">
+    <value>_Openen</value>
+  </data>
+  <data name="MainWindow_MenuOptions" xml:space="preserve">
+    <value>_Opties</value>
+  </data>
+  <data name="MainWindow_MenuPrint" xml:space="preserve">
+    <value>_Printen</value>
+  </data>
+  <data name="MainWindow_MenuProgramUpdates" xml:space="preserve">
+    <value>Programma-updates</value>
+  </data>
+  <data name="MainWindow_MenuSave" xml:space="preserve">
+    <value>Opslaan</value>
+  </data>
+  <data name="MainWindow_MenuSaveAs" xml:space="preserve">
+    <value>Opslaan als...</value>
+  </data>
+  <data name="MainWindow_MenuSaveUpdateFile" xml:space="preserve">
+    <value>Updatebestand wegschrijven</value>
+  </data>
+  <data name="MainWindow_MenuScoreSheet" xml:space="preserve">
+    <value>Onofficieel wedstrijdblad</value>
+  </data>
+  <data name="MainWindow_MenuSettings" xml:space="preserve">
+    <value>_Voorkeuren aanpassen</value>
+  </data>
+  <data name="MainWindow_MenuUpdate" xml:space="preserve">
+    <value>_Database updates</value>
+  </data>
+  <data name="MainWindow_MenuUpdateDatabase" xml:space="preserve">
+    <value>Database _bijwerken</value>
+  </data>
+  <data name="MainWindow_MenuUpload" xml:space="preserve">
+    <value>Upload naar competitiewebsite</value>
+  </data>
+  <data name="MainWindow_OpenLogbook" xml:space="preserve">
+    <value>Open logboek</value>
+  </data>
+  <data name="MainWindow_PopupMenuClose" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="MainWindow_PopupMenuPrint" xml:space="preserve">
+    <value>Printen</value>
+  </data>
+  <data name="MainWindow_RestartRequired" xml:space="preserve">
+    <value>herstart vereist</value>
+  </data>
+  <data name="MainWindow_SubmitTranslationError" xml:space="preserve">
+    <value>Meld een (ver-)taalfout</value>
+  </data>
+  <data name="MainWindow_Zoom" xml:space="preserve">
+    <value>Zoom:</value>
+  </data>
+  <data name="SaveWindow_Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="SaveWindow_Description" xml:space="preserve">
+    <value>De volgende wedstrijd(en) zijn nog niet opgeslagen. Wilt u de wijzigingen in deze wedstrijden bewaren?</value>
+  </data>
+  <data name="SaveWindow_DiscardAll" xml:space="preserve">
+    <value>Niets opslaan</value>
+  </data>
+  <data name="SaveWindow_SaveAll" xml:space="preserve">
+    <value>Alles opslaan</value>
+  </data>
+  <data name="UpdateAppWindow_AutomaticUpdates" xml:space="preserve">
+    <value>ScoreSheet wordt automatisch in de achtergrond geüpdatet wanneer er een nieuwe versie beschikbaar is. Als deze computer echter niet altijd online is, dan kan het nodig zijn om de update via dit venster manueel te starten.</value>
+  </data>
+  <data name="UpdateAppWindow_Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="UpdateAppWindow_Description" xml:space="preserve">
+    <value>Programma-updates geven toegang tot nieuwe features, en kunnen ook foutjes wegwerken die in eerdere versies van ScoreSheet gevonden zijn. Het is daarom zeker aangeraden om altijd te updaten naar de laatste versie.</value>
+  </data>
+  <data name="UpdateAppWindow_Title" xml:space="preserve">
+    <value>ScoreSheet updaten</value>
+  </data>
+  <data name="WelcomeWindow_BlankMatch" xml:space="preserve">
+    <value>Blanco wedstrijdblad aanmaken</value>
+  </data>
+  <data name="WelcomeWindow_BlankMatchDesc" xml:space="preserve">
+    <value>Alle data moet manueel ingevuld worden; kies deze optie voor niet-competitie wedstrijden (bijv. vriendenmatchen)</value>
+  </data>
+  <data name="WelcomeWindow_Message" xml:space="preserve">
+    <value>Klik op de actie die je wil uitvoeren.</value>
+  </data>
+  <data name="WelcomeWindow_NewMatchDay" xml:space="preserve">
+    <value>Nieuwe speeldag beginnen</value>
+  </data>
+  <data name="WelcomeWindow_NewMatchDayDesc" xml:space="preserve">
+    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag</value>
+  </data>
+  <data name="WelcomeWindow_OpenMatch" xml:space="preserve">
+    <value>Bestaand wedstrijdblad openen</value>
+  </data>
+  <data name="WelcomeWindow_OpenMatchDesc" xml:space="preserve">
+    <value>Open een wedstrijdblad dat eerder opgeslagen werd.</value>
+  </data>
+  <data name="WelcomeWindow_Title" xml:space="preserve">
+    <value>Welkom! Wat wil je doen?</value>
+  </data>
+  <data name="WelcomeWindow_UpdateDb" xml:space="preserve">
+    <value>Database bijwerken</value>
+  </data>
+  <data name="WelcomeWindow_UpdateDbDesc" xml:space="preserve">
+    <value>Breng de data van dit programma up-to-date. Deze data omvat sterktelijsten en kalenderdata.</value>
+  </data>
+</root>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Templates.Partial.MatchInfo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             mc:Ignorable="d" 
+             Width="8.7cm" Height="2.32cm">
+    <Border BorderBrush="Black" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <TextBlock Margin="0.1cm 0cm" Width="1.38cm" FontSize="0.35cm">Datum</TextBlock>
+                <TextBlock Text="{Binding Date.Value}"  FontSize="0.35cm" FontWeight="Bold" />
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="0" Visibility="{Binding LevelVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType=local:MatchInfo}}">
+                <TextBlock Margin="0.1cm 0cm" Width="1.38cm" FontSize="0.35cm">Afdeling</TextBlock>
+                <TextBlock Text="{Binding Level.Value.Name.Value}"  FontSize="0.35cm"  FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+                <TextBlock Margin="0.1cm 0cm" Width="2.15cm" FontSize="0.35cm">Aanvangsuur</TextBlock>
+                <TextBlock Text="{Binding StartHour.Value}"  FontSize="0.35cm"  FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <TextBlock Margin="0.1cm 0cm" Width="1.6cm" FontSize="0.35cm">Match n°</TextBlock>
+                <TextBlock Text="{Binding MatchId.Value}"  FontSize="0.35cm"  FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                <TextBlock Margin="0.1cm 0cm" Width="1.6cm" FontSize="0.35cm">Reeks</TextBlock>
+                <TextBlock Text="{Binding Series.Value}"  FontSize="0.35cm" FontWeight="Bold"/>
+            </StackPanel>
+            <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                <TextBlock Margin="0.1cm 0cm" Width="2.cm" FontSize="0.35cm">Einde match</TextBlock>
+                <TextBlock Text="{Binding EndHour.Value}"  FontSize="0.35cm"  FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

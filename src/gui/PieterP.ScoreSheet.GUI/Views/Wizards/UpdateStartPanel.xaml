@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Wizards.UpdateStartPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Wizards;assembly=ScoreSheet.Localization"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Wizards"
+             xmlns:controls="clr-namespace:PieterP.ScoreSheet.GUI.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="370" d:DesignWidth="634">
+    <DockPanel>
+        <Border DockPanel.Dock="Bottom" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+            <StackPanel HorizontalAlignment="Right">
+                <Button Padding="10 4 10 4" Margin="10" Command="{Binding Cancel}" Content="{x:Static l:Resources.Cancel}"/>
+            </StackPanel>
+        </Border>
+        <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <StackPanel>
+                <controls:BigButton Width="450" Height="100" Margin="10" Title="{x:Static l:Resources.UpdateStart_Internet}" Description="{x:Static l:Resources.UpdateStart_InternetDesc}" Image="/images/globe_48.png" Command="{Binding FromInternet}" />
+                <controls:BigButton Width="450" Height="100" Margin="10" Title="{x:Static l:Resources.UpdateStart_File}" Description="{x:Static l:Resources.UpdateStart_FileDesc}" Image="/images/usb_48.png" Command="{Binding FromFile}" />
+                <Button Margin="1" Style="{StaticResource LinkButton}" Content="{x:Static l:Resources.UpdateStart_FileInfo}"  Command="{Binding FromFileHelp}" HorizontalAlignment="Right" />
+            </StackPanel>
+        </Grid>
+    </DockPanel>
+</UserControl>

@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Settings.WebServicePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Settings;assembly=ScoreSheet.Localization"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="320" d:DesignWidth="360">
+    <UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="TrueIsVisible">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:BoolToObjectConverter x:Key="TrueIsCollapsed">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+        <conv:InverterConverter x:Key="Inverter" />
+    </UserControl.Resources>
+    <StackPanel>
+        <TextBlock Margin="5" TextWrapping="Wrap" Text="{x:Static l:Resources.WebService_Description}"/>
+        <CheckBox Margin="5" IsChecked="{Binding EnableJsonService.Value}" Content="{x:Static l:Resources.WebService_Enable}"/>
+        <StackPanel Margin="20 5" IsEnabled="{Binding EnableJsonService.Value, Converter={StaticResource Inverter}}">
+            <StackPanel Orientation="Horizontal">
+                <ComboBox Width="200" ItemsSource="{Binding AvailableHosts}" SelectedItem="{Binding SelectedHost.Value}" DisplayMemberPath="Name" />
+                <TextBlock VerticalAlignment="Center" Margin="10 0 4 0" Text="{x:Static l:Resources.WebService_Port}"/>
+                <TextBox Width="50" TextAlignment="Center" Text="{Binding Port.Value}" />
+            </StackPanel>
+            <Button Margin="0 5" Style="{StaticResource LinkButton}" Visibility="{Binding EnableJsonService.Value, Converter={StaticResource TrueIsCollapsed}}" Command="{Binding UnblockAddress}" Content="{x:Static l:Resources.WebService_UnblockAddress}"/>
+        </StackPanel>
+        <TextBlock Margin="5 0" Foreground="DarkGray" TextWrapping="Wrap" TextAlignment="Center" Visibility="{Binding EnableJsonService.Value, Converter={StaticResource TrueIsVisible}}" Text="{x:Static l:Resources.WebService_ModifyInfo}"/>
+        <StackPanel Visibility="{Binding EnableJsonService.Value, Converter={StaticResource TrueIsVisible}}">
+            <TextBlock Foreground="Red" TextWrapping="Wrap" Margin="5" Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsCollapsed}}" Text="{x:Static l:Resources.WebService_Error}"/>
+            <TextBlock Foreground="Green" Margin="5" Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Text="{x:Static l:Resources.WebService_Activated}"/>
+            <Button Margin="5 0" Style="{StaticResource LinkButton}"  Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Command="{Binding OpenUrl}" Content="{x:Static l:Resources.WebService_OpenBrowser}"/>
+            <Button Margin="5 5" Style="{StaticResource LinkButton}"  Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Command="{Binding OpenMoreInfo}" Content="{x:Static l:Resources.WebService_OpenMoreInfo}"/>
+        </StackPanel>
+        
+        
+    </StackPanel>
+</UserControl>
