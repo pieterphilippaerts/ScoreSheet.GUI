@@ -319,16 +319,16 @@
     <value>Créer une feuille de match vierge</value>
   </data>
   <data name="WelcomeWindow_BlankMatchDesc" xml:space="preserve">
-    <value>Toutes les données doivent être introduites manuellement; choisissez cette option pour des rencontres non compétitives (p.ex. un match entre amis)</value>
+    <value>Toutes les données doivent être introduites manuellement; choisissez cette option pour des rencontres non compétitives (p.ex. un match entre amis).</value>
   </data>
   <data name="WelcomeWindow_Message" xml:space="preserve">
-    <value>Cliquez sur l'action que vous désirez exécuter</value>
+    <value>Cliquez sur l'action que vous désirez exécuter.</value>
   </data>
   <data name="WelcomeWindow_NewMatchDay" xml:space="preserve">
     <value>Démarrer une nouvelle journée de compétition</value>
   </data>
   <data name="WelcomeWindow_NewMatchDayDesc" xml:space="preserve">
-    <value>Sélectionnez une date, et vous recevrez automatiquement toutes les rencontres pour cette journée de compétition</value>
+    <value>Sélectionnez une date, et vous recevrez automatiquement toutes les rencontres pour cette journée de compétition.</value>
   </data>
   <data name="WelcomeWindow_OpenMatch" xml:space="preserve">
     <value>Ouvrir une feuille de match existante</value>

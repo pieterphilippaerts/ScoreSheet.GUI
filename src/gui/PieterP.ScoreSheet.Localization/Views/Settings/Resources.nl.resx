@@ -345,12 +345,12 @@ Je kan deze opstarteigenschappen aanpassen door tijdens het opstarten van het pr
     <value>De webservice is nu actief</value>
   </data>
   <data name="WebService_Description" xml:space="preserve">
-    <value>Je kan de resultaten van de matchen die je invult ook beschikbaar maken via een Json webservice. Deze webservice kan dan geconsumeerd worden door bijvoorbeeld een HTML-pagina die je zelf helemaal kan aanpassen in de stijl van de club.
+    <value>Je kan de resultaten van de matchen die je invult ook beschikbaar maken via een JSON webservice. Deze webservice kan dan geconsumeerd worden door bijvoorbeeld een HTML-pagina die je zelf helemaal kan aanpassen in de stijl van de club.
 
 Deze optie is voor geavanceerd gebruik. Voor een gebruiksvriendelijkere ervaring kies je best de optie 'Tweede Scherm'.</value>
   </data>
   <data name="WebService_Enable" xml:space="preserve">
-    <value>Json-webservice activeren</value>
+    <value>JSON webservice activeren</value>
   </data>
   <data name="WebService_Error" xml:space="preserve">
     <value>Er was een fout bij het starten van de webservice. Controleer het logboek voor de precieze oorzaak.</value>

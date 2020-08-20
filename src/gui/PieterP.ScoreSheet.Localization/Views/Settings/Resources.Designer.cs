@@ -738,7 +738,7 @@ namespace PieterP.ScoreSheet.Localization.Views.Settings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can make the results of the matches available externally via a Json web service. This web service can then be consumed by, for example, an HTML page that you can completely customize as you wish.
+        ///   Looks up a localized string similar to You can make the results of the matches available externally via a JSON web service. This web service can then be consumed by, for example, an HTML page that you can completely customize as you wish.
         ///
         ///This option is for advanced use. For a more user-friendly experience, choose the &apos;Second Screen&apos; option..
         /// </summary>
@@ -749,7 +749,7 @@ namespace PieterP.ScoreSheet.Localization.Views.Settings {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Activate Json service.
+        ///   Looks up a localized string similar to Activate JSON service.
         /// </summary>
         public static string WebService_Enable {
             get {

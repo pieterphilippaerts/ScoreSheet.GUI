@@ -601,7 +601,7 @@ Weet u zeker dat u deze data wilt verwijderen?</value>
     <value>E-mail data</value>
   </data>
   <data name="Wizard_EmailDesc" xml:space="preserve">
-    <value>In dit venster kan u de resultaten e-mailen naar de verantwoordelijken van de vrijetijdscompetitie</value>
+    <value>In dit venster kan u de resultaten e-mailen naar de verantwoordelijken van de vrijetijdscompetitie.</value>
   </data>
   <data name="Wizard_EmailMessage" xml:space="preserve">
     <value>U kan in één keer de data van meerdere matchen in één keer e-mailen. Indien u de data van bepaalde wedstrijden niet wil uploaden, dan kan u deze deselecteren.</value>
@@ -619,7 +619,7 @@ Weet u zeker dat u deze data wilt verwijderen?</value>
     <value>Update installeren</value>
   </data>
   <data name="Wizard_InstallUpdateDesc" xml:space="preserve">
-    <value>Hier kan u de database van het programma bijwerken</value>
+    <value>Hier kan u de database van het programma bijwerken.</value>
   </data>
   <data name="Wizard_MatchType" xml:space="preserve">
     <value>Speltype selecteren</value>
@@ -631,7 +631,7 @@ Weet u zeker dat u deze data wilt verwijderen?</value>
     <value>Nieuwe speeldag beginnen</value>
   </data>
   <data name="Wizard_NewMatchDayDesc" xml:space="preserve">
-    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag</value>
+    <value>Selecteer een datum, en krijg automatisch alle wedstrijden van die speeldag.</value>
   </data>
   <data name="Wizard_NoFileSelected" xml:space="preserve">
     <value>U moet een bestaand bestand selecteren!</value>

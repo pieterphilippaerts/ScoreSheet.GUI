@@ -345,12 +345,12 @@ You can adjust these startup properties by holding down the SHIFT key while star
     <value>The web service is now active</value>
   </data>
   <data name="WebService_Description" xml:space="preserve">
-    <value>You can make the results of the matches available externally via a Json web service. This web service can then be consumed by, for example, an HTML page that you can completely customize as you wish.
+    <value>You can make the results of the matches available externally via a JSON web service. This web service can then be consumed by, for example, an HTML page that you can completely customize as you wish.
 
 This option is for advanced use. For a more user-friendly experience, choose the 'Second Screen' option.</value>
   </data>
   <data name="WebService_Enable" xml:space="preserve">
-    <value>Activate Json service</value>
+    <value>Activate JSON service</value>
   </data>
   <data name="WebService_Error" xml:space="preserve">
     <value>There was an error starting the web service. Check the log for the exact cause.</value>
