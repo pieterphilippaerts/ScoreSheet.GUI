@@ -25,10 +25,19 @@ namespace PieterP.ScoreSheet.GUI.Views.Wizards {
             get { return (bool)GetValue(HideWOProperty); }
             set { SetValue(HideWOProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for ShowWO.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for HideWO.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty HideWOProperty =
             DependencyProperty.Register("HideWO", typeof(bool), typeof(SelectedPlayerPanel), new PropertyMetadata(false));
 
+
+        public bool HideCaptain
+        {
+            get { return (bool)GetValue(HideCaptainProperty); }
+            set { SetValue(HideCaptainProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for HideWO.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty HideCaptainProperty =
+            DependencyProperty.Register("HideCaptain", typeof(bool), typeof(SelectedPlayerPanel), new PropertyMetadata(false));
 
 
         public bool IsRelevant {

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
              xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Wizards;assembly=ScoreSheet.Localization"
+             xmlns:lScore="clr-namespace:PieterP.ScoreSheet.Localization.Views.Score;assembly=ScoreSheet.Localization"
              xmlns:behaviors="clr-namespace:PieterP.ScoreSheet.GUI.Behaviors"
              xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Wizards"
              mc:Ignorable="d" 
@@ -51,6 +52,19 @@
                 </TextBlock.Style>
             </TextBlock>
             <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding IsEmpty.Value, Converter={StaticResource VisibilityConverter}}">
+                <ToggleButton Margin="1 0" Width="28px" IsChecked="{Binding IsCaptain.Value}" Height="28px">
+                    <ToggleButton.Style>
+                        <Style TargetType="{x:Type ToggleButton}">
+                            <Setter Property="Visibility" Value="{Binding HideCaptain, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsWO.Value}" Value="True" >
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ToggleButton.Style>
+                    <TextBlock FontSize="9px" TextAlignment="Center" Text="{x:Static lScore:Resources.TeamInfo_Captain}"/>
+                </ToggleButton>
                 <ToggleButton Margin="1 0" Width="28px" IsChecked="{Binding IsWO.Value}" Height="28px" Visibility="{Binding HideWO, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}">
                     <Image Source="/images/wo.png" Width="16px" Height="9px"/>
                 </ToggleButton>

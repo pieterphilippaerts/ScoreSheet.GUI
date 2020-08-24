@@ -50,9 +50,9 @@
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
                 <TextBlock Text="{x:Static l:Resources.SelectPlayers_ChiefReferee}" FontWeight="Bold" FontSize="16px" Margin="5 5 5 0" />
-                <local:SelectedPlayerPanel DataContext="{Binding ChiefReferee}" HideWO="True" />
+                <local:SelectedPlayerPanel DataContext="{Binding ChiefReferee}" HideWO="True" HideCaptain="True" />
                 <TextBlock Text="{x:Static l:Resources.SelectPlayers_RoomCommissioner}" FontWeight="Bold" FontSize="16px" Margin="5 5 5 0" />
-                <local:SelectedPlayerPanel DataContext="{Binding RoomCommissioner}" HideWO="True" />
+                <local:SelectedPlayerPanel DataContext="{Binding RoomCommissioner}" HideWO="True" HideCaptain="True" />
             </StackPanel>
             <Grid Grid.Row="0" Grid.Column="1" Margin="15">
                 <Grid.RowDefinitions>

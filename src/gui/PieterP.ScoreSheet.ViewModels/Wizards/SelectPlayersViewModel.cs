@@ -29,16 +29,11 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 if (_allMembers == null)
                     this.ShowAllPlayers = false;
             }
-            this.ChiefReferee = CreatePlayerVM(chiefReferee, false);
-            this.RoomCommissioner = CreatePlayerVM(roomCommissioner, false);
-            this.Players = new List<SelectedPlayerViewModel>();
-            for (int i = 0; i < team.ParentMatch.MatchSystem.PlayerCount; i++) {
-                var vm = CreatePlayerVM(players[i], false);
-                vm.IsWO.Value = players[i].IsWO;
-                vm.IsWO.ValueChanged += () => OnWO(vm);
-                vm.SelectedPlayer.ValueChanged += () => OnPlayerSelected(vm);
-                this.Players.Add(vm);
-            }
+
+            // Populate the player view models.
+            ChiefReferee = CreatePlayerVM(chiefReferee, false);
+            RoomCommissioner = CreatePlayerVM(roomCommissioner, false);
+            Players = ConvertMembersToSelectedPlayerVm(players);
 
             this.IsRelevant = Cell.Create(true);
             this.AvailablePlayers = Cell.Create(FilterMembers());
@@ -63,6 +58,26 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 }
             }
         }
+
+        /// <summary>
+        /// Converts a set of SelectedMemberInfo instanced into a list of SelectedPlayerViewModel instances.
+        /// </summary>
+        /// <param name="selectedMemberInfos">The set of SelectedMemberInfo instances.</param>
+        /// <returns>A list of SelectedPlayerViewModel instances.</returns>
+        private List<SelectedPlayerViewModel> ConvertMembersToSelectedPlayerVm(IEnumerable<SelectedMemberInfo> selectedMemberInfos)
+        {
+            return selectedMemberInfos.Select(memberInfo =>
+            {
+                var playerViewModel = CreatePlayerVM(memberInfo, false);
+                playerViewModel.IsWO.Value = memberInfo.IsWO;
+                playerViewModel.IsWO.ValueChanged += () => OnWOChanged(playerViewModel);
+                playerViewModel.IsCaptain.Value = memberInfo.IsCaptain;
+                playerViewModel.IsCaptain.ValueChanged += () => OnCaptainChanged(playerViewModel);
+                playerViewModel.SelectedPlayer.ValueChanged += () => OnPlayerSelected(playerViewModel);
+                return playerViewModel;
+            }).ToList();
+        }
+
         private Member? FindMember(string compNum) {
             Member? member = null;
             if (int.TryParse(compNum, out var cn)) {
@@ -82,14 +97,37 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             }
             return new SelectedPlayerViewModel(selectedMember.Name, showRanking);
         }
-        private void OnWO(SelectedPlayerViewModel vm) {
+
+        /// <summary>
+        /// Called when the WO value of a SelectedPlayerViewModel changes.
+        /// </summary>
+        /// <param name="vm">The SelectedPlayerViewModel instance that changed.</param>
+        private void OnWOChanged(SelectedPlayerViewModel vm) {
             if (vm.IsWO.Value) {
                 foreach (var ovm in this.Players) {
                     if (ovm != vm)
                         ovm.IsWO.Value = false;
                 }
+
+                // Ensure that when a player is set as WO, the player can't be the captain.
+                vm.IsCaptain.Value = false;
             }
         }
+
+        /// <summary>
+        /// Called when the IsCaptain value of a SelectedPlayerViewModel changes.
+        /// </summary>
+        /// <param name="vm">The SelectedPlayerViewModel instance that changed.</param>
+        private void OnCaptainChanged(SelectedPlayerViewModel vm)
+        {
+            // When a player is set as the captain, the other player should be unset as captain.
+            if (vm.IsCaptain.Value)
+            {
+                // We do a FindAll here to ensure that a single captain is selected.
+                Players.FindAll(p => p != vm && p.IsCaptain.Value).ForEach(p => p.IsCaptain.Value = false);
+            }
+        }
+
         private void OnPlayerSelected(SelectedPlayerViewModel vm) {
             if (vm.SelectedPlayer.Value == null)
                 return;
@@ -185,15 +223,16 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
     }
     public class SelectedMemberInfo {
         public SelectedMemberInfo() {
-            this.Name = "";
+            Name = string.Empty;
         }
         public SelectedMemberInfo(string name, string cn) {
-            this.Name = name;
-            this.ComputerNumber = cn;
+            Name = name;
+            ComputerNumber = cn;
         }
         public string Name { get; set; }
         public string ComputerNumber { get; set; }
         public bool IsWO { get; set; }
+        public bool IsCaptain { get; set; }
     }
     public class MemberListItem {
         public MemberListItem(string caption) {
@@ -218,42 +257,113 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
         public Member? Member { get; set; }
     }
 
+    /// <summary>
+    /// Represents the view model of a selected player in a match.
+    /// </summary>
     public class SelectedPlayerViewModel {
-        public SelectedPlayerViewModel(Member selected, bool includeRanking = true) : this("", includeRanking) {
-            this.SelectedPlayer.Value = selected;
+
+        private string _placeholder;
+        private bool _includeRanking;
+
+        #region Constructors
+
+        /// <summary>
+        /// Creates a new instance of the view model.
+        /// </summary>
+        /// <param name="selected">The selected member.</param>
+        /// <param name="includeRanking">Whether the ranking of the member should be included in the player name.</param>
+        public SelectedPlayerViewModel(Member selected, bool includeRanking = true) : this(string.Empty, includeRanking) {
+            SelectedPlayer.Value = selected;
         }
+
+        /// <summary>
+        /// Creates a new instance of hte view model.
+        /// </summary>
+        /// <param name="placeholder">The placeholder to display when there is no selected player.</param>
+        /// <param name="includeRanking">Whether the ranking of the member should be included in the player name.</param>
         public SelectedPlayerViewModel(string placeholder, bool includeRanking = true) {
             _placeholder = placeholder ?? "";
             _includeRanking = includeRanking;
-            this.IsWO = Cell.Create(false);
-            this.SelectedPlayer = Cell.Create<Member?>(null);
-            this.IsEmpty = Cell.Derived(this.SelectedPlayer, sp => sp == null);
-            this.Drop = new RelayCommand<MemberListItem?>(OnDrop);
-            this.Clear = new RelayCommand(OnClear);
-            this.SelectedPlayerName = Cell.Derived(this.SelectedPlayer, sp => {
+
+            IsWO = Cell.Create(false);
+            IsCaptain = Cell.Create(false);
+            SelectedPlayer = Cell.Create<Member?>(null);
+            IsEmpty = Cell.Derived(this.SelectedPlayer, sp => sp == null);
+            Drop = new RelayCommand<MemberListItem?>(OnDrop);
+            Clear = new RelayCommand(OnClear);
+            SelectedPlayerName = Cell.Derived(this.SelectedPlayer, sp => {
                 if (sp == null)
                     return _placeholder;
                 else
                     return $"{ sp.Lastname?.ToUpper() } { sp.Firstname }" + (_includeRanking ? $" ({ sp.Ranking })" : "");
             });
         }
+
+        #endregion Constructors
+
+        #region Command handlers
+
+        /// <summary>
+        /// Sets the dropped member as the selected player.
+        /// </summary>
+        /// <param name="parameter">The list item containing the dropped member.</param>
         private void OnDrop(MemberListItem? parameter) {
             if (parameter != null)
-                this.SelectedPlayer.Value = parameter.Member;
+                SelectedPlayer.Value = parameter.Member;
         }
+
+        /// <summary>
+        /// Clears the state of the view model.
+        /// </summary>
         private void OnClear() {
-            this.SelectedPlayer.Value = null;
-            this.IsWO.Value = false;
+            SelectedPlayer.Value = null;
+            IsWO.Value = false;
+            IsCaptain.Value = false;
         }
+
+        #endregion Command handlers
+
+        #region Cells
+
+        /// <summary>
+        /// The name of the selected player.
+        /// </summary>
         public Cell<string> SelectedPlayerName { get; private set; }
+
+        /// <summary>
+        /// Whether the view model has no selected player.
+        /// </summary>
         public Cell<bool> IsEmpty { get; private set; }
+
+        /// <summary>
+        /// Whether the player is walk-over.
+        /// </summary>
         public Cell<bool> IsWO { get; private set; }
+
+        /// <summary>
+        /// Whether the player is the captain of the team in the match.
+        /// </summary>
+        public Cell<bool> IsCaptain { get; private set; }
+
+        /// <summary>
+        /// The selected player.
+        /// </summary>
         public Cell<Member?> SelectedPlayer { get; private set; }
+
+        #endregion Cells
+
+        #region Commands
+
+        /// <summary>
+        /// The command for when a MemberListItem is dropped on the view model.
+        /// </summary>
         public ICommand Drop { get; private set; }
-        public ICommand SetWO { get; private set; }
+
+        /// <summary>
+        /// The command for when the view model should be cleared.
+        /// </summary>
         public ICommand Clear { get; private set; }
 
-        private string _placeholder;
-        private bool _includeRanking;
+        #endregion Commands
     }
 }

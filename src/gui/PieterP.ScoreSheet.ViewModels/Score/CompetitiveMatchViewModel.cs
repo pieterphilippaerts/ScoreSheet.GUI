@@ -259,6 +259,24 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             }
         }
 
+        /// <summary>
+        /// Updates the captain of the team based on the currently selected captain.
+        /// </summary>
+        /// <param name="team">The team to update the captain for.</param>
+        private void UpdateTeamCaptain(TeamInfo team)
+        {
+            var captain = team.Players.Cast<SinglePlayerInfo>().FirstOrDefault(p => p.Captain.Value);
+            switch (team)
+            {
+                case TeamInfo ti when ti == HomeTeam:
+                    SetCaptain(HomeCaptain, captain);
+                    break;
+                case TeamInfo ti when ti == AwayTeam:
+                    SetCaptain(AwayCaptain, captain);
+                    break;
+            }
+        }
+
         private void SetCaptain(PersonInfo dest, SinglePlayerInfo? spi) {
             if (spi == null || dest == null)
                 return;
@@ -318,7 +336,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                         return new SelectedMemberInfo() {
                             Name = spi.Name.Value,
                             ComputerNumber = spi.ComputerNumber.Value,
-                            IsWO = this.Score.IsPlayerWO(spi)
+                            IsWO = Score.IsPlayerWO(spi),
+                            IsCaptain = spi.Captain.Value
                         };
                     }
                     return new SelectedMemberInfo();
@@ -334,13 +353,15 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 FillPlayerInfo(selectPlayers, team);
             }
         }
-        
+
         protected void FillPlayerInfo(SelectPlayersViewModel selectPlayers, TeamInfo team) {
             FillPerson(selectPlayers.ChiefReferee, this.ChiefReferee, team);
             FillPerson(selectPlayers.RoomCommissioner, this.RoomCommissioner, team);
             for (int i = 0; i < selectPlayers.Players.Count; i++) {
                 FillPlayerInfo(selectPlayers.Players[i], team.Players[i]);
             }
+
+            UpdateTeamCaptain(team);
         }
         protected void FillPerson(SelectedPlayerViewModel selected, PersonInfo dest, TeamInfo team) {
             var member = selected.SelectedPlayer.Value;
@@ -371,12 +392,14 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 spi.Index.Value = "";
                 spi.Ranking.Value = "";
                 spi.StrengthListPosition.Value = "";
+                spi.Captain.Value = false;
             } else {
                 spi.Name.Value = $"{ member.Lastname?.ToUpper() } { member.Firstname }";
                 spi.ComputerNumber.Value = member.ComputerNumber?.ToString() ?? "";
                 spi.Index.Value = member.RankIndex?.ToString() ?? "";
                 spi.Ranking.Value = member.Ranking ?? "";
                 spi.StrengthListPosition.Value = member.Position?.ToString() ?? "";
+                spi.Captain.Value = selected.IsCaptain.Value;
             }
             if (selected.IsWO.Value && member != null) {
                 var match = dest.ParentTeam.ParentMatch;
