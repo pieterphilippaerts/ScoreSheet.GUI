@@ -8,8 +8,8 @@
     <TransformOnBuild>true</TransformOnBuild>
     <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
-    <Version>2020.2021.1</Version>
-    <AssemblyVersion>2020.2021.1.0</AssemblyVersion>
+    <Version>2020.2021.2</Version>
+    <AssemblyVersion>2020.2021.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
