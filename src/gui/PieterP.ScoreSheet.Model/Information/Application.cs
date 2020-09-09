@@ -17,7 +17,7 @@ namespace PieterP.ScoreSheet.Model.Information {
         }
         public static DateTime ExpiryTime {
             get {
-                return new DateTime(2020, 9, 1); // expires at the start of season 2020-2021
+                return new DateTime(2021, 9, 1); // expires at the start of season 2020-2021
             }
         }
         public static string BuildType {

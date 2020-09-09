@@ -16,7 +16,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
             // default validations for all match systems
             var validations = new List<Validation>() {
                 new AddressValidation(),
-                new ChiefRefereeValidValidation(),
+                //new ChiefRefereeValidValidation(),
                 new ClubIdValidation(MatchSystem_TheHomeTeam, vm => vm.HomeTeam.ClubId),
                 new ClubIdValidation(MatchSystem_TheAwayTeam, vm => vm.AwayTeam.ClubId),
                 new DateValidation(),
