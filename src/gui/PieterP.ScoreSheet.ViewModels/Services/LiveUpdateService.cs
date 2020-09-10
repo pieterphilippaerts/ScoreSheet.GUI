@@ -20,7 +20,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _isUpdating = new Dictionary<CompetitiveMatchViewModel, bool>();
             _canUpload = Cell.Derived(DatabaseManager.Current.Settings.EnableLiveUpdates, DatabaseManager.Current.Settings.TabTUsername, DatabaseManager.Current.Settings.TabTPassword, (e, u, p) => e && u != "" && p != "");
             foreach (var am in _mainVm.ActiveMatches) {
-                if (am.MatchSystem.IsCompetitive) {
+                if (am.IsCompetitive) {
                     am.Score.HomeMatchesWon.ValueChanged += () => Export(am);
                     am.Score.AwayMatchesWon.ValueChanged += () => Export(am);
                 }
@@ -31,7 +31,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         private void ActiveMatches_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
             if (e.Action == NotifyCollectionChangedAction.Add) {
                 foreach (CompetitiveMatchViewModel am in e.NewItems) {
-                    if (am.MatchSystem.IsCompetitive) {
+                    if (am.IsCompetitive) {
                         am.Score.HomeMatchesWon.ValueChanged += () => Export(am);
                         am.Score.AwayMatchesWon.ValueChanged += () => Export(am);
                     }

@@ -764,11 +764,29 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Referee: away player {0}.
+        /// </summary>
+        public static string RefereeTemplate_RefereeAwayPlayer {
+            get {
+                return ResourceManager.GetString("RefereeTemplate_RefereeAwayPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Referee: home.
         /// </summary>
         public static string RefereeTemplate_RefereeHome {
             get {
                 return ResourceManager.GetString("RefereeTemplate_RefereeHome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Referee: home player {0}.
+        /// </summary>
+        public static string RefereeTemplate_RefereeHomePlayer {
+            get {
+                return ResourceManager.GetString("RefereeTemplate_RefereeHomePlayer", resourceCulture);
             }
         }
         

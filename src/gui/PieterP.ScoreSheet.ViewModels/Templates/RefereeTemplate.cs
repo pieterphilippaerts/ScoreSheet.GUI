@@ -5,6 +5,7 @@ using System.Text;
 using PieterP.ScoreSheet.ViewModels.Score;
 using HandicapTable = PieterP.ScoreSheet.Model.Database.Entities.HandicapTable;
 using static PieterP.ScoreSheet.Localization.Strings;
+using PieterP.ScoreSheet.Localization;
 
 namespace PieterP.ScoreSheet.ViewModels.Templates {
     public class RefereeTemplate {
@@ -38,18 +39,55 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
         public RefereeMatch? Match8 { get; set; }
       
         protected static string TuutTuut(int matchNum) {
+            //switch (matchNum) {
+            //    case 1:
+            //    case 2:
+            //    case 7:
+            //    case 8:
+            //    case 9:
+            //    case 10:
+            //    case 15:
+            //    case 16:
+            //        return RefereeTemplate_RefereeHome;
+            //}
+            //return RefereeTemplate_RefereeAway;
+
+            // Corona rules (one team referees a single table)
             switch (matchNum) {
                 case 1:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 1);
                 case 2:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 3);
+                case 3:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 4);
+                case 4:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 2);
+                case 5:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 2);
+                case 6:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 4);
                 case 7:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 3);
                 case 8:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 1);
                 case 9:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 1);
                 case 10:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 2);
+                case 11:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 4);
+                case 12:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 3);
+                case 13:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 2);
+                case 14:
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 1);
                 case 15:
+                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 3);
                 case 16:
-                    return RefereeTemplate_RefereeHome;
+                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 4);
             }
-            return RefereeTemplate_RefereeAway;
+            return "";
         }
     }
     public class RefereeMatch {
@@ -81,6 +119,7 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
             this.MatchNumber = match.Position.ToString();
             if (refereeResolver != null)
                 this.Referee = refereeResolver(match.Position);
+            
         }
         private string PlayersToString(IList<PlayerInfo> players) {
             //string? rank = null;

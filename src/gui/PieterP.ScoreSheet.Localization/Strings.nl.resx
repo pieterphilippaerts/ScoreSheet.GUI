@@ -352,8 +352,14 @@
   <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
     <value>Scheidsrechter: uit</value>
   </data>
+  <data name="RefereeTemplate_RefereeAwayPlayer" xml:space="preserve">
+    <value>Scheidsrechter: uitspeler {0}</value>
+  </data>
   <data name="RefereeTemplate_RefereeHome" xml:space="preserve">
     <value>Scheidsrechter: thuis</value>
+  </data>
+  <data name="RefereeTemplate_RefereeHomePlayer" xml:space="preserve">
+    <value>Scheidsrechter: thuisspeler {0}</value>
   </data>
   <data name="RestoreBackup_RestoreMultiple" xml:space="preserve">
     <value>Herstel {0} matchen</value>

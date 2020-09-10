@@ -352,8 +352,14 @@
   <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
     <value>Arbitre: visiteur</value>
   </data>
+  <data name="RefereeTemplate_RefereeAwayPlayer" xml:space="preserve">
+    <value>Arbitre: joueur visiteur {0}</value>
+  </data>
   <data name="RefereeTemplate_RefereeHome" xml:space="preserve">
     <value>Arbitre: visité</value>
+  </data>
+  <data name="RefereeTemplate_RefereeHomePlayer" xml:space="preserve">
+    <value>Arbitre: joueur visité {0}</value>
   </data>
   <data name="RestoreBackup_RestoreMultiple" xml:space="preserve">
     <value>Restaurer {0} rencontres</value>

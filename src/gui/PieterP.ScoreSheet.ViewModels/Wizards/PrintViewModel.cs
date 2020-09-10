@@ -95,7 +95,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             }
         }
         private void AutoUpload(IList<string>? validationErrors) {
-            if (DatabaseManager.Current.Settings.EnableAutoUpload.Value && _match.IsOfficial.Value && _match.MatchSystem.IsCompetitive) {
+            if (DatabaseManager.Current.Settings.EnableAutoUpload.Value && _match.IsOfficial.Value && _match.IsCompetitive) {
                 if (validationErrors == null) { // if there are no errors, upload the match
                     var uploader = new MatchUploader(false);
                     uploader.Upload(_match);

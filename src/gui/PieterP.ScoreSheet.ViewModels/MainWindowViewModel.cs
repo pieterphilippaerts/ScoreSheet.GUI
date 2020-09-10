@@ -440,9 +440,9 @@ namespace PieterP.ScoreSheet.ViewModels {
                 var wiz = new WizardViewModel();
                 var selectedMatchesPanel = new SelectMatchesViewModel(wiz, _parent.ActiveMatches, Wizard_Upload, Wizard_UploadDesc, Wizard_UploadMessage, ExportTypes.Upload,
                     OnUpload,
-                    m => m.IsOfficial.Value && m.MatchSystem.IsCompetitive && m.UploadStatus.Value != UploadStatus.Uploaded,
+                    m => m.IsOfficial.Value && m.IsCompetitive && m.UploadStatus.Value != UploadStatus.Uploaded,
                     m => m.IsOfficial.Value && m.UploadStatus.Value == UploadStatus.Uploaded,
-                    m => !m.MatchSystem.IsCompetitive);
+                    m => !m.IsCompetitive);
                 wiz.CurrentPanel.Value = selectedMatchesPanel;
 
                 var n = new ShowDialogNotification(wiz);

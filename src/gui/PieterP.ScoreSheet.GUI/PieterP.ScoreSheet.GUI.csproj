@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>scoresheet</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <Version>2020.2021.2</Version>
+    <Version>2020.2021.3</Version>
     <Authors>PieterP.be</Authors>
     <Product>PieterP.be ScoreSheet</Product>    
     <Copyright>Copyright © 2011-2020, PieterP.be</Copyright>
@@ -19,8 +19,8 @@
     <RepositoryUrl>https://bitbucket.org/pieterpbevttl/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>2020.2021.2.0</AssemblyVersion>
-    <FileVersion>2020.2021.2.0</FileVersion>
+    <AssemblyVersion>2020.2021.3.0</AssemblyVersion>
+    <FileVersion>2020.2021.3.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
