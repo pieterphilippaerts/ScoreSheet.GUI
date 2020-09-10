@@ -457,6 +457,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The captain of {0} cannot be a walkover.
+        /// </summary>
+        public static string Validation_CaptainNotWO {
+            get {
+                return ResourceManager.GetString("Validation_CaptainNotWO", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to If there are no official referees, the chief referee must be the home captain..
         /// </summary>
         public static string Validation_ChiefRefereeNotHomeCaptain {

@@ -249,6 +249,9 @@
   <data name="Validation_BothGenders" xml:space="preserve">
     <value>Er is aangeduid dat het om een mannen- én vrouwenwedstrijd gaat</value>
   </data>
+  <data name="Validation_CaptainNotWO" xml:space="preserve">
+    <value>De kapitein van {0} mag niet een walkover zijn</value>
+  </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
     <value>Als er geen officiële scheidsrechter is, moet de hoofdscheidsrechter de thuiskapitein zijn</value>
   </data>

@@ -249,6 +249,9 @@
   <data name="Validation_BothGenders" xml:space="preserve">
     <value>La feuille de match indique que la rencontre est simultanément messieurs et dames.</value>
   </data>
+  <data name="Validation_CaptainNotWO" xml:space="preserve">
+    <value>Le capitaine {0} ne doit pas être un walk-over</value>
+  </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
     <value>S'il n'y a pas d'arbitres officiels, le juge arbitre doit être le capitaine de l'équipe visitée</value>
   </data>

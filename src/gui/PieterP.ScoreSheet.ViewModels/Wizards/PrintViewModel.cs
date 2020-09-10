@@ -43,7 +43,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             if (this.PrintMatch.Value) {
                 Preview.Value = _match.MatchSystem.GenerateTemplate(_match);
             } else {
-                Preview.Value = this.SelectedRefereeLayout.Value?.CreateTemplate(_match.Matches, HandicapTable, _match.Matches.Count == 16);
+                Preview.Value = this.SelectedRefereeLayout.Value?.CreateTemplate(_match, _match.Matches, HandicapTable, _match.Matches.Count == 16);
             }
         }
         private void OnPrint() {
@@ -72,7 +72,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 documents = new object[] { match };
                 landscape = match.IsLandscape;
             } else {
-                documents = this.SelectedRefereeLayout.Value?.CreateDocuments(_match.Matches, HandicapTable);
+                documents = this.SelectedRefereeLayout.Value?.CreateDocuments(_match, HandicapTable);
             }
             if (documents != null) {
                 var exporter = ServiceLocator.Resolve<IExportService>();

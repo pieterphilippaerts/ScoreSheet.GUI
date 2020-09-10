@@ -755,6 +755,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Referee: {0}.
+        /// </summary>
+        public static string RefereeTemplate_Referee {
+            get {
+                return ResourceManager.GetString("RefereeTemplate_Referee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Referee: away.
         /// </summary>
         public static string RefereeTemplate_RefereeAway {
@@ -1423,7 +1432,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The specified username/password combination is invalid!.
+        ///   Looks up a localized string similar to The specified username/password combination is invalid! Make sure the username and password are entered correctly (without spaces a.o.)..
         /// </summary>
         public static string Various_InvalidLogin {
             get {

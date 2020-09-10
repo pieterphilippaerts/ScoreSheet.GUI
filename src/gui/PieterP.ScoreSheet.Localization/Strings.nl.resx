@@ -349,6 +349,9 @@
   <data name="RefereeLayout_PerTable" xml:space="preserve">
     <value>Één blad per tafel</value>
   </data>
+  <data name="RefereeTemplate_Referee" xml:space="preserve">
+    <value>Scheidsrechter: {0}</value>
+  </data>
   <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
     <value>Scheidsrechter: uit</value>
   </data>
@@ -574,7 +577,7 @@
 Weet u zeker dat u deze data wilt verwijderen?</value>
   </data>
   <data name="Various_InvalidLogin" xml:space="preserve">
-    <value>De opgegeven gebruikersnaam/paswoord-combinatie is ongeldig!</value>
+    <value>De opgegeven gebruikersnaam/paswoord-combinatie is ongeldig! Controleer dat u de gebruikersnaam en paswoord correct hebt ingevuld (zonder spaties e.d.). Indien u uw paswoord niet meer weet, kan u het resetten op https://auth.vttl.be/</value>
   </data>
   <data name="Various_NetworkError" xml:space="preserve">
     <value>Er heeft zich een onverwachte fout voorgedaan tijdens het connecteren met de competitiewebsite.</value>

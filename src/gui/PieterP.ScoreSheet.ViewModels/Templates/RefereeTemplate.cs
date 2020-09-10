@@ -9,24 +9,24 @@ using PieterP.ScoreSheet.Localization;
 
 namespace PieterP.ScoreSheet.ViewModels.Templates {
     public class RefereeTemplate {
-        public RefereeTemplate(IList<MatchInfo> matches, HandicapTable? handicap, Func<int, string>? refereeResolver) {
+        public RefereeTemplate(CompetitiveMatchViewModel competitiveMatchInfo, IList<MatchInfo> matches, HandicapTable? handicap, Func<CompetitiveMatchViewModel, MatchInfo, string>? refereeResolver) {
             if (matches == null || matches.Count == 0)
                 return;
-            Match1 = new RefereeMatch(matches[0], handicap, refereeResolver);
+            Match1 = new RefereeMatch(competitiveMatchInfo, matches[0], handicap, refereeResolver);
             if (matches.Count >= 2)
-                Match2 = new RefereeMatch(matches[1], handicap, refereeResolver);
+                Match2 = new RefereeMatch(competitiveMatchInfo, matches[1], handicap, refereeResolver);
             if (matches.Count >= 3)
-                Match3 = new RefereeMatch(matches[2], handicap, refereeResolver);
+                Match3 = new RefereeMatch(competitiveMatchInfo, matches[2], handicap, refereeResolver);
             if (matches.Count >= 4)
-                Match4 = new RefereeMatch(matches[3], handicap, refereeResolver);
+                Match4 = new RefereeMatch(competitiveMatchInfo, matches[3], handicap, refereeResolver);
             if (matches.Count >= 5)
-                Match5 = new RefereeMatch(matches[4], handicap, refereeResolver);
+                Match5 = new RefereeMatch(competitiveMatchInfo, matches[4], handicap, refereeResolver);
             if (matches.Count >= 6)
-                Match6 = new RefereeMatch(matches[5], handicap, refereeResolver);
+                Match6 = new RefereeMatch(competitiveMatchInfo, matches[5], handicap, refereeResolver);
             if (matches.Count >= 7)
-                Match7 = new RefereeMatch(matches[6], handicap, refereeResolver);
+                Match7 = new RefereeMatch(competitiveMatchInfo, matches[6], handicap, refereeResolver);
             if (matches.Count >= 8)
-                Match8 = new RefereeMatch(matches[7], handicap, refereeResolver);
+                Match8 = new RefereeMatch(competitiveMatchInfo, matches[7], handicap, refereeResolver);
         }
 
         public RefereeMatch? Match1 { get; set; }
@@ -38,8 +38,9 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
         public RefereeMatch? Match7 { get; set; }
         public RefereeMatch? Match8 { get; set; }
       
-        protected static string TuutTuut(int matchNum) {
-            //switch (matchNum) {
+        protected static string TuutTuut(CompetitiveMatchViewModel competitiveMatchInfo, MatchInfo match) {
+            // This is the normal referee schedule
+            //switch (match.Position) {
             //    case 1:
             //    case 2:
             //    case 7:
@@ -53,45 +54,57 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
             //return RefereeTemplate_RefereeAway;
 
             // Corona rules (one team referees a single table)
-            switch (matchNum) {
+            switch (match.Position) {
                 case 1:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 1);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
                 case 2:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 3);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
                 case 3:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 4);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
                 case 4:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 2);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
                 case 5:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 2);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
                 case 6:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 4);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
                 case 7:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 3);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
                 case 8:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 1);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
                 case 9:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 1);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
                 case 10:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 2);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
                 case 11:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 4);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
                 case 12:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 3);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
                 case 13:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 2);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
                 case 14:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 1);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
                 case 15:
-                    return Safe.Format(RefereeTemplate_RefereeHomePlayer, 3);
+                    return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
                 case 16:
-                    return Safe.Format(RefereeTemplate_RefereeAwayPlayer, 4);
+                    return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
             }
             return "";
+
+            string Format(IList<PlayerInfo> players, int position, string defaultText) {
+                if (players.Count >= position) {
+                    var player = players[position - 1] as SinglePlayerInfo;
+                    if (player != null) {
+                        var name = player.Name.Value.Trim();
+                        if (name.Length > 0)
+                            return Safe.Format(RefereeTemplate_Referee, player.Name.Value);
+                    }
+                }
+                return Safe.Format(defaultText, position);
+            }
         }
     }
     public class RefereeMatch {
-        public RefereeMatch(MatchInfo match, HandicapTable? handicap, Func<int, string>? refereeResolver = null) {
+        public RefereeMatch(CompetitiveMatchViewModel competitiveMatchInfo, MatchInfo match, HandicapTable? handicap, Func<CompetitiveMatchViewModel, MatchInfo, string>? refereeResolver = null) {
             if (match == null)
                 return;
             this.Title = $"{ match.HomePlayers.Value.FirstOrDefault()?.ParentTeam.Name.Value } - { match.AwayPlayers.Value.FirstOrDefault()?.ParentTeam.Name.Value }";
@@ -118,8 +131,7 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
 
             this.MatchNumber = match.Position.ToString();
             if (refereeResolver != null)
-                this.Referee = refereeResolver(match.Position);
-            
+                this.Referee = refereeResolver(competitiveMatchInfo, match);           
         }
         private string PlayersToString(IList<PlayerInfo> players) {
             //string? rank = null;
@@ -155,14 +167,14 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
     }
 
     public class RefereeDefaultTemplate : RefereeTemplate {
-        public RefereeDefaultTemplate(IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(matches, handicap, tuutTuut ? TuutTuut : (Func<int, string>?)null) {}
+        public RefereeDefaultTemplate(CompetitiveMatchViewModel competitiveMatchInfo, IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(competitiveMatchInfo, matches, handicap, tuutTuut ? TuutTuut : (Func<CompetitiveMatchViewModel, MatchInfo, string>?)null) {}
 
     }
     public class RefereeHorizontalTemplate : RefereeTemplate {
-        public RefereeHorizontalTemplate(IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(matches, handicap, tuutTuut ? TuutTuut : (Func<int, string>?)null) {}        
+        public RefereeHorizontalTemplate(CompetitiveMatchViewModel competitiveMatchInfo, IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(competitiveMatchInfo, matches, handicap, tuutTuut ? TuutTuut : (Func<CompetitiveMatchViewModel, MatchInfo, string>?)null) {}        
     }
     public class RefereeTableTemplate : RefereeTemplate {
-        public RefereeTableTemplate(IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(matches, handicap, tuutTuut ? TuutTuut : (Func<int, string>?)null) {
+        public RefereeTableTemplate(CompetitiveMatchViewModel competitiveMatchInfo, IList<MatchInfo> matches, HandicapTable? handicap, bool tuutTuut) : base(competitiveMatchInfo, matches, handicap, tuutTuut ? TuutTuut : (Func<CompetitiveMatchViewModel, MatchInfo, string>?)null) {
             var match = matches.FirstOrDefault();
             if (match == null)
                 return;

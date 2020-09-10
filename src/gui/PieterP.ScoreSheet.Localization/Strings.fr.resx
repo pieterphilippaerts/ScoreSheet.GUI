@@ -349,6 +349,9 @@
   <data name="RefereeLayout_PerTable" xml:space="preserve">
     <value>Une page par table</value>
   </data>
+  <data name="RefereeTemplate_Referee" xml:space="preserve">
+    <value>Arbitre: {0}</value>
+  </data>
   <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
     <value>Arbitre: visiteur</value>
   </data>

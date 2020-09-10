@@ -349,6 +349,9 @@
   <data name="RefereeLayout_PerTable" xml:space="preserve">
     <value>One page per table</value>
   </data>
+  <data name="RefereeTemplate_Referee" xml:space="preserve">
+    <value>Referee: {0}</value>
+  </data>
   <data name="RefereeTemplate_RefereeAway" xml:space="preserve">
     <value>Referee: away</value>
   </data>
@@ -574,7 +577,7 @@
 Are you sure you want to delete this data?</value>
   </data>
   <data name="Various_InvalidLogin" xml:space="preserve">
-    <value>The specified username/password combination is invalid!</value>
+    <value>The specified username/password combination is invalid! Make sure the username and password are entered correctly (without spaces a.o.).</value>
   </data>
   <data name="Various_NetworkError" xml:space="preserve">
     <value>An unexpected error occurred while connecting to the competition website.</value>

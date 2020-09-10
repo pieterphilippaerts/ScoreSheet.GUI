@@ -249,6 +249,9 @@
   <data name="Validation_BothGenders" xml:space="preserve">
     <value>The score sheet specifies that it is both men's and women's competition</value>
   </data>
+  <data name="Validation_CaptainNotWO" xml:space="preserve">
+    <value>The captain of {0} cannot be a walkover</value>
+  </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
     <value>If there are no official referees, the chief referee must be the home captain.</value>
   </data>

@@ -42,6 +42,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
                 new TeamNameValidation(MatchSystem_TheAwayTeam, vm => vm.AwayTeam.Name),
                 new TeamWOValidation(MatchSystem_TheHomeTeam, vm => vm.HomeTeam),
                 new TeamWOValidation(MatchSystem_TheAwayTeam, vm => vm.AwayTeam),
+                new CaptainNotWOValidation(MatchSystem_TheHomeTeam, vm => vm.HomeTeam),
+                new CaptainNotWOValidation(MatchSystem_TheAwayTeam, vm => vm.AwayTeam),
             };
             for (int i = 0; i < matchVm.HomeTeam.Players.Count; i++) {
                 var hplayer = matchVm.HomeTeam.Players[i] as SinglePlayerInfo;
