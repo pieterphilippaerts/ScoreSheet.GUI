@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
+using PieterP.ScoreSheet.Model.Interfaces;
 using PieterP.ScoreSheet.ViewModels.Services;
 using PieterP.Shared.Services;
 
@@ -20,8 +21,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
                 return (TabTErrorCode.InvalidCredentials, new string[] { Errors.MatchUploader_NoCredentials });
 
             // this is an ideal time, because we are probably connected to the internet
-            ServiceLocator.Resolve<PhoneHomeService>()?.CallHome();
-            ServiceLocator.Resolve<AppUpdateService>()?.CheckForUpdate();
+            ServiceLocator.Resolve<INetworkAvailabilityService>().TriggerManually();
 
             var exporter = new CsvExporter();
             (var errorCode, var errors) = await connector.UploadAsync(exporter.Export(matches));

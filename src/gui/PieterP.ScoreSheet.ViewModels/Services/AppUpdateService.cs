@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Information;
+using PieterP.ScoreSheet.Model.Interfaces;
 using PieterP.ScoreSheet.ViewModels.Helpers;
 using PieterP.ScoreSheet.ViewModels.Services.Json;
 using PieterP.Shared.Cells;
@@ -26,6 +27,17 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _timer = ServiceLocator.Resolve<ITimerService>();
             _timer.Tick += t => CheckForUpdate();
             _timer.Start(new TimeSpan(0, 5, 0));
+
+            _timerOnce = ServiceLocator.Resolve<ITimerService>();
+            _timerOnce.Tick += t => CheckForUpdateOnce();
+            _timerOnce.Start(new TimeSpan(0, 0, 5)); // check after 5 seconds
+
+            ServiceLocator.Resolve<INetworkAvailabilityService>().NetworkAvailable += CheckForUpdate;
+        }
+
+        private void CheckForUpdateOnce() {
+            _timerOnce?.Stop();
+            CheckForUpdate();
         }
 
         public async void CheckForUpdate() {
@@ -34,8 +46,12 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
                     return;
                 if (this.Status.Value == UpdateStatus.Updated)
                     return; // we have already updated; user must restart
+                if (_lastCheck != null && DateTime.Now.Subtract(_lastCheck.Value).TotalMinutes < 5)
+                    return; // we have checked only a short while ago; wait at least 5 minutes
+                _lastCheck = DateTime.Now;
                 _isUpdating = true;
             }
+            
             this.Status.Value = UpdateStatus.Checking;
             try {
                 var ms = new MemoryStream();
@@ -220,6 +236,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         public void Dispose() {
             _timer?.Stop();
             _timer = null;
+            _timerOnce?.Stop();
+            _timerOnce = null;
         }
 
         public Cell<UpdateStatus> Status { get; set; }
@@ -228,7 +246,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         private const string UpdateUrl = "/Update";
         private object _syncroot;
         private bool _isUpdating;
-        private ITimerService? _timer;
+        private ITimerService? _timer, _timerOnce;
+        private DateTime? _lastCheck;
     }
     public enum UpdateStatus : int {
         Checking = 1,

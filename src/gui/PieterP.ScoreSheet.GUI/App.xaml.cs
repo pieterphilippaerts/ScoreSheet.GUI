@@ -31,6 +31,7 @@ using PieterP.Shared.Cells;
 using System.Globalization;
 using System.Diagnostics;
 using System.Net;
+using PieterP.ScoreSheet.Model.Interfaces;
 
 namespace PieterP.ScoreSheet.GUI {
     /// <summary>
@@ -71,6 +72,7 @@ namespace PieterP.ScoreSheet.GUI {
             ServiceLocator.RegisterType<ITimerService, WpfTimerService>();
             ServiceLocator.RegisterType<IExportService, ExportService>();
             ServiceLocator.RegisterInstance<IConnectorFactory>(new ConnectorFactory());
+            ServiceLocator.RegisterInstance<INetworkAvailabilityService>(new NetworkAvailabilityService());
             SetupNotificationHandling();
             SetupExceptionHandling();
 

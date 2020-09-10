@@ -6,6 +6,7 @@ using System.Text;
 using System.Windows.Input;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Entities;
+using PieterP.ScoreSheet.Model.Interfaces;
 using PieterP.ScoreSheet.ViewModels.Notifications;
 using PieterP.ScoreSheet.ViewModels.Services;
 using PieterP.Shared;
@@ -31,8 +32,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             DatabaseManager.Current.Settings.HomeClubId.Value = _club.UniqueIndex;
 
             // this is an ideal time, because we are probably connected to the internet
-            ServiceLocator.Resolve<PhoneHomeService>()?.CallHome();
-            ServiceLocator.Resolve<AppUpdateService>()?.CheckForUpdate();
+            ServiceLocator.Resolve<INetworkAvailabilityService>().TriggerManually();
 
             if (!await DatabaseManager.Current.UpdateMatches(_club, OnProgress) && !IsCanceled) {
                 // uhoh.. error

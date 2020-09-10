@@ -9,6 +9,7 @@ using PieterP.ScoreSheet.Model.Information;
 using PieterP.Shared.Interfaces;
 using PieterP.Shared.Services;
 using PieterP.ScoreSheet.ViewModels.Services.Json;
+using PieterP.ScoreSheet.Model.Interfaces;
 
 namespace PieterP.ScoreSheet.ViewModels.Services {
     public class PhoneHomeService : IDisposable {
@@ -19,6 +20,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _timer = ServiceLocator.Resolve<ITimerService>();
             _timer.Tick += o => CallHome();
             _timer.Start(new TimeSpan(0, 5, 0));
+            ServiceLocator.Resolve<INetworkAvailabilityService>().NetworkAvailable += CallHome;
 #endif 
         }
         public async void CallHome() {
