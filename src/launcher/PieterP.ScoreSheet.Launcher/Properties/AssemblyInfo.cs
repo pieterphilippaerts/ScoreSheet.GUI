@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("PieterP.be")]
 [assembly: AssemblyProduct("PieterP.ScoreSheet.Launcher")]
-[assembly: AssemblyCopyright("Copyright ©  2019-2020")]
+[assembly: AssemblyCopyright("Copyright ©  2011-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,5 +51,5 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2020.2021.2.0")]
-[assembly: AssemblyFileVersion("2020.2021.2.0")]
+[assembly: AssemblyVersion("2020.2021.3.0")]
+[assembly: AssemblyFileVersion("2020.2021.3.0")]
