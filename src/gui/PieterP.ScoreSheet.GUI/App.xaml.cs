@@ -69,6 +69,7 @@ namespace PieterP.ScoreSheet.GUI {
             ServiceLocator.RegisterInstance<WindowService>(new WindowService());
             ServiceLocator.RegisterInstance<IMainWindowHandle>(new MainWindowHandle());
             ServiceLocator.RegisterInstance<IActiveWindowHandle>(new ActiveWindowHandle());
+            ServiceLocator.RegisterInstance<IWindowHandleLookup>(new WindowHandleLookup());
             ServiceLocator.RegisterType<ITimerService, WpfTimerService>();
             ServiceLocator.RegisterType<IExportService, ExportService>();
             ServiceLocator.RegisterInstance<IConnectorFactory>(new ConnectorFactory());

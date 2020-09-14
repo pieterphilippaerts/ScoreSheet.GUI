@@ -8,4 +8,7 @@ namespace PieterP.Shared.Interfaces {
     }
     public interface IMainWindowHandle : IWindowHandle { }
     public interface IActiveWindowHandle  : IWindowHandle { }
+    public interface IWindowHandleLookup {
+        public IWindowHandle Lookup(object window);
+    }
 }

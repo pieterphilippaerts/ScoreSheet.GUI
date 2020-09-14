@@ -16,7 +16,8 @@ namespace PieterP.ScoreSheet.Model {
         public delegate bool EnumMonitorsDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref Rect lprcMonitor, IntPtr dwData);
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern bool GetMonitorInfo(IntPtr hMonitor, ref MONITORINFOEX lpmi);
-
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        public static extern bool IsProcessDPIAware();
         [DllImport("user32.dll")]
         public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
         [DllImport("user32.dll")]
@@ -27,6 +28,93 @@ namespace PieterP.ScoreSheet.Model {
         public const byte VK_CAPITAL = 0x14;
         public const uint KEYEVENTF_EXTENDEDKEY = 0x0001;
         public const uint KEYEVENTF_KEYUP = 0x0002;
+
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, SetWindowPosFlags uFlags);
+        [Flags()]
+        public enum SetWindowPosFlags : uint {
+            AsynchronousWindowPosition = 0x4000,
+            DeferErase = 0x2000,
+            DrawFrame = 0x0020,
+            FrameChanged = 0x0020,
+            HideWindow = 0x0080,
+            DoNotActivate = 0x0010,
+            DoNotCopyBits = 0x0100,
+            IgnoreMove = 0x0002,
+            DoNotChangeOwnerZOrder = 0x0200,
+            DoNotRedraw = 0x0008,
+            DoNotReposition = 0x0200,
+            DoNotSendChangingEvent = 0x0400,
+            IgnoreResize = 0x0001,
+            IgnoreZOrder = 0x0004,
+            ShowWindow = 0x0040,
+            None = 0x0
+        }
+        [DllImport("user32.dll", SetLastError = true)]
+        public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT {
+            public int Left, Top, Right, Bottom;
+            public RECT(int left, int top, int right, int bottom) {
+                Left = left;
+                Top = top;
+                Right = right;
+                Bottom = bottom;
+            }
+            public RECT(System.Drawing.Rectangle r) : this(r.Left, r.Top, r.Right, r.Bottom) { }
+            public int X {
+                get { return Left; }
+                set { Right -= (Left - value); Left = value; }
+            }
+            public int Y {
+                get { return Top; }
+                set { Bottom -= (Top - value); Top = value; }
+            }
+            public int Height {
+                get { return Bottom - Top; }
+                set { Bottom = value + Top; }
+            }
+            public int Width {
+                get { return Right - Left; }
+                set { Right = value + Left; }
+            }
+            public System.Drawing.Point Location {
+                get { return new System.Drawing.Point(Left, Top); }
+                set { X = value.X; Y = value.Y; }
+            }
+            public System.Drawing.Size Size {
+                get { return new System.Drawing.Size(Width, Height); }
+                set { Width = value.Width; Height = value.Height; }
+            }
+            public static implicit operator System.Drawing.Rectangle(RECT r) {
+                return new System.Drawing.Rectangle(r.Left, r.Top, r.Width, r.Height);
+            }
+            public static implicit operator RECT(System.Drawing.Rectangle r) {
+                return new RECT(r);
+            }
+            public static bool operator ==(RECT r1, RECT r2) {
+                return r1.Equals(r2);
+            }
+            public static bool operator !=(RECT r1, RECT r2) {
+                return !r1.Equals(r2);
+            }
+            public bool Equals(RECT r) {
+                return r.Left == Left && r.Top == Top && r.Right == Right && r.Bottom == Bottom;
+            }
+            public override bool Equals(object obj) {
+                if (obj is RECT)
+                    return Equals((RECT)obj);
+                else if (obj is System.Drawing.Rectangle)
+                    return Equals(new RECT((System.Drawing.Rectangle)obj));
+                return false;
+            }
+            public override int GetHashCode() {
+                return ((System.Drawing.Rectangle)this).GetHashCode();
+            }
+            public override string ToString() {
+                return string.Format(System.Globalization.CultureInfo.CurrentCulture, "{{Left={0},Top={1},Right={2},Bottom={3}}}", Left, Top, Right, Bottom);
+            }
+        }
 
 
         [DllImport("kernel32.dll", SetLastError = true, CallingConvention = CallingConvention.Winapi)]

@@ -22,4 +22,13 @@ namespace PieterP.ScoreSheet.GUI.Helpers {
             }
         }
     }
+    public class WindowHandleLookup : IWindowHandleLookup {
+        public IWindowHandle Lookup(object window) {
+            return new HandleContainer(new WindowInteropHelper(window as Window).Handle);
+        }
+        private class HandleContainer : IWindowHandle {
+            public HandleContainer(IntPtr handle) => this.Handle = handle;
+            public IntPtr Handle { get; }
+        }
+    }
 }

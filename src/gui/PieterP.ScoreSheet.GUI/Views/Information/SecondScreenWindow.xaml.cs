@@ -18,5 +18,9 @@ namespace PieterP.ScoreSheet.GUI.Views.Information {
         public SecondScreenWindow() {
             InitializeComponent();
         }
+
+        //private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+        //    this.Title = $"x: { this.Left }, y: { this.Top }, size: { this.Width }x{ this.Height }";
+        //}
     }
 }

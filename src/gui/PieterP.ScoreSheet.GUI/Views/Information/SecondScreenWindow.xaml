@@ -6,6 +6,6 @@
             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Information;assembly=ScoreSheet.Localization"
         xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Information"
         mc:Ignorable="d"
-        Title="SecondScreenWindow" Height="{Binding Height.Value, Mode=TwoWay}" Width="{Binding Width.Value, Mode=TwoWay}" Left="{Binding Left.Value, Mode=TwoWay}" Top="{Binding Top.Value, Mode=TwoWay}" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None">
+        Title="SecondScreenWindow"  ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None">
     <local:OrchestratorHost DataContext="{Binding Orchestrator}" Canvas.Left="0" Canvas.Top="0" Canvas.Right="0" Canvas.Bottom="0"/>
 </Window>

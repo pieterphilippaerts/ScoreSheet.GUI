@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using PieterP.ScoreSheet.Model;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Enums;
 using PieterP.ScoreSheet.Model.Information;
@@ -9,6 +10,7 @@ using PieterP.ScoreSheet.ViewModels.Notifications;
 using PieterP.Shared;
 using PieterP.Shared.Interfaces;
 using PieterP.Shared.Services;
+using PInvoke;
 
 namespace PieterP.ScoreSheet.ViewModels.Services {
     public class SecondScreenService : IDisposable {
@@ -37,23 +39,28 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
                 // the window is open, but the user turned the feature off or the second screen got disconnected
                 NotificationManager.Current.Raise(new CloseWindowNotification(_window));
                 _window = null;
+                _windowHandle = null;
+                _windowScreenDevice = null;
                 _secondScreenVm?.Dispose();
                 _secondScreenVm = null;
             }
 
             if (_window == null && screen != null && DatabaseManager.Current.Settings.EnableSecondScreen.Value) {
                 // the window is not yet open
-                _secondScreenVm = new SecondScreenWindowViewModel(_mainVm, screen.Bounds.Left, screen.Bounds.Top, screen.Bounds.Width, screen.Bounds.Height);
+                _secondScreenVm = new SecondScreenWindowViewModel(_mainVm);
                 var not = new ShowWindowNotification(_secondScreenVm);
                 NotificationManager.Current.Raise(not);
                 _window = not.Window;
+                var lookup = ServiceLocator.Resolve<IWindowHandleLookup>();
+                _windowHandle = lookup.Lookup(_window).Handle;
+                // set the window position
+                NativeMethods.SetWindowPos(_windowHandle.Value, IntPtr.Zero, screen.Bounds.Left, screen.Bounds.Top, screen.Bounds.Width, screen.Bounds.Height, NativeMethods.SetWindowPosFlags.None);
+                _windowScreenDevice = screen.DeviceName;
             }
 
-            if (_window != null && screen != null && _secondScreenVm != null && (_secondScreenVm.Left.Value != screen.Bounds.Left || _secondScreenVm.Top.Value != screen.Bounds.Top)) {
-                _secondScreenVm.Left.Value = screen.Bounds.Left;
-                _secondScreenVm.Top.Value = screen.Bounds.Top;
-                _secondScreenVm.Width.Value = screen.Bounds.Width;
-                _secondScreenVm.Height.Value = screen.Bounds.Height;
+            if (_window != null && screen != null && _secondScreenVm != null && _windowHandle != null && _windowScreenDevice != screen.DeviceName) {
+                NativeMethods.SetWindowPos(_windowHandle.Value, IntPtr.Zero, screen.Bounds.Left, screen.Bounds.Top, screen.Bounds.Width, screen.Bounds.Height, NativeMethods.SetWindowPosFlags.None);
+                _windowScreenDevice = screen.DeviceName;
             }
         }
 
@@ -91,6 +98,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         }
 
         private object? _window;
+        private IntPtr? _windowHandle;
+        private string? _windowScreenDevice;
         private SecondScreenWindowViewModel? _secondScreenVm;
         private MainWindowViewModel _mainVm;
         private ITimerService _timer;
