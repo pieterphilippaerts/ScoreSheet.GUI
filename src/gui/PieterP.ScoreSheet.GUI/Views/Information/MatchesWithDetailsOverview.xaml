@@ -45,34 +45,34 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Viewbox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding HomeTeam.Value}" FontSize="40pt" FontWeight="Bold" Padding="5pt" />
+                            <TextBlock Text="{Binding HomeTeam.Value}" FontSize="80pt" FontWeight="Bold" Padding="5pt" />
                         </Viewbox>
                         <Viewbox Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" StretchDirection="DownOnly" >
-                            <TextBlock Text="{Binding AwayTeam.Value}" FontSize="40pt" FontWeight="Bold" Padding="5pt" />
+                            <TextBlock Text="{Binding AwayTeam.Value}" FontSize="80pt" FontWeight="Bold" Padding="5pt" />
                         </Viewbox>
 
                         <Viewbox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="15pt" Padding="5pt" />
+                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="50pt" Padding="25pt" />
                         </Viewbox>
                         <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding HomeMatchesWon.Value}" FontSize="160pt" FontWeight="Bold" Padding="5pt"/>
+                            <TextBlock Text="{Binding HomeMatchesWon.Value}" FontSize="320pt" FontWeight="Bold" Padding="5pt"/>
                         </Viewbox>
                         <Viewbox Grid.Row="1" Grid.Column="2" StretchDirection="DownOnly">
-                            <TextBlock  Text="/" FontSize="40pt" VerticalAlignment="Center" Padding="5pt" />
+                            <TextBlock  Text="/" FontSize="80pt" VerticalAlignment="Center" Padding="5pt" />
                         </Viewbox>
                         <Viewbox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding AwayMatchesWon.Value}" FontSize="160pt" FontWeight="Bold" Padding="5pt"/>
+                            <TextBlock Text="{Binding AwayMatchesWon.Value}" FontSize="320pt" FontWeight="Bold" Padding="5pt"/>
                         </Viewbox>
                         <Viewbox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="15pt" Padding="5pt" />
+                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="50pt" Padding="25pt" />
                         </Viewbox>
                         
                         <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="20pt" Padding="5pt" />
+                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="40pt" Padding="10pt" />
                         </Viewbox>
 
                         <Viewbox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" StretchDirection="DownOnly">
-                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="20pt" Padding="5pt" />
+                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="40pt" Padding="10pt" />
                         </Viewbox>
 
 
