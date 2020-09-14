@@ -5,9 +5,9 @@
     <TargetFramework>net45</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
-    <Version>2020.2021.3</Version>
-    <AssemblyVersion>2020.2021.3.0</AssemblyVersion>
-    <FileVersion>2020.2021.3.0</FileVersion>
+    <Version>2020.2021.4</Version>
+    <AssemblyVersion>2020.2021.4.0</AssemblyVersion>
+    <FileVersion>2020.2021.4.0</FileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net48|AnyCPU'">
     <DebugType>none</DebugType>

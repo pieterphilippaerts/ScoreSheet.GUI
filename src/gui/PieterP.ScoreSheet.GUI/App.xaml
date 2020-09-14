@@ -76,6 +76,9 @@
             <DataTemplate DataType="{x:Type vminfo:MatchesOverviewViewModel}">
                 <infoview:MatchesOverview />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vminfo:MatchesOverviewWithDetailsViewModel}">
+                <infoview:MatchesWithDetailsOverview/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type vminfo:InformationOrchestratorViewModel}">
                 <infoview:OrchestratorHost />
             </DataTemplate>

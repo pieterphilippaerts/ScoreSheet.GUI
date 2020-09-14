@@ -12,14 +12,19 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
         public ScoreVisualizationViewModel() {
             this.AvailableVisualizations = new ScoreVisualizationInfo[] {
                 new ScoreVisualizationInfo() {
-                    VisualizationType =ScoreVisualizations.Default ,
+                    VisualizationType = ScoreVisualizations.Default ,
                     Name = Strings.ScoreVisualization_Default,
-                     Description = Strings.ScoreVisualization_DefaultDesc
+                    Description = Strings.ScoreVisualization_DefaultDesc
                 },
                 new ScoreVisualizationInfo() {
-                    VisualizationType =ScoreVisualizations.Compact,
+                    VisualizationType = ScoreVisualizations.Compact,
                     Name = Strings.ScoreVisualization_Compact,
-                     Description = Strings.ScoreVisualization_CompactDesc
+                    Description = Strings.ScoreVisualization_CompactDesc
+                },
+                new ScoreVisualizationInfo() {
+                    VisualizationType = ScoreVisualizations.CompactDetailed,
+                    Name = Strings.ScoreVisualization_CompactDetailed,
+                     Description = Strings.ScoreVisualization_CompactDetailedDesc
                 }
             };
             this.OverviewVisualization = Cell.Create(

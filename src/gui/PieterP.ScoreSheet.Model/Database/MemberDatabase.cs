@@ -37,6 +37,18 @@ namespace PieterP.ScoreSheet.Model.Database {
                 return null;
             }
         }
+        public Member? FindMember(string clubId, int computerNumber) {
+            if (clubId == null)
+                return null;
+            if (_index.TryGetValue(clubId, out var lists)) {
+                foreach (var list in lists) {
+                    var mem = list.Entries.FirstOrDefault(m => m.ComputerNumber == computerNumber);
+                    if (mem != null)
+                        return mem;
+                }
+            }
+            return null;
+        }
         internal virtual void Update(MemberList list, bool save = true) {
             if (list == null)
                 return;

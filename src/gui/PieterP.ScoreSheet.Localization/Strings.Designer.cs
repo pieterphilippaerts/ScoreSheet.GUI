@@ -872,6 +872,24 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Compact with details.
+        /// </summary>
+        public static string ScoreVisualization_CompactDetailed {
+            get {
+                return ResourceManager.GetString("ScoreVisualization_CompactDetailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shows the results of all the ongoing matches in a single overview, including some match details..
+        /// </summary>
+        public static string ScoreVisualization_CompactDetailedDesc {
+            get {
+                return ResourceManager.GetString("ScoreVisualization_CompactDetailedDesc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Full.
         /// </summary>
         public static string ScoreVisualization_Default {

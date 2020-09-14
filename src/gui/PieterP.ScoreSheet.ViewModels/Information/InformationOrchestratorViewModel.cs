@@ -42,6 +42,9 @@ namespace PieterP.ScoreSheet.ViewModels.Information {
                 case ScoreVisualizations.Compact:
                     newVm = new MatchesOverviewViewModel(_activeMatches, _awayMatches);
                     break;
+                case ScoreVisualizations.CompactDetailed:
+                    newVm = new MatchesOverviewWithDetailsViewModel(_activeMatches, _awayMatches);
+                    break;
                 default:
                     newVm = new DetailedOverviewViewModel(_activeMatches, _awayMatches);
                     break;

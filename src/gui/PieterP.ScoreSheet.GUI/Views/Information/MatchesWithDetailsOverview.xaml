@@ -1,0 +1,125 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Information.MatchesWithDetailsOverview"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Information"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <conv:PointsConverter x:Key="PointsConverter" Win="DarkGreen" Lose="DarkRed" Draw="Black" />
+        <conv:PointsConverter x:Key="BackgroundConverter" Win="#40CBFF49" Lose="#40FF6D74" Draw="#20FFD000" />
+        <conv:PlayerNameMatchConverter x:Key="PlayerNameConverter" />
+        <conv:PlayerRankingsConverter x:Key="PlayerRankingsConverter" />
+    </UserControl.Resources>
+    <ItemsControl ItemsSource="{Binding Matches}">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <UniformGrid Rows="{Binding Rows.Value}" Columns="{Binding Columns.Value}"/>
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+            <DataTemplate>
+                <Border BorderBrush="Black" BorderThickness="2">
+                    <Border.Background>
+                        <MultiBinding Converter="{StaticResource BackgroundConverter}">
+                            <Binding Path="HomeClubId.Value" />
+                            <Binding Path="AwayClubId.Value" />
+                            <Binding Path="HomeMatchesWon.Value" />
+                            <Binding Path="AwayMatchesWon.Value" />
+                        </MultiBinding>
+                    </Border.Background>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*" />
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Viewbox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding HomeTeam.Value}" FontSize="40pt" FontWeight="Bold" Padding="5pt" />
+                        </Viewbox>
+                        <Viewbox Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" StretchDirection="DownOnly" >
+                            <TextBlock Text="{Binding AwayTeam.Value}" FontSize="40pt" FontWeight="Bold" Padding="5pt" />
+                        </Viewbox>
+
+                        <Viewbox Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="15pt" Padding="5pt" />
+                        </Viewbox>
+                        <Viewbox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding HomeMatchesWon.Value}" FontSize="160pt" FontWeight="Bold" Padding="5pt"/>
+                        </Viewbox>
+                        <Viewbox Grid.Row="1" Grid.Column="2" StretchDirection="DownOnly">
+                            <TextBlock  Text="/" FontSize="40pt" VerticalAlignment="Center" Padding="5pt" />
+                        </Viewbox>
+                        <Viewbox Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding AwayMatchesWon.Value}" FontSize="160pt" FontWeight="Bold" Padding="5pt"/>
+                        </Viewbox>
+                        <Viewbox Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerRankingsConverter}}" FontSize="15pt" Padding="5pt" />
+                        </Viewbox>
+                        
+                        <Viewbox Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding HomePlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="20pt" Padding="5pt" />
+                        </Viewbox>
+
+                        <Viewbox Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Center" StretchDirection="DownOnly">
+                            <TextBlock Text="{Binding AwayPlayers.Value, Converter={StaticResource PlayerNameConverter}}" FontSize="20pt" Padding="5pt" />
+                        </Viewbox>
+
+
+                        <!--<Viewbox Grid.Row="0" Grid.Column="0">
+                            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Margin="2">
+                                <TextBlock Text="{Binding HomeTeam.Value}" TextAlignment="Center" />
+                                <TextBlock Text="{Binding AwayTeam.Value}" TextAlignment="Center" />
+                            </StackPanel>
+                        </Viewbox>
+                        <Viewbox Grid.Row="1" Grid.Column="0">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="2">
+                                <TextBlock Text="{Binding HomeMatchesWon.Value}" FontWeight="Bold">
+                                    <TextBlock.Foreground>
+                                        <MultiBinding Converter="{StaticResource PointsConverter}">
+                                            <Binding Path="HomeClubId.Value" />
+                                            <Binding Path="AwayClubId.Value" />
+                                            <Binding Path="HomeMatchesWon.Value" />
+                                            <Binding Path="AwayMatchesWon.Value" />
+                                        </MultiBinding>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock  FontWeight="Bold">
+                                    &#160;&#160;-&#160;&#160;
+                                    <TextBlock.Foreground>
+                                        <MultiBinding Converter="{StaticResource PointsConverter}">
+                                            <Binding Path="HomeClubId.Value" />
+                                            <Binding Path="AwayClubId.Value" />
+                                            <Binding Path="HomeMatchesWon.Value" />
+                                            <Binding Path="AwayMatchesWon.Value" />
+                                        </MultiBinding>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                                <TextBlock Text="{Binding AwayMatchesWon.Value}"  FontWeight="Bold">
+                                    <TextBlock.Foreground>
+                                        <MultiBinding Converter="{StaticResource PointsConverter}">
+                                            <Binding Path="HomeClubId.Value" />
+                                            <Binding Path="AwayClubId.Value" />
+                                            <Binding Path="HomeMatchesWon.Value" />
+                                            <Binding Path="AwayMatchesWon.Value" />
+                                        </MultiBinding>
+                                    </TextBlock.Foreground>
+                                </TextBlock>
+                            </StackPanel>
+                        </Viewbox>-->
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </ItemsControl.ItemTemplate>
+    </ItemsControl>
+</UserControl>

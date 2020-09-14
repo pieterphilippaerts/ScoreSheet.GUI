@@ -388,6 +388,12 @@
   <data name="ScoreVisualization_CompactDesc" xml:space="preserve">
     <value>Toont de resultaten van alle wedstrijden in één enkel overzicht.</value>
   </data>
+  <data name="ScoreVisualization_CompactDetailed" xml:space="preserve">
+    <value>Compact met details</value>
+  </data>
+  <data name="ScoreVisualization_CompactDetailedDesc" xml:space="preserve">
+    <value>Toont de resultaten van alle wedstrijden in één enkel overzicht, inclusief bepaalde wedstrijddetails.</value>
+  </data>
   <data name="ScoreVisualization_Default" xml:space="preserve">
     <value>Uitgebereid</value>
   </data>

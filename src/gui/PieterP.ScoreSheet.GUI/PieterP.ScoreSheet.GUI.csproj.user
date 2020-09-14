@@ -20,6 +20,9 @@
     <Compile Update="Views\Information\MatchesOverview.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Information\MatchesWithDetailsOverview.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\SaveWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -140,6 +143,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Information\MatchesOverview.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Information\MatchesWithDetailsOverview.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\SaveWindow.xaml">

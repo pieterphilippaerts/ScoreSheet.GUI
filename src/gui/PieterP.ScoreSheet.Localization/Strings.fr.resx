@@ -388,6 +388,12 @@
   <data name="ScoreVisualization_CompactDesc" xml:space="preserve">
     <value>Afficher les résultats de toutes les rencontres en cours en un seul aperçu.</value>
   </data>
+  <data name="ScoreVisualization_CompactDetailed" xml:space="preserve">
+    <value>Compact avec détails</value>
+  </data>
+  <data name="ScoreVisualization_CompactDetailedDesc" xml:space="preserve">
+    <value>Afficher les résultats de toutes les rencontres en cours en un seul aperçu, avec certains détails de match.</value>
+  </data>
   <data name="ScoreVisualization_Default" xml:space="preserve">
     <value>Complet</value>
   </data>
