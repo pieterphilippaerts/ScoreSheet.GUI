@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using PieterP.ScoreSheet.Localization;
@@ -150,6 +151,9 @@ namespace PieterP.ScoreSheet.Connector {
             try {
                 Count(nameof(_fetcher.UploadAsync));
                 response = await _fetcher.UploadAsync(request);
+            } catch (FaultException fe) {
+                Logger.Log(fe);
+                return (fe.Code?.Name == "22" ? TabTErrorCode.InvalidCredentials : TabTErrorCode.NetworkError, new string[] { fe.Message });
             } catch (Exception e) {
                 Logger.Log(e);
                 return (TabTErrorCode.NetworkError, new string[] { e.Message });

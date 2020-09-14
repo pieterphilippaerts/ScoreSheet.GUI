@@ -397,7 +397,7 @@
     <value>Le fichier spécifié ne peut pas être chargé. Vérifiez que vous avez sélectionné le bon fichier.</value>
   </data>
   <data name="Wizard_InvalidCredentials" xml:space="preserve">
-    <value>Une erreur est survenue lors de l'envoi des données. Vous n'avez pas les permissions requises pour envoyer ces données.</value>
+    <value>Une erreur est survenue lors de l'envoi des données. Vous n'avez pas les permissions requises pour envoyer ces données. Utilisez un autre identifiant (avec les droits nécessaires) pour envoyer les données, ou contactez le responsable de l'interclub pour demander les autorisations appropriées.</value>
   </data>
   <data name="Wizard_InvalidSelection" xml:space="preserve">
     <value>L'utilisateur a sélectionné dans la fenêtre NewMatchday une entrée qui n'est pas un Match ou une DateTime.</value>

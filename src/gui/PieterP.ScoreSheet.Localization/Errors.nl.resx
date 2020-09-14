@@ -397,7 +397,7 @@
     <value>Het opgegeven bestand kon niet ingeladen worden! Controleer dat u het juiste bestand geselecteerd heeft.</value>
   </data>
   <data name="Wizard_InvalidCredentials" xml:space="preserve">
-    <value>Er heeft zich een fout voorgedaan tijdens het uploaden van de data. Je hebt niet de vereiste machtigingen om deze gegevens te uploaden.</value>
+    <value>Er heeft zich een fout voorgedaan tijdens het uploaden van de data. Je hebt niet de vereiste machtigingen om deze gegevens te uploaden. Gebruik een andere gebruikersaccount (met de benodigde rechten) om de data door te sturen, of contacteer de interclubleider om de juiste machtigingen aan te vragen.</value>
   </data>
   <data name="Wizard_InvalidSelection" xml:space="preserve">
     <value>De gebruiker heeft in het venster NewMatchday een item geselecteerd dat geen Match of DateTime is</value>

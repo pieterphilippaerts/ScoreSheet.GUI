@@ -898,7 +898,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occurred while uploading the data. You do not have the required permissions to upload this data..
+        ///   Looks up a localized string similar to An error occurred while uploading the data. You do not have the required permissions to upload this data. Use another account (with the required permissions) to upload the data, or contact the responsible of the competition to request the appropriate access rights..
         /// </summary>
         public static string Wizard_InvalidCredentials {
             get {

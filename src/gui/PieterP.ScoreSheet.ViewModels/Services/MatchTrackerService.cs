@@ -32,9 +32,9 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             string? homeClub = DatabaseManager.Current.Settings.HomeClubId.Value;
             if (homeClub != null && homeClub != "") {
                 var date = DateTime.Now.Date;
-#if DEBUG
-                date = new DateTime(2020, 9, 12);
-#endif
+//#if DEBUG
+//                date = new DateTime(2020, 9, 12);
+//#endif
                 _matches = DatabaseManager.Current.MatchStartInfo.GetMatchesAtDate(date, false, false)
                     .Where(m => m.HomeClub != homeClub && !MatchStartInfo.IsByeIndex(m.HomeClub)).ToList();
                 if (DatabaseManager.Current.Settings.FollowAway.Value && DatabaseManager.Current.Settings.EnableLiveUpdates.Value && !DatabaseManager.Current.Settings.EnableLiveUpdatesForSuperOnly.Value) {

@@ -397,7 +397,7 @@
     <value>The specified file could not be loaded! Check that you have selected the correct file.</value>
   </data>
   <data name="Wizard_InvalidCredentials" xml:space="preserve">
-    <value>An error occurred while uploading the data. You do not have the required permissions to upload this data.</value>
+    <value>An error occurred while uploading the data. You do not have the required permissions to upload this data. Use another account (with the required permissions) to upload the data, or contact the responsible of the competition to request the appropriate access rights.</value>
   </data>
   <data name="Wizard_InvalidSelection" xml:space="preserve">
     <value>User selected an entry on the NewMatchday window that was not a Match or DateTime</value>
