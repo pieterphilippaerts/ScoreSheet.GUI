@@ -7,6 +7,7 @@ using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Entities;
+using PieterP.ScoreSheet.Model.Interfaces;
 using PieterP.Shared;
 using PieterP.Shared.Cells;
 using PieterP.Shared.Interfaces;
@@ -66,6 +67,9 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             string? home = DatabaseManager.Current.Settings.HomeClubId.Value;
             if (home == null)
                 return;
+
+            if (!ServiceLocator.Resolve<INetworkAvailabilityService>().IsNetworkAvailable.Value)
+                return; // no network connection available
 
             var connector = ServiceLocator.Resolve<IConnector>();
             connector.SetDefaultCredentials(DatabaseManager.Current.Settings.TabTUsername.Value, DatabaseManager.Current.Settings.TabTPassword.Value);

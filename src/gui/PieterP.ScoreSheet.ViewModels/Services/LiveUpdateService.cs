@@ -6,6 +6,7 @@ using System.Text;
 using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
+using PieterP.ScoreSheet.Model.Interfaces;
 using PieterP.ScoreSheet.ViewModels.Score;
 using PieterP.ScoreSheet.ViewModels.Score.Export;
 using PieterP.Shared;
@@ -18,7 +19,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         public LiveUpdateService(MainWindowViewModel mainVm) {
             _mainVm = mainVm;
             _isUpdating = new Dictionary<CompetitiveMatchViewModel, bool>();
-            _canUpload = Cell.Derived(DatabaseManager.Current.Settings.EnableLiveUpdates, DatabaseManager.Current.Settings.TabTUsername, DatabaseManager.Current.Settings.TabTPassword, (e, u, p) => e && u != "" && p != "");
+            var networkService = ServiceLocator.Resolve<INetworkAvailabilityService>();
+            _canUpload = Cell.Derived(DatabaseManager.Current.Settings.EnableLiveUpdates, DatabaseManager.Current.Settings.TabTUsername, DatabaseManager.Current.Settings.TabTPassword, networkService.IsNetworkAvailable, (enabled, username, password, networkAvailable) => enabled && username != "" && password != "" && networkAvailable);
             foreach (var am in _mainVm.ActiveMatches) {
                 if (am.IsCompetitive) {
                     am.Score.HomeMatchesWon.ValueChanged += () => Export(am);

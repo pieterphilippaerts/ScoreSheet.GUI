@@ -1,4 +1,5 @@
 ﻿using PieterP.ScoreSheet.Model.Interfaces;
+using PieterP.Shared.Cells;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,16 +13,25 @@ namespace PieterP.ScoreSheet.GUI.Services {
     /// </summary>
     public class NetworkAvailabilityService : INetworkAvailabilityService {
         public NetworkAvailabilityService() {
+            _availabilityValue = NetworkInterface.GetIsNetworkAvailable();
+            _isAvailable = new ReadonlyManualCell<bool>(() => _availabilityValue);
             NetworkChange.NetworkAvailabilityChanged += (s, e) => {
-                if (e.IsAvailable)
-                    TriggerManually();
+                TriggerManually();
             };
         }
 
-        public event Action? NetworkAvailable;
-
         public void TriggerManually() {
-            NetworkAvailable?.Invoke();
+            _availabilityValue = NetworkInterface.GetIsNetworkAvailable();
+            _isAvailable.Refresh();
         }
+
+        public ReadonlyManualCell<bool> IsNetworkAvailable { 
+            get {
+                return _isAvailable;
+            }
+        }
+
+        private ReadonlyManualCell<bool> _isAvailable;
+        private bool _availabilityValue;
     }
 }

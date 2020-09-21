@@ -69,12 +69,11 @@ namespace PieterP.Shared.Cells {
 
         public override void Refresh()
         {
-            if ( IsDirty )
-            {
+            //if ( IsDirty )
+            //{
                 base.Value = function();
-
                 NotifyObservers();
-            }
+            //}
         }
     }
 

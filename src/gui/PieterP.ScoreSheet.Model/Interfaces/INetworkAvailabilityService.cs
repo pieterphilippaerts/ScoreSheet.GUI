@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PieterP.Shared.Cells;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,8 @@ namespace PieterP.ScoreSheet.Model.Interfaces {
     /// Represents a service that raises events whenever the network becomes available
     /// </summary>
     public interface INetworkAvailabilityService {
-        event Action? NetworkAvailable;
+        //event Action? NetworkAvailable;
         void TriggerManually();
+        ReadonlyManualCell<bool> IsNetworkAvailable { get; }
     }
 }

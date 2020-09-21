@@ -32,7 +32,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _timerOnce.Tick += t => CheckForUpdateOnce();
             _timerOnce.Start(new TimeSpan(0, 0, 5)); // check after 5 seconds
 
-            ServiceLocator.Resolve<INetworkAvailabilityService>().NetworkAvailable += CheckForUpdate;
+            ServiceLocator.Resolve<INetworkAvailabilityService>().IsNetworkAvailable.ValueChanged += CheckForUpdate;
         }
 
         private void CheckForUpdateOnce() {
