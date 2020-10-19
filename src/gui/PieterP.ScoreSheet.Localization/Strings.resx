@@ -138,6 +138,9 @@
   <data name="App_UnknownError" xml:space="preserve">
     <value>Unknown error.</value>
   </data>
+  <data name="CapsLock_On" xml:space="preserve">
+    <value>CAPS-LOCK is activated!</value>
+  </data>
   <data name="CompetitiveMatch_MatchBackedUp" xml:space="preserve">
     <value>Match backed up on disk on {0}</value>
   </data>

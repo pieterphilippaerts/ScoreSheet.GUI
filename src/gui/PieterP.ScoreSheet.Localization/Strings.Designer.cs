@@ -124,6 +124,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CAPS-LOCK is activated!.
+        /// </summary>
+        public static string CapsLock_On {
+            get {
+                return ResourceManager.GetString("CapsLock_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match backed up on disk on {0}.
         /// </summary>
         public static string CompetitiveMatch_MatchBackedUp {
