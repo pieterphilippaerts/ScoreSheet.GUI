@@ -14,6 +14,6 @@ namespace PieterP.ScoreSheet.ViewModels.Commands
         public override bool CanExecute(object _) => _mainWindowViewModel.CloseMatches(_mainWindowViewModel.ActiveMatches.ToList());
 
         /// <inheritdoc/>
-        public void Execute(object _) => _mainWindowViewModel.InvokeExiting();
+        public override void Execute(object _) => _mainWindowViewModel.InvokeExiting();
     }
 }
