@@ -73,7 +73,7 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                         <ListBox.ItemContainerStyle>
-                            <Style TargetType="{x:Type ListBoxItem}">
+                            <Style TargetType="{x:Type ListBoxItem}" BasedOn="{StaticResource {x:Type ListBoxItem}}">
                                 <Style.Triggers>
                                     <DataTrigger Binding="{Binding IsSelectable}" Value="False">
                                         <Setter Property="IsHitTestVisible" Value="False"/>
@@ -82,6 +82,7 @@
                                         <Setter Property="TextBlock.Margin"  Value="5 5 0 0"/>
                                     </DataTrigger>
                                 </Style.Triggers>
+                                <EventSetter Event="MouseDoubleClick" Handler="ListBoxItem_MouseDoubleClick" />
                             </Style>
                         </ListBox.ItemContainerStyle>
                     </ListBox>

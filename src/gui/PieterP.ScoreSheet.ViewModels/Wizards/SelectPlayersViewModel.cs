@@ -99,6 +99,16 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
         }
 
         /// <summary>
+        /// Appends the player to the next available spot in the team.
+        /// </summary>
+        /// <param name="memberListItem">The related member list item to add the player from.</param>
+        public void AppendPlayer(MemberListItem memberListItem)
+        {
+            var firstAvailablePlayer = Players.FirstOrDefault(p => p.SelectedPlayer.Value == null);
+            firstAvailablePlayer?.SetMember(memberListItem.Member);
+        }
+
+        /// <summary>
         /// Called when the WO value of a SelectedPlayerViewModel changes.
         /// </summary>
         /// <param name="vm">The SelectedPlayerViewModel instance that changed.</param>
@@ -309,7 +319,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
         /// <param name="parameter">The list item containing the dropped member.</param>
         private void OnDrop(MemberListItem? parameter) {
             if (parameter != null)
-                SelectedPlayer.Value = parameter.Member;
+                SetMember(parameter.Member);
         }
 
         /// <summary>
@@ -322,6 +332,19 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
         }
 
         #endregion Command handlers
+
+        #region Functions
+
+        /// <summary>
+        /// Sets the member as the selected player.
+        /// </summary>
+        /// <param name="member">The member to set.</param>
+        public void SetMember(Member? member)
+        {
+            SelectedPlayer.Value = member;
+        }
+
+        #endregion
 
         #region Cells
 

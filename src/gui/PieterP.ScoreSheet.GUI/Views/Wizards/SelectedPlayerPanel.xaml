@@ -20,58 +20,111 @@
             </conv:BoolToObjectConverter.FalseValue>
         </conv:BoolToObjectConverter>
     </UserControl.Resources>
-    <Border BorderThickness="1px" BorderBrush="DarkGray" Background="#AAFFFFFF">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding SelectedPlayerName.Value}" VerticalAlignment="Center" FontWeight="Bold" Padding="5 0 0 0">
-                <TextBlock.Style>
-                    <Style TargetType="{x:Type TextBlock}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" Visibility="{Binding IsEmpty.Value, Converter={StaticResource VisibilityConverter}}">
+            <Button Width="16px" Height="16px" Margin="0 0 4 0" Command="{Binding Clear}" Background="Transparent" BorderThickness="0">
+                <Image Source="/images/delete.png" Width="16px" Height="16px"/>
+            </Button>
+        </StackPanel>
+        <Border Grid.Column="1" BorderThickness="1px" BorderBrush="DarkGray" Background="#AAFFFFFF">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
                         <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsWO.Value}" Value="True" >
-                                <Setter Property="Foreground" Value="Red"/>
-                                <Setter Property="TextDecorations">
-                                    <Setter.Value>
-                                        <TextDecorationCollection>
-                                            <TextDecoration Location="Strikethrough">
-                                                <TextDecoration.Pen>
-                                                    <Pen Brush="Red"/>
-                                                </TextDecoration.Pen>
-                                            </TextDecoration>
-                                        </TextDecorationCollection>
-                                    </Setter.Value>
-                                </Setter>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsEmpty.Value}" Value="True" >
-                                <Setter Property="Foreground" Value="DarkGray"/>
+                            <DataTrigger Binding="{Binding IsWO.Value}" Value="True">
+                                <Setter Property="Background" Value="#AAFFCBC7" />
                             </DataTrigger>
                         </Style.Triggers>
                     </Style>
-                </TextBlock.Style>
-            </TextBlock>
-            <StackPanel Grid.Column="1" Orientation="Horizontal" Visibility="{Binding IsEmpty.Value, Converter={StaticResource VisibilityConverter}}">
-                <ToggleButton Margin="1 0" Width="28px" IsChecked="{Binding IsCaptain.Value}" Height="28px">
-                    <ToggleButton.Style>
-                        <Style TargetType="{x:Type ToggleButton}">
-                            <Setter Property="Visibility" Value="{Binding HideCaptain, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}" />
+                </Grid.Style>
+                <TextBlock Text="{Binding SelectedPlayerName.Value}" VerticalAlignment="Center" FontWeight="Bold" Padding="5 0 0 0">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding IsWO.Value}" Value="True" >
-                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Setter Property="Foreground" Value="Red"/>
+                                    <Setter Property="TextDecorations">
+                                        <Setter.Value>
+                                            <TextDecorationCollection>
+                                                <TextDecoration Location="Strikethrough">
+                                                    <TextDecoration.Pen>
+                                                        <Pen Brush="Red"/>
+                                                    </TextDecoration.Pen>
+                                                </TextDecoration>
+                                            </TextDecorationCollection>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsEmpty.Value}" Value="True" >
+                                    <Setter Property="Foreground" Value="DarkGray"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </ToggleButton.Style>
-                    <TextBlock FontSize="9px" TextAlignment="Center" Text="{x:Static lScore:Resources.TeamInfo_Captain}"/>
-                </ToggleButton>
-                <ToggleButton Margin="1 0" Width="28px" IsChecked="{Binding IsWO.Value}" Height="28px" Visibility="{Binding HideWO, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}">
-                    <Image Source="/images/wo.png" Width="16px" Height="9px"/>
-                </ToggleButton>
-                <Button Margin="0 0 1 0" Width="28px" Height="28px" Command="{Binding Clear}">
-                    <Image Source="/images/delete.png" Width="16px" Height="16px"/>
-                </Button>
-            </StackPanel>
-        </Grid>
-    </Border>
+                    </TextBlock.Style>
+                </TextBlock>
+                <TextBlock Grid.Column="2" Text="{Binding SelectedPlayer.Value.Ranking}" VerticalAlignment="Center" FontWeight="Bold" Margin="5" Padding="5 0 0 0" Visibility="{Binding HideWO, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsWO.Value}" Value="True" >
+                                    <Setter Property="Foreground" Value="Red"/>
+                                    <Setter Property="TextDecorations">
+                                        <Setter.Value>
+                                            <TextDecorationCollection>
+                                                <TextDecoration Location="Strikethrough">
+                                                    <TextDecoration.Pen>
+                                                        <Pen Brush="Red"/>
+                                                    </TextDecoration.Pen>
+                                                </TextDecoration>
+                                            </TextDecorationCollection>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding IsEmpty.Value}" Value="True" >
+                                    <Setter Property="Foreground" Value="DarkGray"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+        </Border>
+        <StackPanel Grid.Column="3" Orientation="Horizontal" Visibility="{Binding IsEmpty.Value, Converter={StaticResource VisibilityConverter}}">
+            <ToggleButton Width="32px" Margin="1 0" IsChecked="{Binding IsWO.Value}" Height="34px" Visibility="{Binding HideWO, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}">
+                <ToggleButton.Style>
+                    <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonStyle}">
+                        <Setter Property="Visibility" Value="{Binding HideCaptain, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}" />
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Background" Value="#ffcbc7" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+                <Image Source="/images/wo.png" Width="16px" Height="9px"/>
+            </ToggleButton>
+            <ToggleButton Width="32px" IsChecked="{Binding IsCaptain.Value}" Height="34px">
+                <ToggleButton.Style>
+                    <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonStyle}">
+                        <Setter Property="Visibility" Value="{Binding HideCaptain, RelativeSource={RelativeSource FindAncestor, AncestorType=local:SelectedPlayerPanel}, Converter={StaticResource VisibilityConverter}}" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsWO.Value}" Value="True" >
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </ToggleButton.Style>
+                <TextBlock FontSize="9px" TextAlignment="Center" Text="{x:Static lScore:Resources.TeamInfo_Captain}"/>
+            </ToggleButton>
+        </StackPanel>
+    </Grid>
 </UserControl>
