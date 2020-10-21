@@ -1729,7 +1729,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Select the players you want in the team. Drag the appropriate players from the list on the right to the boxes on the left..
+        ///   Looks up a localized string similar to Select the players you want in the team. Drag the appropriate players from the list on the right to the boxes on the left, or double-click on the appropriate player..
         /// </summary>
         public static string Wizard_SelectPlayersDesc {
             get {

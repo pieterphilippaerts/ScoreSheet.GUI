@@ -676,7 +676,7 @@ Weet u zeker dat u deze data wilt verwijderen?</value>
     <value>Selecteer spelers</value>
   </data>
   <data name="Wizard_SelectPlayersDesc" xml:space="preserve">
-    <value>Selecteer de spelers die je in het team wil. Sleep de juiste spelers uit de lijst aan de rechterkant naar de vakjes aan de linkerkant.</value>
+    <value>Selecteer de spelers die je in het team wil. Sleep de juiste spelers uit de lijst aan de rechterkant naar de vakjes aan de linkerkant, of dubbeklik op de gewenste speler.</value>
   </data>
   <data name="Wizard_ServerErrors" xml:space="preserve">
     <value>De server stuurde de volgende fouten door:</value>

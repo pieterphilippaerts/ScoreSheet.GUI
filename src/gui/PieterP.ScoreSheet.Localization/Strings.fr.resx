@@ -676,7 +676,7 @@
     <value>Sélectionnez les joueurs</value>
   </data>
   <data name="Wizard_SelectPlayersDesc" xml:space="preserve">
-    <value>Sélectionnez les joueurs qui composent l'équipe. Glissez chaque joueur de la liste à droite vers les cases à gauche.</value>
+    <value>Sélectionnez les joueurs qui composent l'équipe. Glissez chaque joueur de la liste à droite vers les cases à gauche, ou double-cliquez sur le joueur souhaité.</value>
   </data>
   <data name="Wizard_ServerErrors" xml:space="preserve">
     <value>Le serveur a retourné les erreurs suivantes :</value>

@@ -27,7 +27,7 @@
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Visibility="{Binding IsEmpty.Value, Converter={StaticResource VisibilityConverter}}">
-            <Button Width="16px" Height="16px" Margin="0 0 4 0" Command="{Binding Clear}" Background="Transparent" BorderThickness="0">
+            <Button Width="24px" Height="34px" Margin="0 0 4 0" Command="{Binding Clear}" Background="Transparent" BorderThickness="0">
                 <Image Source="/images/delete.png" Width="16px" Height="16px"/>
             </Button>
         </StackPanel>
