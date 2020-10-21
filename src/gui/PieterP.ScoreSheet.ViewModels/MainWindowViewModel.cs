@@ -13,6 +13,7 @@ using PieterP.ScoreSheet.Model.Database.Enums;
 using PieterP.ScoreSheet.Model.Database.MatchSystems;
 using PieterP.ScoreSheet.Model.Database.Updater;
 using PieterP.ScoreSheet.Model.Information;
+using PieterP.ScoreSheet.ViewModels.Commands;
 using PieterP.ScoreSheet.ViewModels.Helpers;
 using PieterP.ScoreSheet.ViewModels.Information;
 using PieterP.ScoreSheet.ViewModels.Notifications;
@@ -30,7 +31,7 @@ using static PieterP.ScoreSheet.Localization.Strings;
 namespace PieterP.ScoreSheet.ViewModels {
     public class MainWindowViewModel {
         public MainWindowViewModel(bool debug) {
-            _matchContainer = new MatchContainerViewModel();
+            MatchContainer = new MatchContainerViewModel();
             this.ActiveMatches = new ObservableCollection<CompetitiveMatchViewModel>();
             this.Screens = new ObservableCollection<ScreenInfo>();
             this.CurrentScreen = Cell.Create<object>(null);
@@ -41,32 +42,32 @@ namespace PieterP.ScoreSheet.ViewModels {
             _hideNavigation = Cell.Create(false);
             this.IsNavigationVisible = Cell.Derived(this.IsFullScreen, DatabaseManager.Current.Settings.HideNavigation, _hideNavigation,
                 (isFullScreen, autoHideNavigation, hideNavigation) => !(isFullScreen && autoHideNavigation && hideNavigation));
-            this.About = new AboutCommand();
-            this.Update = new UpdateCommand();
-            this.AppUpdate = new AppUpdateCommand();
+            About = new AboutCommand();
+            Update = new UpdateStartCommand();
+            AppUpdate = new UpdateAppCommand();
             this.SaveUpdateFile = new SaveUpdateFileCommand();
-            this.NewMatchday = new NewMatchdayCommand(this);
+            NewMatchday = new NewMatchDayCommand(this);
             this.NewCustomMatch = new NewCustomMatchCommand(this);
-            this.NewDivisionDay = new NewDivisionDayCommand(this);
+            NewDivisionDay = new NewDivisionDayCommand(this);
             this.ProtectMatchInfoClick = new RelayCommand<object>(o => this.ProtectMatchInfo.Value = !this.ProtectMatchInfo.Value);
-            this.Upload = new UploadCommand(this);
+            Upload = new UploadCommand(this);
 #if LIMBURG_FREETIME_SUPPORT
             this.Email = new EmailCommand(this);
 #endif
             var title = DatabaseManager.Current.Settings.HomeClub.Value;
             this.Open = new OpenCommand(this);
-            this.Close = new CloseCommand(this);
-            this.CloseAll = new CloseAllCommand(this);
-            this.Save = new SaveCommand(this);
-            this.SaveAs = new SaveAsCommand(this);
-            this.Quit = new QuitCommand(this);
-            this.DoQuit = new DoQuitCommand(this);
-            this.Export = new ExportCommand(this);
+            Close = new CloseCommand(this);
+            CloseAll = new CloseAllCommand(this);
+            Save = new SaveCommand(this);
+            SaveAs = new SaveAsCommand(this);
+            Quit = new QuitCommand(this);
+            DoQuit = new DoQuitCommand(this);
+            Export = new ExportActiveMatchesCommand(this);
             this.FullScreen = new RelayCommand(() => { this.IsFullScreen.Value = !this.IsFullScreen.Value; });
             this.ShowNavigation = new RelayCommand(() => _hideNavigation.Value = false);
             this.HideNavigation = new RelayCommand(() => _hideNavigation.Value = true);
-            this.Print = new PrintCommand(this);
-            this.OpenSettings = new OpenSettingsCommand(this);
+            Print = new PrintActiveMatchCommand(this);
+            OpenSettings = new OpenSettingsCommand(this);
             this.TranslationError = new LaunchCommand("https://score.pieterp.be/Help/Translation");
             this.SelectedLanguage = DatabaseManager.Current.Settings.ActiveCulture;
             this.ShowLogBook = new RelayCommand<object>(p => {
@@ -221,16 +222,16 @@ namespace PieterP.ScoreSheet.ViewModels {
             }
             var compMatch = sender.Context as CompetitiveMatchViewModel;
             if (compMatch != null) {
-                _matchContainer.ActiveMatch.Value = compMatch;
-                if (CurrentScreen.Value != _matchContainer) {
-                    CurrentScreen.Value = _matchContainer;
+                MatchContainer.ActiveMatch.Value = compMatch;
+                if (CurrentScreen.Value != MatchContainer) {
+                    CurrentScreen.Value = MatchContainer;
                 }
             } else {
                 CurrentScreen.Value = sender.Context;
             }
         }
 
-        private void AddMatch(CompetitiveMatchViewModel m) {
+        internal void AddMatch(CompetitiveMatchViewModel m) {
             if (m.IsOfficial.Value) {
                 if (ActiveMatches.Any(c => c.IsOfficial.Value && c.UniqueId == m.UniqueId))
                     return; // the official match is already open
@@ -252,7 +253,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             //};
         }
 
-        private bool CloseMatches(IEnumerable<CompetitiveMatchViewModel?> matches) {
+        internal bool CloseMatches(IEnumerable<CompetitiveMatchViewModel?> matches) {
             if (matches == null)
                 return false;
 
@@ -319,7 +320,7 @@ namespace PieterP.ScoreSheet.ViewModels {
                 ScreenClick(Screens[0]);
             return true;
         }
-        private bool SaveMatch(CompetitiveMatchViewModel match, bool forceDialog = false) {
+        internal bool SaveMatch(CompetitiveMatchViewModel match, bool forceDialog = false) {
             string? filename = match.Filename.Value;
             if (forceDialog || filename == null || filename == "") {
                 var n = new FileDialogNotification(FileDialogTypes.SaveFile);
@@ -338,7 +339,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             }
             match.Filename.Value = filename;
             match.Dirty.Value = false;
-            ((SaveCommand)this.Save).RaiseCanExecuteChanged();
+            ((SaveCommand)Save).RaiseCanExecuteChanged();
             return true;
 
             string SS(string s, string d) {
@@ -346,6 +347,12 @@ namespace PieterP.ScoreSheet.ViewModels {
                     return d;
                 return s;
             }
+        }
+
+        internal void InvokeExiting()
+        {
+            ApplicationExiting?.Invoke();
+            ApplicationExit?.Invoke();
         }
 
         public ObservableCollection<ScreenInfo> Screens { get; private set; }
@@ -390,7 +397,7 @@ namespace PieterP.ScoreSheet.ViewModels {
         public ICommand NewDivisionDay { get; private set; }
         public ICommand SelectLanguage { get; private set; }
 
-        private MatchContainerViewModel _matchContainer;
+        internal MatchContainerViewModel MatchContainer { get; set; }
         private Cell<bool> _hideNavigation;
         private List<IDisposable> _services;
         private ScreenInfo _overviewScreen;
@@ -398,96 +405,6 @@ namespace PieterP.ScoreSheet.ViewModels {
         public event Action ApplicationExiting;
         public event Action ApplicationExit;
 
-        public class ExportCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public ExportCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.ActiveMatches.CollectionChanged += (a, b) => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-
-            public bool CanExecute(object parameter) {
-                return _parent.ActiveMatches.Count > 0;
-            }
-
-            public async void Execute(object parameter) {
-                _wizard = new WizardViewModel();
-                var selectedMatchesPanel = new SelectMatchesViewModel(_wizard, _parent.ActiveMatches, Wizard_Export, Wizard_ExportDesc, Wizard_ExportMessage, ExportTypes.FileExport, OnExport);
-                _wizard.CurrentPanel.Value = selectedMatchesPanel;
-
-                var n = new ShowDialogNotification(_wizard);
-                NotificationManager.Current.Raise(n);
-            }
-            private void OnExport(IEnumerable<CompetitiveMatchViewModel> selectedMatches) {
-                _wizard.CurrentPanel.Value = new SelectExportTypeViewModel(_wizard, selectedMatches);
-            }
-            private MainWindowViewModel _parent;
-            private WizardViewModel _wizard;
-        }
-        public class UploadCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public UploadCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.ActiveMatches.CollectionChanged += (a, b) => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-
-            public bool CanExecute(object parameter) {
-                return _parent.ActiveMatches.Count > 0;
-            }
-
-            public async void Execute(object parameter) {
-                var wiz = new WizardViewModel();
-                var selectedMatchesPanel = new SelectMatchesViewModel(wiz, _parent.ActiveMatches, Wizard_Upload, Wizard_UploadDesc, Wizard_UploadMessage, ExportTypes.Upload,
-                    OnUpload,
-                    m => m.IsOfficial.Value && m.IsCompetitive && m.UploadStatus.Value != UploadStatus.Uploaded,
-                    m => m.IsOfficial.Value && m.UploadStatus.Value == UploadStatus.Uploaded,
-                    m => !m.IsCompetitive);
-                wiz.CurrentPanel.Value = selectedMatchesPanel;
-
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
-            }
-            private async void OnUpload(IEnumerable<CompetitiveMatchViewModel> selectedMatches) {
-                var uploader = new MatchUploader(true);
-                (var errorCode, var errors) = await uploader.Upload(selectedMatches.ToArray());
-                switch (errorCode) {
-                    case TabTErrorCode.NetworkError:
-                    case TabTErrorCode.InvalidCredentials:
-                    case TabTErrorCode.DataError:
-                        NotificationManager.Current.Raise(new ShowMessageNotification(FormatError(errorCode, errors), NotificationTypes.Error, NotificationButtons.OK));
-                        break;
-                    case TabTErrorCode.NoError:
-                        NotificationManager.Current.Raise(new ShowMessageNotification(Wizard_UploadSuccessful, NotificationTypes.Informational, NotificationButtons.OK));
-                        break;
-                }
-                NotificationManager.Current.Raise(new CloseDialogNotification(true));
-            }
-            private string FormatError(TabTErrorCode error, IEnumerable<string> errors) {
-                var sb = new StringBuilder();
-                switch (error) {
-                    case TabTErrorCode.DataError:
-                        sb.AppendLine(Wizard_ServerError);
-                        break;
-                    case TabTErrorCode.NetworkError:
-                        sb.AppendLine(Wizard_NetworkError);
-                        break;
-                    case TabTErrorCode.InvalidCredentials:
-                        sb.AppendLine(Wizard_InvalidCredentials);
-                        break;
-                }
-
-                if (errors != null && errors.Any()) {
-                    sb.AppendLine();
-                    sb.AppendLine(Wizard_ServerErrors);
-                    foreach (var e in errors) {
-                        sb.AppendLine(" - " + e);
-                    }
-                }
-                return sb.ToString();
-            }
-            private MainWindowViewModel _parent;
-        }
 #if LIMBURG_FREETIME_SUPPORT
         public class EmailCommand : ICommand {
             public event EventHandler CanExecuteChanged;
@@ -545,57 +462,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             private bool _isSending;
         }
 #endif
-        public class OpenSettingsCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
 
-            public OpenSettingsCommand(MainWindowViewModel parent) {
-                _parent = parent;
-            }
-
-            public bool CanExecute(object parameter) {
-                return true;
-            }
-
-            public async void Execute(object parameter) {
-                var settings = new SettingsViewModel(this._parent);
-                var n = new ShowDialogNotification(settings);
-                NotificationManager.Current.Raise(n);
-            }
-            private MainWindowViewModel _parent;
-        }
-        #region AboutCommand
-        private class AboutCommand : ICommand {
-            public event EventHandler? CanExecuteChanged;
-            public bool CanExecute(object parameter) => true;
-            public void Execute(object parameter) {
-                var n = new ShowDialogNotification(new AboutWindowViewModel());
-                NotificationManager.Current.Raise(n);
-            }
-        }
-        #endregion
-        #region AppUpdateCommand
-        private class AppUpdateCommand : ICommand {
-            public event EventHandler? CanExecuteChanged;
-            public bool CanExecute(object parameter) => true;
-            public void Execute(object parameter) {
-                var n = new ShowDialogNotification(new UpdateAppViewModel());
-                NotificationManager.Current.Raise(n);
-            }
-        }
-        #endregion
-        #region UpdateCommand
-        private class UpdateCommand : ICommand {
-            public event EventHandler? CanExecuteChanged;
-            public bool CanExecute(object parameter) => true;
-            public void Execute(object parameter) {
-                var wiz = new WizardViewModel();
-                wiz.CurrentPanel.Value = new UpdateStartViewModel(wiz);
-                
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
-            }
-        }
-        #endregion
         #region SaveUpdateFileCommand
         private class SaveUpdateFileCommand : ICommand {
             public event EventHandler CanExecuteChanged;
@@ -613,75 +480,6 @@ namespace PieterP.ScoreSheet.ViewModels {
                     DatabaseManager.Current.Export(n.SelectedPath);
                 }
             }
-        }
-        #endregion
-        #region NewMatchdayCommand
-        private class NewMatchdayCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public NewMatchdayCommand(MainWindowViewModel parent) {
-                _parent = parent;
-            }
-
-            public bool CanExecute(object parameter) => true;
-            public void Execute(object parameter) {
-                var wiz = new WizardViewModel();
-                var newDayVm = new NewMatchdayViewModel(wiz);
-                wiz.CurrentPanel.Value = newDayVm;
-
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
-
-                if (n.Result) {
-                    CompetitiveMatchViewModel? last = null;
-                    foreach (var m in newDayVm.Matches) {
-                        var fullMatch = DatabaseManager.Current.OfficialMatches[m.MatchId];
-                        if (fullMatch != null)
-                            last = new CompetitiveMatchViewModel(fullMatch);
-                        else
-                            last = new CompetitiveMatchViewModel(m);
-                        _parent.AddMatch(last);
-                    }
-                }
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region NewDivisionDayCommand
-        private class NewDivisionDayCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public NewDivisionDayCommand(MainWindowViewModel parent) {
-                _parent = parent;
-            }
-
-            public bool CanExecute(object parameter) => true;
-            public void Execute(object parameter) {
-                var wiz = new WizardViewModel();
-                var newDivDayVm = new NewDivisionDayViewModel(wiz);
-                wiz.CurrentPanel.Value = newDivDayVm;
-
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
-
-                if (n.Result) {
-                    CompetitiveMatchViewModel? last = null;
-                    var updater = new TabTUpdater();
-                    foreach (var m in newDivDayVm.SelectedMatches) {
-                        var fullMatch = DatabaseManager.Current.OfficialMatches[m.MatchId];
-                        if (fullMatch != null)
-                            last = new CompetitiveMatchViewModel(fullMatch);
-                        else
-                            last = new CompetitiveMatchViewModel(m);
-                        _parent.AddMatch(last);
-                        updater.RefreshMemberList(m.HomeClub, m.PlayerCategory.Value);
-                        updater.RefreshMemberList(m.AwayClub, m.PlayerCategory.Value);
-                    }
-                }
-            }
-
-            private MainWindowViewModel _parent;
         }
         #endregion
         #region NewCustomMatchCommand
@@ -740,153 +538,6 @@ namespace PieterP.ScoreSheet.ViewModels {
                         _parent.AddMatch(new CompetitiveMatchViewModel(match, n.SelectedPath));
                     }
                 }
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region SaveCommand
-        private class SaveCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public SaveCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.CurrentScreen.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-                parent._matchContainer.ActiveMatch.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.CurrentScreen.Value == _parent._matchContainer
-                    && _parent._matchContainer.ActiveMatch.Value != null
-                    && _parent._matchContainer.ActiveMatch.Value.IsOfficial.Value == false
-                    && _parent._matchContainer.ActiveMatch.Value.Filename.Value != null;
-            }
-            public void Execute(object parameter) {
-                var match = _parent._matchContainer.ActiveMatch.Value;
-                if (match == null || match.Filename.Value == null)
-                    return;
-                _parent.SaveMatch(match);
-            }
-            internal void RaiseCanExecuteChanged() {
-                CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region SaveAsCommand
-        private class SaveAsCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public SaveAsCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.CurrentScreen.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-                parent._matchContainer.ActiveMatch.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.CurrentScreen.Value == _parent._matchContainer 
-                    && _parent._matchContainer.ActiveMatch.Value != null
-                    && _parent._matchContainer.ActiveMatch.Value.IsOfficial.Value == false;
-            }
-            public void Execute(object parameter) {
-                var match = _parent._matchContainer.ActiveMatch.Value;
-                if (match == null)
-                    return;
-                _parent.SaveMatch(match, true);
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region CloseCommand
-        private class CloseCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public CloseCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.CurrentScreen.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.CurrentScreen.Value == _parent._matchContainer;
-            }
-            public void Execute(object parameter) {
-                _parent.CloseMatches(new CompetitiveMatchViewModel?[] { _parent._matchContainer.ActiveMatch?.Value });
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region CloseAllCommand
-        private class CloseAllCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public CloseAllCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.ActiveMatches.CollectionChanged += (sender, e) => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.ActiveMatches.Count > 0;
-            }
-            public void Execute(object parameter) {
-                _parent.CloseMatches(_parent.ActiveMatches.ToList());
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region QuitCommand
-        private class QuitCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public QuitCommand(MainWindowViewModel parent) {
-                _parent = parent;
-            }
-            public bool CanExecute(object parameter) {
-                return true;
-            }
-            public void Execute(object parameter) {
-                if (_parent.DoQuit.CanExecute(parameter))
-                    _parent.DoQuit.Execute(parameter);
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region DoQuitCommand
-        private class DoQuitCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public DoQuitCommand(MainWindowViewModel parent) {
-                _parent = parent;
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.CloseMatches(_parent.ActiveMatches.ToList());
-            }
-            public void Execute(object parameter) {
-                _parent.ApplicationExiting?.Invoke();
-                _parent.ApplicationExit?.Invoke();
-            }
-
-            private MainWindowViewModel _parent;
-        }
-        #endregion
-        #region PrintCommand
-        private class PrintCommand : ICommand {
-            public event EventHandler CanExecuteChanged;
-
-            public PrintCommand(MainWindowViewModel parent) {
-                _parent = parent;
-                parent.CurrentScreen.ValueChanged += () => CanExecuteChanged?.Invoke(this, new EventArgs());
-            }
-            public bool CanExecute(object parameter) {
-                return _parent.CurrentScreen.Value == _parent._matchContainer;
-            }
-            public void Execute(object parameter) {
-                var wiz = new WizardViewModel();
-                var printVm = new PrintViewModel(wiz, _parent._matchContainer.ActiveMatch.Value!);
-                wiz.CurrentPanel.Value = printVm;
-
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
             }
 
             private MainWindowViewModel _parent;
