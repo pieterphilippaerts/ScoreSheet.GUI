@@ -3,8 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Score;assembly=ScoreSheet.Localization"
-             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Score"
              mc:Ignorable="d" 
              d:DesignHeight="18" d:DesignWidth="500">
     <StackPanel Orientation="Horizontal">
@@ -12,7 +10,7 @@
         <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
             <TextBox Text="{Binding Name.Value, UpdateSourceTrigger=PropertyChanged}" Width="254" Style="{DynamicResource EditableTextBoxStyle}"></TextBox>
         </Border>
-        <Button Height="18" Width="18" Command="{Binding Browse}">...</Button>
+        <Button Height="18" Width="18" Command="{Binding ParentTeam.BrowseForPlayersCommand}">...</Button>
         <Border Background="{DynamicResource EditableBackgroundBrush}" BorderBrush="{DynamicResource BackgroundBrush}" BorderThickness="0.5">
             <TextBox Text="{Binding ComputerNumber.Value, UpdateSourceTrigger=PropertyChanged}" Width="46" Style="{DynamicResource EditableCenteredTextBoxStyle}"></TextBox>
         </Border>
