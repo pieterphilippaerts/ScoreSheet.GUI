@@ -66,7 +66,12 @@ namespace PieterP.ScoreSheet.GUI.Services {
                         adobeProcess.StartInfo.FileName = DatabaseManager.Current.Settings.AdobePath.Value;
                         adobeProcess.StartInfo.WindowStyle = ProcessWindowStyle.Hidden;
                         adobeProcess.StartInfo.Arguments = string.Format("/N /T \"{0}\" \"{1}\"", tempFile, pd.PrintQueue.Name);
-                        adobeProcess.Start();
+                        int cc = pd.PrintTicket.CopyCount ?? 1;
+                        if (cc < 1 || cc > 3)
+                            cc = 1;
+                        for (int i = 0; i < cc; i++) {
+                            adobeProcess.Start();
+                        }
                     }
                 }
                 return true;
