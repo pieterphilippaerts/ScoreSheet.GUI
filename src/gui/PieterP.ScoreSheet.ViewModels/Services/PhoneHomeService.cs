@@ -10,6 +10,7 @@ using PieterP.Shared.Interfaces;
 using PieterP.Shared.Services;
 using PieterP.ScoreSheet.ViewModels.Services.Json;
 using PieterP.ScoreSheet.Model.Interfaces;
+using PieterP.Shared.Cells;
 
 namespace PieterP.ScoreSheet.ViewModels.Services {
     public class PhoneHomeService : IDisposable {
@@ -20,14 +21,15 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _timer = ServiceLocator.Resolve<ITimerService>();
             _timer.Tick += o => CallHome();
             _timer.Start(new TimeSpan(0, 5, 0));
-            ServiceLocator.Resolve<INetworkAvailabilityService>().NetworkAvailable += CallHome;
-#endif 
+            _isNetworkAvailable = ServiceLocator.Resolve<INetworkAvailabilityService>().IsNetworkAvailable;
+            _isNetworkAvailable.ValueChanged += CallHome;
+#endif
         }
         public async void CallHome() {
 #if DEBUG
             return;
 #endif
-            if (_hasSent)
+            if (_hasSent || _isNetworkAvailable.Value == false)
                 return;
             try {
                 var request = WebRequest.Create(CallbackUrl) as HttpWebRequest;
@@ -86,6 +88,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         }
         private MainWindowViewModel _mainVm;
         private ITimerService? _timer;
+        private Cell<bool> _isNetworkAvailable;
         private bool _hasSent = false;
         private byte[]? _infoBytes;
         private const string CallbackUrl = "https://score.pieterp.be/TrackBack/Register";
