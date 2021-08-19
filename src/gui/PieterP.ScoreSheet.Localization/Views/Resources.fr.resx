@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindow_Attribution" xml:space="preserve">
-    <value>Ce programme utilise la base de données des compétitions gérées par la FRBTT, son interface rendue disponible par Gaëtan Frenoy, et les en remercie. Nous tenons également à remercier spécifiquement Bruno Van Damme, David Waefelaer et Michèle Messiaen pour leur contribution au programme, et toute personne ayant suggéré une suggestion ou signalé une erreur.</value>
+    <value>Ce programme utilise la base de données des compétitions gérées par la FRBTT, son interface rendue disponible par Gaëtan Frenoy, et les en remercie. Nous tenons également à remercier spécifiquement Glen Staes, Bruno Van Damme, David Waefelaer et Michèle Messiaen pour leur contribution au programme, et toute personne ayant suggéré une suggestion ou signalé une erreur.</value>
   </data>
   <data name="AboutWindow_Close" xml:space="preserve">
     <value>Fermer</value>

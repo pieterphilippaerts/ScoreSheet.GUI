@@ -45,9 +45,9 @@ namespace PieterP.ScoreSheet.GUI {
             // by default, only SSL3 and TLS1.0 are allowed
             try {
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, policyErrors) => true;
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12 | (SecurityProtocolType)0x3000 /* Tls13*/;
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | (SecurityProtocolType)0x3000 /* Tls13*/;
             } catch (NotSupportedException) {
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12; // older version of the framework maybe?
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12; // older version of the framework maybe?
             }
 
             // initialize services

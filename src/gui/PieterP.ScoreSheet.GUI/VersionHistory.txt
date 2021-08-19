@@ -1,4 +1,8 @@
 ﻿
+Versie 2021.2022.1
+ - Update competitiejaar 2021-2022
+ - Kleine bugfixes en aanpassingen
+
 Versie 2019.2020.16
  - aanpassing m.b.t. melding wo/ff
  - bugfix voor clubs die in een andere provincie spelen dan waar ze geregistreerd zijn

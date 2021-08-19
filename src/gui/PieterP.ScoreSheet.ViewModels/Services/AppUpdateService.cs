@@ -192,7 +192,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         }
         private async Task<bool> Download(Uri url, Stream result) {
             try {
-                //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                //ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
                 var request = WebRequest.Create(url) as HttpWebRequest;
                 if (request != null) {
                     var response = await request.GetResponseAsync();

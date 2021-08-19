@@ -61,7 +61,7 @@ namespace PieterP.ScoreSheet.Localization.Views {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This program makes grateful use of the competition database managed by the KBTTB and the links to it made available by Gaëtan Frenoy. We also want to specifically thank Bruno Van Damme, David Waefelaer and Michèle Messiaen for their contribution to the program, as well as everyone who sent suggestions or reported errors..
+        ///   Looks up a localized string similar to This program makes grateful use of the competition database managed by the KBTTB and the links to it made available by Gaëtan Frenoy. We also want to specifically thank Glen Staes, Bruno Van Damme, David Waefelaer and Michèle Messiaen for their contribution to the program, as well as everyone who sent suggestions or reported errors..
         /// </summary>
         public static string AboutWindow_Attribution {
             get {

@@ -187,7 +187,7 @@
     <value>_Close</value>
   </data>
   <data name="AboutWindow_Attribution" xml:space="preserve">
-    <value>This program makes grateful use of the competition database managed by the KBTTB and the links to it made available by Gaëtan Frenoy. We also want to specifically thank Bruno Van Damme, David Waefelaer and Michèle Messiaen for their contribution to the program, as well as everyone who sent suggestions or reported errors.</value>
+    <value>This program makes grateful use of the competition database managed by the KBTTB and the links to it made available by Gaëtan Frenoy. We also want to specifically thank Glen Staes, Bruno Van Damme, David Waefelaer and Michèle Messiaen for their contribution to the program, as well as everyone who sent suggestions or reported errors.</value>
   </data>
   <data name="AboutWindow_Close" xml:space="preserve">
     <value>Close</value>

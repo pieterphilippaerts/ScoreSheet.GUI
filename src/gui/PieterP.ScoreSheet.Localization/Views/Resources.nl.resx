@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutWindow_Attribution" xml:space="preserve">
-    <value>Dit programma maakt dankbaar gebruik van de competitiedatabase die beheerd wordt door de KBTTB en de koppelingen hiermee die beschikbaar gemaakt zijn door Gaëtan Frenoy. Ook willen we specifiek Bruno Van Damme, David Waefelaer en Michèle Messiaen bedanken voor hun bijdrage aan het programma, alsook iedereen die een suggestie doorstuurde of een fout heeft gemeld.</value>
+    <value>Dit programma maakt dankbaar gebruik van de competitiedatabase die beheerd wordt door de KBTTB en de koppelingen hiermee die beschikbaar gemaakt zijn door Gaëtan Frenoy. Ook willen we specifiek Glen Staes, Bruno Van Damme, David Waefelaer en Michèle Messiaen bedanken voor hun bijdrage aan het programma, alsook iedereen die een suggestie doorstuurde of een fout heeft gemeld.</value>
   </data>
   <data name="AboutWindow_Close" xml:space="preserve">
     <value>Sluiten</value>
