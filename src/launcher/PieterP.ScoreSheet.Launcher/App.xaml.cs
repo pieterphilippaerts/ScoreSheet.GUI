@@ -166,9 +166,9 @@ namespace PieterP.ScoreSheet.Launcher {
 
         private bool TryEnableTls() {
             try {
-                var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client");
-                clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
-                clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client");
+                //var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client");
+                //clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
+                var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client");
                 clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
                 return true;
             } catch { 

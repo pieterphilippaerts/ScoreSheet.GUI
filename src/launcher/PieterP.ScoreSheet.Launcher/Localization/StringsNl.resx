@@ -130,10 +130,10 @@
     <value>ScoreSheet Opstartprogramma</value>
   </data>
   <data name="App_TlsEnabled" xml:space="preserve">
-    <value>TLS 1.1 en 1.2 zijn succesvol aangezet!</value>
+    <value>TLS 1.2 is succesvol aangezet!</value>
   </data>
   <data name="App_TlsNotEnabled" xml:space="preserve">
-    <value>Er is een fout opgetreden bij het aanzetten van TLS 1.1 en 1.2. Mogelijk heeft u niet de juiste rechten om deze wijzigingen te maken.</value>
+    <value>Er is een fout opgetreden bij het aanzetten van TLS 1.2. Mogelijk heeft u niet de juiste rechten om deze wijzigingen te maken.</value>
   </data>
   <data name="Main_Cancel" xml:space="preserve">
     <value>Annuleren</value>
@@ -208,19 +208,19 @@
     <value>Meer informatie hierover lezen</value>
   </data>
   <data name="Prereq_Tls" xml:space="preserve">
-    <value>TLS 1.1 of hoger vereist</value>
+    <value>TLS 1.2 of hoger vereist</value>
   </data>
   <data name="Prereq_TlsEnable" xml:space="preserve">
-    <value>TLS 1.1/1.2-ondersteuning aanzetten</value>
+    <value>TLS 1.2-ondersteuning aanzetten</value>
   </data>
   <data name="Prereq_TlsErrW7" xml:space="preserve">
-    <value>De ondersteuning voor TLS 1.1 of hoger staat niet aan op dit systeem. Hierdoor kan ScoreSheet mogelijk geen data downloaden van de competitiewebsite. Gelukkig ondersteunt Windows 7 dit protocol wel, dus je kan het gewoon aanzetten.</value>
+    <value>De ondersteuning voor TLS 1.2 of hoger staat niet aan op dit systeem. Hierdoor kan ScoreSheet mogelijk geen data downloaden van de competitiewebsite. Gelukkig ondersteunt Windows 7 dit protocol wel, dus je kan het gewoon aanzetten.</value>
   </data>
   <data name="Prereq_TlsErrWV" xml:space="preserve">
-    <value>Windows Vista biedt standaard geen ondersteuning voor TLS 1.1, maar het kan op een onofficiële manier wel aangezet worden.</value>
+    <value>Windows Vista biedt standaard geen ondersteuning voor TLS 1.2, maar het kan op een onofficiële manier wel aangezet worden.</value>
   </data>
   <data name="Prereq_TlsOk" xml:space="preserve">
-    <value>Dit systeem ondersteunt TLS 1.1 of hoger.</value>
+    <value>Dit systeem ondersteunt TLS 1.2 of hoger.</value>
   </data>
   <data name="Prereq_Uhoh" xml:space="preserve">
     <value>Uhoh!</value>
