@@ -18,10 +18,10 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
         public PrereqViewModel(MainViewModel parent) {
             _parent = parent;
             IsWindowsVistaOrHigher = CheckWindows();
-            IsTls1_1Enabled = CheckTls();
+            IsTls1_2Enabled = CheckTls();
             IsFrameworkAvailable = CheckFrameworkVersion();
 
-            ArePrereqsMet = IsWindowsVistaOrHigher && IsTls1_1Enabled;
+            ArePrereqsMet = IsWindowsVistaOrHigher && IsTls1_2Enabled;
 
             this.InstallPath = DatabaseManager.Current.BasePath;
             this.Install = new RelayCommand(OnInstall);
@@ -55,7 +55,7 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
                     Click = new RelayCommand(() => OpenUrl("https://www.microsoft.com/en-us/download/details.aspx?id=30653"))
                 });
             }
-            if (IsTls1_1Enabled) {
+            if (IsTls1_2Enabled) {
                 prereqs.Add(new PrereqInfo() {
                     Title = Prereq_Tls,
                     Description = Prereq_TlsOk,
@@ -128,14 +128,14 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
             if (protocolsKey == null)
                 return false;
             var names = protocolsKey.GetSubKeyNames();
-            if (names.Contains("TLS 1.1") || names.Contains("TLS 1.2")) // doesn't neceserally mean they're enabled, but in that case it's a specific choice of the admin
+            if (names.Contains("TLS 1.2")) // doesn't neceserally mean they're enabled, but in that case it's a specific choice of the admin
                 return true;
             return false;
         }
 
         public IList<object> Prereqs { get; private set; }
         public bool IsWindowsVistaOrHigher { get; private set; }
-        public bool IsTls1_1Enabled { get; private set; }
+        public bool IsTls1_2Enabled { get; private set; }
         public bool IsFrameworkAvailable { get; private set; }
         public bool ArePrereqsMet { get; private set; }
         public string InstallPath { get; private set; }

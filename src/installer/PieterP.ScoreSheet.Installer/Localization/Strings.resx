@@ -124,10 +124,10 @@
     <value>No changes made</value>
   </data>
   <data name="App_TlsEnabled" xml:space="preserve">
-    <value>TLS 1.1 and 1.2 have been successfully switched on!</value>
+    <value>TLS 1.2 has been successfully switched on! You may need to restart the computer for the changes to take effect.</value>
   </data>
   <data name="App_TlsNotEnabled" xml:space="preserve">
-    <value>An error occurred while turning on TLS 1.1 and 1.2. You may not have the correct rights to make these changes.</value>
+    <value>An error occurred while turning on TLS 1.2. You may not have the correct rights to make these changes.</value>
   </data>
   <data name="InstallationComplete_Close" xml:space="preserve">
     <value>Close</value>
@@ -205,19 +205,19 @@
     <value>Welcome to ScoreSheet</value>
   </data>
   <data name="Prereq_Tls" xml:space="preserve">
-    <value>TLS 1.1 or higher required</value>
+    <value>TLS 1.2 or higher required</value>
   </data>
   <data name="Prereq_TlsEnable" xml:space="preserve">
-    <value>Enable TLS 1.1/1.2 support</value>
+    <value>Enable TLS 1.2 support</value>
   </data>
   <data name="Prereq_TlsErrW7" xml:space="preserve">
-    <value>The support for TLS 1.1 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it.</value>
+    <value>The support for TLS 1.2 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it.</value>
   </data>
   <data name="Prereq_TlsErrWV" xml:space="preserve">
-    <value>Windows Vista does not support TLS 1.1 by default, but it can be turned on in an unofficial way. The ScoreSheet download page contains more information about this.</value>
+    <value>Windows Vista does not support TLS 1.2 by default, but it can be turned on in an unofficial way. The ScoreSheet download page contains more information about this.</value>
   </data>
   <data name="Prereq_TlsOk" xml:space="preserve">
-    <value>This system supports TLS 1.1 or higher.</value>
+    <value>This system supports TLS 1.2 or higher.</value>
   </data>
   <data name="Prereq_Warning" xml:space="preserve">
     <value>ATTENTION: you can install ScoreSheet, but as long as the above requirements are not met, ScoreSheet may not work correctly!</value>

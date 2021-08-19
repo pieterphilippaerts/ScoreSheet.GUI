@@ -67,23 +67,30 @@ namespace PieterP.ScoreSheet.Installer {
             try {
                 var manager = Strings.ResourceManager;
                 var managerType = manager.GetType();
-                var field = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
-                var resourceTable = field.GetValue(manager) as Hashtable;
-                if (resourceTable != null) {
-                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsNl.resources", resourceTable, new CultureInfo("nl"), new CultureInfo("nl-BE"));
-                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsFr.resources", resourceTable, new CultureInfo("fr"), new CultureInfo("fr-BE"));
-                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsDe.resources", resourceTable, new CultureInfo("de"), new CultureInfo("de-DE"));
+                var oldField = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
+                var oldResourceTable = oldField?.GetValue(manager) as Hashtable; // .NET 3.5
+
+                var newField = managerType.GetField("_resourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
+                var newResourceTable = newField?.GetValue(manager) as Dictionary<string, ResourceSet>; // .NET 4.0+
+
+                if (oldResourceTable != null || newResourceTable != null) {
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsNl.resources", oldResourceTable, newResourceTable, "nl", "nl-BE");
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsFr.resources", oldResourceTable, newResourceTable, "fr", "fr-BE");
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsDe.resources", oldResourceTable, newResourceTable, "de", "de-DE");
                 }
             } catch (Exception e) {
                 HandleException(e, false);
             }
         }
-        private void AddResource(string resourceName, Hashtable resourceTable, params CultureInfo[] cultures) {
+        private void AddResource(string resourceName, Hashtable oldResourceTable, Dictionary<string, ResourceSet> newResourceTable, params string[] cultures) {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)) {
                 var reader = new ResourceReader(stream);
                 var resourceSet = new ResourceSet(reader);
                 foreach (var c in cultures) {
-                    resourceTable[c] = resourceSet;
+                    if (oldResourceTable != null)
+                        oldResourceTable[new CultureInfo(c)] = resourceSet;
+                    if (newResourceTable != null)
+                        newResourceTable[c] = resourceSet;
                 }
             }
         }
@@ -154,9 +161,9 @@ namespace PieterP.ScoreSheet.Installer {
 
         private bool TryEnableTls() {
             try {
-                var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client");
-                clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
-                clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client");
+                //var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.1\Client");
+                //clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
+                var clientKey = Registry.LocalMachine.CreateSubKey(@"SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client");
                 clientKey?.SetValue("DisabledByDefault", 0, RegistryValueKind.DWord);
                 return true;
             } catch {

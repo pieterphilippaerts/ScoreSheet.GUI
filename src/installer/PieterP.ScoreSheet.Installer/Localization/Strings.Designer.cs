@@ -79,7 +79,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TLS 1.1 and 1.2 have been successfully switched on!.
+        ///   Looks up a localized string similar to TLS 1.2 has been successfully switched on! You may need to restart the computer for the changes to take effect..
         /// </summary>
         public static string App_TlsEnabled {
             get {
@@ -88,7 +88,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occurred while turning on TLS 1.1 and 1.2. You may not have the correct rights to make these changes..
+        ///   Looks up a localized string similar to An error occurred while turning on TLS 1.2. You may not have the correct rights to make these changes..
         /// </summary>
         public static string App_TlsNotEnabled {
             get {
@@ -322,7 +322,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TLS 1.1 or higher required.
+        ///   Looks up a localized string similar to TLS 1.2 or higher required.
         /// </summary>
         public static string Prereq_Tls {
             get {
@@ -331,7 +331,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable TLS 1.1/1.2 support.
+        ///   Looks up a localized string similar to Enable TLS 1.2 support.
         /// </summary>
         public static string Prereq_TlsEnable {
             get {
@@ -340,7 +340,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The support for TLS 1.1 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it..
+        ///   Looks up a localized string similar to The support for TLS 1.2 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it..
         /// </summary>
         public static string Prereq_TlsErrW7 {
             get {
@@ -349,7 +349,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Vista does not support TLS 1.1 by default, but it can be turned on in an unofficial way. The ScoreSheet download page contains more information about this..
+        ///   Looks up a localized string similar to Windows Vista does not support TLS 1.2 by default, but it can be turned on in an unofficial way. The ScoreSheet download page contains more information about this..
         /// </summary>
         public static string Prereq_TlsErrWV {
             get {
@@ -358,7 +358,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This system supports TLS 1.1 or higher..
+        ///   Looks up a localized string similar to This system supports TLS 1.2 or higher..
         /// </summary>
         public static string Prereq_TlsOk {
             get {
