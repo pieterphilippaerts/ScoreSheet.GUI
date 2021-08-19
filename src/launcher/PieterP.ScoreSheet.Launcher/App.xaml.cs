@@ -27,6 +27,8 @@ namespace PieterP.ScoreSheet.Launcher {
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
 
+            SetupExceptionHandling();
+
             // By default, resource files work with sattelite assemblies. Because there seem to be some problems with resource files on
             // .NET Framework 3.5, we hack the translated resource files into the ResourceManager that is used by the Strings class
             AddResources();
@@ -99,22 +101,33 @@ namespace PieterP.ScoreSheet.Launcher {
             return selectedProfile;
         }
         private void AddResources() {
-            var manager = Strings.ResourceManager;
-            var managerType = manager.GetType();
-            var field = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
-            var resourceTable = field.GetValue(manager) as Hashtable;
-            if (resourceTable != null) {
-                AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsNl.resources", resourceTable, new CultureInfo("nl"), new CultureInfo("nl-BE"));
-                AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsFr.resources", resourceTable, new CultureInfo("fr"), new CultureInfo("fr-BE"));
-                AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsDe.resources", resourceTable, new CultureInfo("de"), new CultureInfo("de-DE"));
+            try {
+                var manager = Strings.ResourceManager;
+                var managerType = manager.GetType();
+                var oldField = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
+                var oldResourceTable = oldField?.GetValue(manager) as Hashtable; // .NET 3.5
+
+                var newField = managerType.GetField("_resourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
+                var newResourceTable = newField?.GetValue(manager) as Dictionary<string, ResourceSet>; // .NET 4.0+
+
+                if (oldResourceTable != null || newResourceTable != null) {
+                    AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsNl.resources", oldResourceTable, newResourceTable, "nl", "nl-BE");
+                    AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsFr.resources", oldResourceTable, newResourceTable, "fr", "fr-BE");
+                    AddResource("PieterP.ScoreSheet.Launcher.Localization.StringsDe.resources", oldResourceTable, newResourceTable, "de", "de-DE");
+                }
+            } catch (Exception e) {
+                HandleException(e, false);
             }
         }
-        private void AddResource(string resourceName, Hashtable resourceTable, params CultureInfo[] cultures) {
+        private void AddResource(string resourceName, Hashtable oldResourceTable, Dictionary<string, ResourceSet> newResourceTable, params string[] cultures) {
             using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resourceName)) {
                 var reader = new ResourceReader(stream);
                 var resourceSet = new ResourceSet(reader);
                 foreach (var c in cultures) {
-                    resourceTable[c] = resourceSet;
+                    if (oldResourceTable != null)
+                        oldResourceTable[new CultureInfo(c)] = resourceSet;
+                    if (newResourceTable != null)
+                        newResourceTable[c] = resourceSet;
                 }
             }
         }
@@ -145,23 +158,55 @@ namespace PieterP.ScoreSheet.Launcher {
 
         private ApplicationSettings ParseArguments(string[] args) {
             var settings = new ApplicationSettings();
-            if (args != null && args.Length > 0) {
-                foreach (var a in args) {
-                    if (a != null) {
-                        var l = a.ToLower();
-                        if (l == "skipchecks") {
-                            settings.SkipChecks = true;
-                        } else if (l == "enabletls") {
-                            settings.EnableTls = true;
-                        } else if (l == "choose") {
-                            settings.Choose = true;
-                        } else if (l.StartsWith("profile=")) {
-                            settings.Profile = l.Substring(8).Trim('"');
+            try {
+                if (args != null && args.Length > 0) {
+                    foreach (var a in args) {
+                        if (a != null) {
+                            var l = a.ToLower();
+                            if (l == "skipchecks") {
+                                settings.SkipChecks = true;
+                            } else if (l == "enabletls") {
+                                settings.EnableTls = true;
+                            } else if (l == "choose") {
+                                settings.Choose = true;
+                            } else if (l.StartsWith("profile=")) {
+                                settings.Profile = l.Substring(8).Trim('"');
+                            }
                         }
                     }
                 }
+            } catch (Exception e) {
+                HandleException(e, false);
             }
             return settings;
+        }
+        private void SetupExceptionHandling() {
+            AppDomain.CurrentDomain.UnhandledException += (s, e) => {
+                HandleException(e.ExceptionObject as Exception, e.IsTerminating);
+            };
+        }
+        private void HandleException(Exception e, bool isTerminating) {
+            // log the exception
+            string file = "";
+            try {
+                file = Path.Combine(DatabaseManager.Current.BasePath, "ScoreSheet-launcher-error.txt");
+                using (var writer = new StreamWriter(file, true)) {
+                    writer.WriteLine("***************");
+                    writer.WriteLine("ScoreSheet Launcher Error at " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                    if (e != null)
+                        writer.WriteLine(e.ToString());
+                    else
+                        writer.WriteLine("No exception object found.");
+                    if (isTerminating)
+                        writer.WriteLine("The launcher is now terminating.");
+                    writer.WriteLine("~~~~~~~~~~~~~~~\r\n");
+                }
+            } catch { }
+            // show the exception to the user
+            try {
+                string message = e == null ? "No exception object." : (e.Message ?? "No exception message.");
+                MessageBox(IntPtr.Zero, $"An unexpected error occurred while launching ScoreSheet. The error message is: '{ message }'. A more-detailed description can be found in the log file ({ file }). Please email this file to score@pieterp.be so we can fix the problem. Thanks!", "Launcher problem...", MBO.MB_OK | MBO.MB_ICONERROR | MBO.MB_TOPMOST);
+            } catch { }
         }
 
         private bool TryEnableTls() {
