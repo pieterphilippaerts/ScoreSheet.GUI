@@ -80,6 +80,10 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             return false;
         }
         public async Task<bool> UpdateMatches(Club club, CancellationToken cancellationToken) {
+            // first update clubs; this is to avoid that we have an invalid list of clubs
+            // (can happen at the start of a competition year when clubs are added or removed)
+            await UpdateClubs(cancellationToken); // continue, even if this fails
+            
             UpdateProgress?.Invoke(TabTUpdater_BeginMatchUpdate, false);
 
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();

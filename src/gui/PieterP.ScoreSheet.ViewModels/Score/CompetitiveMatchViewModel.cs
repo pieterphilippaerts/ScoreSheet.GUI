@@ -433,7 +433,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 // in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
                 // A better way would be to let the interclub leaders add this information on the competition website, and that
                 // we retrieve the info from the website.
-                if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/KH"))
+                if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
                     return false;
                 return true;
             }
