@@ -5,10 +5,12 @@ using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Globalization;
+using System.IO;
 using System.IO.Packaging;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows;
 using Microsoft.Win32;
@@ -22,8 +24,15 @@ namespace PieterP.ScoreSheet.Installer {
     /// This application must be a single executable! Hence, we cannot use any libraries except what's available in .NET Framework 3.5.
     /// </summary>
     public partial class App : Application {
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+        private static extern int MessageBox(IntPtr hWnd, String text, String caption, uint type);
+
+        private bool _started;
+
         protected override void OnStartup(StartupEventArgs e) {
             base.OnStartup(e);
+
+            SetupExceptionHandling();
 
             // By default, resource files work with sattelite assemblies. Because we don't want those sattelites in our installation program,
             // we hack the translated resource files into the ResourceManager that is used by the Strings class
@@ -35,31 +44,38 @@ namespace PieterP.ScoreSheet.Installer {
                 Thread.CurrentThread.CurrentCulture = ci;
                 Thread.CurrentThread.CurrentUICulture = ci;
                 Strings.Culture = ci;
-            } catch { }
+            } catch (Exception ex) {
+                HandleException(ex, false);
+            }
 
             if (appSettings.EnableTls) {
                 if (TryEnableTls()) {
-                    MessageBox.Show(Strings.App_TlsEnabled, App_ChangesMade, MessageBoxButton.OK, MessageBoxImage.Information);
+                    ShowNativeMessageBox(Strings.App_TlsEnabled, App_ChangesMade, MessageBoxButton.OK, MessageBoxImage.Information);
                 } else {
-                    MessageBox.Show(App_TlsNotEnabled, App_NoChangesMade, MessageBoxButton.OK, MessageBoxImage.Error);
+                    ShowNativeMessageBox(App_TlsNotEnabled, App_NoChangesMade, MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 Application.Current.Shutdown();
                 return;
             }
 
+            _started = true;
             var mainWindow = new MainWindow();
             mainWindow.DataContext = new MainViewModel();
             mainWindow.Show();
         }
         private void AddResources() {
-            var manager = Strings.ResourceManager;
-            var managerType = manager.GetType();
-            var field = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
-            var resourceTable = field.GetValue(manager) as Hashtable;
-            if (resourceTable != null) {
-                AddResource("PieterP.ScoreSheet.Installer.Localization.StringsNl.resources", resourceTable, new CultureInfo("nl"), new CultureInfo("nl-BE"));
-                AddResource("PieterP.ScoreSheet.Installer.Localization.StringsFr.resources", resourceTable, new CultureInfo("fr"), new CultureInfo("fr-BE"));
-                AddResource("PieterP.ScoreSheet.Installer.Localization.StringsDe.resources", resourceTable, new CultureInfo("de"), new CultureInfo("de-DE"));
+            try {
+                var manager = Strings.ResourceManager;
+                var managerType = manager.GetType();
+                var field = managerType.GetField("ResourceSets", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.GetField);
+                var resourceTable = field.GetValue(manager) as Hashtable;
+                if (resourceTable != null) {
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsNl.resources", resourceTable, new CultureInfo("nl"), new CultureInfo("nl-BE"));
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsFr.resources", resourceTable, new CultureInfo("fr"), new CultureInfo("fr-BE"));
+                    AddResource("PieterP.ScoreSheet.Installer.Localization.StringsDe.resources", resourceTable, new CultureInfo("de"), new CultureInfo("de-DE"));
+                }
+            } catch (Exception e) {
+                HandleException(e, false);
             }
         }
         private void AddResource(string resourceName, Hashtable resourceTable, params CultureInfo[] cultures) {
@@ -73,20 +89,67 @@ namespace PieterP.ScoreSheet.Installer {
         }
         private ApplicationSettings ParseArguments(string[] args) {
             var settings = new ApplicationSettings();
-            if (args != null && args.Length > 0) {
-                foreach (var a in args) {
-                    if (a != null) {
-                        var l = a.ToLower();
-                        if (l == "enabletls") {
-                            settings.EnableTls = true;
-                        } else if (l.StartsWith("culture=")) {
-                            settings.Culture = l.Substring(8);
-                        }
+            try {
+                if (args != null && args.Length > 0) {
+                    foreach (var a in args) {
+                        if (a != null) {
+                            var l = a.ToLower();
+                            if (l == "enabletls") {
+                                settings.EnableTls = true;
+                            } else if (l.StartsWith("culture=")) {
+                                settings.Culture = l.Substring(8);
+                            }
 
+                        }
                     }
                 }
+            } catch (Exception e) {
+                HandleException(e, false);
             }
             return settings;
+        }
+        private void SetupExceptionHandling() {
+            AppDomain.CurrentDomain.UnhandledException += (s, e) => {
+                HandleException(e.ExceptionObject as Exception, e.IsTerminating);
+            };
+            DispatcherUnhandledException += (s, e) => {
+                if (_started) {
+                    e.Handled = true;
+                    HandleException(e.Exception, false);
+                } // else: let the UnhandledException handle it
+            };
+        }
+        private void HandleException(Exception e, bool isTerminating) {
+            // log the exception
+            string file = "";
+            try {
+                file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "ScoreSheet-installer-error.txt");
+                using (var writer = new StreamWriter(file, true)) {
+                    writer.WriteLine("***************");
+                    writer.WriteLine("ScoreSheet Installer Error at " + DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss"));
+                    if (e != null)
+                        writer.WriteLine(e.ToString());
+                    else
+                        writer.WriteLine("No exception object found.");
+                    if (isTerminating)
+                        writer.WriteLine("The installer is now terminating.");
+                    writer.WriteLine("~~~~~~~~~~~~~~~\r\n");
+                }
+            } catch { }
+            // show the exception to the user
+            try {
+                string message = e == null ? "No exception object." : (e.Message ?? "No exception message.");
+                string shutdown = "";
+                if (isTerminating)
+                    shutdown = "\r\n\r\nUnfortunately, the setup program cannot continue.";
+
+                ShowNativeMessageBox($"An unexpected error occurred. The error message is: '{ message }'. A more-detailed description can be found in the log file on your desktop ({ file }). Please email this file to score@pieterp.be so we can fix the problem. Thanks!" + shutdown, "Installer problem...", MessageBoxButton.OK, isTerminating ? MessageBoxImage.Error : MessageBoxImage.Warning);
+            } catch { }
+        }
+        private void ShowNativeMessageBox(string message, string caption, MessageBoxButton buttons, MessageBoxImage image) {
+            if (Thread.CurrentThread.GetApartmentState() == ApartmentState.STA) { // if we're not in an STA thread, we cannot show the messagebox
+                MessageBox(IntPtr.Zero, message, caption, (uint)buttons | (uint)image);
+            }
         }
 
         private bool TryEnableTls() {
