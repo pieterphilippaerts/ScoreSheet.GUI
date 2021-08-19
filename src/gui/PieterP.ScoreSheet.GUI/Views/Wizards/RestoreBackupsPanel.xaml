@@ -16,7 +16,7 @@
     <DockPanel>
         <Border DockPanel.Dock="Bottom" BorderThickness="0 1 0 0" BorderBrush="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
             <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                <Button x:Name="TheRestoreButton" Padding="20 4 20 4" Margin="10" CommandParameter="{Binding ElementName=TheListBox, Path=SelectedItems}" Command="{Binding Restore}" Content="{Binding RestoreText.Value, RelativeSource={RelativeSource AncestorType=local:RestoreBackupsPanel}}"/>
+                <Button x:Name="TheRestoreButton" Padding="20 4 20 4" Margin="10" Command="{Binding Restore}" Content="{Binding RestoreText.Value}"/>
             </StackPanel>
         </Border>
         <Grid>

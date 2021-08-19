@@ -137,7 +137,7 @@ namespace PieterP.ScoreSheet.ViewModels {
 
         public void DoStartupChecks() {
             // this method gets called when the main window is loaded
-            CheckForCrash();
+            TryRecoverMatches();
             CheckFirstStart();
             CheckDatabaseEmpty();
             ShowWelcome();
@@ -166,30 +166,32 @@ namespace PieterP.ScoreSheet.ViewModels {
                 }
             }
         }
-        private void CheckForCrash() {
-            // if there are files in the backup directory, that's probably due to a crash
+
+        /// <summary>
+        /// Tries to recover matches after a crash.
+        /// If a crash occured, files are found in the backup directory.
+        /// The user will be shown a wizard to recover matches.
+        /// </summary>
+        /// <returns>True if matches have been recovered, false in all other cases.</returns>
+        private void TryRecoverMatches() {
+            // If there are files in the backup directory, that's probably due to a crash.
             var backupIds = DatabaseManager.Current.MatchBackup.MatchIds;
-            if (backupIds.Any()) {
-                var wiz = new WizardViewModel();
-                var newRestoreMatches = new RestoreBackupsViewModel(wiz);
-                wiz.CurrentPanel.Value = newRestoreMatches;
+            if (!backupIds.Any())
+                return;
 
-                var n = new ShowDialogNotification(wiz);
-                NotificationManager.Current.Raise(n);
+            var wiz = new WizardViewModel();
+            var restoreMatchesViewModel = new RestoreBackupsViewModel(wiz, (match) =>
+            {
+                var vm = new CompetitiveMatchViewModel(match);
+                vm.Dirty.Value = true;
+                AddMatch(vm);
+            });
+            wiz.CurrentPanel.Value = restoreMatchesViewModel;
 
-                if (n.Result) {
-                    foreach (var m in newRestoreMatches.SelectedMatches) {
-                        var vm = new CompetitiveMatchViewModel(m);
-                        vm.Dirty.Value = true;
-                        AddMatch(vm);
-                    }
-                    foreach (var m in newRestoreMatches.FoundMatches) {
-                        if (!newRestoreMatches.SelectedMatches.Contains(m))
-                            DatabaseManager.Current.MatchBackup[m.UniqueId] = null; // delete matches that the user doesn't want restored
-                    }
-                }
-            }
+            var n = new ShowDialogNotification(wiz);
+            NotificationManager.Current.Raise(n);
         }
+
         private void ShowWelcome() {
             var welcomeVm = new WelcomeViewModel();
             var n = new ShowDialogNotification(welcomeVm);
