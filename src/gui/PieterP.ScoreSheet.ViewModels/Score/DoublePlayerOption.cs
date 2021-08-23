@@ -25,5 +25,17 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 };
             }
         }
+        public static IEnumerable<DoublePlayerOption> Permutation1234 {
+            get {
+                return new DoublePlayerOption[] {
+                    new DoublePlayerOption("1/2" ),
+                    new DoublePlayerOption("1/3" ),
+                    new DoublePlayerOption("1/4" ),
+                    new DoublePlayerOption("2/3" ),
+                    new DoublePlayerOption("2/4" ),
+                    new DoublePlayerOption("3/4" )
+                };
+            }
+        }
     }
 }
