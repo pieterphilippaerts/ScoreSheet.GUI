@@ -16,7 +16,7 @@
             <ColumnDefinition Width="0.45cm" />
             <ColumnDefinition Width="0.45cm"/>
             <ColumnDefinition Width="0.45cm"/>
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
             <ColumnDefinition Width="0.75cm"/>
             <ColumnDefinition Width="0.75cm"/>
             <ColumnDefinition Width="0.75cm"/>
@@ -43,7 +43,7 @@
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border Grid.Column="2" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0.5" Width="1.57cm">
+                    <Border Grid.Column="2" VerticalAlignment="Center" BorderBrush="Black" BorderThickness="0.5" MaxWidth="1.57cm">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*"/>

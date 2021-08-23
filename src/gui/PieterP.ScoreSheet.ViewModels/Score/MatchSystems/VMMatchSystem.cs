@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Enums;
 using PieterP.ScoreSheet.Model.Database.MatchSystems;
 using PieterP.ScoreSheet.ViewModels.Score.Validations;
 using PieterP.ScoreSheet.ViewModels.Templates;
+using PieterP.Shared.Services;
 using static PieterP.ScoreSheet.Localization.Strings;
 
 namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
@@ -67,10 +69,17 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
                 clubId = matchVm.HomeTeam.ClubId.Value;
             }
             var club = DatabaseManager.Current.Clubs[clubId];
-            if (club != null && club.Province.HasValue && club.Province.Value.IsWalloon()) {
-                return new AfttScoreTemplate(matchVm);
+            bool isVttl;
+            if (club == null) { // club not found
+                var finder = ServiceLocator.Resolve<IRegionFinder>();
+                isVttl = finder.IsVttl;
             } else {
+                isVttl = club.Province.HasValue && club.Province.Value.IsFlemish();
+            }            
+            if (isVttl) {
                 return new VttlScoreTemplate(matchVm);
+            } else {
+                return new AfttScoreTemplate(matchVm);
             }
         }
     }

@@ -235,11 +235,17 @@
     <value>{0} against {1}, {2} matches
 {3} winning sets to {4} points</value>
   </data>
+  <data name="MatchSystem_AfttCup" xml:space="preserve">
+    <value>Cup of the AFTT</value>
+  </data>
   <data name="MatchSystem_AwayPlayer" xml:space="preserve">
     <value>away player {0}</value>
   </data>
-  <data name="MatchSystem_Cup" xml:space="preserve">
-    <value>Cup</value>
+  <data name="MatchSystem_BelgianCup" xml:space="preserve">
+    <value>Cup of Belgium</value>
+  </data>
+  <data name="MatchSystem_FlemishCup" xml:space="preserve">
+    <value>Cup of Flanders</value>
   </data>
   <data name="MatchSystem_FreeTime" xml:space="preserve">
     <value>Leisure competition</value>
@@ -261,9 +267,6 @@
   </data>
   <data name="MatchSystem_Super" xml:space="preserve">
     <value>Super</value>
-  </data>
-  <data name="MatchSystem_SuperOld" xml:space="preserve">
-    <value>Super (old system, no substitute)</value>
   </data>
   <data name="MatchSystem_TheAwayCaptain" xml:space="preserve">
     <value>the away captain</value>

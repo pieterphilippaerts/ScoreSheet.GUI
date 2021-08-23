@@ -457,6 +457,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cup of the AFTT.
+        /// </summary>
+        public static string MatchSystem_AfttCup {
+            get {
+                return ResourceManager.GetString("MatchSystem_AfttCup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to away player {0}.
         /// </summary>
         public static string MatchSystem_AwayPlayer {
@@ -466,11 +475,20 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cup.
+        ///   Looks up a localized string similar to Cup of Belgium.
         /// </summary>
-        public static string MatchSystem_Cup {
+        public static string MatchSystem_BelgianCup {
             get {
-                return ResourceManager.GetString("MatchSystem_Cup", resourceCulture);
+                return ResourceManager.GetString("MatchSystem_BelgianCup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cup of Flanders.
+        /// </summary>
+        public static string MatchSystem_FlemishCup {
+            get {
+                return ResourceManager.GetString("MatchSystem_FlemishCup", resourceCulture);
             }
         }
         
@@ -534,15 +552,6 @@ namespace PieterP.ScoreSheet.Localization {
         public static string MatchSystem_Super {
             get {
                 return ResourceManager.GetString("MatchSystem_Super", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Super (old system, no substitute).
-        /// </summary>
-        public static string MatchSystem_SuperOld {
-            get {
-                return ResourceManager.GetString("MatchSystem_SuperOld", resourceCulture);
             }
         }
         

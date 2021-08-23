@@ -265,7 +265,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
         /// <param name="team">The team to update the captain for.</param>
         private void UpdateTeamCaptain(TeamInfo team)
         {
-            var captain = team.Players.Cast<SinglePlayerInfo>().FirstOrDefault(p => p.Captain.Value);
+            var captain = team.Players.OfType<SinglePlayerInfo>().FirstOrDefault(p => p.Captain.Value);
             switch (team)
             {
                 case TeamInfo ti when ti == HomeTeam:
@@ -340,8 +340,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                             IsCaptain = spi.Captain.Value
                         };
                     }
-                    return new SelectedMemberInfo();
-                }).ToList(),
+                    return null;
+                }).Where(c => c != null).ToList(),
                 new SelectedMemberInfo(ChiefReferee.Name.Value, ChiefReferee.ComputerNumber.Value),
                 new SelectedMemberInfo(RoomCommissioner.Name.Value, RoomCommissioner.ComputerNumber.Value));
             wiz.CurrentPanel.Value = selectPlayers;

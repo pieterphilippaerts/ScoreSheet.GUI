@@ -1,0 +1,316 @@
+<Project>
+  <PropertyGroup>
+    <AssemblyName>scoresheet</AssemblyName>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\</MSBuildProjectExtensionsPath>
+    <_TargetAssemblyProjectName>PieterP.ScoreSheet.GUI</_TargetAssemblyProjectName>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk.WindowsDesktop" />
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!--TargetFrameworks>netcoreapp3.0;net45</TargetFrameworks-->
+    <TargetFramework>net45</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>scoresheet</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <Version>2021.2022.1</Version>
+    <Authors>PieterP.be</Authors>
+    <Product>PieterP.be ScoreSheet</Product>
+    <Copyright>Copyright © 2011-2021, PieterP.be</Copyright>
+    <PackageProjectUrl>https://score.pieterp.be</PackageProjectUrl>
+    <ApplicationIcon>images\logo.ico</ApplicationIcon>
+    <LangVersion>8.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <Description>ScoreSheet is a table tennis manager for the Belgian table tennis competition</Description>
+    <RepositoryUrl>https://bitbucket.org/pieterpbevttl/</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyVersion>2021.2022.1.0</AssemblyVersion>
+    <FileVersion>2021.2022.1.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <OutputPath>
+    </OutputPath>
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>3</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.0|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="images\about.png" />
+    <None Remove="images\about2.png" />
+    <None Remove="images\access.png" />
+    <None Remove="images\altlogo_org.png" />
+    <None Remove="images\app_48.png" />
+    <None Remove="images\bgabout.png" />
+    <None Remove="images\bginfo.png" />
+    <None Remove="images\box_48.png" />
+    <None Remove="images\box_upload_48.png" />
+    <None Remove="images\comment_warning_48.png" />
+    <None Remove="images\def_logo_small_org.png" />
+    <None Remove="images\delete.png" />
+    <None Remove="images\file_csv_s.png" />
+    <None Remove="images\file_pdf_s.png" />
+    <None Remove="images\file_xps_s.png" />
+    <None Remove="images\flag-american.png" />
+    <None Remove="images\flag-dutch.png" />
+    <None Remove="images\flag-french.png" />
+    <None Remove="images\flag-german.png" />
+    <None Remove="images\folder_48.png" />
+    <None Remove="images\globe_48.png" />
+    <None Remove="images\handicap.png" />
+    <None Remove="images\i16_autoupload.png" />
+    <None Remove="images\i16_away.png" />
+    <None Remove="images\i16_colorize.png" />
+    <None Remove="images\i16_default.png" />
+    <None Remove="images\i16_json.png" />
+    <None Remove="images\i16_limburg1.png" />
+    <None Remove="images\i16_limburg2.png" />
+    <None Remove="images\i16_live_update.png" />
+    <None Remove="images\i16_log.png" />
+    <None Remove="images\i16_paswoord.png" />
+    <None Remove="images\i16_printer.png" />
+    <None Remove="images\i16_scherm.png" />
+    <None Remove="images\i16_score.png" />
+    <None Remove="images\i16_sleutel.png" />
+    <None Remove="images\i16_speech.png" />
+    <None Remove="images\i16_startup.png" />
+    <None Remove="images\i16_upload.png" />
+    <None Remove="images\i16_web.png" />
+    <None Remove="images\icon_serve.png" />
+    <None Remove="images\ico_about.png" />
+    <None Remove="images\ico_new.png" />
+    <None Remove="images\ico_open.png" />
+    <None Remove="images\ico_print.png" />
+    <None Remove="images\ico_save.png" />
+    <None Remove="images\ico_vttl.png" />
+    <None Remove="images\lock_48.png" />
+    <None Remove="images\logo.ico" />
+    <None Remove="images\logo_org.jpg" />
+    <None Remove="images\ma_long_logo.jpg" />
+    <None Remove="images\navigate_48.png" />
+    <None Remove="images\online.png" />
+    <None Remove="images\paddle.png" />
+    <None Remove="images\paperpencil_48.png" />
+    <None Remove="images\printer.png" />
+    <None Remove="images\samsonov_logo_org.jpg" />
+    <None Remove="images\smile_sad_481.png" />
+    <None Remove="images\spanner_48.png" />
+    <None Remove="images\splash.png" />
+    <None Remove="images\templates\aftt_logo.png" />
+    <None Remove="images\templates\aftt_sponsors.png" />
+    <None Remove="images\templates\sponsors.png" />
+    <None Remove="images\templates\vttl_sponsors_2021.png" />
+    <None Remove="images\usb_48.png" />
+    <None Remove="images\warning_48.png" />
+    <None Remove="images\wb.png" />
+    <None Remove="images\wizlogo.png" />
+    <None Remove="images\wo.png" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.0' ">
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="4.6.0" />
+    <PackageReference Include="System.Text.Json" Version="4.6.0" />
+    <PackageReference Include="Unity" Version="5.11.1" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net45' ">
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Cells\PieterP.Shared.Cells.csproj" />
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Services\PieterP.Shared.Services.csproj" />
+    <ProjectReference Include="..\PdfSharp\PdfSharp.csproj" />
+    <ProjectReference Include="..\PieterP.ScoreSheet.Localization\PieterP.ScoreSheet.Localization.csproj" />
+    <ProjectReference Include="..\PieterP.ScoreSheet.ViewModels\PieterP.ScoreSheet.ViewModels.csproj" />
+    <ProjectReference Include="..\PieterP.ScoreSheet.Model\PieterP.ScoreSheet.Model.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="images\splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\newtonsoft.json\12.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PdfSharp\bin\Debug\net45\PdfSharp.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\shared\PieterP.ScoreSheet.Connector\bin\Debug\net45\PieterP.ScoreSheet.Connector.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.Model\bin\Debug\net45\PieterP.ScoreSheet.Model.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.ViewModels\bin\Debug\net45\PieterP.ScoreSheet.ViewModels.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\shared\PieterP.Shared.Cells\bin\Debug\net45\PieterP.Shared.Cells.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\shared\PieterP.Shared.Services\bin\Debug\net45\PieterP.Shared.Services.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\pinvoke.kernel32\0.6.6\lib\net45\PInvoke.Kernel32.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\pinvoke.shell32\0.6.6\lib\net45\PInvoke.Shell32.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\pinvoke.windows.core\0.6.6\lib\net20\PInvoke.Windows.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\ReachFramework.dll" />
+    <ReferencePath Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.Localization\bin\Debug\net45\ScoreSheet.Localization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.IO.Compression.FileSystem.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Printing.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.2\ref\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\system.valuetuple\4.5.0\ref\portable-net40+sl4+win8+wp8\System.ValueTuple.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Windows.Controls.Ribbon.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationClient.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationClientsideProviders.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\unity\5.11.2\lib\net45\Unity.Abstractions.dll" />
+    <ReferencePath Include="C:\Users\Pieter\.nuget\packages\unity\5.11.2\lib\net45\Unity.Container.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\WindowsBase.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Collections.Concurrent.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Collections.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ComponentModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ComponentModel.EventBasedAsync.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Diagnostics.Contracts.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Diagnostics.Debug.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Diagnostics.Tools.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Diagnostics.Tracing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Dynamic.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Globalization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.IO.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Linq.Expressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Linq.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Linq.Queryable.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Net.NetworkInformation.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Net.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Net.Requests.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ObjectModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.Emit.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.Emit.ILGeneration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.Emit.Lightweight.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Reflection.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Resources.ResourceManager.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.InteropServices.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.Numerics.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.Serialization.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.Serialization.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Runtime.Serialization.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Security.Principal.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ServiceModel.Duplex.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ServiceModel.Http.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ServiceModel.NetTcp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ServiceModel.Primitives.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.ServiceModel.Security.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Text.Encoding.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Text.Encoding.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Text.RegularExpressions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Threading.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Threading.Tasks.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Threading.Tasks.Parallel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Xml.ReaderWriter.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Xml.XDocument.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\System.Xml.XmlSerializer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\AboutWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\AskPasswordWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Controls\BigButton.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Controls\Zoomable.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\ErrorWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\AwayMatchesOverview.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\AwayTitle.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\DetailedMatchOverview.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\DetailedOverview.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\MatchesOverview.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\MatchesWithDetailsOverview.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\MatchTitle.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\OrchestratorHost.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Information\SecondScreenWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\LanguagesPopup.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\LogBook.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\MainWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\SaveWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\Address.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\Comments.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\CompetitiveMatch.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\CompetitiveMatchInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\CompetitiveMatchType.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\DoublePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\PersonDetails.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\ScoreHeader.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\SinglePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\SubstitutePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\SuspectSemanticsPopup.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Score\TeamInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\AutoUploadPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\AwayMatchesPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\DefaultsPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\LanguagePanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\LayoutPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\LimburgPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\LiveUpdatesPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\PrintDefaultsPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\ScoreVisualizationPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\SecondScreenPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\SettingsWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\StartupPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\UploadPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\VariousPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Settings\WebServicePanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\AfttScoreTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\AfttDoublePlayer.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\AfttMatches.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\AfttMatchResult.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\AfttPlayers.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\AfttSinglePlayer.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\Captains.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\ChiefReferee.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\Matches.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\MatchInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\MatchResult.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\MatchType.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\OfficialDoublePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\OfficialSinglePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\OfficialTeamInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\RefereeDefaultMatch.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\RefereeHorizontalMatch.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\UnofficialSinglePlayerInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\Partial\UnofficialTeamInfo.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\RefereeDefaultTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\RefereeHorizontalTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\RefereeTableTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\UnofficialScoreTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Templates\VttlScoreTemplate.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\UpdateAppWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\WelcomeWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\ChooseHandicapPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\NewCustomMatchPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\NewDivisionDayPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\NewMatchdayPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\PrintPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\RestoreBackupsPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\SelectedPlayerPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\SelectExportTypePanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\SelectMatchesPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\SelectPlayersPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\UpdateFromInternetPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\UpdateStartPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\UpdatingFromInternetPanel.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\Views\Wizards\WizardWindow.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\App.g.cs" />
+    <Compile Include="C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\obj\Debug\net45\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk.WindowsDesktop" />
+</Project>

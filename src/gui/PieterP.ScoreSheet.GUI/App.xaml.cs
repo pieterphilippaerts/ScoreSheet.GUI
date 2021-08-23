@@ -58,11 +58,12 @@ namespace PieterP.ScoreSheet.GUI {
             ServiceLocator.RegisterInstance<MatchSystemFactory>(new MatchSystemFactory(new MatchSystem[] {
                 new InterclubMenMatchSystem(),
                 new InterclubWomenVeteransMatchSystem(),
+                new SuperMatchSystem(),
                 new Youth2v2MatchSystem(),
                 new FreeTimeMatchSystem(),
-                new CupMatchSystem(),
-                new SuperMatchSystem(),
-                new SuperOldMatchSystem(),
+                new BelgianCupMatchSystem(),
+                new FlemishCupMatchSystem(),
+                new AfttCupMatchSystem(),
                 new InterclubMenOldMatchSystem(),
                 new InterclubWomenVeteransOldMatchSystem()
             }));

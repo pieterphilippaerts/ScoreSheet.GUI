@@ -37,7 +37,7 @@
         </StackPanel>
         <partials:ChiefReferee Margin="0 0.2cm 0 0" Canvas.Left="4.19cm" Canvas.Top="15.5cm" DataContext="{Binding ChiefReferee}"/>
         <partials:Captains Margin="0 0.2cm 0 0" Canvas.Left="14.95cm" Canvas.Top="15.5cm" />
-        <partials:Matches Canvas.Left="14.95cm" Canvas.Top="7.7cm" />
+        <partials:Matches Canvas.Left="14.95cm" Canvas.Top="7.7cm" MaxWidth="13cm" />
         <Border BorderBrush="Black" BorderThickness="1px" Width="14.15cm" Height="1.75cm" Canvas.Left="4.19cm" Canvas.Top="18.50cm">
             <Grid>
                 <Grid.RowDefinitions>

@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PieterP.Shared.Services", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B275D101-926B-4D12-8F6D-7F18A5ED72A2}"
 	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
 		.gitignore = .gitignore
+		global.json = global.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugProject", "DebugProject\DebugProject.csproj", "{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,6 +82,7 @@ Global
 		{4493D12C-4A98-4A88-A687-C5D5B7CEE9CE} = {13841388-704E-4EA3-9846-7D486E3FA164}
 		{5F392006-850A-433A-A1FE-5A3B79E1E1C3} = {13841388-704E-4EA3-9846-7D486E3FA164}
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6} = {13841388-704E-4EA3-9846-7D486E3FA164}
+		{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0} = {B275D101-926B-4D12-8F6D-7F18A5ED72A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1AD6197B-A367-4080-9E12-272D484DBEB1}

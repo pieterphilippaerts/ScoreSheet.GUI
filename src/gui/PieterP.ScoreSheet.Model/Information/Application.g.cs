@@ -6,7 +6,7 @@ namespace PieterP.ScoreSheet.Model.Information {
     public static partial class Application {
         public static DateTime CompilationTimestamp { 
 			get { 
-				return new DateTime(637650007750021750L, DateTimeKind.Utc); 
+				return new DateTime(637653279473423773L, DateTimeKind.Utc); 
 			}
 		}
     }
