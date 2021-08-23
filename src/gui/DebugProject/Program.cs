@@ -19,11 +19,33 @@ namespace DebugProject {
                 ServiceLocator.RegisterType<IRegionFinder, RegionFinder>();
                 ServiceLocator.RegisterInstance(new Logger(null, false));
 
-                ListMatchSystems();
+                //ListMatchSystems();
+                TryHammering();
             } catch (Exception e ) {
                 Console.WriteLine(e);
             }
             Console.ReadLine();
+        }
+        public static async void TryHammering() {
+                var connector = new TabTConnector();
+
+                int c = 0;
+            while (true) {
+                try {
+                    //var c = await connector.TestAsync();
+                    //if (c.Info != null)
+                    //Console.WriteLine($"{c.Info.CurrentQuota}/{c.Info.AllowedQuota}");
+                    var tasks = new Task[100];
+                    for (int i = 0; i < 100; i++) {
+                        tasks[i] = connector.GetDivisions(TabTDivisionRegion.National);
+                    }
+                    Task.WaitAll(tasks);
+                    Console.WriteLine(c);
+                    c += 100;
+                } catch (Exception e) {
+                    Console.WriteLine(e);
+                }
+            }
         }
         public static async void ListMatchSystems() {
             try {
