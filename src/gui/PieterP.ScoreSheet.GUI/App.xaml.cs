@@ -54,7 +54,7 @@ namespace PieterP.ScoreSheet.GUI {
             ServiceLocator.RegisterInstance<DatabaseManager>(new DatabaseManager(appSettings.Profile));
             ServiceLocator.RegisterInstance<Logger>(new Logger(Path.Combine(ServiceLocator.Resolve<DatabaseManager>().ActiveProfilePath, "log.txt"), appSettings.Debug));
             ServiceLocator.RegisterType<IRegionFinder, Model.Information.RegionFinder>();
-            ServiceLocator.RegisterType<IConnector, TabTConnector>();
+            ServiceLocator.RegisterType<IConnector, AutoRetryConnector>();
             ServiceLocator.RegisterInstance<MatchSystemFactory>(new MatchSystemFactory(new MatchSystem[] {
                 new InterclubMenMatchSystem(),
                 new InterclubWomenVeteransMatchSystem(),

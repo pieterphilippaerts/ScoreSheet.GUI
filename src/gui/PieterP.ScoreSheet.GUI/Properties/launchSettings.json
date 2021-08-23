@@ -2,7 +2,7 @@
   "profiles": {
     "PieterP.ScoreSheet.GUI": {
       "commandName": "Project",
-      "commandLineArgs": "launched"
+      "commandLineArgs": "launched debug"
     }
   }
 }

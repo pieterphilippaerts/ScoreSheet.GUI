@@ -331,6 +331,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The server returned the following error: &apos;{0}&apos;. ScoreSheet will retry the download..
+        /// </summary>
+        public static string TabT_ServiceException {
+            get {
+                return ResourceManager.GetString("TabT_ServiceException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid team data found for one of the teams in club {0}.
         /// </summary>
         public static string TabT_TeamDataError {
