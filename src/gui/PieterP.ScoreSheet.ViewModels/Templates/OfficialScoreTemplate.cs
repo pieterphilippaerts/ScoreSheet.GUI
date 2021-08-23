@@ -83,6 +83,15 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
 
         public string FinalScore { get; private set; }
         public string TotalSets { get; private set; }
+        public IEnumerable<string> SetNames { 
+            get {
+                var match = this.Matches.FirstOrDefault();
+                if (match != null) {
+                    return Enumerable.Range(1, match.Sets.Count).Select(s => "Set" + s);
+                }
+                return Enumerable.Empty<string>();
+            }
+        }
         public override bool IsLandscape => false;
     }
     public class OfficialTeamInfo {

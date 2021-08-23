@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
              xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:ctrls="clr-namespace:PieterP.ScoreSheet.GUI.Views.Controls"
              mc:Ignorable="d">
     <UserControl.Resources>
         <conv:IndexToObjectConverter x:Key="BackgroundConverter">
@@ -47,12 +48,12 @@
         <ItemsControl ItemsSource="{Binding Sets}" Grid.Column="3">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
+                    <ctrls:HorizontalFillPanel />
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderBrush="DarkGray" BorderThickness="0 0 0.75 0" Width="0.9cm">
+                    <Border BorderBrush="DarkGray" BorderThickness="0 0 0.75 0">
                         <Viewbox StretchDirection="DownOnly">
                             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock FontSize="0.35cm" Text="{Binding LeftScore.Value}"/>

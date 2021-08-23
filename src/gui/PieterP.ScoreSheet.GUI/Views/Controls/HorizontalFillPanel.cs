@@ -10,13 +10,16 @@ using System.Windows.Media;
 namespace PieterP.ScoreSheet.GUI.Views.Controls {
     public class HorizontalFillPanel : Panel {
         protected override Size MeasureOverride(Size availableSize) {
+            var desiredSize = new Size();
             if (this.Children.Count > 0) {
                 var childSize = new Size(availableSize.Width / this.Children.Count, availableSize.Height);
                 foreach (FrameworkElement child in Children) {
                     child.Measure(childSize);
+                    desiredSize.Width += child.DesiredSize.Width;
+                    desiredSize.Height = Math.Max(desiredSize.Height, child.DesiredSize.Height);
                 }
             }
-            return availableSize;
+            return desiredSize;
         }
         protected override Size ArrangeOverride(Size finalSize) {
             if (this.Children.Count > 0) {

@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Templates.Partial"
+             xmlns:ctrls="clr-namespace:PieterP.ScoreSheet.GUI.Views.Controls"
              mc:Ignorable="d">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -27,7 +28,21 @@
         <Border Grid.Row="0" Grid.Column="2" Background="#1076B8">
             <TextBlock Foreground="White" FontSize="0.28cm" HorizontalAlignment="Center" VerticalAlignment="Center">Nom et prénom - Visiteurs</TextBlock>
         </Border>
-        <StackPanel Grid.Row="0" Grid.Column="3" Background="#1076B8" Orientation="Horizontal">
+        <ItemsControl ItemsSource="{Binding SetNames}" Grid.Row="0" Grid.Column="3" Background="#1076B8">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ctrls:HorizontalFillPanel/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Border>
+                        <TextBlock Foreground="White" FontSize="0.28cm" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding .}"/>
+                    </Border>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        <!--<ctrls:HorizontalFillPanel Grid.Row="0" Grid.Column="3" Background="#1076B8">
             <Border Width="0.9cm">
                 <TextBlock Foreground="White" FontSize="0.28cm" HorizontalAlignment="Center" VerticalAlignment="Center">Set1</TextBlock>
             </Border>
@@ -43,7 +58,7 @@
             <Border Width="0.9cm">
                 <TextBlock Foreground="White" FontSize="0.28cm" HorizontalAlignment="Center" VerticalAlignment="Center">Set5</TextBlock>
             </Border>
-        </StackPanel>
+        </ctrls:HorizontalFillPanel>-->
         <Border Grid.Row="0" Grid.Column="4" Background="#1076B8">
             <TextBlock Foreground="White" FontSize="0.28cm" HorizontalAlignment="Center" VerticalAlignment="Center">Sets</TextBlock>
         </Border>
