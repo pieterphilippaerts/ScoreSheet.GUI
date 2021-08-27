@@ -449,12 +449,12 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             get {
                 if (!this.MatchSystem.IsCompetitive)
                     return false; // uses a match system that is only used for non-competitive matches
-                // This is a hack for seasons 2020-2021; due to Corona, the free time series use a match system that is normally used
-                // in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
-                // A better way would be to let the interclub leaders add this information on the competition website, and that
-                // we retrieve the info from the website.
-                if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
-                    return false;
+                //// This is a hack for seasons 2020-2021; due to Corona, the free time series use a match system that is normally used
+                //// in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
+                //// A better way would be to let the interclub leaders add this information on the competition website, and that
+                //// we retrieve the info from the website.
+                //if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
+                //    return false;
                 return true;
             }
         }
