@@ -50,7 +50,7 @@ namespace PieterP.ScoreSheet.GUI {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12; // older version of the framework maybe?
             }
 
-            InitializeServices();
+            InitializeServices(appSettings);
             SetupNotificationHandling();
             SetupExceptionHandling();
 
@@ -131,7 +131,7 @@ namespace PieterP.ScoreSheet.GUI {
             }
             return settings;
         }
-        private void InitializeServices() {
+        private void InitializeServices(ApplicationSettings appSettings) {
             ServiceLocator.RegisterInstance<DatabaseManager>(new DatabaseManager(appSettings.Profile));
             ServiceLocator.RegisterInstance<Logger>(new Logger(Path.Combine(ServiceLocator.Resolve<DatabaseManager>().ActiveProfilePath, "log.txt"), appSettings.Debug));
             ServiceLocator.RegisterType<IRegionFinder, Model.Information.RegionFinder>();
