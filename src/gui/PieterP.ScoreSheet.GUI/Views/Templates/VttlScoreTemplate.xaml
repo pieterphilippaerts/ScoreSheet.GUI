@@ -19,7 +19,7 @@
         </conv:BoolToObjectConverter>
     </ContentControl.Resources>
     <Canvas Background="White">
-        <Image Source="/images/templates/vttl_sponsors_2021.png" Canvas.Left="0.7cm" Width="28cm" Canvas.Top="0.85cm" Visibility="{Binding ShowSponsors.Value, Converter={StaticResource VisibilityConverter}}" />
+        <Image Source="/images/templates/vttl_sponsors_2122.png" Canvas.Left="0.7cm" Width="28cm" Canvas.Top="0.85cm" Visibility="{Binding ShowSponsors.Value, Converter={StaticResource VisibilityConverter}}" />
         <Border BorderBrush="Black" BorderThickness="1px" Width="6.15cm" Height="2.32cm" Canvas.Left="4.19cm" Canvas.Top="5.19cm">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Padding="0.05cm 0cm" FontSize="0.35cm">Lokaal:<LineBreak/>Str.Nr.:<LineBreak/>Plaats:</TextBlock>
