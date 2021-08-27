@@ -31,6 +31,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int PointCount => 11;
         public override int PlayerCount => 3;
         public override int MatchCount => 7;
+        public override int SingleMatchCount => 6;
+        public override int DoubleMatchCount => 1;
         public override string Name => Strings.MatchSystem_BelgianCup;
         public override bool IsCompetitive => true;
     }

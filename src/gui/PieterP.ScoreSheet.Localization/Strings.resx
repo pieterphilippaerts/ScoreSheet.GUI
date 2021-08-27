@@ -232,8 +232,8 @@
     <value>The following official matches have been modified but have not yet been uploaded to the competition website:</value>
   </data>
   <data name="MatchSystemInfo_Description" xml:space="preserve">
-    <value>{0} against {1}, {2} matches
-{3} winning sets to {4} points</value>
+    <value>{0} against {1}, {2} matches [{3} single(s), {4} double(s)]
+{5} winning sets to {6} points</value>
   </data>
   <data name="MatchSystem_AfttCup" xml:space="preserve">
     <value>Cup of the AFTT</value>

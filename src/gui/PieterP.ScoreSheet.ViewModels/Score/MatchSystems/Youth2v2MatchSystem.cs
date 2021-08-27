@@ -32,5 +32,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int MatchCount => 5;
         public override string Name => Strings.MatchSystem_Youth;
         public override bool IsCompetitive => true;
+        public override int SingleMatchCount => 4;
+        public override int DoubleMatchCount => 1;
     }
 }

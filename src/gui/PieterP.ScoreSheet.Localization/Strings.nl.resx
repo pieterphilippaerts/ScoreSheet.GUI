@@ -232,8 +232,8 @@
     <value>De volgende competitiewedstrijden zijn aangepast maar zijn nog niet geüpload naar de competitiewebsite:</value>
   </data>
   <data name="MatchSystemInfo_Description" xml:space="preserve">
-    <value>{0} tegen {1}, {2} wedstrijden
-{3} winnende sets tot {4} punten</value>
+    <value>{0} tegen {1}, {2} wedstrijden [{3} enkel(s), {4} dubbel(s)]
+{5} winnende sets tot {6} punten</value>
   </data>
   <data name="MatchSystem_AfttCup" xml:space="preserve">
     <value>Beker van de AFTT</value>

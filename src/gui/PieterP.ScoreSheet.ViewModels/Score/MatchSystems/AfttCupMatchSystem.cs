@@ -30,6 +30,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int PointCount => 11;
         public override int PlayerCount => 2;
         public override int MatchCount => 5;
+        public override int SingleMatchCount => 4;
+        public override int DoubleMatchCount => 1;
         public override string Name => Strings.MatchSystem_AfttCup;
         public override bool IsCompetitive => false;
     }

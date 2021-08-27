@@ -610,8 +610,8 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} against {1}, {2} matches
-        ///{3} winning sets to {4} points.
+        ///   Looks up a localized string similar to {0} against {1}, {2} matches [{3} single(s), {4} double(s)]
+        ///{5} winning sets to {6} points.
         /// </summary>
         public static string MatchSystemInfo_Description {
             get {
