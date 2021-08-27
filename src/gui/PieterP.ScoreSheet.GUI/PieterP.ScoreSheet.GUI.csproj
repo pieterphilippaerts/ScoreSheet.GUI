@@ -38,12 +38,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="images\about.png" />
     <None Remove="images\about2.png" />
     <None Remove="images\access.png" />
-    <None Remove="images\altlogo_org.png" />
     <None Remove="images\app_48.png" />
-    <None Remove="images\bgabout.png" />
     <None Remove="images\bginfo.png" />
     <None Remove="images\box_48.png" />
     <None Remove="images\box_upload_48.png" />
@@ -94,15 +91,13 @@
     <None Remove="images\paddle.png" />
     <None Remove="images\paperpencil_48.png" />
     <None Remove="images\printer.png" />
-    <None Remove="images\samsonov_logo_org.jpg" />
     <None Remove="images\smile_sad_481.png" />
     <None Remove="images\spanner_48.png" />
     <None Remove="images\splash.png" />
     <None Remove="images\templates\aftt_logo.png" />
     <None Remove="images\templates\aftt_sponsors.png" />
     <None Remove="images\templates\sponsors.png" />
-    <None Remove="images\templates\vttl_sponsors_1920.png" />
-    <None Remove="images\templates\vttl_sponsors_2021.png" />
+    <None Remove="images\templates\vttl_sponsors_2122.png" />
     <None Remove="images\usb_48.png" />
     <None Remove="images\warning_48.png" />
     <None Remove="images\wb.png" />
@@ -131,12 +126,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="images\about.png" />
     <Resource Include="images\about2.png" />
     <Resource Include="images\access.png" />
-    <Resource Include="images\altlogo_org.png" />
     <Resource Include="images\app_48.png" />
-    <Resource Include="images\bgabout.png" />
     <Resource Include="images\bginfo.png" />
     <Resource Include="images\box_48.png" />
     <Resource Include="images\box_upload_48.png" />
@@ -187,11 +179,11 @@
     <Resource Include="images\paddle.png" />
     <Resource Include="images\paperpencil_48.png" />
     <Resource Include="images\printer.png" />
-    <Resource Include="images\samsonov_logo_org.jpg" />
     <Resource Include="images\smile_sad_481.png" />
     <Resource Include="images\spanner_48.png" />
     <Resource Include="images\templates\aftt_logo.png" />
     <Resource Include="images\templates\aftt_sponsors.png" />
+    <Resource Include="images\templates\vttl_sponsors_2122.png" />
     <Resource Include="images\usb_48.png" />
     <Resource Include="images\warning_48.png" />
     <Resource Include="images\wb.png" />

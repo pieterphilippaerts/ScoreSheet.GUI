@@ -3,7 +3,7 @@
   <PropertyGroup>
     <_LastSelectedProfileId>C:\Users\Pieter\source\repos\scoresheet_gui\src\gui\PieterP.ScoreSheet.GUI\Properties\PublishProfiles\NetFXProfile.pubxml</_LastSelectedProfileId>
     <ActiveDebugFramework>net45</ActiveDebugFramework>
-    <ShowAllFiles>false</ShowAllFiles>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
     <Compile Update="Views\AboutWindow.xaml.cs">
