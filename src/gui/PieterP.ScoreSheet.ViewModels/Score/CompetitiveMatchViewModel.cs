@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -228,15 +229,34 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.Article632 = CreateCell(true);
             this.Men = CreateCell(true);
             this.Women = CreateCell(false);
+            CreateXorGroup(this.Men, this.Women);
             this.Interclub = CreateCell(true);
             this.Super = CreateCell(false);
             this.Cup = CreateCell(false);
             this.Youth = CreateCell(false);
             this.Veterans = CreateCell(false);
+            CreateXorGroup(this.Interclub, this.Super, this.Cup, this.Youth, this.Veterans);
             this.MustBePlayed = Cell.Derived(this.HomeTeam.IsBye, this.HomeTeam.Forfeit, this.AwayTeam.IsBye,this.AwayTeam.Forfeit, (hb, hff, ab, aff) => !(hb || hff || ab || aff));
             this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
             this.IsInitializing = false;
+        }
+
+        private void CreateXorGroup(params Cell<bool>[] cells) {
+            foreach(INotifyPropertyChanged cell in cells) {
+                cell.PropertyChanged += (sender, e) => {
+                    if (this.IsInitializing)
+                        return;
+                    var senderCell = sender as Cell<bool>;
+                    if (senderCell != null && senderCell.Value) {
+                        foreach(var otherCell in cells) {
+                            if(otherCell != senderCell) {
+                                otherCell.Value = false;
+                            }
+                        }
+                    }
+                };
+            }
         }
 
         private void RefreshMatchStatus() {
