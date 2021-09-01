@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PieterP.ScoreSheet.Model.Database.Entities;
 using PieterP.ScoreSheet.Model.Database.Updater;
+using PieterP.ScoreSheet.Model.Information;
 using PieterP.Shared;
 using PieterP.Shared.Services;
 
@@ -171,7 +172,11 @@ namespace PieterP.ScoreSheet.Model.Database {
         public string OfficialMatchesPath {
             get {
                 if (_officialMatchesPath == null) {
-                    _officialMatchesPath = Path.Combine(ActiveProfilePath, "official");
+                    var season = Application.DefaultSeasonId;
+                    if (Settings.CurrentSeason.Value != null) {
+                        season = Settings.CurrentSeason.Value.Id;
+                    }
+                    _officialMatchesPath = Path.Combine(ActiveProfilePath, "official", season.ToString());
                     if (!Directory.Exists(_officialMatchesPath))
                         Directory.CreateDirectory(_officialMatchesPath);
                 }
