@@ -40,67 +40,67 @@ namespace PieterP.ScoreSheet.ViewModels.Templates {
       
         protected static string TuutTuut(CompetitiveMatchViewModel competitiveMatchInfo, MatchInfo match) {
             // This is the normal referee schedule
-            //switch (match.Position) {
-            //    case 1:
-            //    case 2:
-            //    case 7:
-            //    case 8:
-            //    case 9:
-            //    case 10:
-            //    case 15:
-            //    case 16:
-            //        return RefereeTemplate_RefereeHome;
-            //}
-            //return RefereeTemplate_RefereeAway;
-
-            // Corona rules (one team referees a single table)
             switch (match.Position) {
                 case 1:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
                 case 2:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
-                case 3:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
-                case 4:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
-                case 5:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
-                case 6:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
                 case 7:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
                 case 8:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
                 case 9:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
                 case 10:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
-                case 11:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
-                case 12:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
-                case 13:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
-                case 14:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
                 case 15:
-                    return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
                 case 16:
-                    return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
+                    return RefereeTemplate_RefereeHome;
             }
-            return "";
+            return RefereeTemplate_RefereeAway;
 
-            string Format(IList<PlayerInfo> players, int position, string defaultText) {
-                if (players.Count >= position) {
-                    var player = players[position - 1] as SinglePlayerInfo;
-                    if (player != null) {
-                        var name = player.Name.Value.Trim();
-                        if (name.Length > 0)
-                            return Safe.Format(RefereeTemplate_Referee, player.Name.Value);
-                    }
-                }
-                return Safe.Format(defaultText, position);
-            }
+            //// Corona rules (one team referees a single table)
+            //switch (match.Position) {
+            //    case 1:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
+            //    case 2:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
+            //    case 3:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
+            //    case 4:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
+            //    case 5:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
+            //    case 6:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
+            //    case 7:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
+            //    case 8:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
+            //    case 9:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 1, RefereeTemplate_RefereeHomePlayer);
+            //    case 10:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 2, RefereeTemplate_RefereeAwayPlayer);
+            //    case 11:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 4, RefereeTemplate_RefereeHomePlayer);
+            //    case 12:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 3, RefereeTemplate_RefereeAwayPlayer);
+            //    case 13:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 2, RefereeTemplate_RefereeHomePlayer);
+            //    case 14:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 1, RefereeTemplate_RefereeAwayPlayer);
+            //    case 15:
+            //        return Format(competitiveMatchInfo.HomeTeam.Players, 3, RefereeTemplate_RefereeHomePlayer);
+            //    case 16:
+            //        return Format(competitiveMatchInfo.AwayTeam.Players, 4, RefereeTemplate_RefereeAwayPlayer);
+            //}
+            //return "";
+
+            //string Format(IList<PlayerInfo> players, int position, string defaultText) {
+            //    if (players.Count >= position) {
+            //        var player = players[position - 1] as SinglePlayerInfo;
+            //        if (player != null) {
+            //            var name = player.Name.Value.Trim();
+            //            if (name.Length > 0)
+            //                return Safe.Format(RefereeTemplate_Referee, player.Name.Value);
+            //        }
+            //    }
+            //    return Safe.Format(defaultText, position);
+            //}
         }
     }
     public class RefereeMatch {

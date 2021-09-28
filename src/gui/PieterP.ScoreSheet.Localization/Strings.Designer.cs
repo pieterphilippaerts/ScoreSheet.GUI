@@ -457,6 +457,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cup of the AFTT.
+        /// </summary>
+        public static string MatchSystem_AfttCup {
+            get {
+                return ResourceManager.GetString("MatchSystem_AfttCup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to away player {0}.
         /// </summary>
         public static string MatchSystem_AwayPlayer {
@@ -466,11 +475,20 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Cup.
+        ///   Looks up a localized string similar to Cup of Belgium.
         /// </summary>
-        public static string MatchSystem_Cup {
+        public static string MatchSystem_BelgianCup {
             get {
-                return ResourceManager.GetString("MatchSystem_Cup", resourceCulture);
+                return ResourceManager.GetString("MatchSystem_BelgianCup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cup of Flanders.
+        /// </summary>
+        public static string MatchSystem_FlemishCup {
+            get {
+                return ResourceManager.GetString("MatchSystem_FlemishCup", resourceCulture);
             }
         }
         
@@ -538,15 +556,6 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Super (old system, no substitute).
-        /// </summary>
-        public static string MatchSystem_SuperOld {
-            get {
-                return ResourceManager.GetString("MatchSystem_SuperOld", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to the away captain.
         /// </summary>
         public static string MatchSystem_TheAwayCaptain {
@@ -601,8 +610,8 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} against {1}, {2} matches
-        ///{3} winning sets to {4} points.
+        ///   Looks up a localized string similar to {0} against {1}, {2} matches [{3} single(s), {4} double(s)]
+        ///{5} winning sets to {6} points.
         /// </summary>
         public static string MatchSystemInfo_Description {
             get {

@@ -237,6 +237,9 @@
   <data name="TabT_SeasonsWarning" xml:space="preserve">
     <value>La liste des saisons est vide.</value>
   </data>
+  <data name="TabT_ServiceException" xml:space="preserve">
+    <value>Le serveur a renvoyé l'erreur suivante : '{0}'. ScoreSheet va réessayer le téléchargement.</value>
+  </data>
   <data name="TabT_TeamDataError" xml:space="preserve">
     <value>Données d'équipe invalides retrouvées pour l'une des équipes du club {0}.</value>
   </data>

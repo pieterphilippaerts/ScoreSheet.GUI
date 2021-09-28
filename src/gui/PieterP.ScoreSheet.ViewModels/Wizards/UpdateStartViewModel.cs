@@ -31,7 +31,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 try {
                     DatabaseManager.Current.Import(of.SelectedPath);
                     NotificationManager.Current.Raise(new ShowMessageNotification(Wizard_UpdateSuccessful, NotificationTypes.Informational));
-                    NotificationManager.Current.Raise(new  CloseDialogNotification(true));
+                    NotificationManager.Current.Raise(new CloseDialogNotification(true));
                 } catch (Exception e) {
                     Logger.Log(e);
                     NotificationManager.Current.Raise(new ShowMessageNotification(Wizard_FileReadError, NotificationTypes.Error));

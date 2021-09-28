@@ -43,7 +43,7 @@ namespace PieterP.Shared.Services {
                 return; // do not show debug messages unless we're in a debug session
 
             // write exceptions to disk (or write everything to disk, if we're in a debug session)
-            if (type == LogType.Exception || _isDebug) {
+            if (_logfile != null && (type == LogType.Exception || _isDebug)) {
                 if (File.Exists(_logfile)) {
                     var fi = new FileInfo(_logfile);
                     if (fi.Length > MaxFileSize) { // truncate file; do not let the log grow indefinitely

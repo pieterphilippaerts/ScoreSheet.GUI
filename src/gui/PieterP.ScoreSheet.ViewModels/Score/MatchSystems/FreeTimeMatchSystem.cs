@@ -37,6 +37,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int MatchCount => 12;
         public override string Name => Strings.MatchSystem_FreeTime;
         public override bool IsCompetitive => false;
+        public override int SingleMatchCount => 9;
+        public override int DoubleMatchCount => 3;
 
         public override IOrientationInfo GenerateTemplate(CompetitiveMatchViewModel matchVm) {
             return new UnofficialScoreTemplate(matchVm);

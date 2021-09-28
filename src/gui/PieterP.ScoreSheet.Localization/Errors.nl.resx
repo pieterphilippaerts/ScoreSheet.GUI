@@ -237,6 +237,9 @@
   <data name="TabT_SeasonsWarning" xml:space="preserve">
     <value>De lijst met seizoenen is leeg.</value>
   </data>
+  <data name="TabT_ServiceException" xml:space="preserve">
+    <value>De server gaf de volgende foutmelding terug: '{0}'. ScoreSheet zal de download opnieuw proberen.</value>
+  </data>
   <data name="TabT_TeamDataError" xml:space="preserve">
     <value>Ongeldige team data gevonden in één van de teams van club {0}</value>
   </data>

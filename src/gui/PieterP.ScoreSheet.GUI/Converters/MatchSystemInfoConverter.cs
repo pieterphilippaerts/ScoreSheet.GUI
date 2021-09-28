@@ -12,7 +12,7 @@ namespace PieterP.ScoreSheet.GUI.Converters {
             var ms = value as MatchSystem;
             if (ms == null)
                 return value;
-            return Safe.Format(Strings.MatchSystemInfo_Description, ms.PlayerCount, ms.PlayerCount, ms.MatchCount, ms.SetCount, ms.PointCount);
+            return Safe.Format(Strings.MatchSystemInfo_Description, ms.PlayerCount, ms.PlayerCount, ms.MatchCount, ms.SingleMatchCount, ms.DoubleMatchCount, ms.SetCount, ms.PointCount);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) => throw new NotImplementedException();

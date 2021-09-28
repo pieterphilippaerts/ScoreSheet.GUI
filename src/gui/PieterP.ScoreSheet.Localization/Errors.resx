@@ -237,6 +237,9 @@
   <data name="TabT_SeasonsWarning" xml:space="preserve">
     <value>The list of seasons is empty.</value>
   </data>
+  <data name="TabT_ServiceException" xml:space="preserve">
+    <value>The server returned the following error: '{0}'. ScoreSheet will retry the download.</value>
+  </data>
   <data name="TabT_TeamDataError" xml:space="preserve">
     <value>Invalid team data found for one of the teams in club {0}</value>
   </data>

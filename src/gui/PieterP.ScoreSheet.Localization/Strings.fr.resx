@@ -232,14 +232,20 @@
     <value>Les rencontres officielles suivantes ont été modifiées mais n'ont pas encore été envoyées au site web de la compétition.</value>
   </data>
   <data name="MatchSystemInfo_Description" xml:space="preserve">
-    <value>{0} contre {1}, {2} matches
-{3} sets gagnants de {4} points</value>
+    <value>{0} contre {1}, {2} matches [{3} simple(s), {4} double(s)]
+{5} sets gagnants de {6} points</value>
+  </data>
+  <data name="MatchSystem_AfttCup" xml:space="preserve">
+    <value>Coupe de l'AFTT</value>
   </data>
   <data name="MatchSystem_AwayPlayer" xml:space="preserve">
     <value>du joueur visiteur {0}</value>
   </data>
-  <data name="MatchSystem_Cup" xml:space="preserve">
-    <value>Coupe</value>
+  <data name="MatchSystem_BelgianCup" xml:space="preserve">
+    <value>Coupe de Belgique</value>
+  </data>
+  <data name="MatchSystem_FlemishCup" xml:space="preserve">
+    <value>Coupe des Flandres</value>
   </data>
   <data name="MatchSystem_FreeTime" xml:space="preserve">
     <value>Compétition récréative</value>
@@ -261,9 +267,6 @@
   </data>
   <data name="MatchSystem_Super" xml:space="preserve">
     <value>Super</value>
-  </data>
-  <data name="MatchSystem_SuperOld" xml:space="preserve">
-    <value>Super (ancien système, sans transfert)</value>
   </data>
   <data name="MatchSystem_TheAwayCaptain" xml:space="preserve">
     <value>du capitaine visiteur</value>

@@ -36,5 +36,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int MatchCount => 6;
         public override string Name => Strings.MatchSystem_Super;
         public override bool IsCompetitive => true;
+        public override int SingleMatchCount => 6;
+        public override int DoubleMatchCount => 0;
     }
 }

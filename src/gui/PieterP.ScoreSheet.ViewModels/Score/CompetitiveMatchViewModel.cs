@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -228,15 +229,34 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.Article632 = CreateCell(true);
             this.Men = CreateCell(true);
             this.Women = CreateCell(false);
+            CreateXorGroup(this.Men, this.Women);
             this.Interclub = CreateCell(true);
             this.Super = CreateCell(false);
             this.Cup = CreateCell(false);
             this.Youth = CreateCell(false);
             this.Veterans = CreateCell(false);
+            CreateXorGroup(this.Interclub, this.Super, this.Cup, this.Youth, this.Veterans);
             this.MustBePlayed = Cell.Derived(this.HomeTeam.IsBye, this.HomeTeam.Forfeit, this.AwayTeam.IsBye,this.AwayTeam.Forfeit, (hb, hff, ab, aff) => !(hb || hff || ab || aff));
             this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
             this.IsInitializing = false;
+        }
+
+        private void CreateXorGroup(params Cell<bool>[] cells) {
+            foreach(INotifyPropertyChanged cell in cells) {
+                cell.PropertyChanged += (sender, e) => {
+                    if (this.IsInitializing)
+                        return;
+                    var senderCell = sender as Cell<bool>;
+                    if (senderCell != null && senderCell.Value) {
+                        foreach(var otherCell in cells) {
+                            if(otherCell != senderCell) {
+                                otherCell.Value = false;
+                            }
+                        }
+                    }
+                };
+            }
         }
 
         private void RefreshMatchStatus() {
@@ -265,7 +285,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
         /// <param name="team">The team to update the captain for.</param>
         private void UpdateTeamCaptain(TeamInfo team)
         {
-            var captain = team.Players.Cast<SinglePlayerInfo>().FirstOrDefault(p => p.Captain.Value);
+            var captain = team.Players.OfType<SinglePlayerInfo>().FirstOrDefault(p => p.Captain.Value);
             switch (team)
             {
                 case TeamInfo ti when ti == HomeTeam:
@@ -340,8 +360,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                             IsCaptain = spi.Captain.Value
                         };
                     }
-                    return new SelectedMemberInfo();
-                }).ToList(),
+                    return null;
+                }).Where(c => c != null).ToList(),
                 new SelectedMemberInfo(ChiefReferee.Name.Value, ChiefReferee.ComputerNumber.Value),
                 new SelectedMemberInfo(RoomCommissioner.Name.Value, RoomCommissioner.ComputerNumber.Value));
             wiz.CurrentPanel.Value = selectPlayers;
@@ -429,12 +449,12 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             get {
                 if (!this.MatchSystem.IsCompetitive)
                     return false; // uses a match system that is only used for non-competitive matches
-                // This is a hack for seasons 2020-2021; due to Corona, the free time series use a match system that is normally used
-                // in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
-                // A better way would be to let the interclub leaders add this information on the competition website, and that
-                // we retrieve the info from the website.
-                if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
-                    return false;
+                //// This is a hack for seasons 2020-2021; due to Corona, the free time series use a match system that is normally used
+                //// in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
+                //// A better way would be to let the interclub leaders add this information on the competition website, and that
+                //// we retrieve the info from the website.
+                //if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
+                //    return false;
                 return true;
             }
         }

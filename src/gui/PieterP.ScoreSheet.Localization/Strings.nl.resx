@@ -232,14 +232,20 @@
     <value>De volgende competitiewedstrijden zijn aangepast maar zijn nog niet geüpload naar de competitiewebsite:</value>
   </data>
   <data name="MatchSystemInfo_Description" xml:space="preserve">
-    <value>{0} tegen {1}, {2} wedstrijden
-{3} winnende sets tot {4} punten</value>
+    <value>{0} tegen {1}, {2} wedstrijden [{3} enkel(s), {4} dubbel(s)]
+{5} winnende sets tot {6} punten</value>
+  </data>
+  <data name="MatchSystem_AfttCup" xml:space="preserve">
+    <value>Beker van de AFTT</value>
   </data>
   <data name="MatchSystem_AwayPlayer" xml:space="preserve">
     <value>uitspeler {0}</value>
   </data>
-  <data name="MatchSystem_Cup" xml:space="preserve">
-    <value>Beker</value>
+  <data name="MatchSystem_BelgianCup" xml:space="preserve">
+    <value>Beker van België</value>
+  </data>
+  <data name="MatchSystem_FlemishCup" xml:space="preserve">
+    <value>Beker van Vlaanderen</value>
   </data>
   <data name="MatchSystem_FreeTime" xml:space="preserve">
     <value>Vrijetijdscompetitie</value>
@@ -261,9 +267,6 @@
   </data>
   <data name="MatchSystem_Super" xml:space="preserve">
     <value>Super</value>
-  </data>
-  <data name="MatchSystem_SuperOld" xml:space="preserve">
-    <value>Super (oud systeem, zonder transfer)</value>
   </data>
   <data name="MatchSystem_TheAwayCaptain" xml:space="preserve">
     <value>de uitkapitein</value>

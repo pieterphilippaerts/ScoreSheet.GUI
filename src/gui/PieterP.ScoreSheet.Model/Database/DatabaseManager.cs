@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using PieterP.ScoreSheet.Model.Database.Entities;
 using PieterP.ScoreSheet.Model.Database.Updater;
+using PieterP.ScoreSheet.Model.Information;
 using PieterP.Shared;
 using PieterP.Shared.Services;
 
@@ -78,6 +79,8 @@ namespace PieterP.ScoreSheet.Model.Database {
 
         public void Export(string file) {
             var mule = new ImportExportMule() {
+                HomeClub = Settings.HomeClub.Value,
+                HomeClubId = Settings.HomeClubId.Value,
                 Members = Members.Database,
                 Clubs = Clubs.Database,
                 Matches = MatchStartInfo.Database
@@ -85,14 +88,23 @@ namespace PieterP.ScoreSheet.Model.Database {
             File.WriteAllText(file, DataSerializer.Serialize(mule));
         }
         private class ImportExportMule { 
-            public List<MemberList> Members { get; set; }
-            public List<Club> Clubs { get; set; }
-            public List<MatchStartInfo> Matches { get; set; }
+            public string? HomeClub { get; set; }
+            public string? HomeClubId { get; set; }
+            public List<MemberList>? Members { get; set; }
+            public List<Club>? Clubs { get; set; }
+            public List<MatchStartInfo>? Matches { get; set; }
         }
         public void Import(string file) {
             if (!File.Exists(file))
                 throw new FileNotFoundException();
-            var mule = DataSerializer.Deserialize<ImportExportMule>(File.ReadAllText(file));
+            var mule = DataSerializer.Deserialize<ImportExportMule>(File.ReadAllText(file));            
+            if (mule.Members == null || mule.Clubs == null || mule.Matches == null) {
+                throw new InvalidDataException("Invalid or missing data in the file.");
+            }
+            if (mule.HomeClub != null && mule.HomeClubId != null) {
+                Settings.HomeClub.Value = mule.HomeClub;
+                Settings.HomeClubId.Value = mule.HomeClubId;
+            }
             Members.Update(mule.Members);
             Clubs.Update(mule.Clubs);
             MatchStartInfo.Update(mule.Matches);
@@ -160,7 +172,11 @@ namespace PieterP.ScoreSheet.Model.Database {
         public string OfficialMatchesPath {
             get {
                 if (_officialMatchesPath == null) {
-                    _officialMatchesPath = Path.Combine(ActiveProfilePath, "official");
+                    var season = Application.DefaultSeasonId;
+                    if (Settings.CurrentSeason.Value != null) {
+                        season = Settings.CurrentSeason.Value.Id;
+                    }
+                    _officialMatchesPath = Path.Combine(ActiveProfilePath, "official", season.ToString());
                     if (!Directory.Exists(_officialMatchesPath))
                         Directory.CreateDirectory(_officialMatchesPath);
                 }

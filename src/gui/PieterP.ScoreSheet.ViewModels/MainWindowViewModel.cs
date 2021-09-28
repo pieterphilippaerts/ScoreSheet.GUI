@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
@@ -114,6 +115,15 @@ namespace PieterP.ScoreSheet.ViewModels {
         private void ReevaluateUpdateText() {
             var installed = DatabaseManager.Current.Settings.LatestInstalledVersion.Value;
             var current = Application.Version;
+
+#if DEBUG
+            if (Application.ExpiryTime.Year == current.Major) {
+                // If we break here, it's because the ExpiryTime is out of sync with the version number.
+                // Maybe this is the first version of this competition year, and you forgot to update the
+                // expiry time??
+                Debugger.Break();
+            }
+#endif
 
             if (current < installed) {
                 this.UpdateText.Value = Strings.UpdateText_Updated;

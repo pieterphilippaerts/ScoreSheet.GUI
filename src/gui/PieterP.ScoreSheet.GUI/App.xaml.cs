@@ -50,30 +50,7 @@ namespace PieterP.ScoreSheet.GUI {
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12; // older version of the framework maybe?
             }
 
-            // initialize services
-            ServiceLocator.RegisterInstance<DatabaseManager>(new DatabaseManager(appSettings.Profile));
-            ServiceLocator.RegisterInstance<Logger>(new Logger(Path.Combine(ServiceLocator.Resolve<DatabaseManager>().ActiveProfilePath, "log.txt"), appSettings.Debug));
-            ServiceLocator.RegisterType<IRegionFinder, Model.Information.RegionFinder>();
-            ServiceLocator.RegisterType<IConnector, TabTConnector>();
-            ServiceLocator.RegisterInstance<MatchSystemFactory>(new MatchSystemFactory(new MatchSystem[] {
-                new InterclubMenMatchSystem(),
-                new InterclubWomenVeteransMatchSystem(),
-                new Youth2v2MatchSystem(),
-                new FreeTimeMatchSystem(),
-                new CupMatchSystem(),
-                new SuperMatchSystem(),
-                new SuperOldMatchSystem(),
-                new InterclubMenOldMatchSystem(),
-                new InterclubWomenVeteransOldMatchSystem()
-            }));
-            ServiceLocator.RegisterInstance<WindowService>(new WindowService());
-            ServiceLocator.RegisterInstance<IMainWindowHandle>(new MainWindowHandle());
-            ServiceLocator.RegisterInstance<IActiveWindowHandle>(new ActiveWindowHandle());
-            ServiceLocator.RegisterInstance<IWindowHandleLookup>(new WindowHandleLookup());
-            ServiceLocator.RegisterType<ITimerService, WpfTimerService>();
-            ServiceLocator.RegisterType<IExportService, ExportService>();
-            ServiceLocator.RegisterInstance<IConnectorFactory>(new ConnectorFactory());
-            ServiceLocator.RegisterInstance<INetworkAvailabilityService>(new NetworkAvailabilityService());
+            InitializeServices(appSettings);
             SetupNotificationHandling();
             SetupExceptionHandling();
 
@@ -85,7 +62,6 @@ namespace PieterP.ScoreSheet.GUI {
                 // not started from launcher; run launcher and exit
                 string launcher = Path.Combine(DatabaseManager.Current.BasePath, "launcher.exe");
                 if (File.Exists(launcher)) {
-                    _mutex?.Dispose(); // close mutex already to make sure it doesn't interfere with the launcher
                     Process.Start(launcher);
                     Application.Current.Shutdown();
                     return;
@@ -96,7 +72,7 @@ namespace PieterP.ScoreSheet.GUI {
 
             _mutex = new Mutex(true, "ScoreSheet-" + appSettings.Profile, out var created);
             if (!created) {
-                _mutex.Dispose();
+                _mutex?.Dispose();
                 NotificationManager.Current.Raise(new ShowMessageNotification(Strings.App_MultipleInstances, NotificationTypes.Exclamation));
                 Application.Current.Shutdown();
                 return;
@@ -126,10 +102,8 @@ namespace PieterP.ScoreSheet.GUI {
             var windowVm = new MainWindowViewModel(appSettings.Debug);
             windowVm.ApplicationExit += () => {
                 Logger.Log(LogType.Debug, Safe.Format(Strings.App_ApplicationStarted, DateTime.Now.ToString("D"), DateTime.Now.ToString("T")));
-                if (_mutex != null) {
-                    _mutex.Dispose();
-                    _mutex = null;
-                }
+                _mutex?.Dispose();
+                _mutex = null;
                 Application.Current.Shutdown();
             };
             window.DataContext = windowVm;
@@ -156,6 +130,32 @@ namespace PieterP.ScoreSheet.GUI {
                 }
             }
             return settings;
+        }
+        private void InitializeServices(ApplicationSettings appSettings) {
+            ServiceLocator.RegisterInstance<DatabaseManager>(new DatabaseManager(appSettings.Profile));
+            ServiceLocator.RegisterInstance<Logger>(new Logger(Path.Combine(ServiceLocator.Resolve<DatabaseManager>().ActiveProfilePath, "log.txt"), appSettings.Debug));
+            ServiceLocator.RegisterType<IRegionFinder, Model.Information.RegionFinder>();
+            ServiceLocator.RegisterType<IConnector, AutoRetryConnector>();
+            ServiceLocator.RegisterInstance<MatchSystemFactory>(new MatchSystemFactory(new MatchSystem[] {
+                new InterclubMenMatchSystem(),
+                new InterclubWomenVeteransMatchSystem(),
+                new SuperMatchSystem(),
+                new Youth2v2MatchSystem(),
+                new FreeTimeMatchSystem(),
+                new BelgianCupMatchSystem(),
+                new FlemishCupMatchSystem(),
+                new AfttCupMatchSystem(),
+                new InterclubMenOldMatchSystem(),
+                new InterclubWomenVeteransOldMatchSystem()
+            }));
+            ServiceLocator.RegisterInstance<WindowService>(new WindowService());
+            ServiceLocator.RegisterInstance<IMainWindowHandle>(new MainWindowHandle());
+            ServiceLocator.RegisterInstance<IActiveWindowHandle>(new ActiveWindowHandle());
+            ServiceLocator.RegisterInstance<IWindowHandleLookup>(new WindowHandleLookup());
+            ServiceLocator.RegisterType<ITimerService, WpfTimerService>();
+            ServiceLocator.RegisterType<IExportService, ExportService>();
+            ServiceLocator.RegisterInstance<IConnectorFactory>(new ConnectorFactory());
+            ServiceLocator.RegisterInstance<INetworkAvailabilityService>(new NetworkAvailabilityService());
         }
 
         private void SetupNotificationHandling() {
@@ -188,10 +188,8 @@ namespace PieterP.ScoreSheet.GUI {
         }
         private void SetupExceptionHandling() {
             AppDomain.CurrentDomain.UnhandledException += (s, e) => {
-                if (_mutex != null) {
-                    _mutex.Dispose();
-                    _mutex = null;
-                }
+                _mutex?.Dispose();
+                _mutex = null;
                 HandleException(e.ExceptionObject as Exception, e.IsTerminating);
             };
             DispatcherUnhandledException += (s, e) => { e.Handled = true; HandleException(e.Exception, false); };

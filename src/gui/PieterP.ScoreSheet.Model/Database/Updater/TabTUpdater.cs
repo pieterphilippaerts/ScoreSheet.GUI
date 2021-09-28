@@ -522,7 +522,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 || c.Status == "S"  /* super */
                 || c.Status == "T"  /* dubbele aansluiting (super) */
                 || c.Status == "O"  /* half seizoen */
-                || c.Status == "P" /* vrijetijdsspeler */).ToList();
+                || c.Status == "P" /* vrijetijdsspeler */
+                || c.Status == "D" /* dubbele aansluiting (super dames) */).ToList();
                 if (activeMembers.Count == 0) {
                     return members; // weird
                 } else {

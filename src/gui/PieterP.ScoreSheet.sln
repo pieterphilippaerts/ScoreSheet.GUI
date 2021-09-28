@@ -29,6 +29,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DebugProject", "DebugProject\DebugProject.csproj", "{5A0A76CF-CF18-4BB1-8BBD-2A980FCF7AA0}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PieterP.ScoreSheet.Debugger", "PieterP.ScoreSheet.Debugger\PieterP.ScoreSheet.Debugger.csproj", "{AE1825D5-A5F6-4475-A34A-7C81984316E1}"
 EndProject
 Global
@@ -69,10 +71,6 @@ Global
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AE1825D5-A5F6-4475-A34A-7C81984316E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AE1825D5-A5F6-4475-A34A-7C81984316E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AE1825D5-A5F6-4475-A34A-7C81984316E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AE1825D5-A5F6-4475-A34A-7C81984316E1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,7 +80,6 @@ Global
 		{4493D12C-4A98-4A88-A687-C5D5B7CEE9CE} = {13841388-704E-4EA3-9846-7D486E3FA164}
 		{5F392006-850A-433A-A1FE-5A3B79E1E1C3} = {13841388-704E-4EA3-9846-7D486E3FA164}
 		{345635F2-5FDF-43BD-8487-DDBFE8C237C6} = {13841388-704E-4EA3-9846-7D486E3FA164}
-		{AE1825D5-A5F6-4475-A34A-7C81984316E1} = {B275D101-926B-4D12-8F6D-7F18A5ED72A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1AD6197B-A367-4080-9E12-272D484DBEB1}

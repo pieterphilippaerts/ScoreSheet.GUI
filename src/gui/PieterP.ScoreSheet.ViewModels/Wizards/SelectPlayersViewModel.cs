@@ -147,7 +147,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             }
         }
         private void OnSelect() {
-            if (_team.ParentMatch.Level.Value.Id != Level.Super) { // super kan doen wat ze willen :-)
+            if (_team.ParentMatch.Level.Value.Id != Level.Super && !_team.ParentMatch.Cup.Value) { // in super en bij bekermatchen kunnen ze doen wat ze willen :-)
                 bool problem = false;
                 int prevIndex = -1;
                 foreach (var p in this.Players) {

@@ -5,7 +5,7 @@ using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database.MatchSystems;
 
 namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
-    public class CupMatchSystem : VMMatchSystem {
+    public class FlemishCupMatchSystem : VMMatchSystem {
         public override void Initialize(TeamInfo home, TeamInfo away, IList<MatchInfo> matches) {
             var h = home.Players;
             var a = away.Players;
@@ -31,7 +31,9 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int PointCount => 11;
         public override int PlayerCount => 3;
         public override int MatchCount => 9;
-        public override string Name => Strings.MatchSystem_Cup;
+        public override int SingleMatchCount => 9;
+        public override int DoubleMatchCount => 0;
+        public override string Name => Strings.MatchSystem_FlemishCup;
         public override bool IsCompetitive => true;
     }
 }

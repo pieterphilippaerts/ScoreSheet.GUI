@@ -25,7 +25,7 @@
                 </StackPanel>
                 <partials:ChiefReferee Margin="0 0.2cm 0 0" Canvas.Top="10.31cm" DataContext="{Binding ChiefReferee}"/>
                 <partials:Captains Margin="0 0.2cm 0 0" Canvas.Left="10.76cm" Canvas.Top="10.31cm" Article632Visibility="Collapsed" />
-                <partials:Matches Canvas.Left="10.76cm" Canvas.Top="2.51cm" />
+                <partials:Matches Canvas.Left="10.76cm" Canvas.Top="2.51cm" Width="12.2cm" />
                 <Border BorderBrush="Black" BorderThickness="1px" Width="14.15cm" Height="1.75cm" Canvas.Top="13.31cm">
                     <Grid>
                         <Grid.RowDefinitions>

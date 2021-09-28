@@ -6,9 +6,9 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <AssemblyName>ScoreSheet.Localization</AssemblyName>
-    <AssemblyVersion>2021.2022.1.0</AssemblyVersion>
-    <Version>2021.2022.1</Version>
-    <FileVersion>2021.2022.1.0</FileVersion>
+    <AssemblyVersion>2021.2022.3.0</AssemblyVersion>
+    <Version>2021.2022.3</Version>
+    <FileVersion>2021.2022.3.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netstandard2.1|AnyCPU'">

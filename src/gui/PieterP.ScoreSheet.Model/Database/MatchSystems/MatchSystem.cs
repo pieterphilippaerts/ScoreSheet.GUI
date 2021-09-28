@@ -13,5 +13,7 @@ namespace PieterP.ScoreSheet.Model.Database.MatchSystems {
         public abstract int MatchCount { get; }
         public abstract string Name { get; }
         public abstract bool IsCompetitive { get; }
+        public abstract int SingleMatchCount { get; }
+        public abstract int DoubleMatchCount { get; }
     }
 }

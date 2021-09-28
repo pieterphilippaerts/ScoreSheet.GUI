@@ -36,5 +36,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.MatchSystems {
         public override int MatchCount => 10;
         public override string Name => Strings.MatchSystem_InterclubWomenVeteransOld;
         public override bool IsCompetitive => true;
+        public override int SingleMatchCount => 9;
+        public override int DoubleMatchCount => 1;
     }
 }
