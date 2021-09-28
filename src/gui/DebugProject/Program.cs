@@ -26,6 +26,20 @@ namespace DebugProject {
             }
             Console.ReadLine();
         }
+        private static async void ShowRanking(string club) {
+            var connector = new TabTConnector();
+            var members = await connector.GetMembers(club, 1);
+            foreach (var member in members) {
+                Console.WriteLine($"{member.Position}. {member.Firstname} {member.Lastname} ({member.VttlIndex}), rank={member.RankIndex}, status={member.Status}");
+            }
+        }
+        private static async void ShowTeams(string club) {
+            var connector = new TabTConnector();
+            var teams = await connector.GetTeams(club);
+            foreach (var team in teams) {
+                Console.WriteLine($"Ploeg {team.Team} {team.DivisionName} (cat: {team.DivisionCategory}, matchtype: {team.MatchType})");
+            }
+        }
         public static async void TryHammering() {
                 var connector = new TabTConnector();
 
