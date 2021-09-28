@@ -9,7 +9,7 @@ namespace PieterP.ScoreSheet.Model.Information {
             get {
                 if (IntPtr.Size == 8)
                     return true; // we're running as a 64-bit process
-                                 // are we a 32-bit process on 64-bit windows?
+                // are we a 32-bit process on 64-bit windows?
                 using (var p = Process.GetCurrentProcess()) {
                     bool retVal;
                     if (!NativeMethods.IsWow64Process(p.Handle, out retVal)) {

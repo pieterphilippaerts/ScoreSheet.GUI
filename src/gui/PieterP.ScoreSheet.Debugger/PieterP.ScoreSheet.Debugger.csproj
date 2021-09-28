@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AE1825D5-A5F6-4475-A34A-7C81984316E1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PieterP.ScoreSheet.Debugger</RootNamespace>
+    <AssemblyName>PieterP.ScoreSheet.Debugger</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=5.11.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.2\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.2\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\shared\PieterP.ScoreSheet.Connector\PieterP.ScoreSheet.Connector.csproj">
+      <Project>{4493d12c-4a98-4a88-a687-c5d5b7cee9ce}</Project>
+      <Name>PieterP.ScoreSheet.Connector</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Cells\PieterP.Shared.Cells.csproj">
+      <Project>{5f392006-850a-433a-a1fe-5a3b79e1e1c3}</Project>
+      <Name>PieterP.Shared.Cells</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\shared\PieterP.Shared.Services\PieterP.Shared.Services.csproj">
+      <Project>{345635f2-5fdf-43bd-8487-ddbfe8c237c6}</Project>
+      <Name>PieterP.Shared.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PdfSharp\PdfSharp.csproj">
+      <Project>{47d6730c-e7d9-4def-a5ee-4a618c25ae24}</Project>
+      <Name>PdfSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PieterP.ScoreSheet.GUI\PieterP.ScoreSheet.GUI.csproj">
+      <Project>{b363f021-5985-465a-a337-ebf02c474333}</Project>
+      <Name>PieterP.ScoreSheet.GUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PieterP.ScoreSheet.Localization\PieterP.ScoreSheet.Localization.csproj">
+      <Project>{43811d02-0d51-4968-ba02-bdb2d3e2ea5c}</Project>
+      <Name>PieterP.ScoreSheet.Localization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PieterP.ScoreSheet.Model\PieterP.ScoreSheet.Model.csproj">
+      <Project>{e8d6e94b-d9e1-4853-ad89-faa67f8bb252}</Project>
+      <Name>PieterP.ScoreSheet.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PieterP.ScoreSheet.ViewModels\PieterP.ScoreSheet.ViewModels.csproj">
+      <Project>{5d3d21ed-3a36-4c5d-9145-06ce45b3a82c}</Project>
+      <Name>PieterP.ScoreSheet.ViewModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

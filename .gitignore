@@ -33,3 +33,6 @@
 /src/shared/PieterP.Shared.Services/obj
 /src/publish
 /src/installer/PieterP.ScoreSheet.Installer/bin/Debug
+/src/gui/packages
+/src/gui/PieterP.ScoreSheet.Debugger/bin
+/src/gui/PieterP.ScoreSheet.Debugger/obj
