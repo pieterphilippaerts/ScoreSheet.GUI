@@ -78,7 +78,9 @@ namespace PieterP.ScoreSheet.Model.Information {
                                 }
                                 break;
                             case 10:  //this will only show up if the application has a manifest file allowing W10, otherwise a 6.2 version will be used
-                                return "Windows 10";
+                                if (Environment.OSVersion.Version.Build < 22000)
+                                    return "Windows 10";
+                                return "Windows 11";
                         }
                         break;
 

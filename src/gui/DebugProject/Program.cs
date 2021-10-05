@@ -13,6 +13,10 @@ namespace DebugProject {
             public bool IsVttl => true;
         }
         static void Main(string[] args) {
+            var n = PieterP.ScoreSheet.Model.Information.OperatingSystem.Name;
+
+            return;
+
             try {
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, policyErrors) => true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | (SecurityProtocolType)0x3000 /* Tls13*/;

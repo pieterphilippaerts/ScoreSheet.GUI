@@ -89,7 +89,7 @@ namespace PdfSharp.Pdf.Internal
       {
                 if (PdfEncoders.winAnsiEncoding == null)
                     PdfEncoders.winAnsiEncoding =
-#if NET45
+#if NET452
              Encoding.GetEncoding(1252);
 #else
              CodePagesEncodingProvider.Instance.GetEncoding(1252); // dit is de code voor .NET Core
