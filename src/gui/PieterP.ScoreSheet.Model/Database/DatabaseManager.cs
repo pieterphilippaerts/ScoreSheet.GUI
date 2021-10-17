@@ -81,6 +81,7 @@ namespace PieterP.ScoreSheet.Model.Database {
             var mule = new ImportExportMule() {
                 HomeClub = Settings.HomeClub.Value,
                 HomeClubId = Settings.HomeClubId.Value,
+                CurrentSeason = Settings.CurrentSeason.Value,
                 Members = Members.Database,
                 Clubs = Clubs.Database,
                 Matches = MatchStartInfo.Database
@@ -90,6 +91,7 @@ namespace PieterP.ScoreSheet.Model.Database {
         private class ImportExportMule { 
             public string? HomeClub { get; set; }
             public string? HomeClubId { get; set; }
+            public Season? CurrentSeason { get; set; }
             public List<MemberList>? Members { get; set; }
             public List<Club>? Clubs { get; set; }
             public List<MatchStartInfo>? Matches { get; set; }
@@ -104,6 +106,9 @@ namespace PieterP.ScoreSheet.Model.Database {
             if (mule.HomeClub != null && mule.HomeClubId != null) {
                 Settings.HomeClub.Value = mule.HomeClub;
                 Settings.HomeClubId.Value = mule.HomeClubId;
+            }
+            if (mule.CurrentSeason != null) {
+                Settings.CurrentSeason.Value = mule.CurrentSeason;
             }
             Members.Update(mule.Members);
             Clubs.Update(mule.Clubs);
