@@ -22,7 +22,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Validations {
                     }
                 }
             } else {
-                if (matchVm.Level.Value.Id != Model.Database.Enums.Level.Super) // only required in super (starting from competition year 2020-2021)
+                if (matchVm.Level.Value.Id != Model.Database.Enums.Level.Super || matchVm.PlayerCategory != PlayerCategories.Men) // only required in super (starting from competition year 2020-2021)
                     return null;
                 return Validation_NoRoomCommissionerId;
             }
