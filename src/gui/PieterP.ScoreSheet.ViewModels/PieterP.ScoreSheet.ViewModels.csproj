@@ -15,8 +15,8 @@
     <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
     <!-- Set to false to transform files even if the output appears to be up-to-date (default is true)  -->
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
-    <AssemblyVersion>2021.2022.4.0</AssemblyVersion>
-    <Version>2021.2022.4</Version>
+    <AssemblyVersion>2021.2022.5.0</AssemblyVersion>
+    <Version>2021.2022.5</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>

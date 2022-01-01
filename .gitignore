@@ -39,3 +39,5 @@
 /src/gui/PieterP.ScoreSheet.Debugger/bin
 /src/gui/PieterP.ScoreSheet.Debugger/obj
 /.vs
+/src/launcher/.vs/PieterP.ScoreSheet.Launcher/v17/.suo
+/src/installer/.vs/PieterP.ScoreSheet.Installer/v17/.suo
