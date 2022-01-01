@@ -22,6 +22,6 @@ namespace PieterP.ScoreSheet.Connector {
         IDictionary<string, int> Statistics { get; }
     }
     public interface IConnectorFactory {
-        Task<IConnector?> Create(bool allowAnonymous = false, bool showUi = true);
+        Task<(IConnector? Connector, TabTErrorCode ErrorCode)> Create(bool allowAnonymous = false, bool showUi = true);
     }
 }

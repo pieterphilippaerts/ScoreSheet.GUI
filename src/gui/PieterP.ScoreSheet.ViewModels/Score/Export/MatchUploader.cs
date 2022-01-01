@@ -16,9 +16,13 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
         }
         public async Task<(TabTErrorCode, IEnumerable<string>)> Upload(params CompetitiveMatchViewModel[] matches) {
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(showUi: _showUi);
-            if (connector == null)
-                return (TabTErrorCode.InvalidCredentials, new string[] { Errors.MatchUploader_NoCredentials });
+            var connectorResult = await connectorFactory.Create(showUi: _showUi);
+            var connector = connectorResult.Connector;
+            if (connector == null) {
+                return (connectorResult.ErrorCode, new string[] {
+                    connectorResult.ErrorCode == TabTErrorCode.InvalidCredentials ? Errors.MatchUploader_NoCredentials : Errors.MatchUploader_GeneralError
+                });
+            }
 
             // this is an ideal time, because we are probably connected to the internet
             ServiceLocator.Resolve<INetworkAvailabilityService>().TriggerManually();

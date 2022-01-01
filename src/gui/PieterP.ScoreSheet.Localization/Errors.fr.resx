@@ -165,6 +165,9 @@
   <data name="Main_SaveError" xml:space="preserve">
     <value>Une erreur est survenue lors de la sauvegarde de la feuille de match. Plus d'information à trouver dans le fichier de log.</value>
   </data>
+  <data name="MatchUploader_GeneralError" xml:space="preserve">
+    <value>Une erreur est survenue lors de l'envoi des données. Assurez-vous que votre connexion Internet fonctionne correctement.</value>
+  </data>
   <data name="MatchUploader_NoCredentials" xml:space="preserve">
     <value>Données d'identification introuvables dans la base de données.</value>
   </data>

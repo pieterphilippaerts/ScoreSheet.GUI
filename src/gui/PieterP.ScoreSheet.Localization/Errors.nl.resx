@@ -165,8 +165,11 @@
   <data name="Main_SaveError" xml:space="preserve">
     <value>Er heeft zich een fout voorgedaan bij het opslaan van het wedstrijdblad. Meer informatie kan u in het logboek vinden.</value>
   </data>
+  <data name="MatchUploader_GeneralError" xml:space="preserve">
+    <value>Er heeft zich een fout voorgedaan bij het contacteren van de server. Controleer dat je internetverbinding correct werkt.</value>
+  </data>
   <data name="MatchUploader_NoCredentials" xml:space="preserve">
-    <value>Er zijn geen opgeslagen inloggegevens gevonden in de database.</value>
+    <value>Er zijn geen (geldige) opgeslagen inloggegevens gevonden in de database.</value>
   </data>
   <data name="PlayerstoString_DataError" xml:space="preserve">
     <value>[PlayersToStringConverter] PlayerInfo was geen enkel of dubbel!</value>

@@ -165,8 +165,11 @@
   <data name="Main_SaveError" xml:space="preserve">
     <value>An error occurred while saving the score sheet. More information can be found in the logbook.</value>
   </data>
+  <data name="MatchUploader_GeneralError" xml:space="preserve">
+    <value>An error occurred while contacting the server. Make sure your internet connection is working properly.</value>
+  </data>
   <data name="MatchUploader_NoCredentials" xml:space="preserve">
-    <value>Could not find stored credentials in the database.</value>
+    <value>Could not find (valid) stored credentials in the database.</value>
   </data>
   <data name="PlayerstoString_DataError" xml:space="preserve">
     <value>[PlayersToStringConverter] PlayerInfo was not single or double!</value>

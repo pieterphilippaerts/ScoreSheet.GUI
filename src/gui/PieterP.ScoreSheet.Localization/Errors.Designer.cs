@@ -19,7 +19,7 @@ namespace PieterP.ScoreSheet.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Errors {
@@ -205,7 +205,16 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Could not find stored credentials in the database..
+        ///   Looks up a localized string similar to An error occurred while contacting the server. Make sure your internet connection is working properly..
+        /// </summary>
+        public static string MatchUploader_GeneralError {
+            get {
+                return ResourceManager.GetString("MatchUploader_GeneralError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not find (valid) stored credentials in the database..
         /// </summary>
         public static string MatchUploader_NoCredentials {
             get {

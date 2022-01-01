@@ -27,9 +27,10 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             UpdateProgress?.Invoke(TabTUpdater_BeginClubUpdate, false);
 
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(true);
-            if (connector == null)
+            var connectorResult = await connectorFactory.Create(true);
+            if (connectorResult.Connector == null)
                 return false;
+            var connector = connectorResult.Connector;
             if (connector.IsAnonymous)
                 UpdateProgress?.Invoke(TabTUpdater_Warning, true);
 
@@ -87,7 +88,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             UpdateProgress?.Invoke(TabTUpdater_BeginMatchUpdate, false);
 
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(true);
+            var connectorResult = await connectorFactory.Create(true);
+            var connector = connectorResult.Connector;
             if (connector == null)
                 return false;
             if (connector.IsAnonymous)
@@ -469,7 +471,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
         }
         public async Task<bool> RefreshMemberList(string clubId, int category) {
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(true, false);
+            var connectorResult = await connectorFactory.Create(true, false);
+            var connector = connectorResult.Connector;
             if (connector == null)
                 return false;
             return await RefreshMemberList(connector, clubId, category);
@@ -549,7 +552,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
         public async Task<IList<Division>?> GetDivisions(Region level) {
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(true);
+            var connectorResult = await connectorFactory.Create(true);
+            var connector = connectorResult.Connector;
             if (connector == null)
                 return null;
 
@@ -579,7 +583,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
         }
         public async Task<IList<MatchStartInfo>?> GetDivisionMatches(Division division) {
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
-            var connector = await connectorFactory.Create(true);
+            var connectorResult = await connectorFactory.Create(true);
+            var connector = connectorResult.Connector;
             if (connector == null)
                 return null;
 
