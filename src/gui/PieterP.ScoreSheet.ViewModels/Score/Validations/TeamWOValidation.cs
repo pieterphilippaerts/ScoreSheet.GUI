@@ -16,6 +16,9 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Validations {
         }
         public override string? Run(CompetitiveMatchViewModel matchVm) {
             var team = _callback(matchVm);
+            if (team.Forfeit.Value)
+                return null; // team FF, do not check the WOs
+
             bool found = false;
             foreach (var p in team.Players) {
                 var spi = p as SinglePlayerInfo;
