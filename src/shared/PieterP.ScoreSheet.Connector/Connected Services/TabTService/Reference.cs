@@ -11,7 +11,7 @@ namespace TabTService
 {
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://api.frenoy.net/TabTAPI", ConfigurationName="TabTService.TabTAPI_PortType")]
     public interface TabTAPI_PortType
     {
@@ -63,10 +63,14 @@ namespace TabTService
         [System.ServiceModel.OperationContractAttribute(Action="TournamentRegister", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         System.Threading.Tasks.Task<TabTService.TournamentRegisterResponse1> TournamentRegisterAsync(TabTService.TournamentRegisterRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="GetPlayerCategories", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Threading.Tasks.Task<TabTService.GetPlayerCategoriesResponse1> GetPlayerCategoriesAsync(TabTService.GetPlayerCategoriesRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TestRequest
@@ -89,7 +93,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class CredentialsType
@@ -143,7 +147,223 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class PlayerCategoryEntryType
+    {
+        
+        private string uniqueIndexField;
+        
+        private string nameField;
+        
+        private string shortNameField;
+        
+        private string rankingCategoryField;
+        
+        private bool isGroupField;
+        
+        private bool isGroupFieldSpecified;
+        
+        private string groupMembersField;
+        
+        private string sexField;
+        
+        private string strictSexField;
+        
+        private string minimumAgeField;
+        
+        private string maximumAgeField;
+        
+        private string strictMinimumAgeField;
+        
+        private string strictMaximumAgeField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string ShortName
+        {
+            get
+            {
+                return this.shortNameField;
+            }
+            set
+            {
+                this.shortNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=3)]
+        public string RankingCategory
+        {
+            get
+            {
+                return this.rankingCategoryField;
+            }
+            set
+            {
+                this.rankingCategoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public bool IsGroup
+        {
+            get
+            {
+                return this.isGroupField;
+            }
+            set
+            {
+                this.isGroupField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsGroupSpecified
+        {
+            get
+            {
+                return this.isGroupFieldSpecified;
+            }
+            set
+            {
+                this.isGroupFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public string GroupMembers
+        {
+            get
+            {
+                return this.groupMembersField;
+            }
+            set
+            {
+                this.groupMembersField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public string Sex
+        {
+            get
+            {
+                return this.sexField;
+            }
+            set
+            {
+                this.sexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public string StrictSex
+        {
+            get
+            {
+                return this.strictSexField;
+            }
+            set
+            {
+                this.strictSexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=8)]
+        public string MinimumAge
+        {
+            get
+            {
+                return this.minimumAgeField;
+            }
+            set
+            {
+                this.minimumAgeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=9)]
+        public string MaximumAge
+        {
+            get
+            {
+                return this.maximumAgeField;
+            }
+            set
+            {
+                this.maximumAgeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=10)]
+        public string StrictMinimumAge
+        {
+            get
+            {
+                return this.strictMinimumAgeField;
+            }
+            set
+            {
+                this.strictMinimumAgeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=11)]
+        public string StrictMaximumAge
+        {
+            get
+            {
+                return this.strictMaximumAgeField;
+            }
+            set
+            {
+                this.strictMaximumAgeField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamMatchDefinitionEntryType
@@ -247,7 +467,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class MatchSystemEntryType
@@ -415,475 +635,19 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class TournamentSerieEntryType
+    public partial class TournamentRegistrationEntryType
     {
         
         private string uniqueIndexField;
-        
-        private string nameField;
-        
-        private string resultCountField;
-        
-        private IndividualMatchResultEntryType[] resultEntriesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
-        public string UniqueIndex
-        {
-            get
-            {
-                return this.uniqueIndexField;
-            }
-            set
-            {
-                this.uniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
-        public string ResultCount
-        {
-            get
-            {
-                return this.resultCountField;
-            }
-            set
-            {
-                this.resultCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("ResultEntries", Order=3)]
-        public IndividualMatchResultEntryType[] ResultEntries
-        {
-            get
-            {
-                return this.resultEntriesField;
-            }
-            set
-            {
-                this.resultEntriesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class IndividualMatchResultEntryType
-    {
-        
-        private string positionField;
-        
-        private string[] homePlayerMatchIndexField;
-        
-        private string[] homePlayerUniqueIndexField;
-        
-        private string[] awayPlayerMatchIndexField;
-        
-        private string[] awayPlayerUniqueIndexField;
-        
-        private string homeSetCountField;
-        
-        private string awaySetCountField;
-        
-        private bool isHomeForfeitedField;
-        
-        private bool isHomeForfeitedFieldSpecified;
-        
-        private bool isAwayForfeitedField;
-        
-        private bool isAwayForfeitedFieldSpecified;
-        
-        private string scoresField;
-        
-        private TeamMatchPlayerEntryType[] homePlayerField;
-        
-        private TeamMatchPlayerEntryType[] awayPlayerField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
-        public string Position
-        {
-            get
-            {
-                return this.positionField;
-            }
-            set
-            {
-                this.positionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("HomePlayerMatchIndex", DataType="integer", Order=1)]
-        public string[] HomePlayerMatchIndex
-        {
-            get
-            {
-                return this.homePlayerMatchIndexField;
-            }
-            set
-            {
-                this.homePlayerMatchIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("HomePlayerUniqueIndex", DataType="integer", Order=2)]
-        public string[] HomePlayerUniqueIndex
-        {
-            get
-            {
-                return this.homePlayerUniqueIndexField;
-            }
-            set
-            {
-                this.homePlayerUniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AwayPlayerMatchIndex", DataType="integer", Order=3)]
-        public string[] AwayPlayerMatchIndex
-        {
-            get
-            {
-                return this.awayPlayerMatchIndexField;
-            }
-            set
-            {
-                this.awayPlayerMatchIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AwayPlayerUniqueIndex", DataType="integer", Order=4)]
-        public string[] AwayPlayerUniqueIndex
-        {
-            get
-            {
-                return this.awayPlayerUniqueIndexField;
-            }
-            set
-            {
-                this.awayPlayerUniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
-        public string HomeSetCount
-        {
-            get
-            {
-                return this.homeSetCountField;
-            }
-            set
-            {
-                this.homeSetCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=6)]
-        public string AwaySetCount
-        {
-            get
-            {
-                return this.awaySetCountField;
-            }
-            set
-            {
-                this.awaySetCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public bool IsHomeForfeited
-        {
-            get
-            {
-                return this.isHomeForfeitedField;
-            }
-            set
-            {
-                this.isHomeForfeitedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsHomeForfeitedSpecified
-        {
-            get
-            {
-                return this.isHomeForfeitedFieldSpecified;
-            }
-            set
-            {
-                this.isHomeForfeitedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public bool IsAwayForfeited
-        {
-            get
-            {
-                return this.isAwayForfeitedField;
-            }
-            set
-            {
-                this.isAwayForfeitedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsAwayForfeitedSpecified
-        {
-            get
-            {
-                return this.isAwayForfeitedFieldSpecified;
-            }
-            set
-            {
-                this.isAwayForfeitedFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string Scores
-        {
-            get
-            {
-                return this.scoresField;
-            }
-            set
-            {
-                this.scoresField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("HomePlayer", Order=10)]
-        public TeamMatchPlayerEntryType[] HomePlayer
-        {
-            get
-            {
-                return this.homePlayerField;
-            }
-            set
-            {
-                this.homePlayerField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("AwayPlayer", Order=11)]
-        public TeamMatchPlayerEntryType[] AwayPlayer
-        {
-            get
-            {
-                return this.awayPlayerField;
-            }
-            set
-            {
-                this.awayPlayerField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class TeamMatchPlayerEntryType
-    {
-        
-        private string positionField;
-        
-        private string uniqueIndexField;
-        
-        private string firstNameField;
-        
-        private string lastNameField;
-        
-        private string rankingField;
-        
-        private string victoryCountField;
-        
-        private bool isForfeitedField;
-        
-        private bool isForfeitedFieldSpecified;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
-        public string Position
-        {
-            get
-            {
-                return this.positionField;
-            }
-            set
-            {
-                this.positionField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
-        public string UniqueIndex
-        {
-            get
-            {
-                return this.uniqueIndexField;
-            }
-            set
-            {
-                this.uniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string FirstName
-        {
-            get
-            {
-                return this.firstNameField;
-            }
-            set
-            {
-                this.firstNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string LastName
-        {
-            get
-            {
-                return this.lastNameField;
-            }
-            set
-            {
-                this.lastNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Ranking
-        {
-            get
-            {
-                return this.rankingField;
-            }
-            set
-            {
-                this.rankingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
-        public string VictoryCount
-        {
-            get
-            {
-                return this.victoryCountField;
-            }
-            set
-            {
-                this.victoryCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
-        public bool IsForfeited
-        {
-            get
-            {
-                return this.isForfeitedField;
-            }
-            set
-            {
-                this.isForfeitedField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool IsForfeitedSpecified
-        {
-            get
-            {
-                return this.isForfeitedFieldSpecified;
-            }
-            set
-            {
-                this.isForfeitedFieldSpecified = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class TournamentEntryType
-    {
-        
-        private string uniqueIndexField;
-        
-        private string nameField;
-        
-        private string levelField;
-        
-        private string externalIndexField;
-        
-        private System.DateTime dateFromField;
-        
-        private System.DateTime dateToField;
-        
-        private bool dateToFieldSpecified;
         
         private System.DateTime registrationDateField;
         
-        private bool registrationDateFieldSpecified;
+        private MemberEntryType memberField;
         
-        private VenueEntryType venueField;
-        
-        private string serieCountField;
-        
-        private TournamentSerieEntryType[] serieEntriesField;
+        private ClubEntryType clubField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
@@ -901,90 +665,6 @@ namespace TabTService
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
-        public string Level
-        {
-            get
-            {
-                return this.levelField;
-            }
-            set
-            {
-                this.levelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string ExternalIndex
-        {
-            get
-            {
-                return this.externalIndexField;
-            }
-            set
-            {
-                this.externalIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
-        public System.DateTime DateFrom
-        {
-            get
-            {
-                return this.dateFromField;
-            }
-            set
-            {
-                this.dateFromField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=5)]
-        public System.DateTime DateTo
-        {
-            get
-            {
-                return this.dateToField;
-            }
-            set
-            {
-                this.dateToField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool DateToSpecified
-        {
-            get
-            {
-                return this.dateToFieldSpecified;
-            }
-            set
-            {
-                this.dateToFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=6)]
         public System.DateTime RegistrationDate
         {
             get
@@ -998,592 +678,22 @@ namespace TabTService
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlIgnoreAttribute()]
-        public bool RegistrationDateSpecified
-        {
-            get
-            {
-                return this.registrationDateFieldSpecified;
-            }
-            set
-            {
-                this.registrationDateFieldSpecified = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
-        public VenueEntryType Venue
-        {
-            get
-            {
-                return this.venueField;
-            }
-            set
-            {
-                this.venueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=8)]
-        public string SerieCount
-        {
-            get
-            {
-                return this.serieCountField;
-            }
-            set
-            {
-                this.serieCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("SerieEntries", Order=9)]
-        public TournamentSerieEntryType[] SerieEntries
-        {
-            get
-            {
-                return this.serieEntriesField;
-            }
-            set
-            {
-                this.serieEntriesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class VenueEntryType
-    {
-        
-        private string idField;
-        
-        private string clubVenueField;
-        
-        private string nameField;
-        
-        private string streetField;
-        
-        private string townField;
-        
-        private string phoneField;
-        
-        private string commentField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string Id
-        {
-            get
-            {
-                return this.idField;
-            }
-            set
-            {
-                this.idField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string ClubVenue
-        {
-            get
-            {
-                return this.clubVenueField;
-            }
-            set
-            {
-                this.clubVenueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Street
-        {
-            get
-            {
-                return this.streetField;
-            }
-            set
-            {
-                this.streetField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Town
-        {
-            get
-            {
-                return this.townField;
-            }
-            set
-            {
-                this.townField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Phone
-        {
-            get
-            {
-                return this.phoneField;
-            }
-            set
-            {
-                this.phoneField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Comment
-        {
-            get
-            {
-                return this.commentField;
-            }
-            set
-            {
-                this.commentField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class DivisionEntryType
-    {
-        
-        private string divisionIdField;
-        
-        private string divisionNameField;
-        
-        private string divisionCategoryField;
-        
-        private string levelField;
-        
-        private string matchTypeField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string DivisionId
-        {
-            get
-            {
-                return this.divisionIdField;
-            }
-            set
-            {
-                this.divisionIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string DivisionName
-        {
-            get
-            {
-                return this.divisionNameField;
-            }
-            set
-            {
-                this.divisionNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string DivisionCategory
-        {
-            get
-            {
-                return this.divisionCategoryField;
-            }
-            set
-            {
-                this.divisionCategoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string Level
-        {
-            get
-            {
-                return this.levelField;
-            }
-            set
-            {
-                this.levelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string MatchType
-        {
-            get
-            {
-                return this.matchTypeField;
-            }
-            set
-            {
-                this.matchTypeField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class ClubEntryType
-    {
-        
-        private string uniqueIndexField;
-        
-        private string nameField;
-        
-        private string longNameField;
-        
-        private string categoryField;
-        
-        private string categoryNameField;
-        
-        private string venueCountField;
-        
-        private VenueEntryType[] venueEntriesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string UniqueIndex
-        {
-            get
-            {
-                return this.uniqueIndexField;
-            }
-            set
-            {
-                this.uniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string Name
-        {
-            get
-            {
-                return this.nameField;
-            }
-            set
-            {
-                this.nameField = value;
-            }
-        }
-        
-        /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string LongName
+        public MemberEntryType Member
         {
             get
             {
-                return this.longNameField;
+                return this.memberField;
             }
             set
             {
-                this.longNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=3)]
-        public string Category
-        {
-            get
-            {
-                return this.categoryField;
-            }
-            set
-            {
-                this.categoryField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string CategoryName
-        {
-            get
-            {
-                return this.categoryNameField;
-            }
-            set
-            {
-                this.categoryNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
-        public string VenueCount
-        {
-            get
-            {
-                return this.venueCountField;
-            }
-            set
-            {
-                this.venueCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("VenueEntries", Order=6)]
-        public VenueEntryType[] VenueEntries
-        {
-            get
-            {
-                return this.venueEntriesField;
-            }
-            set
-            {
-                this.venueEntriesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class PlayerRankingEvaluationEntryType
-    {
-        
-        private string evaluationTypeField;
-        
-        private string evaluationValueField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
-        public string EvaluationType
-        {
-            get
-            {
-                return this.evaluationTypeField;
-            }
-            set
-            {
-                this.evaluationTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
-        public string EvaluationValue
-        {
-            get
-            {
-                return this.evaluationValueField;
-            }
-            set
-            {
-                this.evaluationValueField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class PlayerResultEntryType
-    {
-        
-        private System.DateTime dateField;
-        
-        private string uniqueIndexField;
-        
-        private string firstNameField;
-        
-        private string lastNameField;
-        
-        private string rankingField;
-        
-        private ResultType resultField;
-        
-        private string setForField;
-        
-        private string setAgainstField;
-        
-        private CompetitionType competitionTypeField;
-        
-        private string clubField;
-        
-        private string matchIdField;
-        
-        private string tournamentNameField;
-        
-        private string tournamentSerieNameField;
-        
-        private string teamNameField;
-        
-        private string rankingEvaluationCountField;
-        
-        private PlayerRankingEvaluationEntryType[] rankingEvaluationEntriesField;
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
-        public System.DateTime Date
-        {
-            get
-            {
-                return this.dateField;
-            }
-            set
-            {
-                this.dateField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
-        public string UniqueIndex
-        {
-            get
-            {
-                return this.uniqueIndexField;
-            }
-            set
-            {
-                this.uniqueIndexField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
-        public string FirstName
-        {
-            get
-            {
-                return this.firstNameField;
-            }
-            set
-            {
-                this.firstNameField = value;
+                this.memberField = value;
             }
         }
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Order=3)]
-        public string LastName
-        {
-            get
-            {
-                return this.lastNameField;
-            }
-            set
-            {
-                this.lastNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
-        public string Ranking
-        {
-            get
-            {
-                return this.rankingField;
-            }
-            set
-            {
-                this.rankingField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
-        public ResultType Result
-        {
-            get
-            {
-                return this.resultField;
-            }
-            set
-            {
-                this.resultField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=6)]
-        public string SetFor
-        {
-            get
-            {
-                return this.setForField;
-            }
-            set
-            {
-                this.setForField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=7)]
-        public string SetAgainst
-        {
-            get
-            {
-                return this.setAgainstField;
-            }
-            set
-            {
-                this.setAgainstField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
-        public CompetitionType CompetitionType
-        {
-            get
-            {
-                return this.competitionTypeField;
-            }
-            set
-            {
-                this.competitionTypeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
-        public string Club
+        public ClubEntryType Club
         {
             get
             {
@@ -1594,310 +704,10 @@ namespace TabTService
                 this.clubField = value;
             }
         }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
-        public string MatchId
-        {
-            get
-            {
-                return this.matchIdField;
-            }
-            set
-            {
-                this.matchIdField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=11)]
-        public string TournamentName
-        {
-            get
-            {
-                return this.tournamentNameField;
-            }
-            set
-            {
-                this.tournamentNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
-        public string TournamentSerieName
-        {
-            get
-            {
-                return this.tournamentSerieNameField;
-            }
-            set
-            {
-                this.tournamentSerieNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
-        public string TeamName
-        {
-            get
-            {
-                return this.teamNameField;
-            }
-            set
-            {
-                this.teamNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=14)]
-        public string RankingEvaluationCount
-        {
-            get
-            {
-                return this.rankingEvaluationCountField;
-            }
-            set
-            {
-                this.rankingEvaluationCountField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("RankingEvaluationEntries", Order=15)]
-        public PlayerRankingEvaluationEntryType[] RankingEvaluationEntries
-        {
-            get
-            {
-                return this.rankingEvaluationEntriesField;
-            }
-            set
-            {
-                this.rankingEvaluationEntriesField = value;
-            }
-        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public enum ResultType
-    {
-        
-        /// <remarks/>
-        V,
-        
-        /// <remarks/>
-        D,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public enum CompetitionType
-    {
-        
-        /// <remarks/>
-        C,
-        
-        /// <remarks/>
-        T,
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class AddressType
-    {
-        
-        private string line1Field;
-        
-        private string line2Field;
-        
-        private string zipCodeField;
-        
-        private string townField;
-        
-        /// <remarks/>
-        public string Line1
-        {
-            get
-            {
-                return this.line1Field;
-            }
-            set
-            {
-                this.line1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Line2
-        {
-            get
-            {
-                return this.line2Field;
-            }
-            set
-            {
-                this.line2Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
-        public string ZipCode
-        {
-            get
-            {
-                return this.zipCodeField;
-            }
-            set
-            {
-                this.zipCodeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Town
-        {
-            get
-            {
-                return this.townField;
-            }
-            set
-            {
-                this.townField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class PhoneType
-    {
-        
-        private string homeField;
-        
-        private string workField;
-        
-        private string mobileField;
-        
-        private string faxField;
-        
-        /// <remarks/>
-        public string Home
-        {
-            get
-            {
-                return this.homeField;
-            }
-            set
-            {
-                this.homeField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Work
-        {
-            get
-            {
-                return this.workField;
-            }
-            set
-            {
-                this.workField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Mobile
-        {
-            get
-            {
-                return this.mobileField;
-            }
-            set
-            {
-                this.mobileField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Fax
-        {
-            get
-            {
-                return this.faxField;
-            }
-            set
-            {
-                this.faxField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
-    public partial class RankingPointEntryType
-    {
-        
-        private string methodNameField;
-        
-        private string valueField;
-        
-        private System.DateTime lastModifiedField;
-        
-        /// <remarks/>
-        public string MethodName
-        {
-            get
-            {
-                return this.methodNameField;
-            }
-            set
-            {
-                this.methodNameField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public string Value
-        {
-            get
-            {
-                return this.valueField;
-            }
-            set
-            {
-                this.valueField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public System.DateTime LastModified
-        {
-            get
-            {
-                return this.lastModifiedField;
-            }
-            set
-            {
-                this.lastModifiedField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class MemberEntryType
@@ -2273,7 +1083,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public enum GenderType
     {
@@ -2286,12 +1096,1558 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class RankingPointEntryType
+    {
+        
+        private string methodNameField;
+        
+        private string valueField;
+        
+        private System.DateTime lastModifiedField;
+        
+        /// <remarks/>
+        public string MethodName
+        {
+            get
+            {
+                return this.methodNameField;
+            }
+            set
+            {
+                this.methodNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Value
+        {
+            get
+            {
+                return this.valueField;
+            }
+            set
+            {
+                this.valueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.DateTime LastModified
+        {
+            get
+            {
+                return this.lastModifiedField;
+            }
+            set
+            {
+                this.lastModifiedField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class PhoneType
+    {
+        
+        private string homeField;
+        
+        private string workField;
+        
+        private string mobileField;
+        
+        private string faxField;
+        
+        /// <remarks/>
+        public string Home
+        {
+            get
+            {
+                return this.homeField;
+            }
+            set
+            {
+                this.homeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Work
+        {
+            get
+            {
+                return this.workField;
+            }
+            set
+            {
+                this.workField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Mobile
+        {
+            get
+            {
+                return this.mobileField;
+            }
+            set
+            {
+                this.mobileField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Fax
+        {
+            get
+            {
+                return this.faxField;
+            }
+            set
+            {
+                this.faxField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class AddressType
+    {
+        
+        private string line1Field;
+        
+        private string line2Field;
+        
+        private string zipCodeField;
+        
+        private string townField;
+        
+        /// <remarks/>
+        public string Line1
+        {
+            get
+            {
+                return this.line1Field;
+            }
+            set
+            {
+                this.line1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Line2
+        {
+            get
+            {
+                return this.line2Field;
+            }
+            set
+            {
+                this.line2Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string ZipCode
+        {
+            get
+            {
+                return this.zipCodeField;
+            }
+            set
+            {
+                this.zipCodeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Town
+        {
+            get
+            {
+                return this.townField;
+            }
+            set
+            {
+                this.townField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class PlayerResultEntryType
+    {
+        
+        private System.DateTime dateField;
+        
+        private string uniqueIndexField;
+        
+        private string firstNameField;
+        
+        private string lastNameField;
+        
+        private string rankingField;
+        
+        private ResultType resultField;
+        
+        private string setForField;
+        
+        private string setAgainstField;
+        
+        private CompetitionType competitionTypeField;
+        
+        private string clubField;
+        
+        private string matchIdField;
+        
+        private string matchUniqueIdField;
+        
+        private string tournamentNameField;
+        
+        private string tournamentSerieNameField;
+        
+        private string teamNameField;
+        
+        private string rankingEvaluationCountField;
+        
+        private PlayerRankingEvaluationEntryType[] rankingEvaluationEntriesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=0)]
+        public System.DateTime Date
+        {
+            get
+            {
+                return this.dateField;
+            }
+            set
+            {
+                this.dateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string FirstName
+        {
+            get
+            {
+                return this.firstNameField;
+            }
+            set
+            {
+                this.firstNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string LastName
+        {
+            get
+            {
+                return this.lastNameField;
+            }
+            set
+            {
+                this.lastNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Ranking
+        {
+            get
+            {
+                return this.rankingField;
+            }
+            set
+            {
+                this.rankingField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=5)]
+        public ResultType Result
+        {
+            get
+            {
+                return this.resultField;
+            }
+            set
+            {
+                this.resultField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=6)]
+        public string SetFor
+        {
+            get
+            {
+                return this.setForField;
+            }
+            set
+            {
+                this.setForField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=7)]
+        public string SetAgainst
+        {
+            get
+            {
+                return this.setAgainstField;
+            }
+            set
+            {
+                this.setAgainstField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public CompetitionType CompetitionType
+        {
+            get
+            {
+                return this.competitionTypeField;
+            }
+            set
+            {
+                this.competitionTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string Club
+        {
+            get
+            {
+                return this.clubField;
+            }
+            set
+            {
+                this.clubField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=10)]
+        public string MatchId
+        {
+            get
+            {
+                return this.matchIdField;
+            }
+            set
+            {
+                this.matchIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=11)]
+        public string MatchUniqueId
+        {
+            get
+            {
+                return this.matchUniqueIdField;
+            }
+            set
+            {
+                this.matchUniqueIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=12)]
+        public string TournamentName
+        {
+            get
+            {
+                return this.tournamentNameField;
+            }
+            set
+            {
+                this.tournamentNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=13)]
+        public string TournamentSerieName
+        {
+            get
+            {
+                return this.tournamentSerieNameField;
+            }
+            set
+            {
+                this.tournamentSerieNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=14)]
+        public string TeamName
+        {
+            get
+            {
+                return this.teamNameField;
+            }
+            set
+            {
+                this.teamNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=15)]
+        public string RankingEvaluationCount
+        {
+            get
+            {
+                return this.rankingEvaluationCountField;
+            }
+            set
+            {
+                this.rankingEvaluationCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("RankingEvaluationEntries", Order=16)]
+        public PlayerRankingEvaluationEntryType[] RankingEvaluationEntries
+        {
+            get
+            {
+                return this.rankingEvaluationEntriesField;
+            }
+            set
+            {
+                this.rankingEvaluationEntriesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public enum ResultType
+    {
+        
+        /// <remarks/>
+        V,
+        
+        /// <remarks/>
+        D,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public enum CompetitionType
+    {
+        
+        /// <remarks/>
+        C,
+        
+        /// <remarks/>
+        T,
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class PlayerRankingEvaluationEntryType
+    {
+        
+        private string evaluationTypeField;
+        
+        private string evaluationValueField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string EvaluationType
+        {
+            get
+            {
+                return this.evaluationTypeField;
+            }
+            set
+            {
+                this.evaluationTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string EvaluationValue
+        {
+            get
+            {
+                return this.evaluationValueField;
+            }
+            set
+            {
+                this.evaluationValueField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class ClubEntryType
+    {
+        
+        private string uniqueIndexField;
+        
+        private string nameField;
+        
+        private string longNameField;
+        
+        private string categoryField;
+        
+        private string categoryNameField;
+        
+        private string venueCountField;
+        
+        private VenueEntryType[] venueEntriesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=0)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string LongName
+        {
+            get
+            {
+                return this.longNameField;
+            }
+            set
+            {
+                this.longNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=3)]
+        public string Category
+        {
+            get
+            {
+                return this.categoryField;
+            }
+            set
+            {
+                this.categoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string CategoryName
+        {
+            get
+            {
+                return this.categoryNameField;
+            }
+            set
+            {
+                this.categoryNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
+        public string VenueCount
+        {
+            get
+            {
+                return this.venueCountField;
+            }
+            set
+            {
+                this.venueCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("VenueEntries", Order=6)]
+        public VenueEntryType[] VenueEntries
+        {
+            get
+            {
+                return this.venueEntriesField;
+            }
+            set
+            {
+                this.venueEntriesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class VenueEntryType
+    {
+        
+        private string idField;
+        
+        private string clubVenueField;
+        
+        private string nameField;
+        
+        private string streetField;
+        
+        private string townField;
+        
+        private string phoneField;
+        
+        private string commentField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string Id
+        {
+            get
+            {
+                return this.idField;
+            }
+            set
+            {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string ClubVenue
+        {
+            get
+            {
+                return this.clubVenueField;
+            }
+            set
+            {
+                this.clubVenueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Street
+        {
+            get
+            {
+                return this.streetField;
+            }
+            set
+            {
+                this.streetField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Town
+        {
+            get
+            {
+                return this.townField;
+            }
+            set
+            {
+                this.townField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Phone
+        {
+            get
+            {
+                return this.phoneField;
+            }
+            set
+            {
+                this.phoneField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string Comment
+        {
+            get
+            {
+                return this.commentField;
+            }
+            set
+            {
+                this.commentField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class TournamentSerieEntryType
+    {
+        
+        private string uniqueIndexField;
+        
+        private string nameField;
+        
+        private string resultCountField;
+        
+        private IndividualMatchResultEntryType[] resultEntriesField;
+        
+        private string registrationCountField;
+        
+        private TournamentRegistrationEntryType[] registrationEntriesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
+        public string ResultCount
+        {
+            get
+            {
+                return this.resultCountField;
+            }
+            set
+            {
+                this.resultCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("ResultEntries", Order=3)]
+        public IndividualMatchResultEntryType[] ResultEntries
+        {
+            get
+            {
+                return this.resultEntriesField;
+            }
+            set
+            {
+                this.resultEntriesField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=4)]
+        public string RegistrationCount
+        {
+            get
+            {
+                return this.registrationCountField;
+            }
+            set
+            {
+                this.registrationCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("RegistrationEntries", Order=5)]
+        public TournamentRegistrationEntryType[] RegistrationEntries
+        {
+            get
+            {
+                return this.registrationEntriesField;
+            }
+            set
+            {
+                this.registrationEntriesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class IndividualMatchResultEntryType
+    {
+        
+        private string positionField;
+        
+        private string[] homePlayerMatchIndexField;
+        
+        private string[] homePlayerUniqueIndexField;
+        
+        private string[] awayPlayerMatchIndexField;
+        
+        private string[] awayPlayerUniqueIndexField;
+        
+        private string homeSetCountField;
+        
+        private string awaySetCountField;
+        
+        private bool isHomeForfeitedField;
+        
+        private bool isHomeForfeitedFieldSpecified;
+        
+        private bool isAwayForfeitedField;
+        
+        private bool isAwayForfeitedFieldSpecified;
+        
+        private string scoresField;
+        
+        private TeamMatchPlayerEntryType[] homePlayerField;
+        
+        private TeamMatchPlayerEntryType[] awayPlayerField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string Position
+        {
+            get
+            {
+                return this.positionField;
+            }
+            set
+            {
+                this.positionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("HomePlayerMatchIndex", DataType="integer", Order=1)]
+        public string[] HomePlayerMatchIndex
+        {
+            get
+            {
+                return this.homePlayerMatchIndexField;
+            }
+            set
+            {
+                this.homePlayerMatchIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("HomePlayerUniqueIndex", DataType="integer", Order=2)]
+        public string[] HomePlayerUniqueIndex
+        {
+            get
+            {
+                return this.homePlayerUniqueIndexField;
+            }
+            set
+            {
+                this.homePlayerUniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("AwayPlayerMatchIndex", DataType="integer", Order=3)]
+        public string[] AwayPlayerMatchIndex
+        {
+            get
+            {
+                return this.awayPlayerMatchIndexField;
+            }
+            set
+            {
+                this.awayPlayerMatchIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("AwayPlayerUniqueIndex", DataType="integer", Order=4)]
+        public string[] AwayPlayerUniqueIndex
+        {
+            get
+            {
+                return this.awayPlayerUniqueIndexField;
+            }
+            set
+            {
+                this.awayPlayerUniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
+        public string HomeSetCount
+        {
+            get
+            {
+                return this.homeSetCountField;
+            }
+            set
+            {
+                this.homeSetCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=6)]
+        public string AwaySetCount
+        {
+            get
+            {
+                return this.awaySetCountField;
+            }
+            set
+            {
+                this.awaySetCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public bool IsHomeForfeited
+        {
+            get
+            {
+                return this.isHomeForfeitedField;
+            }
+            set
+            {
+                this.isHomeForfeitedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsHomeForfeitedSpecified
+        {
+            get
+            {
+                return this.isHomeForfeitedFieldSpecified;
+            }
+            set
+            {
+                this.isHomeForfeitedFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=8)]
+        public bool IsAwayForfeited
+        {
+            get
+            {
+                return this.isAwayForfeitedField;
+            }
+            set
+            {
+                this.isAwayForfeitedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsAwayForfeitedSpecified
+        {
+            get
+            {
+                return this.isAwayForfeitedFieldSpecified;
+            }
+            set
+            {
+                this.isAwayForfeitedFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=9)]
+        public string Scores
+        {
+            get
+            {
+                return this.scoresField;
+            }
+            set
+            {
+                this.scoresField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("HomePlayer", Order=10)]
+        public TeamMatchPlayerEntryType[] HomePlayer
+        {
+            get
+            {
+                return this.homePlayerField;
+            }
+            set
+            {
+                this.homePlayerField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("AwayPlayer", Order=11)]
+        public TeamMatchPlayerEntryType[] AwayPlayer
+        {
+            get
+            {
+                return this.awayPlayerField;
+            }
+            set
+            {
+                this.awayPlayerField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class TeamMatchPlayerEntryType
+    {
+        
+        private string positionField;
+        
+        private string uniqueIndexField;
+        
+        private string firstNameField;
+        
+        private string lastNameField;
+        
+        private string rankingField;
+        
+        private string victoryCountField;
+        
+        private bool isForfeitedField;
+        
+        private bool isForfeitedFieldSpecified;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string Position
+        {
+            get
+            {
+                return this.positionField;
+            }
+            set
+            {
+                this.positionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=1)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=2)]
+        public string FirstName
+        {
+            get
+            {
+                return this.firstNameField;
+            }
+            set
+            {
+                this.firstNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string LastName
+        {
+            get
+            {
+                return this.lastNameField;
+            }
+            set
+            {
+                this.lastNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=4)]
+        public string Ranking
+        {
+            get
+            {
+                return this.rankingField;
+            }
+            set
+            {
+                this.rankingField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=5)]
+        public string VictoryCount
+        {
+            get
+            {
+                return this.victoryCountField;
+            }
+            set
+            {
+                this.victoryCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=6)]
+        public bool IsForfeited
+        {
+            get
+            {
+                return this.isForfeitedField;
+            }
+            set
+            {
+                this.isForfeitedField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool IsForfeitedSpecified
+        {
+            get
+            {
+                return this.isForfeitedFieldSpecified;
+            }
+            set
+            {
+                this.isForfeitedFieldSpecified = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class TournamentEntryType
+    {
+        
+        private string uniqueIndexField;
+        
+        private string nameField;
+        
+        private string levelField;
+        
+        private string externalIndexField;
+        
+        private System.DateTime dateFromField;
+        
+        private System.DateTime dateToField;
+        
+        private bool dateToFieldSpecified;
+        
+        private System.DateTime registrationDateField;
+        
+        private bool registrationDateFieldSpecified;
+        
+        private VenueEntryType venueField;
+        
+        private string serieCountField;
+        
+        private TournamentSerieEntryType[] serieEntriesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=1)]
+        public string Name
+        {
+            get
+            {
+                return this.nameField;
+            }
+            set
+            {
+                this.nameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=2)]
+        public string Level
+        {
+            get
+            {
+                return this.levelField;
+            }
+            set
+            {
+                this.levelField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=3)]
+        public string ExternalIndex
+        {
+            get
+            {
+                return this.externalIndexField;
+            }
+            set
+            {
+                this.externalIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=4)]
+        public System.DateTime DateFrom
+        {
+            get
+            {
+                return this.dateFromField;
+            }
+            set
+            {
+                this.dateFromField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=5)]
+        public System.DateTime DateTo
+        {
+            get
+            {
+                return this.dateToField;
+            }
+            set
+            {
+                this.dateToField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool DateToSpecified
+        {
+            get
+            {
+                return this.dateToFieldSpecified;
+            }
+            set
+            {
+                this.dateToFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="date", Order=6)]
+        public System.DateTime RegistrationDate
+        {
+            get
+            {
+                return this.registrationDateField;
+            }
+            set
+            {
+                this.registrationDateField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool RegistrationDateSpecified
+        {
+            get
+            {
+                return this.registrationDateFieldSpecified;
+            }
+            set
+            {
+                this.registrationDateFieldSpecified = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order=7)]
+        public VenueEntryType Venue
+        {
+            get
+            {
+                return this.venueField;
+            }
+            set
+            {
+                this.venueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=8)]
+        public string SerieCount
+        {
+            get
+            {
+                return this.serieCountField;
+            }
+            set
+            {
+                this.serieCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("SerieEntries", Order=9)]
+        public TournamentSerieEntryType[] SerieEntries
+        {
+            get
+            {
+                return this.serieEntriesField;
+            }
+            set
+            {
+                this.serieEntriesField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class DivisionEntryType
+    {
+        
+        private string divisionIdField;
+        
+        private string divisionNameField;
+        
+        private string divisionCategoryField;
+        
+        private string levelField;
+        
+        private string matchTypeField;
+        
+        private string playerCategoryField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string DivisionId
+        {
+            get
+            {
+                return this.divisionIdField;
+            }
+            set
+            {
+                this.divisionIdField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DivisionName
+        {
+            get
+            {
+                return this.divisionNameField;
+            }
+            set
+            {
+                this.divisionNameField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string DivisionCategory
+        {
+            get
+            {
+                return this.divisionCategoryField;
+            }
+            set
+            {
+                this.divisionCategoryField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string Level
+        {
+            get
+            {
+                return this.levelField;
+            }
+            set
+            {
+                this.levelField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string MatchType
+        {
+            get
+            {
+                return this.matchTypeField;
+            }
+            set
+            {
+                this.matchTypeField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string PlayerCategory
+        {
+            get
+            {
+                return this.playerCategoryField;
+            }
+            set
+            {
+                this.playerCategoryField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class CommentEntryType
     {
-                
+        
         private MemberEntryType authorField;
         
         private string commentField;
@@ -2342,7 +2698,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamMatchDoubleTeamEntryType
@@ -2414,7 +2770,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamMatchPlayerListType
@@ -2486,7 +2842,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamMatchDetailsEntryType
@@ -2766,7 +3122,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamMatchEntryType
@@ -2787,6 +3143,10 @@ namespace TabTService
         private bool timeFieldSpecified;
         
         private string venueField;
+        
+        private string venueClubField;
+        
+        private VenueEntryType venueEntryField;
         
         private string homeClubField;
         
@@ -2821,10 +3181,6 @@ namespace TabTService
         private string isHomeWithdrawnField;
         
         private string isAwayWithdrawnField;
-        
-        private string venueClubField;
-        
-        private VenueEntryType venueEntryField;
         
         private bool isValidatedField;
         
@@ -2940,6 +3296,32 @@ namespace TabTService
             set
             {
                 this.venueField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string VenueClub
+        {
+            get
+            {
+                return this.venueClubField;
+            }
+            set
+            {
+                this.venueClubField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public VenueEntryType VenueEntry
+        {
+            get
+            {
+                return this.venueEntryField;
+            }
+            set
+            {
+                this.venueEntryField = value;
             }
         }
         
@@ -3170,32 +3552,6 @@ namespace TabTService
         }
         
         /// <remarks/>
-        public string VenueClub
-        {
-            get
-            {
-                return this.venueClubField;
-            }
-            set
-            {
-                this.venueClubField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public VenueEntryType VenueEntry
-        {
-            get
-            {
-                return this.venueEntryField;
-            }
-            set
-            {
-                this.venueEntryField = value;
-            }
-        }
-        
-        /// <remarks/>
         public bool IsValidated
         {
             get
@@ -3251,7 +3607,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class RankingEntryType
@@ -3465,7 +3821,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TeamEntryType
@@ -3566,7 +3922,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class SeasonEntryType
@@ -3620,7 +3976,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TestResponse
@@ -3643,6 +3999,10 @@ namespace TabTService
         private string currentQuotaField;
         
         private string allowedQuotaField;
+        
+        private string phpVersionField;
+        
+        private string dbVersionField;
         
         /// <remarks/>
         public System.DateTime Timestamp
@@ -3763,10 +4123,36 @@ namespace TabTService
                 this.allowedQuotaField = value;
             }
         }
+        
+        /// <remarks/>
+        public string PhpVersion
+        {
+            get
+            {
+                return this.phpVersionField;
+            }
+            set
+            {
+                this.phpVersionField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string DbVersion
+        {
+            get
+            {
+                return this.dbVersionField;
+            }
+            set
+            {
+                this.dbVersionField = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public enum SupportedLanguages
     {
@@ -3782,7 +4168,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class TestRequest1
@@ -3802,7 +4188,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class TestResponse1
@@ -3822,7 +4208,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetSeasonsRequest
@@ -3845,7 +4231,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetSeasonsResponse
@@ -3901,7 +4287,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetSeasonsRequest1
@@ -3921,7 +4307,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetSeasonsResponse1
@@ -3941,7 +4327,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetClubTeamsRequest
@@ -3995,7 +4381,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetClubTeamsResponse
@@ -4051,7 +4437,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetClubTeamsRequest1
@@ -4071,7 +4457,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetClubTeamsResponse1
@@ -4091,7 +4477,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetDivisionRankingRequest
@@ -4161,7 +4547,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetDivisionRankingResponse
@@ -4201,7 +4587,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDivisionRankingRequest1
@@ -4221,7 +4607,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDivisionRankingResponse1
@@ -4241,7 +4627,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMatchesRequest
@@ -4529,7 +4915,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://api.frenoy.net/TabTAPI")]
     public enum ShowDivisionNameType
     {
@@ -4545,7 +4931,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMatchesResponse
@@ -4585,7 +4971,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMatchesRequest1
@@ -4605,7 +4991,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMatchesResponse1
@@ -4625,7 +5011,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMembersRequest
@@ -4850,7 +5236,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMembersResponse
@@ -4890,7 +5276,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMembersRequest1
@@ -4910,7 +5296,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMembersResponse1
@@ -4930,7 +5316,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class UploadRequest
@@ -4968,7 +5354,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class UploadResponse
@@ -5008,7 +5394,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class UploadRequest1
@@ -5028,7 +5414,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class UploadResponse1
@@ -5048,7 +5434,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetClubs
@@ -5118,7 +5504,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetClubsResponse
@@ -5158,7 +5544,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetClubsRequest
@@ -5178,7 +5564,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetClubsResponse1
@@ -5198,7 +5584,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetDivisions
@@ -5284,7 +5670,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetDivisionsResponse
@@ -5324,7 +5710,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDivisionsRequest
@@ -5344,7 +5730,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetDivisionsResponse1
@@ -5364,7 +5750,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetTournaments
@@ -5379,6 +5765,10 @@ namespace TabTService
         private bool withResultsField;
         
         private bool withResultsFieldSpecified;
+        
+        private bool withRegistrationsField;
+        
+        private bool withRegistrationsFieldSpecified;
         
         /// <remarks/>
         public CredentialsType Credentials
@@ -5447,10 +5837,37 @@ namespace TabTService
                 this.withResultsFieldSpecified = value;
             }
         }
+        
+        /// <remarks/>
+        public bool WithRegistrations
+        {
+            get
+            {
+                return this.withRegistrationsField;
+            }
+            set
+            {
+                this.withRegistrationsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlIgnoreAttribute()]
+        public bool WithRegistrationsSpecified
+        {
+            get
+            {
+                return this.withRegistrationsFieldSpecified;
+            }
+            set
+            {
+                this.withRegistrationsFieldSpecified = value;
+            }
+        }
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetTournamentsResponse
@@ -5490,7 +5907,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTournamentsRequest
@@ -5510,7 +5927,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetTournamentsResponse1
@@ -5530,7 +5947,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMatchSystems
@@ -5569,7 +5986,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class GetMatchSystemsResponse
@@ -5609,7 +6026,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMatchSystemsRequest
@@ -5629,7 +6046,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class GetMatchSystemsResponse1
@@ -5649,7 +6066,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TournamentRegister
@@ -5785,7 +6202,7 @@ namespace TabTService
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
     public partial class TournamentRegisterResponse
@@ -5841,7 +6258,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class TournamentRegisterRequest
@@ -5861,7 +6278,7 @@ namespace TabTService
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class TournamentRegisterResponse1
@@ -5880,13 +6297,179 @@ namespace TabTService
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class GetPlayerCategories
+    {
+        
+        private CredentialsType credentialsField;
+        
+        private string seasonField;
+        
+        private string uniqueIndexField;
+        
+        private string shortNameSearchField;
+        
+        private string rankingCategoryField;
+        
+        /// <remarks/>
+        public CredentialsType Credentials
+        {
+            get
+            {
+                return this.credentialsField;
+            }
+            set
+            {
+                this.credentialsField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string Season
+        {
+            get
+            {
+                return this.seasonField;
+            }
+            set
+            {
+                this.seasonField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string UniqueIndex
+        {
+            get
+            {
+                return this.uniqueIndexField;
+            }
+            set
+            {
+                this.uniqueIndexField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string ShortNameSearch
+        {
+            get
+            {
+                return this.shortNameSearchField;
+            }
+            set
+            {
+                this.shortNameSearchField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer")]
+        public string RankingCategory
+        {
+            get
+            {
+                return this.rankingCategoryField;
+            }
+            set
+            {
+                this.rankingCategoryField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://api.frenoy.net/TabTAPI")]
+    public partial class GetPlayerCategoriesResponse
+    {
+        
+        private string playerCategoryCountField;
+        
+        private PlayerCategoryEntryType[] playerCategoryEntriesField;
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(DataType="integer", Order=0)]
+        public string PlayerCategoryCount
+        {
+            get
+            {
+                return this.playerCategoryCountField;
+            }
+            set
+            {
+                this.playerCategoryCountField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute("PlayerCategoryEntries", Order=1)]
+        public PlayerCategoryEntryType[] PlayerCategoryEntries
+        {
+            get
+            {
+                return this.playerCategoryEntriesField;
+            }
+            set
+            {
+                this.playerCategoryEntriesField = value;
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPlayerCategoriesRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.frenoy.net/TabTAPI", Order=0)]
+        public TabTService.GetPlayerCategories GetPlayerCategories;
+        
+        public GetPlayerCategoriesRequest()
+        {
+        }
+        
+        public GetPlayerCategoriesRequest(TabTService.GetPlayerCategories GetPlayerCategories)
+        {
+            this.GetPlayerCategories = GetPlayerCategories;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetPlayerCategoriesResponse1
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://api.frenoy.net/TabTAPI", Order=0)]
+        public TabTService.GetPlayerCategoriesResponse GetPlayerCategoriesResponse;
+        
+        public GetPlayerCategoriesResponse1()
+        {
+        }
+        
+        public GetPlayerCategoriesResponse1(TabTService.GetPlayerCategoriesResponse GetPlayerCategoriesResponse)
+        {
+            this.GetPlayerCategoriesResponse = GetPlayerCategoriesResponse;
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     public interface TabTAPI_PortTypeChannel : TabTService.TabTAPI_PortType, System.ServiceModel.IClientChannel
     {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.2")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.0.3")]
     public partial class TabTAPI_PortTypeClient : System.ServiceModel.ClientBase<TabTService.TabTAPI_PortType>, TabTService.TabTAPI_PortType
     {
         
@@ -6086,6 +6669,19 @@ namespace TabTService
             return ((TabTService.TabTAPI_PortType)(this)).TournamentRegisterAsync(inValue);
         }
         
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<TabTService.GetPlayerCategoriesResponse1> TabTService.TabTAPI_PortType.GetPlayerCategoriesAsync(TabTService.GetPlayerCategoriesRequest request)
+        {
+            return base.Channel.GetPlayerCategoriesAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<TabTService.GetPlayerCategoriesResponse1> GetPlayerCategoriesAsync(TabTService.GetPlayerCategories GetPlayerCategories)
+        {
+            TabTService.GetPlayerCategoriesRequest inValue = new TabTService.GetPlayerCategoriesRequest();
+            inValue.GetPlayerCategories = GetPlayerCategories;
+            return ((TabTService.TabTAPI_PortType)(this)).GetPlayerCategoriesAsync(inValue);
+        }
+        
         public virtual System.Threading.Tasks.Task OpenAsync()
         {
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginOpen(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndOpen));
@@ -6096,6 +6692,30 @@ namespace TabTService
             return System.Threading.Tasks.Task.Factory.FromAsync(((System.ServiceModel.ICommunicationObject)(this)).BeginClose(null, null), new System.Action<System.IAsyncResult>(((System.ServiceModel.ICommunicationObject)(this)).EndClose));
         }
         
+        //private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration)
+        //{
+        //    if ((endpointConfiguration == EndpointConfiguration.TabTAPI_Port))
+        //    {
+        //        System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
+        //        result.MaxBufferSize = int.MaxValue;
+        //        result.ReaderQuotas = System.Xml.XmlDictionaryReaderQuotas.Max;
+        //        result.MaxReceivedMessageSize = int.MaxValue;
+        //        result.AllowCookies = true;
+        //        result.Security.Mode = System.ServiceModel.BasicHttpSecurityMode.Transport;
+        //        return result;
+        //    }
+        //    throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+        //}
+        
+        //private static System.ServiceModel.EndpointAddress GetEndpointAddress(EndpointConfiguration endpointConfiguration)
+        //{
+        //    if ((endpointConfiguration == EndpointConfiguration.TabTAPI_Port))
+        //    {
+        //        return new System.ServiceModel.EndpointAddress("https://api.vttl.be/index.php?s=vttl");
+        //    }
+        //    throw new System.InvalidOperationException(string.Format("Could not find endpoint with name \'{0}\'.", endpointConfiguration));
+        //}
+        
         private static System.ServiceModel.Channels.Binding GetDefaultBinding()
         {
             return TabTAPI_PortTypeClient.GetBindingForEndpoint(EndpointConfiguration.TabTAPI_Port);
@@ -6105,5 +6725,11 @@ namespace TabTService
         {
             return TabTAPI_PortTypeClient.GetEndpointAddress(EndpointConfiguration.TabTAPI_Port);
         }
+        
+        //public enum EndpointConfiguration
+        //{
+            
+        //    TabTAPI_Port,
+        //}
     }
 }

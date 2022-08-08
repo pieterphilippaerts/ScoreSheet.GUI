@@ -1,9 +1,4 @@
-﻿{
-  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
-  "Version": "15.0.31022.994",
-  "GettingStartedDocument": {
-    "Uri": "https://go.microsoft.com/fwlink/?linkid=858517"
-  },
+{
   "ExtendedData": {
     "inputs": [
       "https://api.vttl.be/?wsdl"
@@ -15,7 +10,7 @@
     "namespaceMappings": [
       "*, TabTService"
     ],
-    "targetFramework": "netstandard2.0",
-    "typeReuseMode": "All"
+    "targetFramework": "net452",
+    "typeReuseMode": "None"
   }
 }

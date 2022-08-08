@@ -29,11 +29,12 @@ namespace TabTService {
     /// Dit hebben we nodig om zowel VTTL als AFTT te ondersteunen; gewoon de overeenkomstige types
     /// verwijderen uit Reference.cs
     /// </summary>
-    public enum EndpointConfiguration {
-        TabTAPI_Port,
-        AfttAPI_Port
-    }
     public partial class TabTAPI_PortTypeClient {
+        public enum EndpointConfiguration {
+            TabTAPI_Port,
+            AfttAPI_Port
+        }
+
         private static System.ServiceModel.Channels.Binding GetBindingForEndpoint(EndpointConfiguration endpointConfiguration) {
             if ((endpointConfiguration == EndpointConfiguration.TabTAPI_Port) || endpointConfiguration == EndpointConfiguration.AfttAPI_Port) {
                 System.ServiceModel.BasicHttpBinding result = new System.ServiceModel.BasicHttpBinding();
