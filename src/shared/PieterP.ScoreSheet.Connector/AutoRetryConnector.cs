@@ -107,9 +107,11 @@ namespace PieterP.ScoreSheet.Connector {
         public Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, bool extendedInfo = false, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetMembers(clubId, category, extendedInfo, season));
         public Task<IEnumerable<TabTSeason>> GetSeasonsAsync() => TryDownload(() => _internalConnector.GetSeasonsAsync());
         public Task<IEnumerable<TabTTeam>> GetTeams(string clubId, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetTeams(clubId, season));
+        public Task<IEnumerable<TabTPlayerCategory>> GetPlayerCategoriesAsync(TabTSeason? season = null) => TryDownload(() => _internalConnector.GetPlayerCategoriesAsync(season));
         public Task<(TabTErrorCode ErrorCode, TabTInfo? Info)> TestAsync() => TryDownload(() => _internalConnector.TestAsync()); // do not auto retry this
         public Task<(TabTErrorCode, IEnumerable<string>)> UploadAsync(string csv) => _internalConnector.UploadAsync(csv); // do not auto retry this
         public void SetDefaultCredentials(string? username, string? password) => _internalConnector.SetDefaultCredentials(username, password);
+
         public bool IsAnonymous => _internalConnector.IsAnonymous;
         public IDictionary<string, int> Statistics => _internalConnector.Statistics;
     }

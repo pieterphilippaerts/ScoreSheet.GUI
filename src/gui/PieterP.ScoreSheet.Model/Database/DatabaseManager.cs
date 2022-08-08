@@ -41,6 +41,12 @@ namespace PieterP.ScoreSheet.Model.Database {
             }
         }
         private Lazy<ClubDatabase> _clubs = new Lazy<ClubDatabase>();
+        public PlayerCategoryDatabase PlayerCategories {
+            get {
+                return _playerCategories.Value;
+            }
+        }
+        private Lazy<PlayerCategoryDatabase> _playerCategories = new Lazy<PlayerCategoryDatabase>();
 
         public MatchStartInfoDatabase MatchStartInfo {
             get {
@@ -84,7 +90,8 @@ namespace PieterP.ScoreSheet.Model.Database {
                 CurrentSeason = Settings.CurrentSeason.Value,
                 Members = Members.Database,
                 Clubs = Clubs.Database,
-                Matches = MatchStartInfo.Database
+                Matches = MatchStartInfo.Database,
+                PlayerCategories = PlayerCategories.Database
             };
             File.WriteAllText(file, DataSerializer.Serialize(mule));
         }
@@ -95,6 +102,7 @@ namespace PieterP.ScoreSheet.Model.Database {
             public List<MemberList>? Members { get; set; }
             public List<Club>? Clubs { get; set; }
             public List<MatchStartInfo>? Matches { get; set; }
+            public List<PlayerCategory>? PlayerCategories { get; set; }
         }
         public void Import(string file) {
             if (!File.Exists(file))
@@ -113,6 +121,8 @@ namespace PieterP.ScoreSheet.Model.Database {
             Members.Update(mule.Members);
             Clubs.Update(mule.Clubs);
             MatchStartInfo.Update(mule.Matches);
+            if (mule.PlayerCategories != null)
+                PlayerCategories.Update(mule.PlayerCategories);
         }
         public Task<bool> UpdateClubs() {
             cancellationTokenSource = new CancellationTokenSource();

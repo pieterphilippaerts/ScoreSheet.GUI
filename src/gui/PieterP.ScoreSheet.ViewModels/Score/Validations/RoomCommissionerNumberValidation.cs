@@ -15,14 +15,14 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Validations {
                 if (!matchVm.RoomCommissioner.ComputerNumber.Value.IsNumber())
                     return Validation_InvalidRoomCommissionerId;
                 if (int.TryParse(matchVm.RoomCommissioner.ComputerNumber.Value, out var cn)) {
-                    var clubMembers = DatabaseManager.Current.Members[matchVm.HomeTeam.ClubId.Value, PlayerCategories.Default];
+                    var clubMembers = DatabaseManager.Current.Members[matchVm.HomeTeam.ClubId.Value, DatabaseManager.Current.PlayerCategories.Default];
                     if (clubMembers != null) {
                         if (!clubMembers.Entries.Any(m => m.ComputerNumber == cn))
                             return Validation_WrongRoomCommissionerId;
                     }
                 }
             } else {
-                if (matchVm.Level.Value.Id != Model.Database.Enums.Level.Super || matchVm.PlayerCategory != PlayerCategories.Men) // only required in super (starting from competition year 2020-2021)
+                if (matchVm.Level.Value.Id != Model.Database.Enums.Level.Super || matchVm.PlayerCategory != DatabaseManager.Current.PlayerCategories.Men) // only required in super (starting from competition year 2020-2021)
                     return null;
                 return Validation_NoRoomCommissionerId;
             }

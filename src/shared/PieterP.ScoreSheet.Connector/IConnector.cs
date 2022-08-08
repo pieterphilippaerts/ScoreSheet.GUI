@@ -19,6 +19,7 @@ namespace PieterP.ScoreSheet.Connector {
         Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, bool extendedInfo = false, TabTSeason? season = null);
         Task<IEnumerable<TabTDivision>> GetDivisions(TabTDivisionRegion? level, TabTSeason? season = null);
         Task<IEnumerable<TabTMatchSystem>> GetMatchSystemsAsync();
+        Task<IEnumerable<TabTPlayerCategory>> GetPlayerCategoriesAsync(TabTSeason? season = null);
         IDictionary<string, int> Statistics { get; }
     }
     public interface IConnectorFactory {

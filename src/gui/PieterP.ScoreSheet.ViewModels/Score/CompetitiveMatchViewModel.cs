@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Entities;
+using PieterP.ScoreSheet.Model.Database.Enums;
 using PieterP.ScoreSheet.Model.Database.MatchSystems;
 using PieterP.ScoreSheet.ViewModels.Interfaces;
 using PieterP.ScoreSheet.ViewModels.Notifications;
@@ -135,7 +136,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             }
             Initialize(system);
             this.IsInitializing = true;
-            this.PlayerCategory = matchInfo.PlayerCategory ?? 1; // default to 'Men'
+            this.PlayerCategory = matchInfo.PlayerCategory ?? DatabaseManager.Current.PlayerCategories.Default;
             this.AwayTeam.ClubId.Value = matchInfo.AwayClub ?? "";
             this.AwayTeam.Name.Value = matchInfo.AwayTeam ?? "";
             this.Cup.Value = matchInfo.Cup ?? false;
@@ -187,7 +188,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 if (this.Score.Result.Value != Winner.Error && this.Score.Result.Value != Winner.Incomplete && this.EndHour.Value.Length == 0 && !(this.HomeTeam.IsBye.Value || this.AwayTeam.IsBye.Value))
                     this.EndHour.Value = DateTime.Now.ToString("HH:mm");
             };
-            this.PlayerCategory = 1; // default to 'Men'
+            this.PlayerCategory = DatabaseManager.Current.PlayerCategories.Default;
             this.HomeTeam = new TeamInfo(this, DataChanged);
             this.HomeTeam.Forfeit.ValueChanged += () => ScoreChanged();
             this.HomeTeam.Captain.ValueChanged += () => SetCaptain(this.HomeCaptain, this.HomeTeam.Captain.Value);

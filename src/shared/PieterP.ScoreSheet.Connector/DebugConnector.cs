@@ -139,6 +139,11 @@ namespace PieterP.ScoreSheet.Connector {
         }
         #endregion
 
+        public Task<IEnumerable<TabTPlayerCategory>> GetPlayerCategoriesAsync(TabTSeason? season = null) {
+            throw new NotImplementedException();
+        }
+
+
         #region GetClubs
         public async Task<IEnumerable<TabTClub>> GetClubsAsync(TabTSeason? season = null) {
             Count(nameof(_fetcher.GetClubsAsync));

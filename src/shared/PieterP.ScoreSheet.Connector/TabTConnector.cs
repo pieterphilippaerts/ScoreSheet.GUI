@@ -142,6 +142,43 @@ namespace PieterP.ScoreSheet.Connector {
         }
         #endregion
 
+        #region PlayerCategories
+        private List<TabTPlayerCategory>? _playerCategories;
+        public async Task<IEnumerable<TabTPlayerCategory>> GetPlayerCategoriesAsync(TabTSeason? season = null) {
+            Count(nameof(_fetcher.GetPlayerCategoriesAsync));
+            var request = new TabTService.GetPlayerCategories();
+            request.Credentials = _credentials;
+            if (season != null)
+                request.Season = season.Id.ToString();
+            var ret = await _fetcher.GetPlayerCategoriesAsync(request);
+            if (ret?.GetPlayerCategoriesResponse?.PlayerCategoryEntries == null || ret.GetPlayerCategoriesResponse.PlayerCategoryEntries.Length == 0)
+                return Enumerable.Empty<TabTPlayerCategory>();
+
+            var retList = new List<TabTPlayerCategory>();
+            foreach(var playerCategory in ret.GetPlayerCategoriesResponse.PlayerCategoryEntries) {
+                if (int.TryParse(playerCategory.UniqueIndex ?? "", out int uniqueIndex) && int.TryParse(playerCategory.RankingCategory ?? "", out int rankingCategory)) {
+                    int? minAge = null, maxAge = null;
+                    if (int.TryParse(playerCategory.MinimumAge ?? playerCategory.StrictMinimumAge ?? "", out int mina)) {
+                        minAge = mina;
+                    }
+                    if (int.TryParse(playerCategory.MaximumAge ?? playerCategory.StrictMaximumAge ?? "", out int maxa)) {
+                        maxAge = maxa;
+                    }
+                    retList.Add(new TabTPlayerCategory(
+                            uniqueIndex, 
+                            playerCategory.Name ?? playerCategory.ShortName ?? "?", 
+                            playerCategory.ShortName ?? playerCategory.Name ?? "?",
+                             rankingCategory,
+                             playerCategory.Sex ?? playerCategory.StrictSex ?? "?",
+                             minAge,
+                             maxAge
+                        ));
+                }
+            }
+            return retList;
+        }
+        #endregion
+
         #region Upload
         public async Task<(TabTErrorCode, IEnumerable<string>)> UploadAsync(string csv) {
             var request = new TabTService.UploadRequest();

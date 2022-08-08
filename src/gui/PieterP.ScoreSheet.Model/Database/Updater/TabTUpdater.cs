@@ -80,6 +80,26 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             UpdateProgress?.Invoke(TabTUpdater_Canceled, true);
             return false;
         }
+        private async Task<bool> UpdatePlayerCategories(IConnector connector, TabTSeason season) {
+            var categories = await connector.GetPlayerCategoriesAsync(season);
+            if (categories == null || categories.Count() == 0)
+                return false;
+
+            var data = new List<PlayerCategory>();
+            foreach(var cat in categories) {
+                data.Add(new PlayerCategory() {
+                    UniqueIndex = cat.UniqueIndex,
+                    Name = cat.Name,
+                    ShortName = cat.ShortName,
+                    RankingCategory = cat.RankingCategory,
+                    Sex = cat.Sex,
+                    MinimumAge = cat.MinimumAge,
+                    MaximumAge = cat.MaximumAge
+                });
+            }
+            DatabaseManager.Current.PlayerCategories.Update(data);
+            return true;
+        }
         public async Task<bool> UpdateMatches(Club club, CancellationToken cancellationToken) {
             // first update clubs; this is to avoid that we have an invalid list of clubs
             // (can happen at the start of a competition year when clubs are added or removed)
@@ -97,10 +117,21 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             bool everythingOk = true;
 
+            // get the active season
             var season = await connector.GetActiveSeason();
             DatabaseManager.Current.Settings.CurrentSeason.Value = new Season() { Id = season.Id, Name = season.Name };
             UpdateProgress?.Invoke(Safe.Format(TabTUpdater_DownloadingSeason, season.Name), false);
 
+            // get all the player categories for this season
+            if (!await UpdatePlayerCategories(connector, season)) {
+                everythingOk = false;
+                UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MembersListError, 0), true); // TODO
+            }
+            if (cancellationToken.IsCancellationRequested) {
+                return Cancelled();
+            }
+
+            // get the divisions
             var divisions = new List<TabTDivision>();
             var divList = new List<TabTDivisionRegion> { TabTDivisionRegion.Super, TabTDivisionRegion.National };
             if (club.Province != null) {
@@ -135,7 +166,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
                     }
-                    if (!await RefreshMemberList(connector, ce.UniqueIndex!, PlayerCategories.Default)) {
+                    if (!await RefreshMemberList(connector, ce.UniqueIndex!, DatabaseManager.Current.PlayerCategories.Default)) {
                         everythingOk = false;
                         UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MembersListError, ce.UniqueIndex), true);
                     }
@@ -381,58 +412,34 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             bool super = match.Level == Level.Super;
             bool cup = divisionTitle?.Contains("beker") ?? false;
             bool youth = false, veterans = false, men = false, women = false;
+
             switch (category) {
-                case 1:
-                case 29:
-                    men = true;
-                    break;
-                case 2:
-                case 30:
-                    women = true;
-                    break;
+                // hack omdat er nog wat fouten in de online database zitten
+                // (geen MaximumAge en MinimumAge ingevuld bij bepaalde categorieen)
                 case 3:
-                case 17:
-                case 19:
-                case 21:
-                case 31:
-                case 23:
-                case 33:
-                case 25:
-                case 35:
-                    men = true;
-                    veterans = true;
-                    break;
                 case 4:
-                case 18:
-                case 20:
-                case 22:
-                case 32:
-                case 24:
-                case 34:
-                case 26:
-                case 36:
-                    women = true;
-                    veterans = true;
+                case 41:
+                case 42:
+                case 43:
+                case 44:
+                    veterans = (category == 3 || category == 4);
+                    youth = (category == 41 || category == 42);
+                    women = (category == 44 || category == 42 || category == 4);
+                    men = !women;
                     break;
-                case 5:
-                case 7:
-                case 9:
-                case 11:
-                case 13:
-                case 15:
-                case 27:
-                    men = true;
-                    youth = true;
-                    break;
-                case 6:
-                case 8:
-                case 10:
-                case 12:
-                case 14:
-                case 16:
-                case 28:
-                    women = true;
-                    youth = true;
+
+                default:
+                    var playerCategory = DatabaseManager.Current.PlayerCategories[category];
+                    if (playerCategory != null) {
+                        if (playerCategory.MaximumAge != null && playerCategory.MaximumAge <= 21)
+                            youth = true;
+                        if (playerCategory.MinimumAge != null && playerCategory.MinimumAge >= 39)
+                            veterans = true;
+                        if (playerCategory.Sex == "F")
+                            women = true;
+                        else
+                            men = true;
+                    }
                     break;
             }
             bool interclub = !super && !cup && !youth && !veterans;

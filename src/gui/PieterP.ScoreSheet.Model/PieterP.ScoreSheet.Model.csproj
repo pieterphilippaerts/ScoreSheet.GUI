@@ -26,8 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="PInvoke.Kernel32" Version="0.7.104" />
-    <PackageReference Include="PInvoke.Shell32" Version="0.7.104" />
+    <PackageReference Include="PInvoke.Kernel32" Version="0.7.124" />
+    <PackageReference Include="PInvoke.Shell32" Version="0.7.124" />
   </ItemGroup>
       
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.1' ">

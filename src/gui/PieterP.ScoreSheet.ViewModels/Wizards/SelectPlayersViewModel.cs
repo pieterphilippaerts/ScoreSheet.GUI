@@ -20,12 +20,12 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
     public class SelectPlayersViewModel : WizardPanelViewModel {
         public SelectPlayersViewModel(WizardViewModel parent, TeamInfo team, IReadOnlyList<SelectedMemberInfo> players, SelectedMemberInfo chiefReferee, SelectedMemberInfo roomCommissioner) : base(parent) {
             _team = team;
-            this.ShowAllPlayers = team.ParentMatch.PlayerCategory != PlayerCategories.Default;
+            this.ShowAllPlayers = team.ParentMatch.PlayerCategory != DatabaseManager.Current.PlayerCategories.Default;
             this.Team = team.Name.Value;
             this.Filter = Cell.Create("");
             _allAvailableMembers = DatabaseManager.Current.Members[team.ClubId.Value, team.ParentMatch.PlayerCategory]?.Entries?.OrderBy(e => e.Position).ToList();
             if (this.ShowAllPlayers) {
-                _allMembers = DatabaseManager.Current.Members[team.ClubId.Value, PlayerCategories.Default]?.Entries?.OrderBy(e => e.Position).ToList();
+                _allMembers = DatabaseManager.Current.Members[team.ClubId.Value, DatabaseManager.Current.PlayerCategories.Default]?.Entries?.OrderBy(e => e.Position).ToList();
                 if (_allMembers == null)
                     this.ShowAllPlayers = false;
             }
