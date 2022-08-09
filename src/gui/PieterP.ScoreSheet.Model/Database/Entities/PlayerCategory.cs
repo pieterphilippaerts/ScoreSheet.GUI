@@ -13,5 +13,7 @@ namespace PieterP.ScoreSheet.Model.Database.Entities {
         public string? Sex { get; set; }
         public int? MinimumAge { get; set; }
         public int? MaximumAge { get; set; }
+        public bool IsGroup { get; set; }
+        public string? GroupMembers { get; set; }
     }
 }

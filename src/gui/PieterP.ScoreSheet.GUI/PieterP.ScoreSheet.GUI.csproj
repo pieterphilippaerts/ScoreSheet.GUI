@@ -97,7 +97,7 @@
     <None Remove="images\templates\aftt_logo.png" />
     <None Remove="images\templates\aftt_sponsors.png" />
     <None Remove="images\templates\sponsors.png" />
-    <None Remove="images\templates\vttl_sponsors_2122.png" />
+    <None Remove="images\templates\vttl_sponsors_2223.png" />
     <None Remove="images\usb_48.png" />
     <None Remove="images\warning_48.png" />
     <None Remove="images\wb.png" />
@@ -183,7 +183,7 @@
     <Resource Include="images\spanner_48.png" />
     <Resource Include="images\templates\aftt_logo.png" />
     <Resource Include="images\templates\aftt_sponsors.png" />
-    <Resource Include="images\templates\vttl_sponsors_2122.png" />
+    <Resource Include="images\templates\vttl_sponsors_2223.png" />
     <Resource Include="images\usb_48.png" />
     <Resource Include="images\warning_48.png" />
     <Resource Include="images\wb.png" />

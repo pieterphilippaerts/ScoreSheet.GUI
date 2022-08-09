@@ -94,7 +94,9 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     RankingCategory = cat.RankingCategory,
                     Sex = cat.Sex,
                     MinimumAge = cat.MinimumAge,
-                    MaximumAge = cat.MaximumAge
+                    MaximumAge = cat.MaximumAge,
+                    IsGroup = cat.IsGroup,
+                    GroupMembers = cat.GroupMembers
                 });
             }
             DatabaseManager.Current.PlayerCategories.Update(data);
@@ -407,41 +409,79 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             return newMatch;
         }
 
+        private void GuessTypeInfo(PlayerCategory playerCategory, out bool veterans, out bool youth, out bool women, out bool men) {
+            youth = false;
+            if (playerCategory.MaximumAge != null && playerCategory.MaximumAge <= 21)
+                youth = true;
+            veterans = false;
+            if (playerCategory.MinimumAge != null && playerCategory.MinimumAge >= 39)
+                veterans = true;
+            women = false;
+            men = false;
+            if (playerCategory.Sex == "F")
+                women = true;
+            else
+                men = true;
+        }
+        private void GuessGroupInfo(PlayerCategory playerCategory, out bool veterans, out bool youth, out bool women, out bool men) {
+            var groups = playerCategory.GroupMembers?.Split(',');
+            if (groups != null) {
+                veterans = true;
+                youth = true;
+                women = true;
+                men = true;
+                // make sure all subcategories agree on which type of category this is
+                foreach (var groupStr in groups) {
+                    if (int.TryParse(groupStr, out int group)) {
+                        var cat = DatabaseManager.Current.PlayerCategories[group];
+                        if (cat != null) {
+                            bool v, y, m, w;
+                            GuessTypeInfo(cat, out v, out y, out w, out m);
+                            veterans &= v;
+                            youth &= y;
+                            women &= w;
+                            men &= m;
+                        }
+                    }
+                }
+            } else { // invalid data
+                veterans = false;
+                youth = false;
+                women = false;
+                men = false;
+            }
+        }
         private void GuessTypeInfo(MatchStartInfo match, int category, string? divisionTitle) {
             divisionTitle = divisionTitle?.ToLower();
             bool super = match.Level == Level.Super;
             bool cup = divisionTitle?.Contains("beker") ?? false;
             bool youth = false, veterans = false, men = false, women = false;
 
-            switch (category) {
-                // hack omdat er nog wat fouten in de online database zitten
-                // (geen MaximumAge en MinimumAge ingevuld bij bepaalde categorieen)
-                case 3:
-                case 4:
-                case 41:
-                case 42:
-                case 43:
-                case 44:
-                    veterans = (category == 3 || category == 4);
-                    youth = (category == 41 || category == 42);
-                    women = (category == 44 || category == 42 || category == 4);
-                    men = !women;
-                    break;
-
-                default:
-                    var playerCategory = DatabaseManager.Current.PlayerCategories[category];
-                    if (playerCategory != null) {
-                        if (playerCategory.MaximumAge != null && playerCategory.MaximumAge <= 21)
-                            youth = true;
-                        if (playerCategory.MinimumAge != null && playerCategory.MinimumAge >= 39)
-                            veterans = true;
-                        if (playerCategory.Sex == "F")
-                            women = true;
-                        else
-                            men = true;
-                    }
-                    break;
+            var playerCategory = DatabaseManager.Current.PlayerCategories[category];
+            if (playerCategory != null) {
+                if (playerCategory.IsGroup) {
+                    GuessGroupInfo(playerCategory, out veterans, out youth, out women, out men);
+                } else {
+                    GuessTypeInfo(playerCategory, out veterans, out youth, out women, out men);
+                }
             }
+            //switch (category) {
+            //    // hack omdat er nog wat fouten in de online database zitten
+            //    // (geen MaximumAge en MinimumAge ingevuld bij bepaalde categorieen)
+            //    case 3:
+            //    case 4:
+            //    case 41:
+            //    case 42:
+            //    case 43:
+            //    case 44:
+            //        veterans = (category == 3 || category == 4);
+            //        youth = (category == 41 || category == 42);
+            //        women = (category == 44 || category == 42 || category == 4);
+            //        men = !women;
+            //        break;
+
+            //    default:
+            //}
             bool interclub = !super && !cup && !youth && !veterans;
             match.Men = men;
             match.Women = women;
