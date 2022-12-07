@@ -26,6 +26,16 @@ namespace PieterP.ScoreSheet.Model.Information {
                 return 23; // the ID of season 2021-2022
             }
         }
+        public static int DefaultMenCategoryId {
+            get {
+                return 37; // since season 2022-2023; can normally be detected automatically, unless the user doesn't enter a username/password
+            }
+        }
+        public static int DefaultWomenCategoryId {
+            get {
+                return 38; // since season 2022-2023; can normally be detected automatically, unless the user doesn't enter a username/password
+            }
+        }
         public static string BuildType {
             get {
 #if DEBUG

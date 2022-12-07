@@ -1,4 +1,5 @@
 ﻿using PieterP.ScoreSheet.Model.Database.Entities;
+using PieterP.ScoreSheet.Model.Information;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -47,7 +48,7 @@ namespace PieterP.ScoreSheet.Model.Database {
                     if (_men == null)
                         _men = this.FirstOrDefault(cat => (cat.MinimumAge ?? 0) <= 0 && (cat.MaximumAge ?? 100) >= 100 && cat.Sex == "M")?.UniqueIndex;
                 }
-                return _men ?? -1;
+                return _men ?? Application.DefaultMenCategoryId;
             }
         }
         private int? _women;
@@ -56,7 +57,7 @@ namespace PieterP.ScoreSheet.Model.Database {
                 if (_women == null) {
                     _women = this.FirstOrDefault(cat => (cat.MinimumAge ?? 0) <= 0 && (cat.MaximumAge ?? 100) >= 100 && cat.Sex == "F")?.UniqueIndex;
                 }
-                return _women ?? -1;
+                return _women ?? Application.DefaultWomenCategoryId;
             }
         }
 

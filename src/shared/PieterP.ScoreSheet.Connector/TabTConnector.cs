@@ -165,13 +165,15 @@ namespace PieterP.ScoreSheet.Connector {
                         maxAge = maxa;
                     }
                     retList.Add(new TabTPlayerCategory(
-                            uniqueIndex, 
-                            playerCategory.Name ?? playerCategory.ShortName ?? "?", 
+                            uniqueIndex,
+                            playerCategory.Name ?? playerCategory.ShortName ?? "?",
                             playerCategory.ShortName ?? playerCategory.Name ?? "?",
-                             rankingCategory,
-                             playerCategory.Sex ?? playerCategory.StrictSex ?? "?",
-                             minAge,
-                             maxAge
+                            rankingCategory,
+                            playerCategory.Sex ?? playerCategory.StrictSex ?? "?",
+                            minAge,
+                            maxAge,
+                            playerCategory.IsGroup,
+                            playerCategory.GroupMembers
                         ));
                 }
             }
