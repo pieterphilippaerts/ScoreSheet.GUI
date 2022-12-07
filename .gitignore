@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/src/gui/.vs/PieterP.ScoreSheet
+/src/gui/.vs
 /src/gui/PdfSharp/bin
 /src/gui/PdfSharp/obj
 /src/gui/PieterP.ScoreSheet.GUI/bin
@@ -15,15 +15,12 @@
 /src/gui/PieterP.ScoreSheet.Tests/obj
 /src/gui/PieterP.ScoreSheet.ViewModels/bin
 /src/gui/PieterP.ScoreSheet.ViewModels/obj
-/src/installer/.vs/PieterP.ScoreSheet.Installer/v16
-/src/installer/packages/ILMerge.3.0.29
-/src/installer/PieterP.ScoreSheet.Installer/bin/Release
+/src/installer/packages
+/src/installer/PieterP.ScoreSheet.Installer/bin
 /src/installer/PieterP.ScoreSheet.Installer/obj
-/src/launcher/.vs/PieterP.ScoreSheet.Launcher/v16
 /src/launcher/packages
-/src/launcher/PieterP.ScoreSheet.Launcher/bin/Debug
-/src/launcher/PieterP.ScoreSheet.Launcher/obj/Release
-/src/launcher/PieterP.ScoreSheet.Launcher/obj/Debug
+/src/launcher/PieterP.ScoreSheet.Launcher/bin
+/src/launcher/PieterP.ScoreSheet.Launcher/obj
 /src/shared/.vs/PieterP.Shared
 /src/shared/PieterP.ScoreSheet.Connector/bin
 /src/shared/PieterP.ScoreSheet.Connector/obj
@@ -32,12 +29,12 @@
 /src/shared/PieterP.Shared.Services/bin
 /src/shared/PieterP.Shared.Services/obj
 /src/publish
-/src/installer/PieterP.ScoreSheet.Installer/bin/Debug
+/src/installer/PieterP.ScoreSheet.Installer/bin
 /src/gui/DebugProject/bin
 /src/gui/DebugProject/obj
 /src/gui/packages
 /src/gui/PieterP.ScoreSheet.Debugger/bin
 /src/gui/PieterP.ScoreSheet.Debugger/obj
 /.vs
-/src/launcher/.vs/PieterP.ScoreSheet.Launcher/v17/.suo
-/src/installer/.vs/PieterP.ScoreSheet.Installer/v17/.suo
+/src/launcher/.vs
+/src/installer/.vs
