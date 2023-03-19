@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using PieterP.ScoreSheet.Localization;
 using PieterP.Shared;
+using PieterP.Shared.Services;
 
 namespace PieterP.ScoreSheet.Model.Database {
     public abstract class AbstractDatabase<T> where T : new() {
@@ -16,14 +18,27 @@ namespace PieterP.ScoreSheet.Model.Database {
                 FullPath = Path.Combine(DatabaseManager.Current.ActiveProfilePath, filename);
             }
 
-            if (File.Exists(FullPath)) {
-                using (var tr = new StreamReader(FullPath)) {
-                    var json = tr.ReadToEnd();
-                    this.Database = DataSerializer.Deserialize<T>(json);
+            bool exists = File.Exists(FullPath);
+            if (exists) {
+                try {
+                    using (var tr = new StreamReader(FullPath)) {
+                        var json = tr.ReadToEnd();
+                        this.Database = DataSerializer.Deserialize<T>(json);
+                    }
+                } catch (Exception e) {
+                    Logger.Log(e);
+                    ReadErrorOnInit = true;
                 }
-            } else {
+                if (this.Database == null) {  // empty file
+                    Logger.Log(LogType.Exception, Safe.Format(Errors.AbstractDatabase_FileEmpty, filename));
+                    ReadErrorOnInit = true;
+                }
+            }
+
+            if (!exists || ReadErrorOnInit) {
                 Database = new T();
             }
+
             Initialize();
         }
         public void Save() {
@@ -84,6 +99,7 @@ namespace PieterP.ScoreSheet.Model.Database {
 #endregion
 
         internal T Database { get; private set; }
+        public bool ReadErrorOnInit { get; private set; }
         protected string Filename { get; private set; }
         protected string FullPath { get; private set; }
 

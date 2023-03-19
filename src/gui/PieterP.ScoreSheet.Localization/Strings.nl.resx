@@ -225,6 +225,9 @@
   <data name="Main_ScoreSheetUpdateFile" xml:space="preserve">
     <value>ScoreSheet updatebestand</value>
   </data>
+  <data name="Main_SettingsError" xml:space="preserve">
+    <value>Het instellingenbestand was beschadigd en kon niet worden gelezen. De instellingen zijn teruggezet naar de standaardwaarden. Wilt u de instellingen nu configureren?</value>
+  </data>
   <data name="Main_UploadWarningFooter" xml:space="preserve">
     <value>Weet u zeker dat u deze wedstrijden wil sluiten zonder de resultaten te uploaden naar de competitiewebsite?</value>
   </data>

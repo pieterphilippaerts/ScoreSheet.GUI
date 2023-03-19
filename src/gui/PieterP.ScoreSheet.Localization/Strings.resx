@@ -225,6 +225,9 @@
   <data name="Main_ScoreSheetUpdateFile" xml:space="preserve">
     <value>ScoreSheet update file</value>
   </data>
+  <data name="Main_SettingsError" xml:space="preserve">
+    <value>The settings file was corrupted and could not be read. The settings have been reset to the default values. Do you want to configure the settings now?</value>
+  </data>
   <data name="Main_UploadWarningFooter" xml:space="preserve">
     <value>Are you sure you want to close these matches without uploading the results to the competition website?</value>
   </data>

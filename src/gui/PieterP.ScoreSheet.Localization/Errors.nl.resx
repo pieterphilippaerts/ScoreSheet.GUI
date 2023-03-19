@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AbstractDatabase_FileEmpty" xml:space="preserve">
+    <value>Het bestand '{0}' was leeg.</value>
+  </data>
   <data name="AppUpdate_InvalidHash" xml:space="preserve">
     <value>De hash van het gedownloade bestand komt niet overeen met de verwachtte hash. </value>
   </data>

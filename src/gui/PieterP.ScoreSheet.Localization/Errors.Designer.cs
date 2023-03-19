@@ -61,6 +61,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The file &apos;{0}&apos; was empty..
+        /// </summary>
+        public static string AbstractDatabase_FileEmpty {
+            get {
+                return ResourceManager.GetString("AbstractDatabase_FileEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The hash of the downloaded file does not correspond to the expected hash. Try again later..
         /// </summary>
         public static string AppUpdate_InvalidHash {

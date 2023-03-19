@@ -19,7 +19,7 @@ namespace PieterP.ScoreSheet.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -381,6 +381,15 @@ namespace PieterP.ScoreSheet.Localization {
         public static string Main_ScoreSheetUpdateFile {
             get {
                 return ResourceManager.GetString("Main_ScoreSheetUpdateFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The settings file was corrupted and could not be read. The settings have been reset to the default values. Do you want to configure the settings now?.
+        /// </summary>
+        public static string Main_SettingsError {
+            get {
+                return ResourceManager.GetString("Main_SettingsError", resourceCulture);
             }
         }
         

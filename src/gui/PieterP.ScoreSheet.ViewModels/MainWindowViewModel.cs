@@ -148,15 +148,22 @@ namespace PieterP.ScoreSheet.ViewModels {
         public void DoStartupChecks() {
             // this method gets called when the main window is loaded
             TryRecoverMatches();
-            CheckFirstStart();
+            CheckSettingsUpdate();
             CheckDatabaseEmpty();
             ShowWelcome();
         }
-        private void CheckFirstStart() {
-            if (DatabaseManager.Current.Settings.UpdateSettingsOnStart.Value) {
+        private void CheckSettingsUpdate() {
+            string? message = null;
+            if (DatabaseManager.Current.Settings.ReadErrorOnInit) {
+                message = Main_SettingsError;
+            } else if (DatabaseManager.Current.Settings.UpdateSettingsOnStart.Value) {
+                message = Main_FirstStart;
+            }
+
+            if (message != null) { 
                 DatabaseManager.Current.Settings.UpdateSettingsOnStart.Value = false;
 
-                var showSettingsMessage = new ShowMessageNotification(Main_FirstStart, NotificationTypes.Informational, NotificationButtons.YesNo);
+                var showSettingsMessage = new ShowMessageNotification(message, NotificationTypes.Informational, NotificationButtons.YesNo);
                 NotificationManager.Current.Raise(showSettingsMessage);
 
                 if (showSettingsMessage.Result == true) {

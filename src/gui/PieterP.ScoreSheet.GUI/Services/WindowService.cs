@@ -42,7 +42,9 @@ namespace PieterP.ScoreSheet.GUI.Services {
         public bool ShowDialog(object viewModel) {
             var d = FindWindow(viewModel);
             d.DataContext = viewModel;
-            d.Owner = _currentDialogs.Last?.Value ?? App.Current.MainWindow;
+            var owner = _currentDialogs.Last?.Value ?? App.Current.MainWindow;
+            if (owner != d) // this can happen if an exception occurs before the MainWindow is shown
+                d.Owner = owner;
             _currentDialogs.AddLast(d);
             var ret = d.ShowDialog();
             _currentDialogs.RemoveLast();

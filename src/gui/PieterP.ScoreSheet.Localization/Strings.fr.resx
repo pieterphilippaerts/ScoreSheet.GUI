@@ -225,6 +225,9 @@
   <data name="Main_ScoreSheetUpdateFile" xml:space="preserve">
     <value>Fichiers de mise à jour de ScoreSheet</value>
   </data>
+  <data name="Main_SettingsError" xml:space="preserve">
+    <value>Le fichier de paramètres a été corrompu et n'a pas pu être lu. Les paramètres ont été réinitialisés aux valeurs par défaut. Voulez-vous configurer les paramètres maintenant ?</value>
+  </data>
   <data name="Main_UploadWarningFooter" xml:space="preserve">
     <value>Êtes-vous certain de fermer ces rencontres sans avoir envoyé les résultats au site web de la compétition ?</value>
   </data>
