@@ -210,13 +210,13 @@ namespace PieterP.ScoreSheet.Connector {
         #endregion
 
         #region GetMatches
-        public Task<IEnumerable<TabTMatch>> GetMatches(string clubId, TabTTeam team, TabTSeason? season = null) {
-            return GetMatches(clubId, team, null, null, season);
+        public Task<IEnumerable<TabTMatch>> GetMatches(string clubId, TabTTeam team, TabTSeason? season ) {
+            return GetMatches(clubId, team, null, season, null);
         }
-        public Task<IEnumerable<TabTMatch>> GetMatches(int divisionId, string? weekName = null, TabTSeason? season = null) {
-            return GetMatches(null, null, divisionId, weekName, season);
+        public Task<IEnumerable<TabTMatch>> GetMatches(int divisionId, TabTSeason? season, string? weekName = null) {
+            return GetMatches(null, null, divisionId, season, weekName);
         }
-        private async Task<IEnumerable<TabTMatch>> GetMatches(string? clubId, TabTTeam? team, int? divisionId, string? weekName, TabTSeason? season = null) {
+        private async Task<IEnumerable<TabTMatch>> GetMatches(string? clubId, TabTTeam? team, int? divisionId, TabTSeason? season , string? weekName) {
             Count(nameof(_fetcher.GetMatchesAsync));
             var request = new DebugService.GetMatchesRequest();
             request.Club = clubId;
@@ -250,7 +250,7 @@ namespace PieterP.ScoreSheet.Connector {
         #endregion
 
         #region GetMembers
-        public async Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, bool extendedInfo = false, TabTSeason? season = null) {
+        public async Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, TabTSeason? season, bool extendedInfo = false) {
             Count(nameof(_fetcher.GetMembersAsync));
             var request = new DebugService.GetMembersRequest();
             request.Club = clubId;

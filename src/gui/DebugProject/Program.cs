@@ -32,14 +32,14 @@ namespace DebugProject {
         }
         private static async void ShowRanking(string club) {
             var connector = new TabTConnector();
-            var members = await connector.GetMembers(club, 1);
+            var members = await connector.GetMembers(club, 1, await connector.GetActiveSeason());
             foreach (var member in members) {
                 Console.WriteLine($"{member.Position}. {member.Firstname} {member.Lastname} ({member.VttlIndex}), rank={member.RankIndex}, status={member.Status}");
             }
         }
         private static async void ShowTeams(string club) {
             var connector = new TabTConnector();
-            var teams = await connector.GetTeams(club);
+            var teams = await connector.GetTeams(club, await connector.GetActiveSeason());
             foreach (var team in teams) {
                 Console.WriteLine($"Ploeg {team.Team} {team.DivisionName} (cat: {team.DivisionCategory}, matchtype: {team.MatchType})");
             }
@@ -55,7 +55,7 @@ namespace DebugProject {
                     //Console.WriteLine($"{c.Info.CurrentQuota}/{c.Info.AllowedQuota}");
                     var tasks = new Task[100];
                     for (int i = 0; i < 100; i++) {
-                        tasks[i] = connector.GetDivisions(TabTDivisionRegion.National);
+                        tasks[i] = connector.GetDivisions(TabTDivisionRegion.National, await connector.GetActiveSeason());
                     }
                     Task.WaitAll(tasks);
                     Console.WriteLine(c);

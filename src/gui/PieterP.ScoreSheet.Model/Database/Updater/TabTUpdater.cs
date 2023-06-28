@@ -36,7 +36,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var newClubs = new List<Club>();
             try {
-                var clubs = await connector.GetClubsAsync();
+                var clubs = await connector.GetClubsAsync(await connector.GetActiveSeason());
                 foreach (var club in clubs) {
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
@@ -148,7 +148,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     return Cancelled();
                 }
                 try {
-                    divisions.AddRange(await connector.GetDivisions(div));
+                    divisions.AddRange(await connector.GetDivisions(div, season));
                 } catch (Exception e) {
                     Logger.Log(e);
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_DivisionError,  div.ToString()), true);
@@ -159,7 +159,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             if (cancellationToken.IsCancellationRequested) {
                 return Cancelled();
             }
-            var teams = await connector.GetTeams(club.UniqueIndex!);
+            var teams = await connector.GetTeams(club.UniqueIndex!, season);
             UpdateProgress?.Invoke(Safe.Format(TabTUpdater_TeamsDownloaded, club.UniqueIndex), false);
 
             // standaard alle clubs uit dezelfde provincie toevoegen
@@ -168,7 +168,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
                     }
-                    if (!await RefreshMemberList(connector, ce.UniqueIndex!, DatabaseManager.Current.PlayerCategories.Default)) {
+                    if (!await RefreshMemberList(connector, ce.UniqueIndex!, DatabaseManager.Current.PlayerCategories.Default, season)) {
                         everythingOk = false;
                         UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MembersListError, ce.UniqueIndex), true);
                     }
@@ -182,25 +182,25 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     return Cancelled();
                 }
                 team.Team = team.Team?.Trim(); 
-                var matches = await connector.GetMatches(club.UniqueIndex!, team);
+                var matches = await connector.GetMatches(club.UniqueIndex!, team, season);
                 UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MatchDetailsDownloaded, team.Team, team.DivisionName), false);
                 bool hasWarned = false;
                 foreach (var match in matches) {
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
                     }
-                    if (!await RefreshMemberList(connector, match.HomeClub, team.DivisionCategory)) {
+                    if (!await RefreshMemberList(connector, match.HomeClub, team.DivisionCategory, season)) {
                         everythingOk = false;
                         UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MembersListError, match.HomeClub), true);
                     }
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
                     }
-                    if (!await RefreshMemberList(connector, match.AwayClub, team.DivisionCategory)) {
+                    if (!await RefreshMemberList(connector, match.AwayClub, team.DivisionCategory, season)) {
                         everythingOk = false;
                         UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MembersListError, match.AwayClub), true);
                     }
-                    var m = await CreateMatch(connector, club, team, match, divisions);
+                    var m = await CreateMatch(connector, club, team, match, divisions, season);
                     if (m != null) {
                         newMatchList.Add(m);
                     } else {
@@ -231,7 +231,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             LogStats(connector.Statistics);
             return everythingOk;
         }
-        private async Task<MatchStartInfo?> CreateMatch(IConnector connector, Club club, TabTTeam team, TabTMatch match, IList<TabTDivision> divisions) {
+        private async Task<MatchStartInfo?> CreateMatch(IConnector connector, Club club, TabTTeam team, TabTMatch match, IList<TabTDivision> divisions, TabTSeason season) {
             var ms = ServiceLocator.Resolve<MatchSystemFactory>()[team.MatchType];
             if (ms == null) {
                 Logger.Log(LogType.Exception, Safe.Format(TabTUpdater_MatchSystemNotFound, team.MatchType, match.MatchId, team.Team, team.DivisionId));
@@ -270,7 +270,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 if (match.HomeClub != "-" && match.AwayClub != "-") {
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidMatchDate, team.Team), true);
                 }
-                newMatch.WeekStart = await GuessWeek(connector, team.DivisionId, match.WeekName);
+                newMatch.WeekStart = await GuessWeek(connector, team.DivisionId, season, match.WeekName);
                 if (newMatch.WeekStart == null) {
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_NoWeek, team.Team, team.DivisionName), true);
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidDateInfo, match.HomeTeam, match.AwayTeam, match.MatchId), true);
@@ -282,7 +282,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 newMatch.StartHour = match.Time.ToFormattedTime();
             var div = divisions.Where(d => d.Id == team.DivisionId).FirstOrDefault();
             if (div == null) {
-                if (await DownloadAllDivisions(connector, divisions))
+                if (await DownloadAllDivisions(connector, divisions, season))
                     div = divisions.Where(d => d.Id == team.DivisionId).FirstOrDefault(); // try again, onw with all divisions downloaded
             }
 
@@ -317,11 +317,11 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             return newMatch;
         }
-        private async Task<bool> DownloadAllDivisions(IConnector connector, IList<TabTDivision> divisions) {
+        private async Task<bool> DownloadAllDivisions(IConnector connector, IList<TabTDivision> divisions, TabTSeason season) {
             if (_hasDownloadedExtendedDivisions)
                 return false;
             try {
-                divisions.AddRange(await connector.GetDivisions(null));
+                divisions.AddRange(await connector.GetDivisions(null, season));
             } catch (Exception e) {
                 Logger.Log(e);
                 UpdateProgress?.Invoke(TabTUpdater_AdditionalDivisionError, true);
@@ -331,7 +331,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             _hasDownloadedExtendedDivisions = true;
             return true;
         }
-        private async Task<MatchStartInfo?> CreateMatch(IConnector connector, TabTMatch match, Division division) {
+        private async Task<MatchStartInfo?> CreateMatch(IConnector connector, TabTMatch match, Division division, TabTSeason season) {
             var ms = ServiceLocator.Resolve<MatchSystemFactory>()[division.MatchSystemId];
             if (ms == null) {
                 //Logger.Log(LogType.Exception, Safe.Format(TabTUpdater_MatchSystemNotFound, team.MatchType, match.MatchId, team.Team, team.DivisionId));
@@ -371,7 +371,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 if (match.HomeClub != "-" && match.AwayClub != "-") {
                     //UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidMatchDate, team.Team), true);
                 }
-                newMatch.WeekStart = await GuessWeek(connector, division.Id, match.WeekName);
+                newMatch.WeekStart = await GuessWeek(connector, division.Id, season, match.WeekName);
                 if (newMatch.WeekStart == null) {
                     //UpdateProgress?.Invoke(Safe.Format(TabTUpdater_NoWeek, team.Team, division.Name), true);
                     //UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidDateInfo, match.HomeTeam, match.AwayTeam), true);
@@ -492,8 +492,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             match.Veterans = veterans;
         }
 
-        private async Task<DateTime?> GuessWeek(IConnector connector, int divisionId, string weekName) {
-            var matches = await connector.GetMatches(divisionId, weekName);
+        private async Task<DateTime?> GuessWeek(IConnector connector, int divisionId, TabTSeason season, string weekName) {
+            var matches = await connector.GetMatches(divisionId, season, weekName);
             var dates = new Dictionary<DateTime, int>();
             // count which week starts are most common
             foreach (var m in matches) {
@@ -522,9 +522,9 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             var connector = connectorResult.Connector;
             if (connector == null)
                 return false;
-            return await RefreshMemberList(connector, clubId, category);
+            return await RefreshMemberList(connector, clubId, category, await connector.GetActiveSeason());
         }
-        private async Task<bool> RefreshMemberList(IConnector connector, string clubId, int category) {
+        private async Task<bool> RefreshMemberList(IConnector connector, string clubId, int category, TabTSeason season) {
             var ml = DatabaseManager.Current.Members[clubId, category];
             if (clubId == "-" || ml != null && ml.LastUpdated != null && (DateTime.Now.Date - ml.LastUpdated.Value.Date) < UpdateInterval) {
                 // do not download the same member list multiple times per day
@@ -532,7 +532,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             }
 
             try {
-                var members = await connector.GetMembers(clubId, category);
+                var members = await connector.GetMembers(clubId, category, season);
                 var list = new MemberList();
                 list.ClubId = clubId;
                 list.Category = category;
@@ -606,7 +606,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var divisionList = new List<Division>();
             try {                
-                var divisions = await connector.GetDivisions((TabTDivisionRegion)level);
+                var divisions = await connector.GetDivisions((TabTDivisionRegion)level, await connector.GetActiveSeason());
                 foreach (var division in divisions) {
                     var d = new Division();
                     d.Id = division.Id;
@@ -637,10 +637,11 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var matchList = new List<MatchStartInfo>();
             try {
-                var matches = await connector.GetMatches(division.Id);
+                var season = await connector.GetActiveSeason();
+                var matches = await connector.GetMatches(division.Id, season);
                 foreach (var match in matches) {
                     var club = DatabaseManager.Current.Clubs[match.HomeClub];
-                    var m = await CreateMatch(connector, match, division);
+                    var m = await CreateMatch(connector, match, division, season);
                     if (m != null)
                         matchList.Add(m);
                 }

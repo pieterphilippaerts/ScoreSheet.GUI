@@ -17,13 +17,13 @@ namespace PieterP.ScoreSheet.Model.Information {
         }
         public static DateTime ExpiryTime {
             get {
-                return new DateTime(2023, 9, 1); // expires at the start of season 2021-2022
+                return new DateTime(2024, 9, 1); // expires at the start of season 2021-2022
                 // if you're updating this, also update the DefaultSeasonId below
             }
         }
         public static int DefaultSeasonId {
             get {
-                return 23; // the ID of season 2021-2022
+                return 24; // the ID of season 2023-2024
             }
         }
         public static int DefaultMenCategoryId {

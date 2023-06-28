@@ -102,9 +102,9 @@ namespace PieterP.ScoreSheet.Connector {
         public Task<IEnumerable<TabTDivision>> GetDivisions(TabTDivisionRegion? level, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetDivisions(level, season));
         public Task<TabTMatch?> GetMatchDetails(string club, string matchId, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetMatchDetails(club, matchId, season));
         public Task<IEnumerable<TabTMatch>> GetMatches(string clubId, TabTTeam team, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetMatches(clubId, team, season));
-        public Task<IEnumerable<TabTMatch>> GetMatches(int divisionId, string? weekName = null, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetMatches(divisionId, weekName, season));
+        public Task<IEnumerable<TabTMatch>> GetMatches(int divisionId, TabTSeason? season, string? weekName = null) => TryDownload(() => _internalConnector.GetMatches(divisionId, season, weekName));
         public Task<IEnumerable<TabTMatchSystem>> GetMatchSystemsAsync() => TryDownload(() => _internalConnector.GetMatchSystemsAsync());
-        public Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, bool extendedInfo = false, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetMembers(clubId, category, extendedInfo, season));
+        public Task<IEnumerable<TabTMember>> GetMembers(string clubId, int category, TabTSeason? season, bool extendedInfo = false) => TryDownload(() => _internalConnector.GetMembers(clubId, category, season, extendedInfo));
         public Task<IEnumerable<TabTSeason>> GetSeasonsAsync() => TryDownload(() => _internalConnector.GetSeasonsAsync());
         public Task<IEnumerable<TabTTeam>> GetTeams(string clubId, TabTSeason? season = null) => TryDownload(() => _internalConnector.GetTeams(clubId, season));
         public Task<IEnumerable<TabTPlayerCategory>> GetPlayerCategoriesAsync(TabTSeason? season = null) => TryDownload(() => _internalConnector.GetPlayerCategoriesAsync(season));

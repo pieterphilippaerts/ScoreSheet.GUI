@@ -7,10 +7,10 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>scoresheet</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <Version>2022.2023.1</Version>
+    <Version>2023.2024.1</Version>
     <Authors>PieterP.be</Authors>
     <Product>PieterP.be ScoreSheet</Product>    
-    <Copyright>Copyright © 2011-2022, PieterP.be</Copyright>
+    <Copyright>Copyright © 2011-2023, PieterP.be</Copyright>
     <PackageProjectUrl>https://score.pieterp.be</PackageProjectUrl>
     <ApplicationIcon>images\logo.ico</ApplicationIcon>
     <LangVersion>8.0</LangVersion>
@@ -19,8 +19,8 @@
     <RepositoryUrl>https://bitbucket.org/pieterpbevttl/</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>2022.2023.1.0</AssemblyVersion>
-    <FileVersion>2022.2023.1.0</FileVersion>
+    <AssemblyVersion>2023.2024.1.0</AssemblyVersion>
+    <FileVersion>2023.2024.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -93,7 +93,7 @@
     <None Remove="images\printer.png" />
     <None Remove="images\smile_sad_481.png" />
     <None Remove="images\spanner_48.png" />
-    <None Remove="images\splash.png" />
+    <None Remove="images\splash23.png" />
     <None Remove="images\templates\aftt_logo.png" />
     <None Remove="images\templates\aftt_sponsors.png" />
     <None Remove="images\templates\sponsors.png" />
@@ -192,7 +192,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="images\splash.png" />
+    <SplashScreen Include="images\splash23.png" />
   </ItemGroup>
 
   <ItemGroup>
