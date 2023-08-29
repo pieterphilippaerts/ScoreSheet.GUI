@@ -188,7 +188,12 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 if (this.Score.Result.Value != Winner.Error && this.Score.Result.Value != Winner.Incomplete && this.EndHour.Value.Length == 0 && !(this.HomeTeam.IsBye.Value || this.AwayTeam.IsBye.Value))
                     this.EndHour.Value = DateTime.Now.ToString("HH:mm");
             };
-            this.PlayerCategory = DatabaseManager.Current.PlayerCategories.Default;
+            this.PlayerCategory = DatabaseManager.Current.PlayerCategories.Men; // we default to 'men' when constructing from a MatchSystem
+            this.Men = CreateCell(true);
+            this.Women = CreateCell(false);
+            CreateXorGroup(this.Men, this.Women);
+            this.Men.ValueChanged += MenWomen_ValueChanged; // this must be done after CreateXorGroup!
+            this.Women.ValueChanged += MenWomen_ValueChanged; // this must be done after CreateXorGroup!
             this.HomeTeam = new TeamInfo(this, DataChanged);
             this.HomeTeam.Forfeit.ValueChanged += () => ScoreChanged();
             this.HomeTeam.Captain.ValueChanged += () => SetCaptain(this.HomeCaptain, this.HomeTeam.Captain.Value);
@@ -228,9 +233,6 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.RoomCommissioner = new PersonInfo(DataChanged);
             this.Level = CreateCell(this.AvailableLevels.Last());
             this.Article632 = CreateCell(true);
-            this.Men = CreateCell(true);
-            this.Women = CreateCell(false);
-            CreateXorGroup(this.Men, this.Women);
             this.Interclub = CreateCell(true);
             this.Super = CreateCell(false);
             this.Cup = CreateCell(false);
@@ -241,6 +243,14 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
             this.IsInitializing = false;
+        }
+
+        private void MenWomen_ValueChanged() {
+            if (this.Men.Value) {
+                this.PlayerCategory = DatabaseManager.Current.PlayerCategories.Men;
+            } else {
+                this.PlayerCategory = DatabaseManager.Current.PlayerCategories.Women;
+            }
         }
 
         private void CreateXorGroup(params Cell<bool>[] cells) {

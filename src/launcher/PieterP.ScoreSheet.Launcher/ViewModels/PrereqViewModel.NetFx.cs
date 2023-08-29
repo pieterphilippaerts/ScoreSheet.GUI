@@ -100,7 +100,7 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
             Process.Start(psi);
         }
         private bool CheckWindows() {
-            // Windows must be Windows Vista or higher
+            // Windows must be Windows 7 or higher
             return Environment.OSVersion.Version.Major > 6 /* Windows 10 or higher */
                 || (Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor > 0) /* Windows 7, 8, 8.1 */;
         }
