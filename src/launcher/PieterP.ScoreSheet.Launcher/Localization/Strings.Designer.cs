@@ -19,7 +19,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -286,7 +286,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .NET Framework 4.5 or higher required.
+        ///   Looks up a localized string similar to .NET Framework 4.8 or higher required.
         /// </summary>
         public static string Prereq_Netfx {
             get {
@@ -295,7 +295,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Download .NET Framework 4.5.
+        ///   Looks up a localized string similar to Download .NET Framework 4.8.
         /// </summary>
         public static string Prereq_NetfxDownload {
             get {
@@ -304,7 +304,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.5 or higher..
+        ///   Looks up a localized string similar to The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.8 or higher..
         /// </summary>
         public static string Prereq_NetfxErr {
             get {
@@ -313,7 +313,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You already have .NET Framework 4.5 or higher installed on this computer..
+        ///   Looks up a localized string similar to You already have .NET Framework 4.8 or higher installed on this computer..
         /// </summary>
         public static string Prereq_NetfxOk {
             get {
@@ -331,7 +331,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TLS 1.1 or higher required.
+        ///   Looks up a localized string similar to TLS 1.2 or higher required.
         /// </summary>
         public static string Prereq_Tls {
             get {
@@ -340,7 +340,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable TLS 1.1/1.2 support.
+        ///   Looks up a localized string similar to Enable TLS 1.2 support.
         /// </summary>
         public static string Prereq_TlsEnable {
             get {
@@ -349,7 +349,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The support for TLS 1.1 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it..
+        ///   Looks up a localized string similar to The support for TLS 1.2 or higher is not enabled on this system. As a result, ScoreSheet may not be able to download data from the competition website. Fortunately, Windows 7 does support this protocol, so you can simply enable it..
         /// </summary>
         public static string Prereq_TlsErrW7 {
             get {
@@ -358,7 +358,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Vista does not support TLS 1.1 by default, but it can be turned on in an unofficial way..
+        ///   Looks up a localized string similar to Windows Vista does not support TLS 1.2 by default, but it can be turned on in an unofficial way..
         /// </summary>
         public static string Prereq_TlsErrWV {
             get {
@@ -367,7 +367,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This system supports TLS 1.1 or higher.
+        ///   Looks up a localized string similar to This system supports TLS 1.2 or higher.
         /// </summary>
         public static string Prereq_TlsOk {
             get {
@@ -394,7 +394,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Vista or higher required.
+        ///   Looks up a localized string similar to Windows 7 or higher required.
         /// </summary>
         public static string Prereq_Windows {
             get {
@@ -412,7 +412,7 @@ namespace PieterP.ScoreSheet.Launcher.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You&apos;re running on Windows Vista or higher..
+        ///   Looks up a localized string similar to You&apos;re running on Windows 7 or higher..
         /// </summary>
         public static string Prereq_WindowsOk {
             get {

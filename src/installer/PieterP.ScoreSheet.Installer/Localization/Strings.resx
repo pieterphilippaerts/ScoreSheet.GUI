@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App_ChangesMade" xml:space="preserve">
     <value>Changes made</value>
@@ -184,13 +184,13 @@
     <value>This program will install ScoreSheet on your system.</value>
   </data>
   <data name="Prereq_Netfx" xml:space="preserve">
-    <value>.NET Framework 4.5 or higher required</value>
+    <value>.NET Framework 4.8 or higher required</value>
   </data>
   <data name="Prereq_NetfxDownload" xml:space="preserve">
-    <value>download the .NET Framework 4.5</value>
+    <value>download the .NET Framework 4.8</value>
   </data>
   <data name="Prereq_NetfxErr" xml:space="preserve">
-    <value>The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.5 or higher.</value>
+    <value>The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.8 or higher.</value>
   </data>
   <data name="Prereq_NetfxOk" xml:space="preserve">
     <value>Your version of the .NET Framework is sufficient.</value>
@@ -223,7 +223,7 @@
     <value>ATTENTION: you can install ScoreSheet, but as long as the above requirements are not met, ScoreSheet may not work correctly!</value>
   </data>
   <data name="Prereq_Windows" xml:space="preserve">
-    <value>Windows Vista or higher required</value>
+    <value>Windows 7 or higher required</value>
   </data>
   <data name="Prereq_WindowsErr" xml:space="preserve">
     <value>You're running on an old version of Windows. This version is no longer supported.</value>

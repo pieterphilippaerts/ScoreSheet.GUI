@@ -19,7 +19,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -259,7 +259,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .NET Framework 4.5 or higher required.
+        ///   Looks up a localized string similar to .NET Framework 4.8 or higher required.
         /// </summary>
         public static string Prereq_Netfx {
             get {
@@ -268,7 +268,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to download the .NET Framework 4.5.
+        ///   Looks up a localized string similar to download the .NET Framework 4.8.
         /// </summary>
         public static string Prereq_NetfxDownload {
             get {
@@ -277,7 +277,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.5 or higher..
+        ///   Looks up a localized string similar to The version of the .NET Framework installed on this computer is too old. You must install the .NET Framework version 4.8 or higher..
         /// </summary>
         public static string Prereq_NetfxErr {
             get {
@@ -376,7 +376,7 @@ namespace PieterP.ScoreSheet.Installer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Windows Vista or higher required.
+        ///   Looks up a localized string similar to Windows 7 or higher required.
         /// </summary>
         public static string Prereq_Windows {
             get {

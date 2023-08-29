@@ -16,14 +16,14 @@ using PieterP.ScoreSheet.Launcher.Localization;
 namespace PieterP.ScoreSheet.Launcher.ViewModels {
     public class PrereqViewModel {
         public PrereqViewModel() {
-            IsWindowsVistaOrHigher = CheckWindows();
+            IsWindows7OrHigher = CheckWindows();
             IsTls1_2Enabled = CheckTls();
             IsFrameworkAvailable = CheckFrameworkVersion();
 
-            ArePrereqsMet = IsWindowsVistaOrHigher && IsTls1_2Enabled && IsFrameworkAvailable;
+            ArePrereqsMet = IsWindows7OrHigher && IsTls1_2Enabled && IsFrameworkAvailable;
 
             var prereqs = new List<PrereqInfo>();
-            if (IsWindowsVistaOrHigher) {
+            if (IsWindows7OrHigher) {
                 prereqs.Add(new PrereqInfo() {
                     Title = Prereq_Windows,
                     Description = Prereq_WindowsOk,
@@ -48,7 +48,7 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
                     Description = Prereq_NetfxErr,
                     IsOk = false,
                     LinkText = Prereq_NetfxDownload,
-                    Click = new RelayCommand(() => OpenUrl("https://www.microsoft.com/en-us/download/details.aspx?id=30653"))
+                    Click = new RelayCommand(() => OpenUrl("https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net48-web-installer"))
                 });
             }
             if (IsTls1_2Enabled) {
@@ -66,14 +66,14 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
                         LinkText = Prereq_TlsEnable,
                         Click = new RelayCommand(() => EnableTls())
                     });
-                } else {
-                    prereqs.Add(new PrereqInfo() {
-                        Title = Prereq_Tls,
-                        Description = Prereq_TlsErrWV,
-                        IsOk = false,
-                        LinkText = Prereq_ReadMore,
-                        Click = new RelayCommand(() => OpenUrl("https://score.pieterp.be/Help/Vista"))
-                    });
+                //} else { // we don't support Vista anymore
+                //    prereqs.Add(new PrereqInfo() {
+                //        Title = Prereq_Tls,
+                //        Description = Prereq_TlsErrWV,
+                //        IsOk = false,
+                //        LinkText = Prereq_ReadMore,
+                //        Click = new RelayCommand(() => OpenUrl("https://score.pieterp.be/Help/Vista"))
+                //    });
                 }
             }
             this.Prereqs = prereqs.OrderBy(c => c.IsOk).Cast<object>().ToList();
@@ -101,14 +101,15 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
         }
         private bool CheckWindows() {
             // Windows must be Windows Vista or higher
-            return Environment.OSVersion.Version.Major >= 6;
+            return Environment.OSVersion.Version.Major > 6 /* Windows 10 or higher */
+                || (Environment.OSVersion.Version.Major == 6 && Environment.OSVersion.Version.Minor > 0) /* Windows 7, 8, 8.1 */;
         }
         private bool CheckFrameworkVersion() {
-            // .NET 4.5 required
+            // .NET 4.8 required
             // HKLM\SOFTWARE\dotnet\Setup\InstalledVersions\x86\InstallLocation
             try {
                 var version = (int)Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full", "Release", null);
-                return version >= 378389;
+                return version >= 528040;
             } catch { }
             return false;
         }
@@ -127,7 +128,7 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
         }
 
         public IList<object> Prereqs { get; private set; }
-        public bool IsWindowsVistaOrHigher { get; private set; }
+        public bool IsWindows7OrHigher { get; private set; }
         public bool IsTls1_2Enabled { get; private set; }
         public bool IsFrameworkAvailable { get; private set; }
         public bool ArePrereqsMet { get; private set; }

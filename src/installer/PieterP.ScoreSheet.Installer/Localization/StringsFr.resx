@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="App_ChangesMade" xml:space="preserve">
     <value>Modification effectuée</value>
@@ -184,13 +184,13 @@
     <value>Ce programme va installer ScoreSheet sur votre système.</value>
   </data>
   <data name="Prereq_Netfx" xml:space="preserve">
-    <value>.NET Framework version 4.5 ou supérieure est requise</value>
+    <value>.NET Framework version 4.8 ou supérieure est requise</value>
   </data>
   <data name="Prereq_NetfxDownload" xml:space="preserve">
-    <value>télécharger .NET Framework 4.5</value>
+    <value>télécharger .NET Framework 4.8</value>
   </data>
   <data name="Prereq_NetfxErr" xml:space="preserve">
-    <value>La version de .NET Framework installée sur cet ordinateur est trop ancienne. Vous devez installer la version 4.5 ou supérieure de .NET Framework.</value>
+    <value>La version de .NET Framework installée sur cet ordinateur est trop ancienne. Vous devez installer la version 4.8 ou supérieure de .NET Framework.</value>
   </data>
   <data name="Prereq_NetfxOk" xml:space="preserve">
     <value>Votre version de .NET Framework est suffisamment récente.</value>
@@ -205,7 +205,7 @@
     <value>Bienvenue dans ScoreSheet</value>
   </data>
   <data name="Prereq_Tls" xml:space="preserve">
-    <value>TLS version 1.1 ou supérieure est requise</value>
+    <value>TLS version 1.2 ou supérieure est requise</value>
   </data>
   <data name="Prereq_TlsEnable" xml:space="preserve">
     <value>Activer le support de TLS 1.2</value>
@@ -223,7 +223,7 @@
     <value>ATTENTION: Vous pouvez installer ScoreSheet, mais tant que les exigences de configuration précisées ci-dessus ne sont pas remplies, le programme peut ne pas fonctionner correctement.</value>
   </data>
   <data name="Prereq_Windows" xml:space="preserve">
-    <value>Windows Vista ou version supérieure est requis</value>
+    <value>Windows 7 ou version supérieure est requis</value>
   </data>
   <data name="Prereq_WindowsErr" xml:space="preserve">
     <value>Vous travaillez sur une ancienne version de Windows. Cette version n'est plus supportée.</value>
