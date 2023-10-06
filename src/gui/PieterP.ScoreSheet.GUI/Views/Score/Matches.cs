@@ -12,6 +12,12 @@ using PieterP.ScoreSheet.ViewModels.Score;
 using PieterP.Shared;
 using PieterP.Shared.Services;
 
+/*
+ 
+    THIS CLASS IS DEPRACATED; IT HAS BEEN REPLACED BY THE 'FastMatches' CLASS, WHICH OFFERS
+    THE SAME FUNCTIONALITY BUT IS -YOU GUESSED IT- FASTER
+ 
+ */
 namespace PieterP.ScoreSheet.GUI.Views.Score {
     // WPF has problems rendering the many controls we need for a score sheet
     // In these classes, we try to achieve the maximum performance by keeping the visual tree to a bare minimum
