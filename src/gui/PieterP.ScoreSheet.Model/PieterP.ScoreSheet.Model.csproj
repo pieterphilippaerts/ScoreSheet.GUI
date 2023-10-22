@@ -8,9 +8,9 @@
     <TransformOnBuild>true</TransformOnBuild>
     <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
-    <Version>2023.2024.1</Version>
-    <AssemblyVersion>2023.2024.1.0</AssemblyVersion>
-    <FileVersion>2023.2024.1.0</FileVersion>
+    <Version>2023.2024.2</Version>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

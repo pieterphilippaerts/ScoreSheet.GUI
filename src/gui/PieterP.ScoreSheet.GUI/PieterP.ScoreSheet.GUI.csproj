@@ -7,7 +7,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>scoresheet</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <Version>2023.2024.1</Version>
+    <Version>2023.2024.2</Version>
     <Authors>PieterP.be</Authors>
     <Product>PieterP.be ScoreSheet</Product>    
     <Copyright>Copyright © 2011-2023, PieterP.be</Copyright>
@@ -16,11 +16,11 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Description>ScoreSheet is a table tennis manager for the Belgian table tennis competition</Description>
-    <RepositoryUrl>https://bitbucket.org/pieterpbevttl/</RepositoryUrl>
+    <RepositoryUrl>https://github.com/pieterphilippaerts/ScoreSheet.GUI</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <AssemblyVersion>2023.2024.1.0</AssemblyVersion>
-    <FileVersion>2023.2024.1.0</FileVersion>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
