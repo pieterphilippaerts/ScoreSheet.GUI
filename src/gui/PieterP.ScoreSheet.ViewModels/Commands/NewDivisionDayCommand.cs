@@ -17,7 +17,7 @@ namespace PieterP.ScoreSheet.ViewModels.Commands
                 foreach (var m in _panelViewModel.SelectedMatches)
                 {
                     var fullMatch = DatabaseManager.Current.OfficialMatches[m.MatchId];
-                    _mainWindowViewModel.AddMatch(fullMatch != null ? new CompetitiveMatchViewModel(fullMatch) : new CompetitiveMatchViewModel(m));
+                    _mainWindowViewModel.AddMatch(fullMatch != null ? new CompetitiveMatchViewModel(fullMatch, m) : new CompetitiveMatchViewModel(m));
                     updater.RefreshMemberList(m.HomeClub, m.PlayerCategory.Value);
                     updater.RefreshMemberList(m.AwayClub, m.PlayerCategory.Value);
                 }

@@ -199,7 +199,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             var wiz = new WizardViewModel();
             var restoreMatchesViewModel = new RestoreBackupsViewModel(wiz, (match) =>
             {
-                var vm = new CompetitiveMatchViewModel(match);
+                var vm = new CompetitiveMatchViewModel(match, null);
                 vm.Dirty.Value = true;
                 AddMatch(vm);
             });
@@ -554,7 +554,7 @@ namespace PieterP.ScoreSheet.ViewModels {
                     if (match == null) {
                         NotificationManager.Current.Raise(new ShowMessageNotification(Main_OpenError, NotificationTypes.Error));
                     } else {
-                        _parent.AddMatch(new CompetitiveMatchViewModel(match, n.SelectedPath));
+                        _parent.AddMatch(new CompetitiveMatchViewModel(match, null, n.SelectedPath));
                     }
                 }
             }

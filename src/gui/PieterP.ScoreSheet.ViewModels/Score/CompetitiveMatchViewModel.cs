@@ -31,7 +31,23 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             Initialize(system);
             ScoreChanged();
         }
-        public CompetitiveMatchViewModel(Match fullMatch, string? fromFile = null) {
+        public CompetitiveMatchViewModel(Match fullMatch, MatchStartInfo? officialData, string? fromFile = null) {
+            // Check if the saved data is still consistent with the downloaded official data
+            if (officialData != null) {
+                bool ok = true;
+                if (officialData.MatchSystemId != fullMatch.MatchSystemId) // check for inconsistency w.r.t. the match system (e.g., 4v4, 3v3, 2v2, ...)
+                    ok = false;
+                if (officialData.PlayerCategory != fullMatch.PlayerCategory) // check for inconsistency w.r.t. the player category (e.g., male, female, youth, ...)
+                    ok = false;
+                // other inconsistencies can be fixed manually by the user, so we ignore them here
+                if (!ok) { 
+                    // ERROR: the match information does not correspond (anymore) with the official data
+                    // This can happen if the official data has changed (e.g., they changed the match system)
+                    // We 'fix' this by ignoring the saved data and creating a new score sheet
+                    Initialize(officialData);
+                    return;
+                }
+            }
             Initialize(fullMatch);
             this.IsInitializing = true;
             
