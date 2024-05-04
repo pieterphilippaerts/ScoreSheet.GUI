@@ -10,7 +10,10 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
     public class SubstitutePlayerInfo : PlayerInfo {
         public SubstitutePlayerInfo(TeamInfo team, SinglePlayerInfo transferablePlayer) : base(team) {
             this.TransferablePlayer = transferablePlayer;
-            this.SelectedTransferMatch = Cell.Create<MatchInfo?>(null, RaiseDataChanged);
+            this.SelectedTransferMatch = Cell.Create<MatchInfo?>(null, () => {
+                RaiseDataChanged();
+                team.ParentMatch.Score.Refresh();
+            });
             this.AvailableTransferMatches = new ObservableCollection<SubstituteMatchInfo>();
             this.AvailableTransferMatches.Add(new SubstituteMatchInfo(Strings.SubstitutePlayerInfo_NoSubstitute, null));
             foreach (var tm in team.ParentMatch.Matches.Where(m => m.AllowSubstitution)) {
@@ -18,6 +21,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             }
             team.ParentMatch.Matches.CollectionChanged += Matches_CollectionChanged;
         }
+
 
         private void Matches_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e) {
             if (e.OldItems != null) {

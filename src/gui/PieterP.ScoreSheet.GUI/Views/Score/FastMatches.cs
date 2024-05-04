@@ -188,7 +188,6 @@ namespace PieterP.ScoreSheet.GUI.Views.Score {
         }
 
         private void OnDataContextChanged(object context) {
-            var start = DateTime.Now;
             var vm = context as CompetitiveMatchViewModel;
             if (vm != null) {
                 if (_activeMatch != -1) {
@@ -224,7 +223,6 @@ namespace PieterP.ScoreSheet.GUI.Views.Score {
                     _matches[i].ChangeTarget(vm.Matches[i]);
                 }
             }
-            var stop = DateTime.Now;
         }
         private MatchPanel AllocMatch(int sets, int matchRow) {
             List<MatchPanel> list;
