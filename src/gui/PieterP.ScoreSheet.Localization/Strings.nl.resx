@@ -346,6 +346,9 @@
   <data name="Print_AllFiles" xml:space="preserve">
     <value>Alle bestanden</value>
   </data>
+  <data name="Print_AutoUploadSkipped" xml:space="preserve">
+    <value>Opgelet: het wedstrijdblad werd nog niet geüpload naar de competitiewebsite omdat het validatiefouten bevat. Als je het toch mét fouten wil uploaden, dan moet je het manueel uploaden via het "Bestand =&gt; upload naar competitiewebsite"-menu.</value>
+  </data>
   <data name="Print_ValidationErrorsFound" xml:space="preserve">
     <value>De wedstrijd die u wil afdrukken bevat validatiefouten:</value>
   </data>

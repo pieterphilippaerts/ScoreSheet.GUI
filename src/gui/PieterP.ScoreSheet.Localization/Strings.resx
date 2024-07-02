@@ -346,6 +346,9 @@
   <data name="Print_AllFiles" xml:space="preserve">
     <value>All files</value>
   </data>
+  <data name="Print_AutoUploadSkipped" xml:space="preserve">
+    <value>Warning: the scoresheet has not been uploaded to the competition website because it contains validation errors. If you wish to upload the sheet with validation errors, you have to upload it manually through the "File =&gt; Upload to competition website" menu.</value>
+  </data>
   <data name="Print_ValidationErrorsFound" xml:space="preserve">
     <value>The match you wish to print contains validation errors:</value>
   </data>

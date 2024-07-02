@@ -737,6 +737,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Warning: the scoresheet has not been uploaded to the competition website because it contains validation errors. If you wish to upload the sheet with validation errors, you have to upload it manually through the &quot;File =&gt; Upload to competition website&quot; menu..
+        /// </summary>
+        public static string Print_AutoUploadSkipped {
+            get {
+                return ResourceManager.GetString("Print_AutoUploadSkipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The match you wish to print contains validation errors:.
         /// </summary>
         public static string Print_ValidationErrorsFound {

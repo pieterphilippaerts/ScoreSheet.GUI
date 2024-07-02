@@ -99,6 +99,8 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 if (validationErrors == null) { // if there are no errors, upload the match
                     var uploader = new MatchUploader(false);
                     uploader.Upload(_match);
+                } else {
+                    NotificationManager.Current.Raise(new ShowMessageNotification(Strings.Print_AutoUploadSkipped, NotificationTypes.Exclamation, NotificationButtons.OK));
                 }
             }
         }

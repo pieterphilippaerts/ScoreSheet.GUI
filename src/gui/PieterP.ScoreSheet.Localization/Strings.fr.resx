@@ -346,6 +346,9 @@
   <data name="Print_AllFiles" xml:space="preserve">
     <value>Tous les fichiers</value>
   </data>
+  <data name="Print_AutoUploadSkipped" xml:space="preserve">
+    <value>Attention : la feuille de match n'a pas été mise en ligne sur le site de la compétition car elle contient des erreurs de validation. Si vous souhaitez télécharger la fiche comportant des erreurs de validation, vous devez la télécharger manuellement via le menu "Fichier =&gt; Envoyer vers le site web de la compétition".</value>
+  </data>
   <data name="Print_ValidationErrorsFound" xml:space="preserve">
     <value>La rencontre que vous souhaitez imprimer contient des erreurs de validation</value>
   </data>
