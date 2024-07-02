@@ -38,3 +38,5 @@
 /.vs
 /src/launcher/.vs
 /src/installer/.vs
+/src/gui/PieterP.ScoreSheet.GUI/Properties/PublishProfiles/CoreProfile.pubxml.user
+/src/launcher/PieterP.ScoreSheet.Launcher/PieterP.ScoreSheet.Launcher_TemporaryKey.pfx

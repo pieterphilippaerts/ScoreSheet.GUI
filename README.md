@@ -2,13 +2,13 @@
 
 [ScoreSheet](https://score.pieterp.be/) is a competition management program for the Belgian table tennis competition. This program is the official replacement for the popular but deprecated competition manager 'Wedstrijdblad'.
 
-ScoreSheet is not only free, but the source code (C #, WPF) is also freely available here on BitBucket. Do you want to help? [Contact us](mailto:score@pieterp.be)!
+ScoreSheet is not only free, but the source code (C #, WPF) is also freely available here on GitHub. Do you want to help? [Contact us](mailto:score@pieterp.be)!
 
 This repository is meant for developers interested in the ScoreSheet source code. If you simply want to install ScoreSheet on your computer, please download it from [the official website](https://score.pieterp.be/). 
 
 ### Source Code License ###
 
-Copyright © 2020, PieterP.be
+Copyright © 2024, PieterP.be
 All rights reserved.
 https://score.pieterp.be/
 
