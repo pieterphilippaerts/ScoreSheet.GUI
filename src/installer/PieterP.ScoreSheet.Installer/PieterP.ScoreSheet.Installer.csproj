@@ -64,6 +64,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -173,47 +174,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Libraries\SharpZipLib\Checksums\Adler32.cs" />
-    <Compile Include="Libraries\SharpZipLib\Checksums\CRC32.cs" />
-    <Compile Include="Libraries\SharpZipLib\Checksums\IChecksum.cs" />
-    <Compile Include="Libraries\SharpZipLib\Checksums\StrangeCRC.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\FileSystemScanner.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\INameTransform.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\IScanFilter.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\NameFilter.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\PathFilter.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\StreamUtils.cs" />
-    <Compile Include="Libraries\SharpZipLib\Core\WindowsPathUtils.cs" />
-    <Compile Include="Libraries\SharpZipLib\Encryption\PkzipClassic.cs" />
-    <Compile Include="Libraries\SharpZipLib\Encryption\ZipAESStream.cs" />
-    <Compile Include="Libraries\SharpZipLib\Encryption\ZipAESTransform.cs" />
-    <Compile Include="Libraries\SharpZipLib\SharpZipBaseException.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Deflater.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterConstants.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterEngine.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterHuffman.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\DeflaterPending.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Inflater.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\InflaterDynHeader.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\InflaterHuffmanTree.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\PendingBuffer.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\DeflaterOutputStream.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\InflaterInputStream.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\OutputWindow.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\Compression\Streams\StreamManipulator.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\FastZip.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\IEntryFactory.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\WindowsNameTransform.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipConstants.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipEntry.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipEntryFactory.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipException.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipExtraData.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipFile.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipHelperStream.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipInputStream.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipNameTransform.cs" />
-    <Compile Include="Libraries\SharpZipLib\Zip\ZipOutputStream.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -267,9 +227,6 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="images\splash.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Libraries\SharpZipLib\LICENSE.txt" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Libraries\PropertyStore\LICENSE.txt" />

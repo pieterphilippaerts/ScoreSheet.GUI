@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
-using ICSharpCode.SharpZipLib.Zip;
 using Microsoft.Win32;
 using PieterP.ScoreSheet.Installer.Models;
 using ShellLink;
@@ -21,9 +21,35 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
             this.Status = "";
             ThreadPool.QueueUserWorkItem(StartUpdate);
         }
+        private void ExtractZip(Stream s, string basePath) {
+            var archive = new ZipArchive(s);
+            foreach (var entry in archive.Entries) {
+                if (!entry.FullName.EndsWith("/") && !entry.FullName.EndsWith("\\")) {
+                    var fullPath = new FileInfo(Path.Combine(basePath, entry.FullName));
+                    if (!fullPath.Directory.Exists)
+                        Directory.CreateDirectory(fullPath.Directory.FullName);
+                    ExtractToFile(entry, fullPath.FullName, true);
+                }
+            }
+        }
+        private void ExtractToFile(ZipArchiveEntry source, string destinationFileName, bool overwrite) {
+            if (source == null) {
+                throw new ArgumentNullException("source");
+            }
+            if (destinationFileName == null) {
+                throw new ArgumentNullException("destinationFileName");
+            }
+            FileMode mode = ((!overwrite) ? FileMode.CreateNew : FileMode.Create);
+            using (Stream destination = File.Open(destinationFileName, mode, FileAccess.Write, FileShare.None)) {
+                using (Stream stream = source.Open()) {
+                    stream.CopyTo(destination);
+                }
+            }
+            File.SetLastWriteTime(destinationFileName, source.LastWriteTime.DateTime);
+        }
         private void StartUpdate(object o) {
             try {
-                var unzip = new FastZip();
+                //var unzip = new FastZip();
 
                 UpdateProgress(Installing_GUI);
                 string basePath = DatabaseManager.Current.BasePath;
@@ -32,7 +58,8 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
                     Finished(Installing_GUINotFound);
                     return;
                 }
-                unzip.ExtractZip(app.Stream, basePath, FastZip.Overwrite.Always, null, null, null, true, true);
+                //unzip.ExtractZip(app.Stream, basePath, FastZip.Overwrite.Always, null, null, null, true, true);
+                ExtractZip(app.Stream, basePath);
 
                 UpdateProgress(Installing_Launcher);
                 var launcher = Application.GetResourceStream(new Uri("pack://application:,,,/archives/launcher.zip"));
@@ -40,7 +67,8 @@ namespace PieterP.ScoreSheet.Installer.ViewModels {
                     Finished(Installing_LauncherNotFound);
                     return;
                 }
-                unzip.ExtractZip(launcher.Stream, basePath, FastZip.Overwrite.Always, null, null, null, true, true);
+                //unzip.ExtractZip(launcher.Stream, basePath, FastZip.Overwrite.Always, null, null, null, true, true);
+                ExtractZip(launcher.Stream, basePath);
 
                 UpdateProgress(Installing_ShortcutDesktop);
                 Shortcut.CreateShortcut(Path.Combine(basePath, "launcher.exe")).WriteToFile(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory), "ScoreSheet.lnk"));
