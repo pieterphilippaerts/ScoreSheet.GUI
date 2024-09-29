@@ -97,6 +97,26 @@ namespace PieterP.Shared.Services {
             public LogType Type { get; private set; }
             public string Message { get; private set; }
             public DateTime When { get; private set; }
+            public string FullString {
+                get {
+                    string f = "?";
+                    switch (this.Type) {
+                        case LogType.Warning:
+                            f = "W";
+                            break;
+                        case LogType.Exception:
+                            f = "E";
+                            break;
+                        case LogType.Informational:
+                            f = "I";
+                            break;
+                        case LogType.Debug:
+                            f = "D";
+                            break;
+                    }
+                    return $"[{When.ToString("HH:mm")}-{f}] {Message}";
+                }
+            }
         }
     }
     public enum LogType {

@@ -7,7 +7,7 @@
     <Nullable>enable</Nullable>
     <AssemblyName>ScoreSheet.Localization</AssemblyName>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2024.2025.1</Version>
+    <Version>2024.2025.2</Version>
     <FileVersion></FileVersion>
   </PropertyGroup>
 
