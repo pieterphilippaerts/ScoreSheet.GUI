@@ -493,7 +493,25 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If there are no official referees, the chief referee must be the home captain..
+        ///   Looks up a localized string similar to The chief referee of this match also plays in another simultaneous match ({0})..
+        /// </summary>
+        public static string Validation_ChiefRefereeNotAvailable {
+            get {
+                return ResourceManager.GetString("Validation_ChiefRefereeNotAvailable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chief referee must not be a member of the away club.
+        /// </summary>
+        public static string Validation_ChiefRefereeNotAwayMember {
+            get {
+                return ResourceManager.GetString("Validation_ChiefRefereeNotAwayMember", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The chief referee may not be a player other than the home captain.
         /// </summary>
         public static string Validation_ChiefRefereeNotHomeCaptain {
             get {

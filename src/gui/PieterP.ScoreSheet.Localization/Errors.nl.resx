@@ -262,7 +262,7 @@
     <value>De kapitein van {0} mag niet een walkover zijn</value>
   </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
-    <value>Als er geen officiële scheidsrechter is, moet de hoofdscheidsrechter de thuiskapitein zijn</value>
+    <value>De hoofdscheidsrechter mag geen andere speler zijn dan de thuiskapitein</value>
   </data>
   <data name="Validation_ClubIdNotFound" xml:space="preserve">
     <value>Kan het aanwijzingsnummer van {0} niet in de clubs-database vinden</value>
@@ -419,5 +419,11 @@
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
     <value>Er is een fout opgetreden tijdens het downloaden van de gegevens. Je kan meer informatie over deze fout vinden in het meldingen-scherm.</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
+    <value>De hoofdscheidsrechter mag geen lid van de uit-club zijn.</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
+    <value>De hoofdscheidsrecther van deze match speelt ook al in een andere gelijktijdige match ({0}).</value>
   </data>
 </root>

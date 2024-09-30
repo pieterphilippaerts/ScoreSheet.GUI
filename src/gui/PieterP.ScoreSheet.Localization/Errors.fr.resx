@@ -262,7 +262,7 @@
     <value>Le capitaine {0} ne doit pas être un walk-over</value>
   </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
-    <value>S'il n'y a pas d'arbitres officiels, le juge arbitre doit être le capitaine de l'équipe visitée</value>
+    <value>Le juge arbitre ne peut être un joueur autre que le capitaine de l’équipe visitée</value>
   </data>
   <data name="Validation_ClubIdNotFound" xml:space="preserve">
     <value>Impossible de retrouver l'identifiant du club {0} dans la base de données.</value>
@@ -419,5 +419,11 @@
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
     <value>Une erreur est survenue lors du téléchargement des données. Plus d'information sur cette erreur à trouver dans l'écran de log.</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
+    <value>Le juge arbitre ne doit pas être membre du club visiteur</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
+    <value>Le juge arbitre de ce match joue également dans un autre match simultané ({0})</value>
   </data>
 </root>

@@ -262,7 +262,7 @@
     <value>The captain of {0} cannot be a walkover</value>
   </data>
   <data name="Validation_ChiefRefereeNotHomeCaptain" xml:space="preserve">
-    <value>If there are no official referees, the chief referee must be the home captain.</value>
+    <value>The chief referee may not be a player other than the home captain</value>
   </data>
   <data name="Validation_ClubIdNotFound" xml:space="preserve">
     <value>Cannot find the club Id of {0} in the database</value>
@@ -419,5 +419,11 @@
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
     <value>An error occurred while downloading the data. You can find more information about this error in the log screen.</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
+    <value>The chief referee must not be a member of the away club</value>
+  </data>
+  <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
+    <value>The chief referee of this match also plays in another simultaneous match ({0}).</value>
   </data>
 </root>
