@@ -117,107 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutWindow_Attribution" xml:space="preserve">
-    <value>Ce programme utilise la base de données des compétitions gérées par la FRBTT, son interface rendue disponible par Gaëtan Frenoy, et les en remercie. Nous tenons également à remercier spécifiquement Glen Staes, Bruno Van Damme, David Waefelaer et Michèle Messiaen pour leur contribution au programme, et toute personne ayant suggéré une suggestion ou signalé une erreur.</value>
-  </data>
-  <data name="AboutWindow_Close" xml:space="preserve">
-    <value>Fermer</value>
-  </data>
-  <data name="AboutWindow_Copyright" xml:space="preserve">
-    <value>Copyright © {0}, PieterP.be</value>
-  </data>
-  <data name="AboutWindow_DataDirectory" xml:space="preserve">
-    <value>Dossier des données</value>
-  </data>
-  <data name="AboutWindow_OpenSource" xml:space="preserve">
-    <value>Le code source de ce programme est disponible sur le lien BitBucket ci-dessus. Vous désirez apporter votre aide ? Contactez-nous !</value>
-  </data>
-  <data name="AboutWindow_ProgramDirectory" xml:space="preserve">
-    <value>Dossier du programme</value>
-  </data>
-  <data name="AboutWindow_Support" xml:space="preserve">
-    <value>Support:</value>
-  </data>
-  <data name="AboutWindow_Title" xml:space="preserve">
-    <value>À propos de ScoreSheet…</value>
-  </data>
-  <data name="AboutWindow_Version" xml:space="preserve">
-    <value>Version:</value>
-  </data>
-  <data name="AboutWindow_Website" xml:space="preserve">
-    <value>Site web:</value>
-  </data>
-  <data name="Annuler" xml:space="preserve">
-    <value>Annuleren</value>
-  </data>
-  <data name="AskPasswordWindow_Cancel" xml:space="preserve">
-    <value>Annuler</value>
-  </data>
-  <data name="AskPasswordWindow_Description" xml:space="preserve">
-    <value>Veuillez entrer le nom d'utilisateur et le mot de passe associé que vous désirez utiliser pour vous connecter au site web de la compétition.</value>
-  </data>
-  <data name="AskPasswordWindow_InvalidUsernamePassword" xml:space="preserve">
-    <value>La combinaison nom d'utilisateur / mot de passe est invalide.</value>
-  </data>
-  <data name="AskPasswordWindow_Ok" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="AskPasswordWindow_Password" xml:space="preserve">
-    <value>Mot de passe:</value>
-  </data>
-  <data name="AskPasswordWindow_RememberLogin" xml:space="preserve">
-    <value>Retenir nom d'utilisateur / mot de passe</value>
-  </data>
-  <data name="AskPasswordWindow_Username" xml:space="preserve">
-    <value>Nom d'utilisateur:</value>
-  </data>
-  <data name="ErrorWindow_Description" xml:space="preserve">
-    <value>Une erreur inattendue est survenue ! Cela signifie la plupart du temps une erreur dans le programme, ou des fichiers de données corrompus. Si l'erreur persiste, il vous est conseillé de contacter les auteurs du programme à l'adresse email score@pieterp.be. En plus d'une description de ce que vous étiez occupés à faire lorsque l'erreur est survenue, veuillez coller le texte de ci-dessous dans votre email.</value>
-  </data>
-  <data name="ErrorWindow_Ok" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="ErrorWindow_UnexpectedError" xml:space="preserve">
-    <value>Erreur inattendue</value>
-  </data>
-  <data name="ErrorWindow_UnrecoverableMessage" xml:space="preserve">
-    <value>En raison de la nature de l'erreur, le programme doit être fermé.</value>
-  </data>
-  <data name="LogBook_Debug" xml:space="preserve">
-    <value>Debug</value>
-  </data>
-  <data name="LogBook_Errors" xml:space="preserve">
-    <value>Erreurs</value>
-  </data>
-  <data name="LogBook_Messages" xml:space="preserve">
-    <value>Messages</value>
-  </data>
-  <data name="LogBook_Show" xml:space="preserve">
-    <value>Montrer:</value>
-  </data>
-  <data name="LogBook_Warnings" xml:space="preserve">
-    <value>Avertissements</value>
-  </data>
-  <data name="MainWindow_LogBook" xml:space="preserve">
-    <value>Fichier log</value>
-  </data>
-  <data name="MainWindow_MenuAbout" xml:space="preserve">
-    <value>À propos de ScoreSheet</value>
-  </data>
-  <data name="MainWindow_MenuCanChangeOfficialFields" xml:space="preserve">
-    <value>Rendre les champs officiels non modifiables</value>
-  </data>
-  <data name="MainWindow_MenuClose" xml:space="preserve">
-    <value>_Fermer</value>
-  </data>
   <data name="MainWindow_MenuCloseAll" xml:space="preserve">
     <value>_Tout fermer</value>
-  </data>
-  <data name="MainWindow_MenuDivisionDay" xml:space="preserve">
-    <value>Journée de compétition (pour une division précise)</value>
-  </data>
-  <data name="MainWindow_MenuEmail" xml:space="preserve">
-    <value>Envoyer par email les résultats de la compétition récréative</value>
   </data>
   <data name="MainWindow_MenuExit" xml:space="preserve">
     <value>Quitter</value>
@@ -276,8 +177,44 @@
   <data name="MainWindow_MenuUpload" xml:space="preserve">
     <value>Envoyer vers le site web de la compétition</value>
   </data>
-  <data name="MainWindow_OpenLogbook" xml:space="preserve">
-    <value>Ouvrir le fichier log</value>
+  <data name="MainWindow_MenuAbout" xml:space="preserve">
+    <value>À propos de ScoreSheet</value>
+  </data>
+  <data name="MainWindow_MenuCanChangeOfficialFields" xml:space="preserve">
+    <value>Rendre les champs officiels non modifiables</value>
+  </data>
+  <data name="MainWindow_MenuClose" xml:space="preserve">
+    <value>_Fermer</value>
+  </data>
+  <data name="AboutWindow_Attribution" xml:space="preserve">
+    <value>Ce programme utilise la base de données des compétitions gérées par la FRBTT, son interface rendue disponible par Gaëtan Frenoy, et les en remercie. Nous tenons également à remercier spécifiquement Glen Staes, Bruno Van Damme, David Waefelaer et Michèle Messiaen pour leur contribution au programme, et toute personne ayant suggéré une suggestion ou signalé une erreur.</value>
+  </data>
+  <data name="AboutWindow_Close" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="AboutWindow_Copyright" xml:space="preserve">
+    <value>Copyright © {0}, PieterP.be</value>
+  </data>
+  <data name="AboutWindow_DataDirectory" xml:space="preserve">
+    <value>Dossier des données</value>
+  </data>
+  <data name="AboutWindow_OpenSource" xml:space="preserve">
+    <value>Le code source de ce programme est disponible sur le lien BitBucket ci-dessus. Vous désirez apporter votre aide ? Contactez-nous !</value>
+  </data>
+  <data name="AboutWindow_ProgramDirectory" xml:space="preserve">
+    <value>Dossier du programme</value>
+  </data>
+  <data name="AboutWindow_Support" xml:space="preserve">
+    <value>Support:</value>
+  </data>
+  <data name="AboutWindow_Title" xml:space="preserve">
+    <value>À propos de ScoreSheet…</value>
+  </data>
+  <data name="AboutWindow_Version" xml:space="preserve">
+    <value>Version:</value>
+  </data>
+  <data name="AboutWindow_Website" xml:space="preserve">
+    <value>Site web:</value>
   </data>
   <data name="MainWindow_PopupMenuClose" xml:space="preserve">
     <value>Fermer</value>
@@ -285,14 +222,59 @@
   <data name="MainWindow_PopupMenuPrint" xml:space="preserve">
     <value>Imprimer</value>
   </data>
-  <data name="MainWindow_RestartRequired" xml:space="preserve">
-    <value>redémarrage requis</value>
-  </data>
-  <data name="MainWindow_SubmitTranslationError" xml:space="preserve">
-    <value>Signaler une erreur de traduction</value>
-  </data>
   <data name="MainWindow_Zoom" xml:space="preserve">
     <value>Zoomer:</value>
+  </data>
+  <data name="AskPasswordWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AskPasswordWindow_Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="AskPasswordWindow_Description" xml:space="preserve">
+    <value>Veuillez entrer le nom d'utilisateur et le mot de passe associé que vous désirez utiliser pour vous connecter au site web de la compétition.</value>
+  </data>
+  <data name="AskPasswordWindow_InvalidUsernamePassword" xml:space="preserve">
+    <value>La combinaison nom d'utilisateur / mot de passe est invalide.</value>
+  </data>
+  <data name="AskPasswordWindow_Password" xml:space="preserve">
+    <value>Mot de passe:</value>
+  </data>
+  <data name="AskPasswordWindow_RememberLogin" xml:space="preserve">
+    <value>Retenir nom d'utilisateur / mot de passe</value>
+  </data>
+  <data name="AskPasswordWindow_Username" xml:space="preserve">
+    <value>Nom d'utilisateur:</value>
+  </data>
+  <data name="ErrorWindow_Description" xml:space="preserve">
+    <value>Une erreur inattendue est survenue ! Cela signifie la plupart du temps une erreur dans le programme, ou des fichiers de données corrompus. Si l'erreur persiste, il vous est conseillé de contacter les auteurs du programme à l'adresse email score@pieterp.be. En plus d'une description de ce que vous étiez occupés à faire lorsque l'erreur est survenue, veuillez coller le texte de ci-dessous dans votre email.</value>
+  </data>
+  <data name="ErrorWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorWindow_UnexpectedError" xml:space="preserve">
+    <value>Erreur inattendue</value>
+  </data>
+  <data name="ErrorWindow_UnrecoverableMessage" xml:space="preserve">
+    <value>En raison de la nature de l'erreur, le programme doit être fermé.</value>
+  </data>
+  <data name="LogBook_Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="LogBook_Errors" xml:space="preserve">
+    <value>Erreurs</value>
+  </data>
+  <data name="LogBook_Messages" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="LogBook_Show" xml:space="preserve">
+    <value>Montrer:</value>
+  </data>
+  <data name="LogBook_Warnings" xml:space="preserve">
+    <value>Avertissements</value>
+  </data>
+  <data name="SaveWindow_Cancel" xml:space="preserve">
+    <value>Annuler</value>
   </data>
   <data name="SaveWindow_Description" xml:space="preserve">
     <value>La/Les rencontre(s) suivante(s) n'a/ont pas encore été sauvegardée(s). Voulez-vous sauvegarder les modifications de cette/ces rencontre(s) ?</value>
@@ -344,5 +326,23 @@
   </data>
   <data name="WelcomeWindow_UpdateDbDesc" xml:space="preserve">
     <value>Mettre à jour la base de données de ce programme. Ces données comprennent les listes de force et le calendrier des rencontres.</value>
+  </data>
+  <data name="MainWindow_SubmitTranslationError" xml:space="preserve">
+    <value>Signaler une erreur de traduction</value>
+  </data>
+  <data name="MainWindow_MenuDivisionDay" xml:space="preserve">
+    <value>Journée de compétition (pour une division précise)</value>
+  </data>
+  <data name="MainWindow_LogBook" xml:space="preserve">
+    <value>Fichier log</value>
+  </data>
+  <data name="MainWindow_OpenLogbook" xml:space="preserve">
+    <value>Ouvrir le fichier log</value>
+  </data>
+  <data name="MainWindow_MenuEmail" xml:space="preserve">
+    <value>Envoyer par email les résultats de la compétition récréative</value>
+  </data>
+  <data name="MainWindow_RestartRequired" xml:space="preserve">
+    <value>redémarrage requis</value>
   </data>
 </root>

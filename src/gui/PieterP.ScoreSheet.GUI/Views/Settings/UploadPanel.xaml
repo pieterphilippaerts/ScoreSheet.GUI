@@ -9,6 +9,17 @@
              xmlns:behaviors="clr-namespace:PieterP.ScoreSheet.GUI.Behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="264" d:DesignWidth="346">
+    <!--xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"-->
+    <!--<UserControl.Resources>
+        <conv:BoolToObjectConverter x:Key="VisibilityConverter">
+            <conv:BoolToObjectConverter.TrueValue>
+                <Visibility>Visible</Visibility>
+            </conv:BoolToObjectConverter.TrueValue>
+            <conv:BoolToObjectConverter.FalseValue>
+                <Visibility>Collapsed</Visibility>
+            </conv:BoolToObjectConverter.FalseValue>
+        </conv:BoolToObjectConverter>
+    </UserControl.Resources>-->
     <StackPanel>
         <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.Upload_Description}"/>
         <Grid>
@@ -19,11 +30,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Right" Margin="5" Text="{x:Static l:Resources.Upload_Username}"/>
             <TextBox Grid.Row="0" Grid.Column="1" Margin="5 5 30 5" Text="{Binding Username.Value, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Right" Margin="5" Text="{x:Static l:Resources.Upload_Password}"/>
             <controls:BindablePasswordBox Grid.Row="1" Grid.Column="1" Margin="5 5 30 5" Password="{Binding Password.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <!--<TextBlock Grid.Row="2" Grid.Column="1" Foreground="Red" TextAlignment="Left" Margin="5" Text="{x:Static l:Resources.Upload_CapsLockOn}" Visibility="{Binding IsCapsLockOn.Value, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, Converter={StaticResource VisibilityConverter}}"/>-->
         </Grid>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Margin="5 5 30 5" Style="{StaticResource LinkButton}" Content="{x:Static l:Resources.Upload_Test}" Command="{Binding Test}" />

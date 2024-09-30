@@ -370,4 +370,7 @@ This option is for advanced use. For a more user-friendly experience, choose the
   <data name="WebService_UnblockAddress" xml:space="preserve">
     <value>Give permissions for this url</value>
   </data>
+  <data name="Upload_CapsLockOn" xml:space="preserve">
+    <value>Attention: CAPS-LOCK is on</value>
+  </data>
 </root>

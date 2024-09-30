@@ -5,6 +5,7 @@ using System.Windows.Input;
 using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
+using PieterP.ScoreSheet.Model.Information;
 using PieterP.ScoreSheet.ViewModels.Notifications;
 using PieterP.Shared;
 using PieterP.Shared.Cells;
@@ -16,6 +17,7 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
             this.Username = DatabaseManager.Current.Settings.TabTUsername;
             this.Password = DatabaseManager.Current.Settings.TabTPassword;
             this.Test = new RelayCommand(OnTest);
+            //this.IsCapsLockOn = Keyboard.CapsLockOn;
         }
 
         private async void OnTest() {
@@ -42,5 +44,6 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
         public Cell<string> Username { get; set; }
         public Cell<string> Password { get; set; }
         public ICommand Test { get; set; }
+//        public Cell<bool> IsCapsLockOn { get; }
     }
 }
