@@ -118,7 +118,7 @@ namespace PieterP.ScoreSheet.GUI.Views.Score {
                     }
                     break;
                 case Key.Right:
-
+                case Key.Subtract:
                     if (sender.CaretIndex == sender.Text.Length) {
                         MoveRight();
                     }
