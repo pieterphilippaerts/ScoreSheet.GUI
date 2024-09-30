@@ -1394,6 +1394,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download progess: {0}.
+        /// </summary>
+        public static string UpdateProgressToString_Text {
+            get {
+                return ResourceManager.GetString("UpdateProgressToString_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Downloading the update.
         /// </summary>
         public static string UpdateStatusToString_Downloading {

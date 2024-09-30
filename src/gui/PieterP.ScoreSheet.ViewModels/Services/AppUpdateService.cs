@@ -6,6 +6,7 @@ using System.IO.Compression;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model.Database;
@@ -22,6 +23,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         public AppUpdateService() {
             ServiceLocator.RegisterInstance<AppUpdateService>(this);
             this.Status = Cell.Create(UpdateStatus.NoUpdate);
+            this.BytesDownloaded = Cell.Create(0);
+            this.TotalBytes = Cell.Create(0);
             _isUpdating = false;
             _syncroot = new object();
             _timer = ServiceLocator.Resolve<ITimerService>();
@@ -70,6 +73,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
 
                 if (update.InstallFileUrl != null) {
                     // download update
+                    this.TotalBytes.Value = update.Size ?? 0;
+                    this.BytesDownloaded.Value = 0;
                     this.Status.Value = UpdateStatus.DownloadingUpdate;
                     ms = new MemoryStream();
                     if (!await Download(new Uri(BaseUri, update.InstallFileUrl), ms)) {
@@ -196,7 +201,17 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
                 var request = WebRequest.Create(url) as HttpWebRequest;
                 if (request != null) {
                     var response = await request.GetResponseAsync();
-                    await response.GetResponseStream().CopyToAsync(result);
+                    // await response.GetResponseStream().CopyToAsync(result); => we want to update the user
+
+                    var source = response.GetResponseStream();
+                    byte[] buffer = new byte[10240];
+                    int totalBytesRead = 0;
+                    int bytesRead;
+                    while ((bytesRead = await source.ReadAsync(buffer, 0, buffer.Length)) > 0) {
+                        await result.WriteAsync(buffer, 0, bytesRead);
+                        totalBytesRead += bytesRead;
+                        this.BytesDownloaded.Value = totalBytesRead;
+                    }
                     return true;
                 }
             } catch (Exception e) {
@@ -240,7 +255,9 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             _timerOnce = null;
         }
 
-        public Cell<UpdateStatus> Status { get; set; }
+        public Cell<UpdateStatus> Status { get; }
+        public Cell<int> BytesDownloaded { get; }
+        public Cell<int> TotalBytes { get; }
 
         private static readonly Uri BaseUri = new Uri("https://score.pieterp.be");
         private const string UpdateUrl = "/Update";

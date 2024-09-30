@@ -727,4 +727,7 @@ Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schij
   <data name="Wizard_ValidationWarning" xml:space="preserve">
     <value>U heeft wedstrijden geselecteerd met validatiefouten in. Weet u zeker dat u wil verdergaan?</value>
   </data>
+  <data name="UpdateProgressToString" xml:space="preserve">
+    <value>Download voortgang: {0}</value>
+  </data>
 </root>

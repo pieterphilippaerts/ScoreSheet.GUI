@@ -727,4 +727,7 @@ After the file has been saved, you can then attach the USB stick or portable har
   <data name="Wizard_ValidationWarning" xml:space="preserve">
     <value>You have selected matches with validation errors. Are you sure you want to continue?</value>
   </data>
+  <data name="UpdateProgressToString_Text" xml:space="preserve">
+    <value>Download progess: {0}</value>
+  </data>
 </root>

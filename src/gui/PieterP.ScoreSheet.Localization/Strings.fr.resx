@@ -727,4 +727,7 @@ Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le dis
   <data name="Wizard_ValidationWarning" xml:space="preserve">
     <value>Vous avez sélectionné des rencontres qui contiennent des erreurs de validation. Êtes-vous certain de vouloir continuer ?</value>
   </data>
+  <data name="UpdateProgressToString" xml:space="preserve">
+    <value>Progression du téléchargement : {0}</value>
+  </data>
 </root>

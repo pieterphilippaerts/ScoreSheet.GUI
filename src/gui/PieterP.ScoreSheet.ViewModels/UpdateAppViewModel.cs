@@ -11,11 +11,15 @@ namespace PieterP.ScoreSheet.ViewModels {
         public UpdateAppViewModel() {
             var service = ServiceLocator.Resolve<AppUpdateService>();
             this.Status = service.Status;
+            this.TotalBytes = service.TotalBytes;
+            this.BytesDownloaded = service.BytesDownloaded;
             this.Close = new CloseDialogCommand(true);
             service.CheckForUpdate();
         }
 
-        public ICommand Close { get; private set; }
-        public Cell<UpdateStatus> Status { get; private set; }
+        public ICommand Close { get; }
+        public Cell<UpdateStatus> Status { get; }
+        public Cell<int> TotalBytes { get; }
+        public Cell<int> BytesDownloaded { get; }
     }
 }
