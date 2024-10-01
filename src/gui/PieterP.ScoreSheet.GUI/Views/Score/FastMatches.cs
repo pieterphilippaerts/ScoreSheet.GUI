@@ -139,6 +139,12 @@ namespace PieterP.ScoreSheet.GUI.Views.Score {
                         e.Handled = true;
                     }
                     break;
+                case Key.Back:
+                    if (sender.Text.Length == 0) {
+                        MoveLeft();
+                        e.Handled = true;
+                    }
+                    break;
             }
 
             void MoveRight() {

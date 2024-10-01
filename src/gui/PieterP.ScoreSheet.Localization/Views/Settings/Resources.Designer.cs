@@ -738,6 +738,78 @@ namespace PieterP.ScoreSheet.Localization.Views.Settings {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to To make it clearer which score sheet has been selected, a watermark indicating the home team can be displayed on the left and right side of the score sheet..
+        /// </summary>
+        public static string Watermark_Description {
+            get {
+                return ResourceManager.GetString("Watermark_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to large.
+        /// </summary>
+        public static string Watermark_Large {
+            get {
+                return ResourceManager.GetString("Watermark_Large", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Opacity of the watermark.
+        /// </summary>
+        public static string Watermark_Opacity {
+            get {
+                return ResourceManager.GetString("Watermark_Opacity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to semi-transparent.
+        /// </summary>
+        public static string Watermark_SemiTransparent {
+            get {
+                return ResourceManager.GetString("Watermark_SemiTransparent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show watermark on score sheets.
+        /// </summary>
+        public static string Watermark_Show {
+            get {
+                return ResourceManager.GetString("Watermark_Show", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to small.
+        /// </summary>
+        public static string Watermark_Small {
+            get {
+                return ResourceManager.GetString("Watermark_Small", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Size of the text.
+        /// </summary>
+        public static string Watermark_TextSize {
+            get {
+                return ResourceManager.GetString("Watermark_TextSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to completely transparent.
+        /// </summary>
+        public static string Watermark_Transparent {
+            get {
+                return ResourceManager.GetString("Watermark_Transparent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The web service is now active.
         /// </summary>
         public static string WebService_Activated {

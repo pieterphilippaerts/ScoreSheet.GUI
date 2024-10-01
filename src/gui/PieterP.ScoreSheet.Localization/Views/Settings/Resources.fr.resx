@@ -373,4 +373,28 @@ Cette option est destinée à une utilisation avancée. Pour une expérience plu
   <data name="Upload_CapsLockOn" xml:space="preserve">
     <value>Attention : CAPS-LOCK est activé</value>
   </data>
+  <data name="Watermark_Description" xml:space="preserve">
+    <value>Pour que la feuille de match sélectionnée soit plus claire, un filigrane indiquant l’équipe visité peut être affiché à gauche et à droite de la feuille de match.</value>
+  </data>
+  <data name="Watermark_Show" xml:space="preserve">
+    <value>Afficher le filigrane sur les feuilles de match</value>
+  </data>
+  <data name="Watermark_TextSize" xml:space="preserve">
+    <value>Taille du texte</value>
+  </data>
+  <data name="Watermark_Small" xml:space="preserve">
+    <value>petit</value>
+  </data>
+  <data name="Watermark_Large" xml:space="preserve">
+    <value>grand</value>
+  </data>
+  <data name="Watermark_Opacity" xml:space="preserve">
+    <value>Opacité du filigrane</value>
+  </data>
+  <data name="Watermark_Transparent" xml:space="preserve">
+    <value>totalement transparent</value>
+  </data>
+  <data name="Watermark_SemiTransparent" xml:space="preserve">
+    <value>semi-transparent</value>
+  </data>
 </root>

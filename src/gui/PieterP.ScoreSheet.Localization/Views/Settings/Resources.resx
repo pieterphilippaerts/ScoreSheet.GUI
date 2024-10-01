@@ -373,4 +373,28 @@ This option is for advanced use. For a more user-friendly experience, choose the
   <data name="Upload_CapsLockOn" xml:space="preserve">
     <value>Attention: CAPS-LOCK is on</value>
   </data>
+  <data name="Watermark_Description" xml:space="preserve">
+    <value>To make it clearer which score sheet has been selected, a watermark indicating the home team can be displayed on the left and right side of the score sheet.</value>
+  </data>
+  <data name="Watermark_Show" xml:space="preserve">
+    <value>Show watermark on score sheets</value>
+  </data>
+  <data name="Watermark_TextSize" xml:space="preserve">
+    <value>Size of the text</value>
+  </data>
+  <data name="Watermark_Small" xml:space="preserve">
+    <value>small</value>
+  </data>
+  <data name="Watermark_Large" xml:space="preserve">
+    <value>large</value>
+  </data>
+  <data name="Watermark_Opacity" xml:space="preserve">
+    <value>Opacity of the watermark</value>
+  </data>
+  <data name="Watermark_Transparent" xml:space="preserve">
+    <value>completely transparent</value>
+  </data>
+  <data name="Watermark_SemiTransparent" xml:space="preserve">
+    <value>semi-transparent</value>
+  </data>
 </root>

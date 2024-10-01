@@ -373,4 +373,28 @@ Deze optie is voor geavanceerd gebruik. Voor een gebruiksvriendelijkere ervaring
   <data name="Upload_CapsLockOn" xml:space="preserve">
     <value>Opgelet: CAPS-LOCK staat aan</value>
   </data>
+  <data name="Watermark_Description" xml:space="preserve">
+    <value>Om duidelijker te maken welk wedstrijdblad geselecteerd is, kan links en rechts van het wedstrijdblad een watermerk getoond worden dat het thuisteam aangeeft.</value>
+  </data>
+  <data name="Watermark_Show" xml:space="preserve">
+    <value>Toon watermerk op wedstrijdbladen</value>
+  </data>
+  <data name="Watermark_TextSize" xml:space="preserve">
+    <value>Grootte van de tekst</value>
+  </data>
+  <data name="Watermark_Small" xml:space="preserve">
+    <value>klein</value>
+  </data>
+  <data name="Watermark_Large" xml:space="preserve">
+    <value>groot</value>
+  </data>
+  <data name="Watermark_Opacity" xml:space="preserve">
+    <value>Doorzichtigheid van het watermerk</value>
+  </data>
+  <data name="Watermark_Transparent" xml:space="preserve">
+    <value>volledig transparant</value>
+  </data>
+  <data name="Watermark_SemiTransparent" xml:space="preserve">
+    <value>half-transparant</value>
+  </data>
 </root>

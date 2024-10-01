@@ -102,8 +102,8 @@ namespace PieterP.ScoreSheet.Model.Database {
             this.WatermarkOpacity = CreateCell(Database.WatermarkOpacity ?? 0.02, value => Database.WatermarkOpacity = value, c => {
                 if (c < 0.01)
                     return 0.01;
-                if (c > 1)
-                    return 1;
+                if (c > 0.5)
+                    return 0.5;
                 return c;
             });
         }

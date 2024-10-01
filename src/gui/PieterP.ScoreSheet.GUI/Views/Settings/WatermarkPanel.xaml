@@ -9,27 +9,38 @@
              mc:Ignorable="d" 
              d:DesignHeight="264" d:DesignWidth="346">
     <UserControl.Resources>
-        <conv:ScreenConverter x:Key="ScreenConverter" />
-        <conv:LogicalMultiConverter x:Key="LogicConverter" LogicOperation="And" />
+
     </UserControl.Resources>
     <StackPanel>
-        <!--<TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.SecondScreen_Description}"/>-->
-        <TextBlock TextWrapping="Wrap" Margin="5" Text="Om duidelijker te maken welk wedstrijdblad geselecteerd is, kan links en rechts van het wedstrijdblad een watermerk getoond worden dat het team aangeeft."/>
-        <CheckBox Margin="15 15 0 0" IsChecked="{Binding EnableSecondScreen.Value}" x:Name="TheCheckBox" Content="Toon watermerk op wedstrijdbladen"/>
-        <RadioButton Margin="30 5 0 0" GroupName="ScreenChoice" IsChecked="{Binding ChooseScreenAutomatically.Value}" IsEnabled="{Binding IsChecked, ElementName=TheCheckBox}" Content="{x:Static l:Resources.SecondScreen_Auto}"/>
-        <RadioButton Margin="30 5 0 0" GroupName="ScreenChoice" IsChecked="{Binding ChooseScreenManually.Value}" IsEnabled="{Binding IsChecked, ElementName=TheCheckBox}" x:Name="TheManualOption" Content="{x:Static l:Resources.SecondScreen_Manual}"/>
-        <ComboBox Margin="50 5" ItemsSource="{Binding Screens}" SelectedItem="{Binding SelectedScreen.Value}">
-            <ComboBox.IsEnabled>
-                <MultiBinding Converter="{StaticResource LogicConverter}">
-                    <Binding Path="IsEnabled" ElementName="TheManualOption"/>
-                    <Binding Path="IsChecked" ElementName="TheManualOption"/>
-                </MultiBinding>
-            </ComboBox.IsEnabled>
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding ., Converter={StaticResource ScreenConverter}}" />
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <TextBlock TextWrapping="Wrap" Margin="5" Text="{x:Static l:Resources.Watermark_Description}"/>
+        <CheckBox Margin="15 15 0 0" IsChecked="{Binding ShowWatermark.Value}" x:Name="TheCheckBox" Content="{x:Static l:Resources.Watermark_Show}"/>
+
+        <TextBlock Margin="30 20 30 0" Text="{x:Static l:Resources.Watermark_TextSize}"/>
+        <Slider Margin="30 5 30 0" Minimum="1" Maximum="30" SmallChange="1" LargeChange="5" Value="{Binding WatermarkSize.Value}" IsEnabled="{Binding IsChecked, ElementName=TheCheckBox}"></Slider>
+        <Grid Margin="30 0 30 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" TextAlignment="Left" Foreground="DimGray" Text="{x:Static l:Resources.Watermark_Small}"/>
+            <TextBlock Grid.Column="1" TextAlignment="Right" Foreground="DimGray" Text="{x:Static l:Resources.Watermark_Large}"/>
+        </Grid>
+
+        <TextBlock Margin="30 20 30 0" Text="{x:Static l:Resources.Watermark_Opacity}"/>
+        <Slider Margin="30 5 30 0" SmallChange="0.01" Minimum="0.01" Maximum="0.5" LargeChange="0.1" Value="{Binding WatermarkOpacity.Value}" IsEnabled="{Binding IsChecked, ElementName=TheCheckBox}"></Slider>
+        <Grid Margin="30 0 30 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" TextAlignment="Left" Foreground="DimGray" Text="{x:Static l:Resources.Watermark_Transparent}"/>
+            <TextBlock Grid.Column="1" TextAlignment="Right" Foreground="DimGray" Text="{x:Static l:Resources.Watermark_SemiTransparent}"/>
+        </Grid>
     </StackPanel>
 </UserControl>
