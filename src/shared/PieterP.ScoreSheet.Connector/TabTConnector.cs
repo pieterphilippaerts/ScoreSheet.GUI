@@ -339,10 +339,21 @@ namespace PieterP.ScoreSheet.Connector {
             int homeScore, awayScore;
             TabTMatchDetails? details = null;
             if (int.TryParse(match.MatchDetails.HomeScore, out homeScore) && int.TryParse(match.MatchDetails.AwayScore, out awayScore)) {
-                details = new TabTMatchDetails(homeScore, awayScore);
+                details = new TabTMatchDetails(homeScore, awayScore, ToPlayerList(match.MatchDetails.HomePlayers?.Players), ToPlayerList(match.MatchDetails.AwayPlayers?.Players));
             }
             return new TabTMatch(match.AwayTeam, match.Date, match.DateSpecified, match.HomeTeam,
                     match.MatchId, match.Score, match.Time, match.TimeSpecified, match.WeekName, match.HomeClub, match.AwayClub, venue, match.VenueClub, details);
+
+            MatchPlayer[]? ToPlayerList(TeamMatchPlayerEntryType[]? p) {
+                if (p == null || p.Length == 0)
+                    return null;
+                return p.Select(c => new MatchPlayer() { Firstname = c.FirstName, Lastname = c.LastName, Ranking = c.Ranking, VictoryCount = ToInt(c.VictoryCount) }).ToArray();
+            }
+            int ToInt(string? s) {
+                if (s != null && int.TryParse(s, out int r))
+                    return r;
+                return 0;
+            }
         }
         #endregion
 

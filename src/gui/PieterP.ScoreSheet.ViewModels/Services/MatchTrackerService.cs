@@ -34,7 +34,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             if (homeClub != null && homeClub != "") {
                 var date = DateTime.Now.Date;
 //#if DEBUG
-//                date = new DateTime(2020, 9, 12);
+//                date = new DateTime(2024, 9, 27);
 //#endif
                 _matches = DatabaseManager.Current.MatchStartInfo.GetMatchesAtDate(date, false, false)
                     .Where(m => m.HomeClub != homeClub && !MatchStartInfo.IsByeIndex(m.HomeClub)).ToList();
@@ -86,6 +86,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
                             }
                             am.HomeMatchesWon.Value = match.Details.HomeScore;
                             am.AwayMatchesWon.Value = match.Details.AwayScore;
+                            am.HomePlayers.Value = match.Details.HomePlayers;
+                            am.AwayPlayers.Value = match.Details.AwayPlayers;
                         }
                     } catch (Exception e) {
                         Logger.Log(e);
@@ -112,6 +114,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             this.AwayClubId = awayClub;
             this.HomeMatchesWon = Cell.Create(0);
             this.AwayMatchesWon = Cell.Create(0);
+            this.HomePlayers = Cell.Create<MatchPlayer[]?>(null);
+            this.AwayPlayers = Cell.Create<MatchPlayer[]?>(null);
         }
         public string MatchId { get; private set; }
         public string HomeTeam { get; private set; }
@@ -120,6 +124,8 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         public string AwayClubId { get; private set; }
         public Cell<int> HomeMatchesWon { get; private set; }
         public Cell<int> AwayMatchesWon { get; private set; }
+        public Cell<MatchPlayer[]?> HomePlayers { get; private set; }
+        public Cell<MatchPlayer[]?> AwayPlayers { get; private set; }
     }
 }
 
