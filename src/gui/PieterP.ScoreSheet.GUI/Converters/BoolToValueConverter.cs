@@ -25,4 +25,10 @@ namespace PieterP.ScoreSheet.GUI.Converters {
     public class BoolToObjectConverter : BoolToValueConverter<object> {
         // nothing to see here
     }
+    public class BoolToVisibilityConverter : BoolToValueConverter<Visibility> {
+        public BoolToVisibilityConverter() {
+            this.TrueValue = Visibility.Visible;
+            this.FalseValue = Visibility.Hidden;
+        }
+    }
 }

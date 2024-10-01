@@ -418,12 +418,15 @@
     <value>An error occurred while uploading the data. The server has detected a number of validation errors in the data.</value>
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
-    <value>An error occurred while downloading the data. You can find more information about this error in the log screen.</value>
+    <value>An error occurred while downloading the data. You may not have internet access, or the competition server is unreachable. You can find more information about this error in the log screen.</value>
   </data>
   <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
     <value>The chief referee must not be a member of the away club</value>
   </data>
   <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
     <value>The chief referee of this match also plays in another simultaneous match ({0}).</value>
+  </data>
+  <data name="Settings_Watermark" xml:space="preserve">
+    <value>Watermark</value>
   </data>
 </root>

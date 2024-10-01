@@ -26,7 +26,7 @@
                 <ToggleButton Padding="7 4" IsChecked="{Binding ShowInformation.Value}" Margin="5" Content="{x:Static l:Resources.LogBook_Messages}"/>
                 <ToggleButton Padding="7 4" IsChecked="{Binding ShowDebug.Value}" Margin="5" Visibility="{Binding IsDebug, Converter={StaticResource VisibilityConverter}}" Content="{x:Static l:Resources.LogBook_Debug}"/>
             </StackPanel>
-            <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="FullString" BorderThickness="0 1 0 0"/>
+            <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="LogWindowString" BorderThickness="0 1 0 0"/>
         </DockPanel>    
     </Border>
 </Popup>

@@ -69,6 +69,10 @@ namespace PieterP.ScoreSheet.Model.Database.Entities {
         public bool? SmtpUseStartTls { get; set; }
         public string? FreeTimeMailFrom { get; set; }
         public string? FreeTimeMailTo { get; set; }
-        public bool? ClubResponsibleInCC { get; set; }        
+        public bool? ClubResponsibleInCC { get; set; } 
+        
+        public bool? ShowWatermark { get; set; } 
+        public int? WatermarkSize { get; set; }
+        public double? WatermarkOpacity { get; set; }
     }
 }

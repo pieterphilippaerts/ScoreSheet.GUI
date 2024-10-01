@@ -598,7 +598,7 @@ Are you sure you want to delete this data?</value>
     <value>The specified username/password combination is invalid! Make sure the username and password are entered correctly (without spaces a.o.).</value>
   </data>
   <data name="Various_NetworkError" xml:space="preserve">
-    <value>An unexpected error occurred while connecting to the competition website.</value>
+    <value>An unexpected error occurred while connecting to the competition website. (Is the Wi-Fi working?)</value>
   </data>
   <data name="Various_NoPassword" xml:space="preserve">
     <value>You have not specified a password.</value>
@@ -729,5 +729,8 @@ After the file has been saved, you can then attach the USB stick or portable har
   </data>
   <data name="UpdateProgressToString_Text" xml:space="preserve">
     <value>Download progess: {0}</value>
+  </data>
+  <data name="Settings_Watermark" xml:space="preserve">
+    <value>Watermark</value>
   </data>
 </root>

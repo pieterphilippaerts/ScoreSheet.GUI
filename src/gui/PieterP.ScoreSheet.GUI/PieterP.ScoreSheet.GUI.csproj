@@ -74,6 +74,7 @@
     <None Remove="images\i16_speech.png" />
     <None Remove="images\i16_startup.png" />
     <None Remove="images\i16_upload.png" />
+    <None Remove="images\i16_watermark.png" />
     <None Remove="images\i16_web.png" />
     <None Remove="images\icon_serve.png" />
     <None Remove="images\ico_about.png" />
@@ -162,6 +163,7 @@
     <Resource Include="images\i16_speech.png" />
     <Resource Include="images\i16_startup.png" />
     <Resource Include="images\i16_upload.png" />
+    <Resource Include="images\i16_watermark.png" />
     <Resource Include="images\i16_web.png" />
     <Resource Include="images\icon_serve.png" />
     <Resource Include="images\ico_about.png" />

@@ -258,6 +258,15 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.MustBePlayed = Cell.Derived(this.HomeTeam.IsBye, this.HomeTeam.Forfeit, this.AwayTeam.IsBye,this.AwayTeam.Forfeit, (hb, hff, ab, aff) => !(hb || hff || ab || aff));
             this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
+            this.Watermark = Cell.Derived(this.HomeTeam.Name, c => {
+                if (!string.IsNullOrWhiteSpace(c)) {
+                    var components = c.Split(' ');
+                    if (components.Length > 0 && components[components.Length - 1].Length == 1) {
+                        return components[components.Length - 1].ToUpper();
+                    }
+                }
+                return "";
+            });
             this.IsInitializing = false;
         }
 
@@ -521,6 +530,12 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
         public Cell<bool> MustBePlayed { get; private set; }
         public Cell<MatchStatus> MatchStatus { get; private set; }
         public Cell<UploadStatus> UploadStatus { get; private set; }
+
+        public Cell<string> Watermark { get; private set; }
+        public Cell<bool> ShowWatermark => DatabaseManager.Current.Settings.ShowWatermark;
+        public Cell<int> WatermarkSize => DatabaseManager.Current.Settings.WatermarkSize;
+        public Cell<double> WatermarkOpacity => DatabaseManager.Current.Settings.WatermarkOpacity;
+
         private bool _isSaveScheduled;
     }
     public enum MatchStatus {

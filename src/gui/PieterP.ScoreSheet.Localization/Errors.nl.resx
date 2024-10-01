@@ -418,12 +418,15 @@
     <value>Er heeft zich een fout voorgedaan tijdens het uploaden van de data. De server heeft een aantal fouten in de gegevens vastgesteld.</value>
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
-    <value>Er is een fout opgetreden tijdens het downloaden van de gegevens. Je kan meer informatie over deze fout vinden in het meldingen-scherm.</value>
+    <value>Er is een fout opgetreden tijdens het downloaden van de gegevens. Mogelijk heb je geen internettoegang, of is de competitieserver onbereikbaar. Je kan meer informatie over deze fout vinden in het logboek-scherm.</value>
   </data>
   <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
     <value>De hoofdscheidsrechter mag geen lid van de uit-club zijn.</value>
   </data>
   <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
     <value>De hoofdscheidsrecther van deze match speelt ook al in een andere gelijktijdige match ({0}).</value>
+  </data>
+  <data name="Settings_Watermark" xml:space="preserve">
+    <value>Watermerk</value>
   </data>
 </root>

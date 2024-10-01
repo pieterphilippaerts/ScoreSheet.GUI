@@ -1106,6 +1106,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Watermark.
+        /// </summary>
+        public static string Settings_Watermark {
+            get {
+                return ResourceManager.GetString("Settings_Watermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Web Service.
         /// </summary>
         public static string Settings_WebService {
@@ -1504,7 +1513,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An unexpected error occurred while connecting to the competition website..
+        ///   Looks up a localized string similar to An unexpected error occurred while connecting to the competition website. (Is the Wi-Fi working?).
         /// </summary>
         public static string Various_NetworkError {
             get {

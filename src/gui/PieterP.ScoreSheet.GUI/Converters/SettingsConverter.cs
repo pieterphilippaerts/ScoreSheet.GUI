@@ -41,6 +41,8 @@ namespace PieterP.ScoreSheet.GUI.Converters {
                     return Strings.Settings_ScoreVisualization;
                 case LimburgViewModel _:
                     return Strings.Settings_Limburg;
+                case WatermarkViewModel _:
+                    return Strings.Settings_Watermark;
                 default:
                     return "?";
             }
@@ -81,6 +83,8 @@ namespace PieterP.ScoreSheet.GUI.Converters {
                     return (ImageSource)converter.ConvertFromString("pack://application:,,,/images/i16_score.png");
                 case LimburgViewModel _:
                     return (ImageSource)converter.ConvertFromString("pack://application:,,,/images/i16_limburg1.png");
+                case WatermarkViewModel _:
+                    return (ImageSource)converter.ConvertFromString("pack://application:,,,/images/i16_watermark.png");
                 default:
                     return null;
             }

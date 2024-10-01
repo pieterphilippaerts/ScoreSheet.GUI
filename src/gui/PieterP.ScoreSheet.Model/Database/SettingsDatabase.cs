@@ -76,7 +76,7 @@ namespace PieterP.ScoreSheet.Model.Database {
                 Database.LatestInstalledVersion = lv.ToString(3);
                 Save();
 #endif
-            } 
+            }
             this.LatestInstalledVersion = CreateCell<Version>(lv, value => Database.LatestInstalledVersion = value.ToString(3));
             this.OverviewVisualization = CreateCell(Database.OverviewVisualization ?? ScoreVisualizations.Default, value => Database.OverviewVisualization = value);
             this.SecondScreenVisualization = CreateCell(Database.SecondScreenVisualization ?? ScoreVisualizations.Default, value => Database.SecondScreenVisualization = value);
@@ -90,6 +90,22 @@ namespace PieterP.ScoreSheet.Model.Database {
             this.FreeTimeMailTo = CreateCell(Database.FreeTimeMailTo ?? "", value => Database.FreeTimeMailTo = value);
             this.ClubResponsibleInCC = CreateCell(Database.ClubResponsibleInCC ?? false, value => Database.ClubResponsibleInCC = value);
             this.UseHandicap = Cell.Create(false); // do not store this in the settings; always reset to false on startup
+
+            this.ShowWatermark = CreateCell(Database.ShowWatermark ?? false, value => Database.ShowWatermark = value);
+            this.WatermarkSize = CreateCell(Database.WatermarkSize ?? 20, value => Database.WatermarkSize = value, c => {
+                if (c < 1)
+                    return 1;
+                if (c > 30)
+                    return 30;
+                return c;
+            });
+            this.WatermarkOpacity = CreateCell(Database.WatermarkOpacity ?? 0.02, value => Database.WatermarkOpacity = value, c => {
+                if (c < 0.01)
+                    return 0.01;
+                if (c > 1)
+                    return 1;
+                return c;
+            });
         }
         private Cell<T> CreateCell<T>(T initial, Action<T> setCallback, Func<T, T>? validator = null) {
             var cell = new SettingsCell<T>(initial, setCallback, validator);
@@ -171,7 +187,10 @@ namespace PieterP.ScoreSheet.Model.Database {
         public Cell<bool> SmtpUseStartTls { get; private set; }
         public Cell<string> FreeTimeMailFrom { get; private set; }
         public Cell<string> FreeTimeMailTo { get; private set; }
-        public Cell<bool> ClubResponsibleInCC { get; private set; }        
+        public Cell<bool> ClubResponsibleInCC { get; private set; }
+        public Cell<bool> ShowWatermark { get; private set; }
+        public Cell<int> WatermarkSize { get; private set; }
+        public Cell<double> WatermarkOpacity { get; private set; }
 
         private class SettingsCell<T> : ConcreteCell<T> {
             public SettingsCell(T initial, Action<T> setCallback, Func<T, T>? validator = null) : base(initial) {

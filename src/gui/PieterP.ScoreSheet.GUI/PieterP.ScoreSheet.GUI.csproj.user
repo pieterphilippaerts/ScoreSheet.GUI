@@ -63,6 +63,9 @@
     <Compile Update="Views\Settings\SettingsWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Settings\WatermarkPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Templates\Partial\AfttPlayers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -195,6 +198,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Settings\SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Settings\WatermarkPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Templates\Partial\AfttPlayers.xaml">

@@ -14,7 +14,7 @@ namespace PieterP.ScoreSheet.GUI.Converters {
             var zoomable = values[0]  as IZoomable;
             if (zoomable == null)
                 return values[0];
-            return new ZoomableViewModel(values[0], values[1] as Cell<float>);
+            return new ZoomableViewModel(zoomable, values[1] as Cell<float>);
         }
 
         public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture) => throw new NotImplementedException();

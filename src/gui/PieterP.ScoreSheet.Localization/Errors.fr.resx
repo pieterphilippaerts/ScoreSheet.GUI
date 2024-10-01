@@ -418,12 +418,15 @@
     <value>Une erreur est survenue lors de l'envoi des données. Le serveur a détecté un certain nombre d'erreurs de validation des données.</value>
   </data>
   <data name="Wizard_UpdateError" xml:space="preserve">
-    <value>Une erreur est survenue lors du téléchargement des données. Plus d'information sur cette erreur à trouver dans l'écran de log.</value>
+    <value>Une erreur est survenue lors du téléchargement des données. Il est possible que vous n'ayez pas accès à Internet, ou que le serveur soit injoignable. Plus d'information sur cette erreur à trouver dans l'écran de log.</value>
   </data>
   <data name="Validation_ChiefRefereeNotAwayMember" xml:space="preserve">
     <value>Le juge arbitre ne doit pas être membre du club visiteur</value>
   </data>
   <data name="Validation_ChiefRefereeNotAvailable" xml:space="preserve">
     <value>Le juge arbitre de ce match joue également dans un autre match simultané ({0})</value>
+  </data>
+  <data name="Settings_Watermark" xml:space="preserve">
+    <value>Filigrane</value>
   </data>
 </root>

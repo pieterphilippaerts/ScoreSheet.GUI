@@ -598,7 +598,7 @@ Weet u zeker dat u deze data wilt verwijderen?</value>
     <value>De opgegeven gebruikersnaam/paswoord-combinatie is ongeldig! Controleer dat u de gebruikersnaam en paswoord correct hebt ingevuld (zonder spaties e.d.). Indien u uw paswoord niet meer weet, kan u het resetten op https://auth.vttl.be/</value>
   </data>
   <data name="Various_NetworkError" xml:space="preserve">
-    <value>Er heeft zich een onverwachte fout voorgedaan tijdens het connecteren met de competitiewebsite.</value>
+    <value>Er heeft zich een onverwachte fout voorgedaan tijdens het connecteren met de competitiewebsite. (Werkt de WiFi?)</value>
   </data>
   <data name="Various_NoPassword" xml:space="preserve">
     <value>U heeft geen paswoord opgegeven.</value>
@@ -727,7 +727,10 @@ Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schij
   <data name="Wizard_ValidationWarning" xml:space="preserve">
     <value>U heeft wedstrijden geselecteerd met validatiefouten in. Weet u zeker dat u wil verdergaan?</value>
   </data>
-  <data name="UpdateProgressToString" xml:space="preserve">
-    <value>Download voortgang: {0}</value>
+  <data name="UpdateProgressToString_Text" xml:space="preserve">
+    <value>Bezig met downloaden: {0}</value>
+  </data>
+  <data name="Settings_Watermark" xml:space="preserve">
+    <value>Watermerk</value>
   </data>
 </root>

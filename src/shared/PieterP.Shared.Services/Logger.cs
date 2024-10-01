@@ -2,7 +2,9 @@
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
+using System.Net;
 using System.Runtime.CompilerServices;
+using Microsoft.Win32.SafeHandles;
 using PieterP.Shared.Cells;
 
 namespace PieterP.Shared.Services {
@@ -25,6 +27,13 @@ namespace PieterP.Shared.Services {
 
         public static void Log(Exception? e) {
             ServiceLocator.Resolve<Logger>()?.LogException(e);
+            var we = e as WebException;
+            if (we == null && e != null)
+                we = e.InnerException as WebException;
+            if (we != null) {
+                ServiceLocator.Resolve<Logger>()?.LogMessage(LogType.Exception, $"WebException status: {we.Status.ToString()}");
+                ServiceLocator.Resolve<Logger>()?.LogMessage(LogType.Informational, $"Internet is not working? Please check your internet connection...");
+            }
         }
         public static void Log(LogType type, string message) {
             ServiceLocator.Resolve<Logger>()?.LogMessage(type, message);
@@ -97,7 +106,7 @@ namespace PieterP.Shared.Services {
             public LogType Type { get; private set; }
             public string Message { get; private set; }
             public DateTime When { get; private set; }
-            public string FullString {
+            public string LogWindowString {
                 get {
                     string f = "?";
                     switch (this.Type) {
@@ -114,7 +123,10 @@ namespace PieterP.Shared.Services {
                             f = "D";
                             break;
                     }
-                    return $"[{When.ToString("HH:mm")}-{f}] {Message}";
+                    var m = Message ?? "";
+                    if (m.Length > 1023)
+                        m = m.Substring(0, 1023) + "⋯";
+                    return $"[{When.ToString("HH:mm")}-{f}] {m}";
                 }
             }
         }

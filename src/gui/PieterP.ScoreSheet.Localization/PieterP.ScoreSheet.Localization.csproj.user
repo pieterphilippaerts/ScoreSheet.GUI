@@ -4,6 +4,9 @@
     <ShowAllFiles>false</ShowAllFiles>
   </PropertyGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Errors.nl.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Update="Strings.fr.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>

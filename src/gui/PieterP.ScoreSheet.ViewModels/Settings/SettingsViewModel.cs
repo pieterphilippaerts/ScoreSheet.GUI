@@ -20,13 +20,14 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
                 new AutoUploadViewModel(),
                 new SecondScreenViewModel(),
                 new ScoreVisualizationViewModel(),
+                new WatermarkViewModel(),
                 new LayoutViewModel(),
                 new LiveUpdatesViewModel(),
                 new AwayMatchesViewModel(tracker?.TrackCount),
                 new WebServiceViewModel(),
 #if LIMBURG_FREETIME_SUPPORT
                 new LimburgViewModel(),
-#endif
+#endif                
                 new VariousViewModel(),
                 new StartupViewModel()
             };

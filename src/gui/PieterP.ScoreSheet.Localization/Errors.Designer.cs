@@ -241,6 +241,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Watermark.
+        /// </summary>
+        public static string Settings_Watermark {
+            get {
+                return ResourceManager.GetString("Settings_Watermark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Invalid Category found for club {0} ({1}).
         /// </summary>
         public static string TabT_CategoryError {
@@ -979,7 +988,7 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to An error occurred while downloading the data. You can find more information about this error in the log screen..
+        ///   Looks up a localized string similar to An error occurred while downloading the data. You may not have internet access, or the competition server is unreachable. You can find more information about this error in the log screen..
         /// </summary>
         public static string Wizard_UpdateError {
             get {
