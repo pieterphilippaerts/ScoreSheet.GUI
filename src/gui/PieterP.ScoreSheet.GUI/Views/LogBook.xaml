@@ -16,6 +16,7 @@
                 <Visibility>Hidden</Visibility>
             </conv:BoolToObjectConverter.FalseValue>
         </conv:BoolToObjectConverter>
+        <conv:LogTypeToBrushConverter x:Key="LogTypeConverter"/>
     </Popup.Resources>
     <Border BorderThickness="1" BorderBrush="DarkGray">
         <DockPanel LastChildFill="True">
@@ -26,7 +27,13 @@
                 <ToggleButton Padding="7 4" IsChecked="{Binding ShowInformation.Value}" Margin="5" Content="{x:Static l:Resources.LogBook_Messages}"/>
                 <ToggleButton Padding="7 4" IsChecked="{Binding ShowDebug.Value}" Margin="5" Visibility="{Binding IsDebug, Converter={StaticResource VisibilityConverter}}" Content="{x:Static l:Resources.LogBook_Debug}"/>
             </StackPanel>
-            <ListBox ItemsSource="{Binding Items}" DisplayMemberPath="LogWindowString" BorderThickness="0 1 0 0"/>
+            <ListBox ItemsSource="{Binding Items}"  BorderThickness="0 1 0 0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding LogWindowString}" Foreground="{Binding Type, Converter={StaticResource LogTypeConverter}}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </DockPanel>    
     </Border>
 </Popup>

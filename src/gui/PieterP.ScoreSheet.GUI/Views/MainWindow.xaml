@@ -47,6 +47,13 @@
         <KeyBinding Key="F11" Command="{Binding FullScreen}"/>
     </Window.InputBindings>
     <DockPanel>
+        <Popup Name="LogBookPopup" IsOpen="{Binding ErrorLogged.Value}" Placement="Top" PlacementTarget="{Binding ElementName=LogBookButton}" VerticalOffset="-5" AllowsTransparency="True" >
+            <Border BorderThickness="1" CornerRadius="5" Padding="10 5 10 5" Background="LightYellow" BorderBrush="Black">
+                <TextBlock Text="{x:Static l:Resources.MainWindow_LogBookError}"/>
+
+            </Border>
+        </Popup>
+
         <Menu DockPanel.Dock="Top" BorderThickness="0 1" BorderBrush="DarkGray" behaviors:MouseTrackingBehavior.OnMouseEnter="{Binding ShowNavigation}">
             <MenuItem Header="{x:Static l:Resources.MainWindow_MenuFile}">
                 <MenuItem Header="{x:Static l:Resources.MainWindow_MenuNew}">
@@ -210,8 +217,28 @@
                 <Button x:Name="LogBookButton" Padding="3" Command="{Binding ShowLogBook}" CommandParameter="{Binding RelativeSource={RelativeSource Self}}">
                     <StackPanel Orientation="Horizontal">
                         <Image Source="/images/i16_log.png" Width="16" Height="16" />
-                        <TextBlock Margin="5 0" Text="{x:Static l:Resources.MainWindow_LogBook}"/>
+                        <TextBlock Margin="5 0" Text="{x:Static l:Resources.MainWindow_LogBook}" />
                     </StackPanel>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ErrorLogged.Value}" Value="True">
+                                    <DataTrigger.EnterActions>
+                                        <BeginStoryboard x:Name="LogButtonAnimation">
+                                            <Storyboard RepeatBehavior="Forever" AutoReverse="True">
+                                                <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
+                                                        From="LightCoral" To="Red"
+                                                        Duration="0:0:0.500"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </DataTrigger.EnterActions>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ErrorLogged.Value}" Value="False">
+                                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
                 </Button>
             </StatusBarItem>
             <StatusBarItem Grid.Column="1">

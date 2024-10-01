@@ -117,104 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AboutWindow_Attribution" xml:space="preserve">
-    <value>Dit programma maakt dankbaar gebruik van de competitiedatabase die beheerd wordt door de KBTTB en de koppelingen hiermee die beschikbaar gemaakt zijn door Gaëtan Frenoy. Ook willen we specifiek Glen Staes, Bruno Van Damme, David Waefelaer en Michèle Messiaen bedanken voor hun bijdrage aan het programma, alsook iedereen die een suggestie doorstuurde of een fout heeft gemeld.</value>
-  </data>
-  <data name="AboutWindow_Close" xml:space="preserve">
-    <value>Sluiten</value>
-  </data>
-  <data name="AboutWindow_Copyright" xml:space="preserve">
-    <value>Copyright © {0}, PieterP.be</value>
-  </data>
-  <data name="AboutWindow_DataDirectory" xml:space="preserve">
-    <value>Data-folder</value>
-  </data>
-  <data name="AboutWindow_OpenSource" xml:space="preserve">
-    <value>De broncode van dit programma is beschikbaar op de bovenstaande BitBucket-link. Wil je meehelpen? Contacteer ons dan!</value>
-  </data>
-  <data name="AboutWindow_ProgramDirectory" xml:space="preserve">
-    <value>Programma-folder</value>
-  </data>
-  <data name="AboutWindow_Support" xml:space="preserve">
-    <value>Support:</value>
-  </data>
-  <data name="AboutWindow_Title" xml:space="preserve">
-    <value>Over ScoreSheet...</value>
-  </data>
-  <data name="AboutWindow_Version" xml:space="preserve">
-    <value>Versie:</value>
-  </data>
-  <data name="AboutWindow_Website" xml:space="preserve">
-    <value>Website:</value>
-  </data>
-  <data name="AskPasswordWindow_Cancel" xml:space="preserve">
-    <value>Annuleren</value>
-  </data>
-  <data name="AskPasswordWindow_Description" xml:space="preserve">
-    <value>Geef hieronder de gebruikersnaam en het overeenkomstige paswoord in dat u wil gebruiken om te connecteren met de competitiewebsite.</value>
-  </data>
-  <data name="AskPasswordWindow_InvalidUsernamePassword" xml:space="preserve">
-    <value>De opgegeven gebruikersnaam/paswoord-combinatie was ongeldig!</value>
-  </data>
-  <data name="AskPasswordWindow_Ok" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="AskPasswordWindow_Password" xml:space="preserve">
-    <value>Paswoord:</value>
-  </data>
-  <data name="AskPasswordWindow_RememberLogin" xml:space="preserve">
-    <value>Logingegevens onthouden</value>
-  </data>
-  <data name="AskPasswordWindow_Username" xml:space="preserve">
-    <value>Gebruikersnaam:</value>
-  </data>
-  <data name="ErrorWindow_Description" xml:space="preserve">
-    <value>Er is een onverwachte fout opgetreden! Dit duidt meestal op een fout in het programma, of corrupte databestanden. Indien deze fout zich blijft voordoen, neemt u best contact op met de auteurs van dit programma op het e-mailadres score@pieterp.be Naast een beschrijving van wat u bezig was toen de fout zich voordeed, plakt u best ook onderstaande tekst in die email.</value>
-  </data>
-  <data name="ErrorWindow_Ok" xml:space="preserve">
-    <value>OK</value>
-  </data>
-  <data name="ErrorWindow_UnexpectedError" xml:space="preserve">
-    <value>Onverwachte Fout</value>
-  </data>
-  <data name="ErrorWindow_UnrecoverableMessage" xml:space="preserve">
-    <value>Omwille van de aard van de fout moet het programma worden afgesloten.</value>
-  </data>
-  <data name="LogBook_Debug" xml:space="preserve">
-    <value>Debug</value>
-  </data>
-  <data name="LogBook_Errors" xml:space="preserve">
-    <value>Fouten</value>
-  </data>
-  <data name="LogBook_Messages" xml:space="preserve">
-    <value>Meldingen</value>
-  </data>
-  <data name="LogBook_Show" xml:space="preserve">
-    <value>Toon:</value>
-  </data>
-  <data name="LogBook_Warnings" xml:space="preserve">
-    <value>Waarschuwingen</value>
-  </data>
-  <data name="MainWindow_LogBook" xml:space="preserve">
-    <value>Logboek</value>
-  </data>
-  <data name="MainWindow_MenuAbout" xml:space="preserve">
-    <value>Over ScoreSheet</value>
-  </data>
-  <data name="MainWindow_MenuCanChangeOfficialFields" xml:space="preserve">
-    <value>Officiële velden onveranderbaar maken</value>
-  </data>
-  <data name="MainWindow_MenuClose" xml:space="preserve">
-    <value>_Sluiten</value>
-  </data>
   <data name="MainWindow_MenuCloseAll" xml:space="preserve">
     <value>_Alles sluiten</value>
-  </data>
-  <data name="MainWindow_MenuDivisionDay" xml:space="preserve">
-    <value>Wedstrijddag (voor een specifieke divisie)</value>
-  </data>
-  <data name="MainWindow_MenuEmail" xml:space="preserve">
-    <value>E-mail resultaten vrijetijdscompetitie</value>
   </data>
   <data name="MainWindow_MenuExit" xml:space="preserve">
     <value>Afsluiten</value>
@@ -273,8 +177,44 @@
   <data name="MainWindow_MenuUpload" xml:space="preserve">
     <value>Upload naar competitiewebsite</value>
   </data>
-  <data name="MainWindow_OpenLogbook" xml:space="preserve">
-    <value>Open logboek</value>
+  <data name="MainWindow_MenuAbout" xml:space="preserve">
+    <value>Over ScoreSheet</value>
+  </data>
+  <data name="MainWindow_MenuCanChangeOfficialFields" xml:space="preserve">
+    <value>Officiële velden onveranderbaar maken</value>
+  </data>
+  <data name="MainWindow_MenuClose" xml:space="preserve">
+    <value>_Sluiten</value>
+  </data>
+  <data name="AboutWindow_Attribution" xml:space="preserve">
+    <value>Dit programma maakt dankbaar gebruik van de competitiedatabase die beheerd wordt door de KBTTB en de koppelingen hiermee die beschikbaar gemaakt zijn door Gaëtan Frenoy. Ook willen we specifiek Glen Staes, Bruno Van Damme, David Waefelaer en Michèle Messiaen bedanken voor hun bijdrage aan het programma, alsook iedereen die een suggestie doorstuurde of een fout heeft gemeld.</value>
+  </data>
+  <data name="AboutWindow_Close" xml:space="preserve">
+    <value>Sluiten</value>
+  </data>
+  <data name="AboutWindow_Copyright" xml:space="preserve">
+    <value>Copyright © {0}, PieterP.be</value>
+  </data>
+  <data name="AboutWindow_DataDirectory" xml:space="preserve">
+    <value>Data-folder</value>
+  </data>
+  <data name="AboutWindow_OpenSource" xml:space="preserve">
+    <value>De broncode van dit programma is beschikbaar op de bovenstaande BitBucket-link. Wil je meehelpen? Contacteer ons dan!</value>
+  </data>
+  <data name="AboutWindow_ProgramDirectory" xml:space="preserve">
+    <value>Programma-folder</value>
+  </data>
+  <data name="AboutWindow_Support" xml:space="preserve">
+    <value>Support:</value>
+  </data>
+  <data name="AboutWindow_Title" xml:space="preserve">
+    <value>Over ScoreSheet...</value>
+  </data>
+  <data name="AboutWindow_Version" xml:space="preserve">
+    <value>Versie:</value>
+  </data>
+  <data name="AboutWindow_Website" xml:space="preserve">
+    <value>Website:</value>
   </data>
   <data name="MainWindow_PopupMenuClose" xml:space="preserve">
     <value>Sluiten</value>
@@ -282,14 +222,56 @@
   <data name="MainWindow_PopupMenuPrint" xml:space="preserve">
     <value>Printen</value>
   </data>
-  <data name="MainWindow_RestartRequired" xml:space="preserve">
-    <value>herstart vereist</value>
-  </data>
-  <data name="MainWindow_SubmitTranslationError" xml:space="preserve">
-    <value>Meld een (ver-)taalfout</value>
-  </data>
   <data name="MainWindow_Zoom" xml:space="preserve">
     <value>Zoom:</value>
+  </data>
+  <data name="AskPasswordWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="AskPasswordWindow_Cancel" xml:space="preserve">
+    <value>Annuleren</value>
+  </data>
+  <data name="AskPasswordWindow_Description" xml:space="preserve">
+    <value>Geef hieronder de gebruikersnaam en het overeenkomstige paswoord in dat u wil gebruiken om te connecteren met de competitiewebsite.</value>
+  </data>
+  <data name="AskPasswordWindow_InvalidUsernamePassword" xml:space="preserve">
+    <value>De opgegeven gebruikersnaam/paswoord-combinatie was ongeldig!</value>
+  </data>
+  <data name="AskPasswordWindow_Password" xml:space="preserve">
+    <value>Paswoord:</value>
+  </data>
+  <data name="AskPasswordWindow_RememberLogin" xml:space="preserve">
+    <value>Logingegevens onthouden</value>
+  </data>
+  <data name="AskPasswordWindow_Username" xml:space="preserve">
+    <value>Gebruikersnaam:</value>
+  </data>
+  <data name="ErrorWindow_Description" xml:space="preserve">
+    <value>Er is een onverwachte fout opgetreden! Dit duidt meestal op een fout in het programma, of corrupte databestanden. Indien deze fout zich blijft voordoen, neemt u best contact op met de auteurs van dit programma op het e-mailadres score@pieterp.be Naast een beschrijving van wat u bezig was toen de fout zich voordeed, plakt u best ook onderstaande tekst in die email.</value>
+  </data>
+  <data name="ErrorWindow_Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorWindow_UnexpectedError" xml:space="preserve">
+    <value>Onverwachte Fout</value>
+  </data>
+  <data name="ErrorWindow_UnrecoverableMessage" xml:space="preserve">
+    <value>Omwille van de aard van de fout moet het programma worden afgesloten.</value>
+  </data>
+  <data name="LogBook_Debug" xml:space="preserve">
+    <value>Debug</value>
+  </data>
+  <data name="LogBook_Errors" xml:space="preserve">
+    <value>Fouten</value>
+  </data>
+  <data name="LogBook_Messages" xml:space="preserve">
+    <value>Meldingen</value>
+  </data>
+  <data name="LogBook_Show" xml:space="preserve">
+    <value>Toon:</value>
+  </data>
+  <data name="LogBook_Warnings" xml:space="preserve">
+    <value>Waarschuwingen</value>
   </data>
   <data name="SaveWindow_Cancel" xml:space="preserve">
     <value>Annuleren</value>
@@ -344,5 +326,26 @@
   </data>
   <data name="WelcomeWindow_UpdateDbDesc" xml:space="preserve">
     <value>Breng de data van dit programma up-to-date. Deze data omvat sterktelijsten en kalenderdata.</value>
+  </data>
+  <data name="MainWindow_SubmitTranslationError" xml:space="preserve">
+    <value>Meld een (ver-)taalfout</value>
+  </data>
+  <data name="MainWindow_MenuDivisionDay" xml:space="preserve">
+    <value>Wedstrijddag (voor een specifieke divisie)</value>
+  </data>
+  <data name="MainWindow_LogBook" xml:space="preserve">
+    <value>Logboek</value>
+  </data>
+  <data name="MainWindow_OpenLogbook" xml:space="preserve">
+    <value>Open logboek</value>
+  </data>
+  <data name="MainWindow_MenuEmail" xml:space="preserve">
+    <value>E-mail resultaten vrijetijdscompetitie</value>
+  </data>
+  <data name="MainWindow_RestartRequired" xml:space="preserve">
+    <value>herstart vereist</value>
+  </data>
+  <data name="MainWindow_LogBookError" xml:space="preserve">
+    <value>Opgelet, er werd een foutmelding geregistreerd. Klik op de logboekknop om de details van de fout te bekijken.</value>
   </data>
 </root>

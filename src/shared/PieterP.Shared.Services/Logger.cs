@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Net;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using Microsoft.Win32.SafeHandles;
 using PieterP.Shared.Cells;
 
@@ -56,7 +57,6 @@ namespace PieterP.Shared.Services {
                 if (File.Exists(_logfile)) {
                     var fi = new FileInfo(_logfile);
                     if (fi.Length > MaxFileSize) { // truncate file; do not let the log grow indefinitely
-
                         using (var reader = fi.Open(FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
                         using (var writer = fi.Open(FileMode.Open, FileAccess.Write, FileShare.ReadWrite)) {
                             writer.Seek(0, SeekOrigin.Begin);
@@ -85,11 +85,18 @@ namespace PieterP.Shared.Services {
             // add the log message to the log (viewable by the user in the log window)
             _logEntries.Add(new LogEntry(type, message, DateTime.Now));
             this.LatestMessage.Value = message;
+
+            if (type == LogType.Exception) 
+                OnError?.Invoke(message);
         }
 
         public ReadOnlyObservableCollection<LogEntry> Entries => new ReadOnlyObservableCollection<LogEntry>(_logEntries);
 
         public Cell<string> LatestMessage { get; private set; }
+
+        public event OnErrorEventDelegate OnError;
+
+        public delegate void OnErrorEventDelegate(string message);
 
         private string _logfile;
         private bool _isDebug;

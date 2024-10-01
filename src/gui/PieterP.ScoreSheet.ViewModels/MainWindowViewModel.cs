@@ -32,17 +32,21 @@ using static PieterP.ScoreSheet.Localization.Strings;
 namespace PieterP.ScoreSheet.ViewModels {
     public class MainWindowViewModel {
         public MainWindowViewModel(bool debug) {
+            var logger = ServiceLocator.Resolve<Logger>();
             MatchContainer = new MatchContainerViewModel();
             this.ActiveMatches = new ObservableCollection<CompetitiveMatchViewModel>();
             this.Screens = new ObservableCollection<ScreenInfo>();
             this.CurrentScreen = Cell.Create<object>(null);
             this.ZoomLevel = DatabaseManager.Current.Settings.ZoomLevel;
             this.ProtectMatchInfo = DatabaseManager.Current.Settings.ProtectMatchInfo;
-            this.LatestStatus = ServiceLocator.Resolve<Logger>().LatestMessage;
+            this.LatestStatus = logger.LatestMessage;
             this.IsFullScreen = Cell.Create(DatabaseManager.Current.Settings.StartFullScreen.Value);
             _hideNavigation = Cell.Create(false);
             this.IsNavigationVisible = Cell.Derived(this.IsFullScreen, DatabaseManager.Current.Settings.HideNavigation, _hideNavigation,
                 (isFullScreen, autoHideNavigation, hideNavigation) => !(isFullScreen && autoHideNavigation && hideNavigation));
+            this.ErrorLogged = Cell.Create(false);
+            logger.OnError += Logger_OnError;
+
             About = new AboutCommand();
             Update = new UpdateStartCommand();
             AppUpdate = new UpdateAppCommand();
@@ -72,6 +76,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             this.TranslationError = new LaunchCommand("https://score.pieterp.be/Help/Translation");
             this.SelectedLanguage = DatabaseManager.Current.Settings.ActiveCulture;
             this.ShowLogBook = new RelayCommand<object>(p => {
+                this.ErrorLogged.Value = false;
                 NotificationManager.Current.Raise(new ShowPopupNotification() { Context = new LogBookViewModel(debug), Owner = p });
             });
             this.SelectLanguage = new RelayCommand<object>(p => {
@@ -110,6 +115,9 @@ namespace PieterP.ScoreSheet.ViewModels {
             _overviewScreen = new ScreenInfo(this, Main_Overview, true, orchestrator, ScreenClick);
             this.Screens.Add(_overviewScreen);
             this.CurrentScreen.Value = orchestrator;
+        }
+        private void Logger_OnError(string message) {
+            this.ErrorLogged.Value = true;
         }
 
         private void ReevaluateUpdateText() {
@@ -386,6 +394,7 @@ namespace PieterP.ScoreSheet.ViewModels {
         public Cell<bool> IsNavigationVisible { get; private set; }
         public Cell<string?> UpdateText { get; set; }
         public Cell<string> SelectedLanguage { get; }
+        public Cell<bool> ErrorLogged { get; }
         public ICommand About { get; private set; }
         public ICommand Update { get; private set; }
         public ICommand AppUpdate { get; private set; }
