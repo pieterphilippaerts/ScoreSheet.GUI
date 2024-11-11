@@ -248,4 +248,13 @@ Veuillez patienter</value>
   <data name="UpdatingFromInternet_Description" xml:space="preserve">
     <value>Les données sont en ce moment téléchargées depuis le site web de la FRBTT. Ce processus peut prendre un certain temps, en fonction de la taille de votre club et de la vitesse de votre connexion Internet.</value>
   </data>
+  <data name="OrphanedMatches_Description" xml:space="preserve">
+    <value>Pour certains matchs, la date du match n’a pas pu être déterminée automatiquement. Veuillez confirmer les dates correctes pour ces matchs.</value>
+  </data>
+  <data name="OrphanedMatch_PlayedInWeek" xml:space="preserve">
+    <value>Est joué dans la semaine de</value>
+  </data>
+  <data name="OrphanedMatch_InSeries" xml:space="preserve">
+    <value>en série {0} {1} {2}</value>
+  </data>
 </root>

@@ -103,6 +103,12 @@
             <DataTemplate DataType="{x:Type vmwiz:ChooseHandicapViewModel}">
                 <wizview:ChooseHandicapPanel />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vmwiz:OrphanedMatchesViewModel}">
+                <wizview:OrphanedMatchesPanel />
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vmwiz:OrphanedMatchViewModel}">
+                <wizview:OrphanedMatch />
+            </DataTemplate>
             <DataTemplate DataType="{x:Type vm:WelcomeViewModel}">
                 <view:WelcomeWindow />
             </DataTemplate>

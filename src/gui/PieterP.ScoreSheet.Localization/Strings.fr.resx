@@ -733,4 +733,16 @@ Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le dis
   <data name="Settings_Watermark" xml:space="preserve">
     <value>Filigrane</value>
   </data>
+  <data name="Wizard_OrphanedMatchesDesc" xml:space="preserve">
+    <value>Sélectionnez les dates pour les matchs dont la date n'a pas pu être déterminée automatiquement</value>
+  </data>
+  <data name="Wizard_OrphanedMatches" xml:space="preserve">
+    <value>Dates de match inconnues</value>
+  </data>
+  <data name="OrphanedMatches_NotComplete" xml:space="preserve">
+    <value>Vous n’avez pas sélectionné de date pour un ou plusieurs matchs. Êtes-vous sûr de ne pas vouloir renseigner ces dates ?</value>
+  </data>
+  <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
+    <value>Les matchs sans date précise se trouvent dans la rubrique « Rencontres avec une date inconnue » au début d’une nouvelle journée de compétition.</value>
+  </data>
 </root>

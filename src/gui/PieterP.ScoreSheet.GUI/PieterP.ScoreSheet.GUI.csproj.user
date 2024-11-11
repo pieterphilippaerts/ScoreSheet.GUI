@@ -105,6 +105,12 @@
     <Compile Update="Views\Wizards\NewMatchdayPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Wizards\OrphanedMatch.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Wizards\OrphanedMatchesPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\Wizards\RestoreBackupsPanel.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -240,6 +246,12 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Wizards\NewMatchdayPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\OrphanedMatch.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Wizards\OrphanedMatchesPanel.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\Wizards\RestoreBackupsPanel.xaml">

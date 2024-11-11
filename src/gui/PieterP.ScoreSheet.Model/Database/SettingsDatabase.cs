@@ -106,6 +106,8 @@ namespace PieterP.ScoreSheet.Model.Database {
                     return 0.5;
                 return c;
             });
+
+            this.CustomStartWeeks = CreateCell(Database.CustomStartWeeks ?? null, value => Database.CustomStartWeeks = value);
         }
         private Cell<T> CreateCell<T>(T initial, Action<T> setCallback, Func<T, T>? validator = null) {
             var cell = new SettingsCell<T>(initial, setCallback, validator);
@@ -191,6 +193,7 @@ namespace PieterP.ScoreSheet.Model.Database {
         public Cell<bool> ShowWatermark { get; private set; }
         public Cell<int> WatermarkSize { get; private set; }
         public Cell<double> WatermarkOpacity { get; private set; }
+        public Cell<CustomStartWeek[]?> CustomStartWeeks { get; private set; }
 
         private class SettingsCell<T> : ConcreteCell<T> {
             public SettingsCell(T initial, Action<T> setCallback, Func<T, T>? validator = null) : base(initial) {

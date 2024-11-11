@@ -248,4 +248,13 @@ even geduld a.u.b.</value>
   <data name="UpdatingFromInternet_Description" xml:space="preserve">
     <value>De data wordt nu gedownload van de competitiewebsite. Dit proces kan even duren, afhankelijk van de grootte van uw club en de snelheid van uw internetconnectie.</value>
   </data>
+  <data name="OrphanedMatches_Description" xml:space="preserve">
+    <value>Voor sommige wedstrijden kon de wedstrijddatum niet automatisch worden bepaald. Bevestig de juiste wedstrijddata voor deze wedstrijden.</value>
+  </data>
+  <data name="OrphanedMatch_PlayedInWeek" xml:space="preserve">
+    <value>Wordt gespeeld in de week van</value>
+  </data>
+  <data name="OrphanedMatch_InSeries" xml:space="preserve">
+    <value>in afdeling {0} {1} {2}</value>
+  </data>
 </root>

@@ -19,7 +19,7 @@ namespace PieterP.ScoreSheet.Localization.Views.Wizards {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -176,6 +176,33 @@ namespace PieterP.ScoreSheet.Localization.Views.Wizards {
         public static string OK {
             get {
                 return ResourceManager.GetString("OK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to in series {0} {1} {2}.
+        /// </summary>
+        public static string OrphanedMatch_InSeries {
+            get {
+                return ResourceManager.GetString("OrphanedMatch_InSeries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Is played in the week of.
+        /// </summary>
+        public static string OrphanedMatch_PlayedInWeek {
+            get {
+                return ResourceManager.GetString("OrphanedMatch_PlayedInWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For some matches, the match date could not be determined automatically. Please confirm the correct match dates for these matches..
+        /// </summary>
+        public static string OrphanedMatches_Description {
+            get {
+                return ResourceManager.GetString("OrphanedMatches_Description", resourceCulture);
             }
         }
         

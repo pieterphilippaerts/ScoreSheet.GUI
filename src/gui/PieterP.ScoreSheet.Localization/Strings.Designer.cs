@@ -665,6 +665,24 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The matches without specific dates can be found under `Matches with an unknown date&apos; when starting a new competition day..
+        /// </summary>
+        public static string OrphanedMatches_AvailabilityInfo {
+            get {
+                return ResourceManager.GetString("OrphanedMatches_AvailabilityInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have not selected a date for one or more matches. Are you sure you do not want to fill in these dates?.
+        /// </summary>
+        public static string OrphanedMatches_NotComplete {
+            get {
+                return ResourceManager.GetString("OrphanedMatches_NotComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Away player.
         /// </summary>
         public static string PlayersToNames_AwayPlayer {
@@ -1716,6 +1734,24 @@ namespace PieterP.ScoreSheet.Localization {
         public static string Wizard_NoMatches {
             get {
                 return ResourceManager.GetString("Wizard_NoMatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unknown match dates.
+        /// </summary>
+        public static string Wizard_OrphanedMatches {
+            get {
+                return ResourceManager.GetString("Wizard_OrphanedMatches", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select dates for matches whose date could not be determined automatically.
+        /// </summary>
+        public static string Wizard_OrphanedMatchesDesc {
+            get {
+                return ResourceManager.GetString("Wizard_OrphanedMatchesDesc", resourceCulture);
             }
         }
         

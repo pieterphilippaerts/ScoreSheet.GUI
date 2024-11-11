@@ -272,8 +272,8 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 }
                 newMatch.WeekStart = await GuessWeek(connector, team.DivisionId, season, match.WeekName);
                 if (newMatch.WeekStart == null) {
-                    UpdateProgress?.Invoke(Safe.Format(TabTUpdater_NoWeek, team.Team, team.DivisionName), true);
-                    UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidDateInfo, match.HomeTeam, match.AwayTeam, match.MatchId), true);
+                    UpdateProgress?.Invoke(Safe.Format(TabTUpdater_NoWeek, team.Team, team.DivisionName), false);
+                    UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidDateInfo, match.HomeTeam, match.AwayTeam, match.MatchId), false);
                 } else if (match.HomeClub == "-" || match.AwayClub == "-") {
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_MatchPlanned, match.HomeTeam, match.AwayTeam, match.MatchId, newMatch.WeekStart.Value.ToString("D")), false);
                 }

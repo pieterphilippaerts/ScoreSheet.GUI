@@ -733,4 +733,16 @@ After the file has been saved, you can then attach the USB stick or portable har
   <data name="Settings_Watermark" xml:space="preserve">
     <value>Watermark</value>
   </data>
+  <data name="Wizard_OrphanedMatchesDesc" xml:space="preserve">
+    <value>Select dates for matches whose date could not be determined automatically</value>
+  </data>
+  <data name="Wizard_OrphanedMatches" xml:space="preserve">
+    <value>Unknown match dates</value>
+  </data>
+  <data name="OrphanedMatches_NotComplete" xml:space="preserve">
+    <value>You have not selected a date for one or more matches. Are you sure you do not want to fill in these dates?</value>
+  </data>
+  <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
+    <value>The matches without specific dates can be found under `Matches with an unknown date' when starting a new competition day.</value>
+  </data>
 </root>

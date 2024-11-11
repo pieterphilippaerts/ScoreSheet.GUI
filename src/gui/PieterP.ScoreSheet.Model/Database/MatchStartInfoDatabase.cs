@@ -66,6 +66,10 @@ namespace PieterP.ScoreSheet.Model.Database {
                 }
             }
         }
+        public void RefreshAndSave() {
+            Initialize();
+            Save();
+        }
 
         public bool ContainsKey(string matchId) {
             return _idIndex.ContainsKey(matchId);

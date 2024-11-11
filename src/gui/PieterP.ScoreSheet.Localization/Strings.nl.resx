@@ -733,4 +733,16 @@ Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schij
   <data name="Settings_Watermark" xml:space="preserve">
     <value>Watermerk</value>
   </data>
+  <data name="Wizard_OrphanedMatchesDesc" xml:space="preserve">
+    <value>Selecteer datums voor wedstrijden waarvan de datum niet automatisch kon worden bepaald</value>
+  </data>
+  <data name="Wizard_OrphanedMatches" xml:space="preserve">
+    <value>Onbekende wedstrijddata</value>
+  </data>
+  <data name="OrphanedMatches_NotComplete" xml:space="preserve">
+    <value>Je hebt geen datum geselecteerd voor een of meer wedstrijden. Weet je zeker dat je deze data niet wilt invullen?</value>
+  </data>
+  <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
+    <value>De wedstrijden zonder specifieke data zijn terug te vinden onder 'Wedstrijden met een onbekende datum' bij het starten van een nieuwe competitiedag.</value>
+  </data>
 </root>

@@ -248,4 +248,13 @@ please wait</value>
   <data name="UpdatingFromInternet_Description" xml:space="preserve">
     <value>The data is now being downloaded from the KBTTB website. This process may take a while, depending on the size of your club and the speed of your internet connection.</value>
   </data>
+  <data name="OrphanedMatches_Description" xml:space="preserve">
+    <value>For some matches, the match date could not be determined automatically. Please confirm the correct match dates for these matches.</value>
+  </data>
+  <data name="OrphanedMatch_PlayedInWeek" xml:space="preserve">
+    <value>Is played in the week of</value>
+  </data>
+  <data name="OrphanedMatch_InSeries" xml:space="preserve">
+    <value>in series {0} {1} {2}</value>
+  </data>
 </root>

@@ -12,6 +12,7 @@ using PieterP.ScoreSheet.ViewModels.Services;
 using PieterP.Shared;
 using PieterP.Shared.Cells;
 using PieterP.Shared.Services;
+using Unity.Injection;
 using static PieterP.ScoreSheet.Localization.Errors;
 using static PieterP.ScoreSheet.Localization.Strings;
 
@@ -39,7 +40,15 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 NotificationManager.Current.Raise(new ShowMessageNotification(Wizard_UpdateError, NotificationTypes.Error));
             }
             this.IsUpdating.Value = false;
-            ButtonText.Value = Wizard_Close;
+
+            // Check whether there are matches without a date
+            var orphans = DatabaseManager.Current.MatchStartInfo.GetOrphanMatches();
+            if (orphans.Any()) {
+                //Parent.CurrentPanel.Value = new OrphanedMatchesViewModel(Parent, Enumerable.Range(0, 8).Select(c => orphans.First()));
+                Parent.CurrentPanel.Value = new OrphanedMatchesViewModel(Parent, orphans);
+            } else {
+                ButtonText.Value = Wizard_Close;
+            }
         }
         private void OnProgress(string progress, bool isError) {
             Messages.Add(new ProgressItem(progress, isError));

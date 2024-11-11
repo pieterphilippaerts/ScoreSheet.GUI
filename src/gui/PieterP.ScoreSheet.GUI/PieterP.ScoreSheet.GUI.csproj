@@ -45,6 +45,7 @@
     <None Remove="images\box_48.png" />
     <None Remove="images\box_upload_48.png" />
     <None Remove="images\comment_warning_48.png" />
+    <None Remove="images\date_48.png" />
     <None Remove="images\def_logo_small_org.png" />
     <None Remove="images\delete.png" />
     <None Remove="images\file_csv_s.png" />
@@ -134,6 +135,7 @@
     <Resource Include="images\box_48.png" />
     <Resource Include="images\box_upload_48.png" />
     <Resource Include="images\comment_warning_48.png" />
+    <Resource Include="images\date_48.png" />
     <Resource Include="images\def_logo_small_org.png" />
     <Resource Include="images\delete.png" />
     <Resource Include="images\file_csv_s.png" />

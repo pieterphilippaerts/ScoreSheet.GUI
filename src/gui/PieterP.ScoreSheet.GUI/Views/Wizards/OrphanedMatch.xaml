@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="PieterP.ScoreSheet.GUI.Views.Wizards.OrphanedMatch"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:l="clr-namespace:PieterP.ScoreSheet.Localization.Views.Wizards;assembly=ScoreSheet.Localization"
+             xmlns:local="clr-namespace:PieterP.ScoreSheet.GUI.Views.Wizards"
+             xmlns:conv="clr-namespace:PieterP.ScoreSheet.GUI.Converters"
+             xmlns:cont="clr-namespace:PieterP.ScoreSheet.GUI.Views.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="600">
+    <UserControl.Resources>
+        <conv:MatchInfoToTitleConverter x:Key="TitleConverter" />
+        <conv:MatchInfoToSubtitleConverter x:Key="SubtitleConverter" />
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical" Margin="0 0 0 15">
+        <StackPanel Orientation="Horizontal">
+            <Label FontWeight="Bold" Content="{Binding Info, Converter={StaticResource TitleConverter}}"/>
+            <Label Content="{Binding Info, Converter={StaticResource SubtitleConverter}}"/>
+        </StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Margin="0,0,5,0" Content="{x:Static l:Resources.OrphanedMatch_PlayedInWeek}" />
+            <cont:CustomDatePicker x:Name="TheDate" Grid.Column="1" SelectedDateFormat="Long" SelectedDate="{Binding WeekStart.Value}" FirstDayOfWeek="Monday" DisplayDateStart="{Binding DateStart, Mode=OneTime}" DisplayDateEnd="{Binding DateEnd, Mode=OneTime}">
+                <!--<DatePicker.Resources>
+                    <Style TargetType="DatePickerTextBox">
+                        <Setter Property="IsReadOnly" Value="True"/>
+                        <Setter Property="Text" Value=" "/>
+                        <Setter Property="Focusable" Value="False"/>
+                        <Setter Property="IsEnabled" Value="False" />
+                        <Setter Property="IsHitTestVisible" Value="False"/>
+                        <EventSetter Event="MouseLeftButtonUp" Handler="OnMouseLeftButtonUp" />
+                    </Style>
+                </DatePicker.Resources>-->
+            </cont:CustomDatePicker>
+        </Grid>
+    </StackPanel>
+</UserControl>
