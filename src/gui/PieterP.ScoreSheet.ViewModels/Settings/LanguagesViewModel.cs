@@ -23,11 +23,18 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
                 this.AvailableCultures.Insert(0, this.ActiveCulture.Value);
             }
             // then move the default user language (the setting from Windows) to the top
-            var userDefault = new CultureInfo(GetUserDefaultLCID());
-            var supportedDefault = AvailableCultures.Where(c => c.StartsWith(userDefault.TwoLetterISOLanguageName)).FirstOrDefault();
-            if (supportedDefault != null) {
-                AvailableCultures.Remove(supportedDefault);
-                AvailableCultures.Insert(0, supportedDefault);
+            var defLcid = GetUserDefaultLCID();
+            if (defLcid != 0x0c00) { // 0x0c00 is a special language code for the `newer' language formats (e.g., `Dutch (Aruba)')
+                try {
+                    var userDefault = new CultureInfo(defLcid);
+                    var supportedDefault = AvailableCultures.Where(c => c.StartsWith(userDefault.TwoLetterISOLanguageName)).FirstOrDefault();
+                    if (supportedDefault != null) {
+                        AvailableCultures.Remove(supportedDefault);
+                        AvailableCultures.Insert(0, supportedDefault);
+                    }
+                } catch {
+                    // eat exceptions (Windows' default culture is probably something weird)
+                }
             }
 
             this.MustRestart = Cell.Derived(this.ActiveCulture, culture => Thread.CurrentThread.CurrentUICulture.Name.ToLower() != culture.ToLower());
