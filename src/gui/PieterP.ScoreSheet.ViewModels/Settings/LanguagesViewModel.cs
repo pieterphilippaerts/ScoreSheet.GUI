@@ -24,7 +24,7 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
             }
             // then move the default user language (the setting from Windows) to the top
             var defLcid = GetUserDefaultLCID();
-            if (defLcid != 0x0c00) { // 0x0c00 is a special language code for the `newer' language formats (e.g., `Dutch (Aruba)')
+            if (defLcid != 0x0c00) { // LOCALE_CUSTOM_USER_DEFAULT (0x0c00) is a special language code for the `newer' language formats (e.g., `Dutch (Aruba)')
                 try {
                     var userDefault = new CultureInfo(defLcid);
                     var supportedDefault = AvailableCultures.Where(c => c.StartsWith(userDefault.TwoLetterISOLanguageName)).FirstOrDefault();

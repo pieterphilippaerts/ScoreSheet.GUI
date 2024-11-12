@@ -54,9 +54,13 @@ namespace PieterP.ScoreSheet.GUI {
             SetupNotificationHandling();
             SetupExceptionHandling();
 
-            var c = new CultureInfo(DatabaseManager.Current.Settings.ActiveCulture.Value);
-            Thread.CurrentThread.CurrentCulture = c;
-            Thread.CurrentThread.CurrentUICulture = c;
+            try {
+                var c = new CultureInfo(DatabaseManager.Current.Settings.ActiveCulture.Value);
+                Thread.CurrentThread.CurrentCulture = c;
+                Thread.CurrentThread.CurrentUICulture = c;
+            } catch { 
+                // eat exceptions; invalid Active Culture?
+            }
 
             if (!appSettings.Launched) {
                 // not started from launcher; run launcher and exit
