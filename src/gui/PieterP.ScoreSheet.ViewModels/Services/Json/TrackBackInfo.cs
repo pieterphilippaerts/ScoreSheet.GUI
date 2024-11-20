@@ -20,10 +20,18 @@ namespace PieterP.ScoreSheet.ViewModels.Services.Json {
         //public IEnumerable<Model.Information.DriveInfo>? Drives { get; set; }
         public RuntimeInformation? Runtimes { get; set; }
         public string? ActiveCulture { get; set; }
+        public int DefaultLCID { get; set; }
+
         public bool PrintsDirectly { get; set; }
         public bool SecondScreenEnabled { get; set; }
         public bool LiveUpdatesEnabled { get; set; }
         public bool FollowAwayEnabled { get;set;}
         public bool WebServiceEnabled { get; set; }
+
+        public string? Theme { get; set; }
+        public string? OverviewVisualization { get; set; }
+        public string? SecondScreenVisualization { get; set; }
+        public bool AutoUploadEnabled { get; set; }
+        public bool ShowWatermark { get; set; }
     }
 }

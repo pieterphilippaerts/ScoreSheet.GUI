@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using PieterP.ScoreSheet.Model.Database.Entities;
+﻿using PieterP.ScoreSheet.Model.Database.Entities;
 using PieterP.ScoreSheet.Model.Database.Enums;
 using PieterP.ScoreSheet.Model.Information;
-using PieterP.Shared;
 using PieterP.Shared.Cells;
 using PieterP.Shared.Services;
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace PieterP.ScoreSheet.Model.Database {
     public class SettingsDatabase : AbstractDatabase<Settings> {
@@ -149,13 +146,13 @@ namespace PieterP.ScoreSheet.Model.Database {
         public Cell<bool> DefaultTwoByTwoExceptSuper { get; private set; }
         public Cell<bool> StartFullScreen { get; private set; }
         public Cell<bool> TurnOnCapsLock { get; private set; }
-        public Cell<bool> ProtectMatchInfo { get; private set; }        
+        public Cell<bool> ProtectMatchInfo { get; private set; }
         public Cell<Season?> CurrentSeason { get; private set; }
         public Cell<bool> HideNavigation { get; private set; }
         public Cell<bool> EnableLiveUpdates { get; private set; }
         public Cell<bool> EnableLiveUpdatesForSuperOnly { get; private set; }
         public Cell<bool> FollowAway { get; private set; }
-        public Cell<bool> UpdateSettingsOnStart  { get; private set; }
+        public Cell<bool> UpdateSettingsOnStart { get; private set; }
         public Cell<bool> EnableSecondScreen { get; private set; }
         public Cell<bool> ChooseScreenAutomatically { get; private set; }
         public Cell<bool> ChooseScreenManually { get; private set; }

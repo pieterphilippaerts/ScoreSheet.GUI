@@ -59,11 +59,12 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             }
         }
         private TrackBackInfo GetInfo() {
+            var s = DatabaseManager.Current.Settings;
             var info = new TrackBackInfo();
-            info.UniqueId = DatabaseManager.Current.Settings.UniqueId.Value;
-            info.SuccessfulUploads = DatabaseManager.Current.Settings.SuccessfulUploads.Value;
-            info.LatestUploadClubId = DatabaseManager.Current.Settings.LatestUploadClubId.Value;
-            info.ClubId = DatabaseManager.Current.Settings.HomeClubId.Value;
+            info.UniqueId = s.UniqueId.Value;
+            info.SuccessfulUploads = s.SuccessfulUploads.Value;
+            info.LatestUploadClubId = s.LatestUploadClubId.Value;
+            info.ClubId = s.HomeClubId.Value;
             info.AppVersion = Application.Version.ToString(3);
             info.OsVersion = Model.Information.OperatingSystem.Version.ToString();
             info.OsVersionString = $"{ Model.Information.OperatingSystem.Name } ({ Model.Information.OperatingSystem.ServicePack })";
@@ -74,12 +75,17 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             //info.Drives = PieterP.ScoreSheet.Model.Information.System.Drives;
             info.MemorySize = PieterP.ScoreSheet.Model.Information.System.TotalMemory;
             info.Runtimes = Runtime.GetRuntimeInformation();
-            info.ActiveCulture = DatabaseManager.Current.Settings.ActiveCulture.Value;
-            info.PrintsDirectly = DatabaseManager.Current.Settings.PrintDirect.Value;
-            info.SecondScreenEnabled = DatabaseManager.Current.Settings.EnableSecondScreen.Value;
-            info.LiveUpdatesEnabled = DatabaseManager.Current.Settings.EnableLiveUpdates.Value;
-            info.FollowAwayEnabled = DatabaseManager.Current.Settings.FollowAway.Value;
-            info.WebServiceEnabled = DatabaseManager.Current.Settings.EnableJsonService.Value;
+            info.ActiveCulture = s.ActiveCulture.Value;
+            info.PrintsDirectly = s.PrintDirect.Value;
+            info.SecondScreenEnabled = s.EnableSecondScreen.Value;
+            info.LiveUpdatesEnabled = s.EnableLiveUpdates.Value;
+            info.FollowAwayEnabled = s.FollowAway.Value;
+            info.WebServiceEnabled = s.EnableJsonService.Value;
+            info.Theme = s.ThemePath.Value;
+            info.AutoUploadEnabled = s.EnableAutoUpload.Value;
+            info.ShowWatermark = s.ShowWatermark.Value;
+            info.OverviewVisualization = s.OverviewVisualization.Value.ToString();
+            info.SecondScreenVisualization = s.SecondScreenVisualization.Value.ToString();
             return info;
         }
         public void Dispose() {
