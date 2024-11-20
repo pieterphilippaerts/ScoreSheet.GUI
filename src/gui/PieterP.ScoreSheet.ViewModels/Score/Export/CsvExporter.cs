@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -150,6 +151,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
                 }
             }
             output.Append("\r\n");
+            Logger.Log(LogType.Debug, "Exported CSV:\r\n" + output.ToString());
         }
         private string ToIndividualMatchResults(CompetitiveMatchViewModel matchVm, WonResult matchResult, IList<SetInfo> sets) {
             // return individual match result (for CSV upload)

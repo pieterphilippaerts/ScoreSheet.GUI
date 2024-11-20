@@ -24,6 +24,9 @@
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\gui\PieterP.ScoreSheet.Localization\PieterP.ScoreSheet.Localization.csproj" />
     <ProjectReference Include="..\PieterP.Shared.Services\PieterP.Shared.Services.csproj" />
   </ItemGroup>

@@ -107,10 +107,16 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             Initialize(this.HomeCaptain, fullMatch.HomeCaptain);
             Initialize(this.AwayCaptain, fullMatch.AwayCaptain);
             Initialize(this.RoomCommissioner, fullMatch.RoomCommissioner);
+            this.DisablePartialUpload.Value = fullMatch.DisablePartialUpload ?? false;
+            this.MatchStatus.ValueChanged += () => {
+                if (this.MatchStatus.Value == ViewModels.Score.MatchStatus.Uploaded)
+                    this.DisablePartialUpload.Value = true;
+            };
             this.Filename.Value = fromFile;
             this.IsInitializing = false;
             ScoreChanged();
         }
+
         public CompetitiveMatchViewModel(MatchStartInfo matchInfo) {
             Initialize(matchInfo);
             ScoreChanged();
@@ -258,6 +264,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.MustBePlayed = Cell.Derived(this.HomeTeam.IsBye, this.HomeTeam.Forfeit, this.AwayTeam.IsBye,this.AwayTeam.Forfeit, (hb, hff, ab, aff) => !(hb || hff || ab || aff));
             this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
+            this.DisablePartialUpload = CreateCell(false);
             this.Watermark = Cell.Derived(this.HomeTeam.Name, c => {
                 if (!string.IsNullOrWhiteSpace(c)) {
                     var components = c.Split(' ');
@@ -530,6 +537,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
         public Cell<bool> MustBePlayed { get; private set; }
         public Cell<MatchStatus> MatchStatus { get; private set; }
         public Cell<UploadStatus> UploadStatus { get; private set; }
+        public Cell<bool> DisablePartialUpload { get; private set; }
 
         public Cell<string> Watermark { get; private set; }
         public Cell<bool> ShowWatermark => DatabaseManager.Current.Settings.ShowWatermark;

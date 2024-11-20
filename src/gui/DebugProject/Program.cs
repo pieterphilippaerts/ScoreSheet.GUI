@@ -13,10 +13,6 @@ namespace DebugProject {
             public bool IsVttl => true;
         }
         static void Main(string[] args) {
-            var n = PieterP.ScoreSheet.Model.Information.OperatingSystem.Name;
-
-            return;
-
             try {
                 ServicePointManager.ServerCertificateValidationCallback += (sender, cert, chain, policyErrors) => true;
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | (SecurityProtocolType)0x3000 /* Tls13*/;
@@ -24,7 +20,8 @@ namespace DebugProject {
                 ServiceLocator.RegisterInstance(new Logger(null, false));
 
                 //ListMatchSystems();
-                TryHammering();
+                //TryHammering();
+                GetMatchDetails();
             } catch (Exception e ) {
                 Console.WriteLine(e);
             }
@@ -78,6 +75,17 @@ namespace DebugProject {
                     Console.WriteLine(" - Points per set: " + system.PointCount);
                     Console.WriteLine();
                 }
+            } catch (Exception e) {
+                Console.WriteLine(e);
+            }
+        }
+        public static async void GetMatchDetails() {
+            try {
+                var connector = new TabTConnector();
+                //var results = await connector.GetMatchDetails("BBW179", "NH02/026", null);
+                var results = await connector.GetMatchDetails("A212", "PANTH08/073", null);
+                var results2 = await connector.GetMatchDetails("A212", "PANTH08/060", null);
+                Console.WriteLine("MATCH SYSTEMS:\r\n~~~~~~~~~~~~~~");
             } catch (Exception e) {
                 Console.WriteLine(e);
             }

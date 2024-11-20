@@ -59,6 +59,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
             match.Cup = matchVm.Cup.Value;
             match.Youth = matchVm.Youth.Value;
             match.Veterans = matchVm.Veterans.Value;
+
+            match.DisablePartialUpload = matchVm.DisablePartialUpload.Value;
             return match;
         }
         private ModPersonInfo ToPersonInfoModel(PersonInfo source) {

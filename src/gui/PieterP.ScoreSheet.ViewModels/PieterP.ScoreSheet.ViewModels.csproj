@@ -35,6 +35,10 @@
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="System.IO.Compression.dll" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
+  </ItemGroup>
   
   <ItemGroup>
     <ProjectReference Include="..\..\shared\PieterP.Shared.Cells\PieterP.Shared.Cells.csproj" />

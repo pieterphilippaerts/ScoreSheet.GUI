@@ -119,6 +119,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\shared\PieterP.Shared.Cells\PieterP.Shared.Cells.csproj" />
     <ProjectReference Include="..\..\shared\PieterP.Shared.Services\PieterP.Shared.Services.csproj" />
     <ProjectReference Include="..\PdfSharp\PdfSharp.csproj" />

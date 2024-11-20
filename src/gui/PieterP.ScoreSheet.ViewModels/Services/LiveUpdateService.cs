@@ -45,6 +45,9 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             if (_canUpload.Value) {
                 if (DatabaseManager.Current.Settings.EnableLiveUpdatesForSuperOnly.Value && match.Level.Value.Id != LevelEnum.Super)
                     return;
+                if (match.DisablePartialUpload.Value)
+                    return; // we have already uploaded this scoresheet once
+                match.Score.Refresh(); // important! otherwise the result is only refreshed after handling this event (which means we'd be looking at old results)...
                 if (match.Score.Result.Value != Winner.Error && match.Score.Result.Value != Winner.Incomplete)
                     return; // match is complete; do not upload complete matches to avoid confusion (people think the match has already been uploaded, while it is in fact only a partial upload) 
                 // upload live result

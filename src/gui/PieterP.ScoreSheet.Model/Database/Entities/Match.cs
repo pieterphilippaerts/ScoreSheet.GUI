@@ -32,6 +32,8 @@ namespace PieterP.ScoreSheet.Model.Database.Entities {
         public string? Comments { get; set; }
         public int? HandicapTableId { get; set; }
 
+        public bool? DisablePartialUpload { get; set; }
+
         public static Match? FromFile(string file) {
             if (!File.Exists(file))
                 return null;

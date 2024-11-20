@@ -186,6 +186,9 @@ namespace PieterP.ScoreSheet.Connector {
 
         #region Upload
         public async Task<(TabTErrorCode, IEnumerable<string>)> UploadAsync(string csv) {
+//#if DEBUG
+//            return (TabTErrorCode.NoError, Enumerable.Empty<string>());
+//#endif
             var request = new TabTService.UploadRequest();
             request.Credentials = _credentials;
             request.Data = csv;
