@@ -16,7 +16,7 @@
     <!-- Set to false to transform files even if the output appears to be up-to-date (default is true)  -->
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2024.2025.3</Version>
+    <Version>2024.2025.4</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>

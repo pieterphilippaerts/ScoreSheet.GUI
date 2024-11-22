@@ -151,7 +151,9 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
                 }
             }
             output.Append("\r\n");
+#if DEBUG
             Logger.Log(LogType.Debug, "Exported CSV:\r\n" + output.ToString());
+#endif
         }
         private string ToIndividualMatchResults(CompetitiveMatchViewModel matchVm, WonResult matchResult, IList<SetInfo> sets) {
             // return individual match result (for CSV upload)
