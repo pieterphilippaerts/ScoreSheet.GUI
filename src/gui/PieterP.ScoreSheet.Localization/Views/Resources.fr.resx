@@ -348,4 +348,7 @@
   <data name="MainWindow_LogBookError" xml:space="preserve">
     <value>Veuillez noter qu’un message d’erreur a été enregistré. Cliquez sur le bouton du fichier log pour afficher les détails de l’erreur.</value>
   </data>
+  <data name="MainWindow_PopupMenuValidate" xml:space="preserve">
+    <value>Valider</value>
+  </data>
 </root>

@@ -501,6 +501,27 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 return true;
             }
         }
+
+        internal void ValidateNow() {
+            var validator = new MatchValidator();
+            var validationErrors = validator.Validate(this);
+            ShowMessageNotification message;
+            if (validationErrors == null) {
+                message = new ShowMessageNotification(Strings.Validate_NoErrorsFound, NotificationTypes.Informational, NotificationButtons.OK);
+            } else {
+                var sb = new StringBuilder();
+                sb.AppendLine(Strings.Validate_ErrorsFound);
+                sb.AppendLine();
+                foreach (var ve in validationErrors) {
+                    if (ve != null && ve.Length > 0) {
+                        sb.AppendLine(" - " + ve);
+                    }
+                }
+                message = new ShowMessageNotification(sb.ToString(), NotificationTypes.Exclamation, NotificationButtons.OK);
+            }
+            NotificationManager.Current.Raise(message);
+        }
+
         public IList<LevelInfo> AvailableLevels { get; set; }
         public PersonInfo RoomCommissioner { get; set; }
         public Cell<bool> Article632 { get; set; }

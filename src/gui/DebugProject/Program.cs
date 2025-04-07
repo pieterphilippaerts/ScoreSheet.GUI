@@ -83,8 +83,9 @@ namespace DebugProject {
             try {
                 var connector = new TabTConnector();
                 //var results = await connector.GetMatchDetails("BBW179", "NH02/026", null);
-                var results = await connector.GetMatchDetails("A212", "PANTH08/073", null);
-                var results2 = await connector.GetMatchDetails("A212", "PANTH08/060", null);
+                //var results = await connector.GetMatchDetails("A212", "PANTH08/073", null);
+                //var results2 = await connector.GetMatchDetails("A212", "PANTH08/060", null);
+                var results3 = await connector.GetMatchDetails("N159", "PNAMH09/157", null);
                 Console.WriteLine("MATCH SYSTEMS:\r\n~~~~~~~~~~~~~~");
             } catch (Exception e) {
                 Console.WriteLine(e);

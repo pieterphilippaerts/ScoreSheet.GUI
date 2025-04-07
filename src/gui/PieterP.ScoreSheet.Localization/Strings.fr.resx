@@ -745,4 +745,10 @@ Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le dis
   <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
     <value>Les matchs sans date précise se trouvent dans la rubrique « Rencontres avec une date inconnue » au début d’une nouvelle journée de compétition.</value>
   </data>
+  <data name="Validate_NoErrorsFound" xml:space="preserve">
+    <value>Aucune erreur de validation n’a été constatée.</value>
+  </data>
+  <data name="Validate_ErrorsFound" xml:space="preserve">
+    <value>Les erreurs de validation suivantes ont été détectées :</value>
+  </data>
 </root>

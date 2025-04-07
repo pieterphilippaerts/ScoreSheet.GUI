@@ -348,4 +348,7 @@
   <data name="MainWindow_LogBookError" xml:space="preserve">
     <value>Please note that an error message has been registered. Click on the logbook button to view the details of the error.</value>
   </data>
+  <data name="MainWindow_PopupMenuValidate" xml:space="preserve">
+    <value>Validate</value>
+  </data>
 </root>

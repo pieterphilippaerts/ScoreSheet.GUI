@@ -15,11 +15,13 @@ using PieterP.ScoreSheet.Model.Database.MatchSystems;
 using PieterP.ScoreSheet.Model.Database.Updater;
 using PieterP.ScoreSheet.Model.Information;
 using PieterP.ScoreSheet.ViewModels.Commands;
+using PieterP.ScoreSheet.ViewModels.Commands.Bases;
 using PieterP.ScoreSheet.ViewModels.Helpers;
 using PieterP.ScoreSheet.ViewModels.Information;
 using PieterP.ScoreSheet.ViewModels.Notifications;
 using PieterP.ScoreSheet.ViewModels.Score;
 using PieterP.ScoreSheet.ViewModels.Score.Export;
+using PieterP.ScoreSheet.ViewModels.Score.Validations;
 using PieterP.ScoreSheet.ViewModels.Services;
 using PieterP.ScoreSheet.ViewModels.Settings;
 using PieterP.ScoreSheet.ViewModels.Wizards;
@@ -279,7 +281,6 @@ namespace PieterP.ScoreSheet.ViewModels {
             //    }
             //};
         }
-
         internal bool CloseMatches(IEnumerable<CompetitiveMatchViewModel?> matches) {
             if (matches == null)
                 return false;
@@ -584,6 +585,7 @@ namespace PieterP.ScoreSheet.ViewModels {
                 this.Click = new RelayCommand<ScreenInfo>(click);
                 this.Close = new CloseCommand(this);
                 this.Print = new PrintCommand(this);
+                this.Validate = new ValidateCommand(this);
 
                 // if match, change status depending on match updates
                 var match = dataContext as CompetitiveMatchViewModel;
@@ -611,6 +613,7 @@ namespace PieterP.ScoreSheet.ViewModels {
 
             public ICommand Close { get; private set; }
             public ICommand Print { get; private set; }
+            public ICommand Validate { get; private set; }
 
             private class CloseCommand : ICommand {
                 public event EventHandler CanExecuteChanged;
@@ -642,6 +645,23 @@ namespace PieterP.ScoreSheet.ViewModels {
                     wiz.CurrentPanel.Value = printVm;
                     var n = new ShowDialogNotification(wiz);
                     NotificationManager.Current.Raise(n);
+                }
+
+                private ScreenInfo _parent;
+            }
+            private class ValidateCommand : ICommand {
+                public event EventHandler CanExecuteChanged;
+
+                public ValidateCommand(ScreenInfo parent) {
+                    _parent = parent;
+                }
+                public bool CanExecute(object parameter) {
+                    return _parent.Context is CompetitiveMatchViewModel;
+                }
+                public void Execute(object parameter) {
+                    var vm = _parent.Context as CompetitiveMatchViewModel;
+                    if (vm != null)
+                        vm.ValidateNow();
                 }
 
                 private ScreenInfo _parent;

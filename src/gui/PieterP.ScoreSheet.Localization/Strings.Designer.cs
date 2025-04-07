@@ -1511,6 +1511,24 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The following validation errors were found:.
+        /// </summary>
+        public static string Validate_ErrorsFound {
+            get {
+                return ResourceManager.GetString("Validate_ErrorsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No validation errors found..
+        /// </summary>
+        public static string Validate_NoErrorsFound {
+            get {
+                return ResourceManager.GetString("Validate_NoErrorsFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You are about to remove all data from matches that were previously entered. This data contains the set scores, the players, and everything that is entered manually. You can continue to use the program as before, but if you open a match day where results have already been entered, they will now be empty again.
         ///
         ///Are you sure you want to delete this data?.

@@ -745,4 +745,10 @@ Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schij
   <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
     <value>De wedstrijden zonder specifieke data zijn terug te vinden onder 'Wedstrijden met een onbekende datum' bij het starten van een nieuwe competitiedag.</value>
   </data>
+  <data name="Validate_NoErrorsFound" xml:space="preserve">
+    <value>Geen validatiefouten gevonden.</value>
+  </data>
+  <data name="Validate_ErrorsFound" xml:space="preserve">
+    <value>De volgende validatiefouten werden gevonden:</value>
+  </data>
 </root>

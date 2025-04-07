@@ -185,6 +185,7 @@
                                     <ContextMenu Visibility="{Binding Context, Converter={StaticResource ContextMenuEnabledConverter}}">
                                         <MenuItem Header="{x:Static l:Resources.MainWindow_PopupMenuClose}" Command="{Binding Close}" />
                                         <MenuItem Header="{x:Static l:Resources.MainWindow_PopupMenuPrint}" Command="{Binding Print}" />
+                                        <MenuItem Header="{x:Static l:Resources.MainWindow_PopupMenuValidate}" Command="{Binding Validate}" />
                                     </ContextMenu>
                                 </Button.ContextMenu>
                             </Button>

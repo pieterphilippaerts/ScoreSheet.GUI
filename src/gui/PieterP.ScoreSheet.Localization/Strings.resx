@@ -745,4 +745,10 @@ After the file has been saved, you can then attach the USB stick or portable har
   <data name="OrphanedMatches_AvailabilityInfo" xml:space="preserve">
     <value>The matches without specific dates can be found under `Matches with an unknown date' when starting a new competition day.</value>
   </data>
+  <data name="Validate_NoErrorsFound" xml:space="preserve">
+    <value>No validation errors found.</value>
+  </data>
+  <data name="Validate_ErrorsFound" xml:space="preserve">
+    <value>The following validation errors were found:</value>
+  </data>
 </root>

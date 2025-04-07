@@ -565,6 +565,15 @@ namespace PieterP.ScoreSheet.Localization.Views {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Validate.
+        /// </summary>
+        public static string MainWindow_PopupMenuValidate {
+            get {
+                return ResourceManager.GetString("MainWindow_PopupMenuValidate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to restart required.
         /// </summary>
         public static string MainWindow_RestartRequired {
