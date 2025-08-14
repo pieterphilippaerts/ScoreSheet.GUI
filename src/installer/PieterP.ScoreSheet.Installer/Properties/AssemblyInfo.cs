@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("PieterP.ScoreSheet.Installer")]
-[assembly: AssemblyCopyright("Copyright ©  2011-2024")]
+[assembly: AssemblyCopyright("Copyright ©  2011-2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
