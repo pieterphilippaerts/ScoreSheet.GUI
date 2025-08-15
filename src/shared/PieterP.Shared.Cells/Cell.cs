@@ -17,23 +17,23 @@ namespace PieterP.Shared.Cells {
             // NOP
         }
 
-        private event PropertyChangedEventHandler PropertyChanged = ( obj, args ) => { };
+        private event PropertyChangedEventHandler PropertyChanged; // = ( obj, args ) => { };
 
         event PropertyChangedEventHandler INotifyPropertyChanged.PropertyChanged
         {
             add
-            {
-                lock ( PropertyChanged )
-                {
+            {                
+                //lock ( PropertyChanged )
+                //{
                     PropertyChanged += value;
-                }
+                //}
             }
             remove
             {
-                lock ( PropertyChanged )
-                {
+                //lock ( PropertyChanged )
+                //{
                     PropertyChanged -= value;
-                }
+                //}
             }
         }
 

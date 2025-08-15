@@ -108,10 +108,6 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             Initialize(this.AwayCaptain, fullMatch.AwayCaptain);
             Initialize(this.RoomCommissioner, fullMatch.RoomCommissioner);
             this.DisablePartialUpload.Value = fullMatch.DisablePartialUpload ?? false;
-            this.MatchStatus.ValueChanged += () => {
-                if (this.MatchStatus.Value == ViewModels.Score.MatchStatus.Uploaded)
-                    this.DisablePartialUpload.Value = true;
-            };
             this.Filename.Value = fromFile;
             this.IsInitializing = false;
             ScoreChanged();
@@ -262,9 +258,15 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             this.Veterans = CreateCell(false);
             CreateXorGroup(this.Interclub, this.Super, this.Cup, this.Youth, this.Veterans);
             this.MustBePlayed = Cell.Derived(this.HomeTeam.IsBye, this.HomeTeam.Forfeit, this.AwayTeam.IsBye,this.AwayTeam.Forfeit, (hb, hff, ab, aff) => !(hb || hff || ab || aff));
-            this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None);
+            this.DisablePartialUpload = Cell.Create(false);
+            this.MatchStatus = Cell.Create(ViewModels.Score.MatchStatus.None, () => {
+                if (this.MatchStatus.Value == ViewModels.Score.MatchStatus.Uploaded) {
+                    this.DisablePartialUpload.Value = true;
+                    SaveData();
+                }
+            });
+
             this.UploadStatus = Cell.Create(ViewModels.Score.UploadStatus.None, RefreshMatchStatus);
-            this.DisablePartialUpload = CreateCell(false);
             this.Watermark = Cell.Derived(this.HomeTeam.Name, c => {
                 if (!string.IsNullOrWhiteSpace(c)) {
                     var components = c.Split(' ');
@@ -360,6 +362,14 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 _isSaveScheduled = true;
             }
             await Task.Delay(1000);
+            
+            SaveData();
+            Dirty.Value = true;
+            lock (this) {
+                _isSaveScheduled = false;
+            }
+        }
+        private void SaveData() {
             try {
                 if (UniqueId != null && UniqueId.Length > 0) {
                     var exporter = new MatchExporter();
@@ -370,14 +380,9 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                         DatabaseManager.Current.MatchBackup[UniqueId] = exporter.ToMatch(this);
                         Logger.Log(LogType.Debug, Safe.Format(Strings.CompetitiveMatch_MatchBackedUp, DateTime.Now.ToString("HH:mm:ss")));
                     }
-                    Dirty.Value = true;
                 }
             } catch (Exception e) {
                 Logger.Log(e);
-            } finally {
-                lock (this) {
-                    _isSaveScheduled = false;
-                }
             }
         }
         public void Close() {
@@ -492,12 +497,6 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             get {
                 if (!this.MatchSystem.IsCompetitive)
                     return false; // uses a match system that is only used for non-competitive matches
-                //// This is a hack for seasons 2020-2021; due to Corona, the free time series use a match system that is normally used
-                //// in competitive matches; because of this, we cannot use the match system as the indicator of whether the match is competitive
-                //// A better way would be to let the interclub leaders add this information on the competition website, and that
-                //// we retrieve the info from the website.
-                //if (this.Series.Value.IndexOf('6') >= 0 && this.MatchId.Value.StartsWith("PL/K"))
-                //    return false;
                 return true;
             }
         }
