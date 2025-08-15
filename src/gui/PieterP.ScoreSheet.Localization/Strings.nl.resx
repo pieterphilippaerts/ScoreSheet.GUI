@@ -751,4 +751,7 @@ Nadat het bestand opgeslagen is, kan u dan de USB-stick of draagbare harde schij
   <data name="Validate_ErrorsFound" xml:space="preserve">
     <value>De volgende validatiefouten werden gevonden:</value>
   </data>
+  <data name="Main_DataOutOfDate" xml:space="preserve">
+    <value>De database is verouderd en moet worden bijgewerkt om de applicatie correct te laten werken. Wilt u deze nu bijwerken?</value>
+  </data>
 </root>

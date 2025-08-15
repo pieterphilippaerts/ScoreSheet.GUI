@@ -466,7 +466,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
             }
             if (selected.IsWO.Value && member != null) {
                 var match = dest.ParentTeam.ParentMatch;
-                bool home = dest.ParentTeam == match.HomeTeam;
+                //bool home = dest.ParentTeam == match.HomeTeam;
                 foreach (var w in match.Matches) {
                     if (w.HomePlayers.Value.Contains(spi) && w.Sets[0].LeftScore.Value.Length == 0)
                         w.Sets[0].LeftScore.Value = "wo";
@@ -475,7 +475,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 }
             } else if (member == null || !selected.IsWO.Value) {
                 var match = dest.ParentTeam.ParentMatch;
-                bool home = dest.ParentTeam == match.HomeTeam;
+                //bool home = dest.ParentTeam == match.HomeTeam;
                 foreach (var w in match.Matches) {
                     if (w.HomePlayers.Value.Contains(spi) && w.Sets[0].LeftScore.Value == "wo")
                         w.Sets[0].LeftScore.Value = "";

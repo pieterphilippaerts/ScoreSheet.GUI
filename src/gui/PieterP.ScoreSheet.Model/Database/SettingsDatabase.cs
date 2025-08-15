@@ -43,6 +43,7 @@ namespace PieterP.ScoreSheet.Model.Database {
             this.FollowAway = CreateCell<bool>(Database.FollowAway ?? true, value => Database.FollowAway = value);
             string appVer = Application.Version.ToString(3);
             this.UpdateSettingsOnStart = CreateCell<bool>(Database.UpdateSettingsOnStart ?? true, value => Database.UpdateSettingsOnStart = value);
+            this.UpdateDatabaseOnStart = CreateCell<bool>(Database.UpdateDatabaseOnStart ?? false, value => Database.UpdateDatabaseOnStart = value);
             this.EnableSecondScreen = CreateCell<bool>(Database.EnableSecondScreen ?? false, value => Database.EnableSecondScreen = value);
             this.ChooseScreenAutomatically = CreateCell<bool>(Database.ChooseScreenAutomatically ?? true, value => Database.ChooseScreenAutomatically = value);
             this.ChooseScreenManually = CreateCell<bool>(Database.ChooseScreenManually ?? false, value => Database.ChooseScreenManually = value);
@@ -153,6 +154,7 @@ namespace PieterP.ScoreSheet.Model.Database {
         public Cell<bool> EnableLiveUpdatesForSuperOnly { get; private set; }
         public Cell<bool> FollowAway { get; private set; }
         public Cell<bool> UpdateSettingsOnStart { get; private set; }
+        public Cell<bool> UpdateDatabaseOnStart { get; private set; }
         public Cell<bool> EnableSecondScreen { get; private set; }
         public Cell<bool> ChooseScreenAutomatically { get; private set; }
         public Cell<bool> ChooseScreenManually { get; private set; }

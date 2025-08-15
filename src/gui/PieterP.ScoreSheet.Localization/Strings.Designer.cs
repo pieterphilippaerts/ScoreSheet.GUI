@@ -340,6 +340,15 @@ namespace PieterP.ScoreSheet.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The database is out of date and must be updated in order for the application to work correctly. Do you want to update it now?.
+        /// </summary>
+        public static string Main_DataOutOfDate {
+            get {
+                return ResourceManager.GetString("Main_DataOutOfDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This is the first time that you have started this version of ScoreSheet. Do you want to adjust the settings now?.
         /// </summary>
         public static string Main_FirstStart {

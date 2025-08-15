@@ -751,4 +751,7 @@ Après avoir sauvegardé le fichier, vous pouvez connecter la clé USB ou le dis
   <data name="Validate_ErrorsFound" xml:space="preserve">
     <value>Les erreurs de validation suivantes ont été détectées :</value>
   </data>
+  <data name="Main_DataOutOfDate" xml:space="preserve">
+    <value>La base de données est obsolète et doit être mise à jour pour que l’application fonctionne correctement. Voulez-vous la mettre à jour maintenant ?</value>
+  </data>
 </root>

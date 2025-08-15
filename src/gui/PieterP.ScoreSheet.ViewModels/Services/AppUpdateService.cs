@@ -119,6 +119,14 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
                     }
                 }
 
+                // check whether we must force a database update on next startup
+                if (update.DatabaseCompatibilityVersion != null) {
+                    var databaseVersion = new Version(update.DatabaseCompatibilityVersion);
+                    if (databaseVersion > DatabaseManager.Current.Settings.LatestInstalledVersion.Value) {
+                        DatabaseManager.Current.Settings.UpdateDatabaseOnStart.Value = true; // force database update on next start
+                    }
+                }
+
                 DatabaseManager.Current.Settings.LatestInstalledVersion.Value = onlineVersion;
                 Logger.Log(LogType.Informational, Strings.AppUpdate_Restart);
                 this.Status.Value = UpdateStatus.Updated;

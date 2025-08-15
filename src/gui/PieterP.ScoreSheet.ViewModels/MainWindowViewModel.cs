@@ -159,7 +159,7 @@ namespace PieterP.ScoreSheet.ViewModels {
             // this method gets called when the main window is loaded
             TryRecoverMatches();
             CheckSettingsUpdate();
-            CheckDatabaseEmpty();
+            CheckDatabase();
             ShowWelcome();
         }
         private void CheckSettingsUpdate() {
@@ -182,12 +182,18 @@ namespace PieterP.ScoreSheet.ViewModels {
                 }
             }
         }
-        private void CheckDatabaseEmpty() {
-            if (!DatabaseManager.Current.Clubs.Any()) { 
-                var showSettingsMessage = new ShowMessageNotification(Main_NoData, NotificationTypes.Question, NotificationButtons.YesNo);
-                NotificationManager.Current.Raise(showSettingsMessage);
+        private void CheckDatabase() {
+            string? message = null;
+            if (!DatabaseManager.Current.Clubs.Any()) {
+                message = Main_NoData;
+            } else if (DatabaseManager.Current.Settings.UpdateDatabaseOnStart.Value) {
+                message = Main_DataOutOfDate;
+            }
+            if (message != null) {
+                var showUpdateMessage = new ShowMessageNotification(message, NotificationTypes.Question, NotificationButtons.YesNo);
+                NotificationManager.Current.Raise(showUpdateMessage);
 
-                if (showSettingsMessage.Result == true) {
+                if (showUpdateMessage.Result == true) {
                     if (this.Update.CanExecute(null))
                         this.Update.Execute(null);
                 }

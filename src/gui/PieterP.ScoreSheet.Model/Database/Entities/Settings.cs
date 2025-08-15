@@ -33,6 +33,7 @@ namespace PieterP.ScoreSheet.Model.Database.Entities {
         public bool? EnableLiveUpdatesForSuperOnly { get; set; }
         public bool? FollowAway { get; set; }
         public bool? UpdateSettingsOnStart { get; set; }
+        public bool? UpdateDatabaseOnStart { get; set; }
 
         public bool? EnableSecondScreen { get; set; }
         public bool? ChooseScreenAutomatically { get; set; }

@@ -751,4 +751,7 @@ After the file has been saved, you can then attach the USB stick or portable har
   <data name="Validate_ErrorsFound" xml:space="preserve">
     <value>The following validation errors were found:</value>
   </data>
+  <data name="Main_DataOutOfDate" xml:space="preserve">
+    <value>The database is out of date and must be updated in order for the application to work correctly. Do you want to update it now?</value>
+  </data>
 </root>
