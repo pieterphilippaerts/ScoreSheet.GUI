@@ -73,7 +73,8 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
             // away players
             ExportTeam(output, matchVm, matchVm.AwayTeam);
             output.Append(';');
-            // score 
+            // score
+            bool isDataComplete = true;
             if (MatchStartInfo.IsByeIndex(matchVm.HomeTeam.ClubId.Value) || MatchStartInfo.IsByeIndex(matchVm.AwayTeam.ClubId.Value)) {
                 // only output results for bye
                 output.Append($"U{ matchVm.Score.HomeMatchesWon.Value }-{ matchVm.Score.AwayMatchesWon.Value }");
@@ -89,11 +90,18 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
                     var result = matchVm.Score.WhoWon(m.Sets, matchVm.MatchSystem);
                     if (partial && (result.Result == WonResult.Empty || result.Result == WonResult.Error)) {
                         output.Append('?');
+                        isDataComplete = false;
                     } else {
                         output.Append(ToIndividualMatchResults(matchVm, result.Result, m.Sets));
                     }
                 }
             }
+
+            // check that partial is allowed (i.e., at least one match is not yet filled in)
+            if (isDataComplete) {
+                partial = false; // override the setting if all data is filled in
+            }
+
             if (!partial) {
                 // all following columns are optional and only make sense when there are matches that have been played
                 bool emptyMatch = matchVm.HomeTeam.Forfeit.Value || matchVm.AwayTeam.Forfeit.Value || matchVm.HomeTeam.IsBye.Value || matchVm.AwayTeam.IsBye.Value;
