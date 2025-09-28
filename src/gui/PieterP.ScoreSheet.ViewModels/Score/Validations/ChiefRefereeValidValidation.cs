@@ -24,7 +24,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Validations {
             }
 
             // check whether the chief referee is not a member of the away club
-            if (matchVm.HomeTeam.ClubId != matchVm.AwayTeam.ClubId) { // Only if home and away clubs are not the same...
+            if (matchVm.HomeTeam.ClubId.Value != matchVm.AwayTeam.ClubId.Value) { // Only if home and away clubs are not the same...
                 var awayClubMembers = DatabaseManager.Current.Members[matchVm.AwayTeam.ClubId.Value, DatabaseManager.Current.PlayerCategories.Default];
                 if (awayClubMembers != null && awayClubMembers.Entries.Any(m => m.ComputerNumber == cn))
                     return Validation_ChiefRefereeNotAwayMember;
