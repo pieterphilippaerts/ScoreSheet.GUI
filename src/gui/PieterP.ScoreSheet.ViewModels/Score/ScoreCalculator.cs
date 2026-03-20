@@ -245,6 +245,10 @@ namespace PieterP.ScoreSheet.ViewModels.Score {
                 } else if (matchResult == WonResult.AwayWithWO) {
                     setsRight = system.SetCount;
                     setsLeft = 0;
+                } else if (matchResult == WonResult.HomeWithFF) {
+                    setsLeft = system.SetCount;
+                } else if (matchResult == WonResult.AwayWithFF) {
+                    setsRight = system.SetCount;
                 }
                 return (matchResult, setsLeft, setsRight);
             }
