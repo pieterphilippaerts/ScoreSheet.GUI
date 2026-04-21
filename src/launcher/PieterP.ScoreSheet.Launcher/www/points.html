@@ -1,23 +1,956 @@
-﻿<!DOCTYPE html>
-<html>
-    <!-- Bedankt aan Bruno Van Damme voor deze contributie! -->
-	<head>
-		<meta charset="UTF-8" />
-		<title>Wedstrijdblad</title>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-	</head>
-	<body>
-		<div id="container">
-			<div id="teams">
-				<div class="home"></div>
-				<div class="away"></div>
-			</div>
-			<div id="scores" class="losing">
-				<div class="home"></div>
-				<div class="divider"></div>
-				<div class="away"></div>
-			</div>
-		</div>
-		<script type="text/javascript" src="main.js"></script>
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreSheet Live Points</title>
+    <style>
+        :root {
+            --background: #f4f7fb;
+            --panel: #ffffff;
+            --panel-soft: #edf2f7;
+            --text: #172033;
+            --muted: #65758b;
+            --border: #d7dee9;
+            --home: #0f766e;
+            --away: #b91c1c;
+            --draw: #475569;
+            --accent: #2563eb;
+            --shadow: 0 14px 34px rgba(23, 32, 51, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            background: var(--background);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .app {
+            display: grid;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1600px;
+            height: 900px;
+            grid-template-columns: 360px minmax(0, 1fr);
+            gap: 18px;
+            padding: 18px;
+            transform-origin: top left;
+        }
+
+        .panel {
+            min-width: 0;
+            min-height: 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .sidebar {
+            display: flex;
+            min-height: 0;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .sidebar-header {
+            padding: 18px;
+            border-bottom: 1px solid var(--border);
+            background: #111827;
+            color: #f8fafc;
+        }
+
+        .label {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .sidebar-header .label {
+            color: #cbd5e1;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+        }
+
+        h1 {
+            margin-top: 4px;
+            font-size: 42px;
+            line-height: 1;
+        }
+
+        .match-list {
+            display: grid;
+            min-height: 0;
+            gap: 6px;
+            align-content: start;
+            padding: 12px;
+            overflow: hidden;
+        }
+
+        .match-card {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 7px;
+            align-items: center;
+            min-height: 48px;
+            padding: 8px 10px;
+            border: 1px solid var(--border);
+            border-left: 6px solid var(--draw);
+            border-radius: 8px;
+            background: var(--panel-soft);
+        }
+
+        .match-card.active {
+            background: #ffffff;
+            outline: 2px solid rgba(37, 99, 235, 0.22);
+        }
+
+        .match-card.winning {
+            border-left-color: var(--home);
+        }
+
+        .match-card.losing {
+            border-left-color: var(--away);
+        }
+
+        .match-card.draw {
+            border-left-color: var(--draw);
+        }
+
+        .teams-small {
+            min-width: 0;
+        }
+
+        .teams-small strong,
+        .teams-small span {
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .teams-small strong {
+            font-size: 15px;
+        }
+
+        .teams-small span {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .score-small {
+            min-width: 74px;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 30px;
+            font-weight: 900;
+            line-height: 1;
+            padding: 8px;
+            text-align: center;
+        }
+
+        .winning .score-small {
+            background: var(--home);
+        }
+
+        .losing .score-small {
+            background: var(--away);
+        }
+
+        .draw .score-small {
+            background: var(--draw);
+        }
+
+        .stage {
+            display: grid;
+            min-width: 0;
+            min-height: 0;
+            grid-template-rows: auto minmax(0, 1fr) auto;
+            overflow: hidden;
+        }
+
+        .scoreboard {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+            gap: 24px;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .team-block {
+            min-width: 0;
+        }
+
+        .team-block.away {
+            text-align: right;
+        }
+
+        .team-name {
+            overflow: hidden;
+            display: -webkit-box;
+            max-height: 92px;
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.08;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .team-meta {
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .score-focus {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            min-width: 430px;
+            padding: 18px;
+            border-radius: 8px;
+            color: #fff;
+            line-height: 1;
+        }
+
+        .score-focus.winning {
+            background: var(--home);
+        }
+
+        .score-focus.losing {
+            background: var(--away);
+        }
+
+        .score-focus.draw {
+            background: var(--draw);
+        }
+
+        .score-number {
+            font-size: 150px;
+            font-weight: 950;
+            letter-spacing: 0;
+        }
+
+        .score-divider {
+            transform: translateY(-0.06em);
+            font-size: 92px;
+            font-weight: 800;
+            opacity: 0.72;
+        }
+
+        .detail-grid {
+            display: grid;
+            min-height: 0;
+            grid-template-columns: 270px minmax(0, 1fr);
+            gap: 14px;
+            padding: 14px;
+            overflow: hidden;
+        }
+
+        .players,
+        .matches {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 24px;
+        }
+
+        .player-list,
+        .match-grid {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+        }
+
+        .player-list {
+            display: grid;
+            gap: 6px;
+        }
+
+        .player-group {
+            display: grid;
+            gap: 6px;
+            min-height: 0;
+        }
+
+        .player {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr);
+            gap: 8px;
+            align-items: center;
+            min-height: 42px;
+            padding: 6px 8px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel-soft);
+        }
+
+        .player-number {
+            display: grid;
+            width: 28px;
+            height: 28px;
+            place-items: center;
+            border-radius: 999px;
+            background: #172033;
+            color: #fff;
+            font-weight: 900;
+        }
+
+        .player-name {
+            overflow: hidden;
+            font-size: 14px;
+            font-weight: 800;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .player-meta {
+            overflow: hidden;
+            color: var(--muted);
+            font-size: 12px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .match-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 7px;
+            align-content: start;
+            padding-right: 2px;
+        }
+
+        .game {
+            display: grid;
+            gap: 5px;
+            min-height: 132px;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel-soft);
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .game-index {
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .winner {
+            border-radius: 999px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 3px 8px;
+            white-space: nowrap;
+        }
+
+        .winner.home {
+            background: var(--home);
+        }
+
+        .winner.away {
+            background: var(--away);
+        }
+
+        .winner.pending {
+            background: var(--draw);
+        }
+
+        .versus {
+            display: grid;
+            gap: 4px;
+            font-weight: 800;
+        }
+
+        .side-row {
+            display: grid;
+            grid-template-columns: 44px minmax(0, 1fr);
+            gap: 7px;
+            align-items: start;
+        }
+
+        .side-label {
+            border-radius: 999px;
+            color: #fff;
+            font-size: 11px;
+            font-weight: 900;
+            line-height: 18px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .side-label.home {
+            background: var(--home);
+        }
+
+        .side-label.away {
+            background: var(--away);
+        }
+
+        .side-name {
+            overflow: hidden;
+            display: -webkit-box;
+            min-height: 18px;
+            max-height: 38px;
+            font-size: 14px;
+            line-height: 1.32;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+
+        .set-line {
+            color: var(--muted);
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 13px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .status-message {
+            display: grid;
+            height: 100%;
+            place-items: center;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .status-message h2 {
+            font-size: 70px;
+            line-height: 1;
+        }
+
+        .status-message p {
+            margin-top: 14px;
+            color: var(--muted);
+            font-size: 22px;
+        }
+
+        .progress {
+            height: 5px;
+            background: rgba(37, 99, 235, 0.16);
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: var(--accent);
+            transition: width 0.2s linear;
+        }
+
+        .app.portrait {
+            width: 900px;
+            height: 1600px;
+            grid-template-columns: 1fr;
+            grid-template-rows: 360px minmax(0, 1fr);
+        }
+
+        .app.portrait .match-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .app.portrait .scoreboard {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .app.portrait .team-block.away {
+            text-align: center;
+        }
+
+        .app.portrait .score-focus {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .app.portrait .detail-grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: 300px minmax(0, 1fr);
+        }
+
+        .app.portrait .player-list {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .app.portrait .match-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <aside class="panel sidebar">
+            <div class="sidebar-header">
+                <div class="label">Active matches</div>
+                <h1 id="match-count">0</h1>
+            </div>
+            <div id="match-list" class="match-list"></div>
+        </aside>
+
+        <main id="stage" class="panel stage">
+            <div class="status-message">
+                <div>
+                    <h2>Loading ScoreSheet</h2>
+                    <p>Waiting for <code>/api/matches.json</code>.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        (function () {
+            var matches = [];
+            var activeIndex = 0;
+            var lastRotation = Date.now();
+            var rotationMs = 10000;
+            var refreshMs = 2500;
+            var app = document.querySelector(".app");
+            var stage = document.getElementById("stage");
+            var matchList = document.getElementById("match-list");
+            var matchCount = document.getElementById("match-count");
+
+            function text(value, fallback) {
+                if (value === null || value === undefined || value === "") {
+                    return fallback || "";
+                }
+                return String(value);
+            }
+
+            function number(value) {
+                var parsed = parseInt(value, 10);
+                return isNaN(parsed) ? 0 : parsed;
+            }
+
+            function resultClass(match) {
+                var won = number(match.WonCount);
+                var lost = number(match.LostCount);
+                if (won > lost) {
+                    return "winning";
+                }
+                if (won < lost) {
+                    return "losing";
+                }
+                return "draw";
+            }
+
+            function hasPlayerData(player) {
+                return !!player &&
+                    (text(player.Name, "").trim() !== "" ||
+                    text(player.ComputerNumber, "").trim() !== "");
+            }
+
+            function hasPlayers(match) {
+                return !!match &&
+                    Array.isArray(match.HomePlayers) &&
+                    Array.isArray(match.AwayPlayers) &&
+                    match.HomePlayers.some(hasPlayerData) &&
+                    match.AwayPlayers.some(hasPlayerData);
+            }
+
+            function findNextPlayableIndex(startIndex) {
+                var i;
+                var index;
+                if (!matches.length) {
+                    return -1;
+                }
+                for (i = 0; i < matches.length; i += 1) {
+                    index = (startIndex + i + matches.length) % matches.length;
+                    if (hasPlayers(matches[index])) {
+                        return index;
+                    }
+                }
+                return -1;
+            }
+
+            function clear(element) {
+                while (element.firstChild) {
+                    element.removeChild(element.firstChild);
+                }
+            }
+
+            function create(tag, className, value) {
+                var element = document.createElement(tag);
+                if (className) {
+                    element.className = className;
+                }
+                if (value !== undefined) {
+                    element.textContent = value;
+                }
+                return element;
+            }
+
+            function playerName(players, playerNumber) {
+                var index = number(playerNumber) - 1;
+                if (index < 0 || !players || !players[index]) {
+                    return playerNumber === 0 ? "Double" : "-";
+                }
+                return text(players[index].Name, "Player " + playerNumber);
+            }
+
+            function playerMeta(player) {
+                if (player.Ranking) {
+                    return player.Ranking;
+                }
+                return "";
+            }
+
+            function playersForSide(match, side) {
+                var source = side === "home" ? match.HomePlayers : match.AwayPlayers;
+                var title = side === "home" ? match.HomeTeam : match.AwayTeam;
+                var block = create("div", "player-group");
+                var heading = create("div", "label", title || side);
+                var list = create("div", "player-list");
+                var i;
+
+                block.appendChild(heading);
+                for (i = 0; i < (source || []).length; i += 1) {
+                    var player = source[i];
+                    var item = create("div", "player");
+                    item.appendChild(create("div", "player-number", i + 1));
+                    var body = create("div");
+                    body.appendChild(create("div", "player-name", text(player.Name, "Player " + (i + 1))));
+                    body.appendChild(create("div", "player-meta", playerMeta(player)));
+                    item.appendChild(body);
+                    list.appendChild(item);
+                }
+                block.appendChild(list);
+                return block;
+            }
+
+            function setPairs(points) {
+                var values = points || [];
+                var pairs = [];
+                var i;
+                for (i = 0; i < values.length; i += 2) {
+                    var left = text(values[i], "");
+                    var right = text(values[i + 1], "");
+                    if (left !== "" || right !== "") {
+                        pairs.push((left || "-") + "-" + (right || "-"));
+                    }
+                }
+                return pairs.length ? pairs.join("  ") : "No scores yet";
+            }
+
+            function winnerForGame(game) {
+                var homeSets = number(game.WonSets);
+                var awaySets = number(game.LostSets);
+                if (homeSets > awaySets) {
+                    return { className: "home", text: "Home" };
+                }
+                if (awaySets > homeSets) {
+                    return { className: "away", text: "Away" };
+                }
+                return { className: "pending", text: "Open" };
+            }
+
+            function renderMatchList() {
+                clear(matchList);
+                matchCount.textContent = matches.length;
+
+                if (!matches.length) {
+                    matchList.appendChild(create("div", "label", "No active matches"));
+                    return;
+                }
+
+                matches.forEach(function (match, index) {
+                    var state = resultClass(match);
+                    var card = create("div", "match-card " + state + (index === activeIndex && hasPlayers(match) ? " active" : ""));
+                    var teams = create("div", "teams-small");
+                    var score = create("div", "score-small", text(match.WonCount, "0") + "-" + text(match.LostCount, "0"));
+
+                    teams.appendChild(create("strong", "", text(match.HomeTeam, "Home") + " - " + text(match.AwayTeam, "Away")));
+                    teams.appendChild(create("span", "", text(match.MatchNr, "") + " | " + text(match.Series, "")));
+                    card.appendChild(teams);
+                    card.appendChild(score);
+                    matchList.appendChild(card);
+                });
+            }
+
+            function renderActiveMatch() {
+                if (!matches.length) {
+                    stage.innerHTML = '<div class="status-message"><div><h2>No active matches</h2><p>Open a score sheet in ScoreSheet to show live results.</p></div></div>';
+                    return;
+                }
+
+                if (!hasPlayers(matches[activeIndex])) {
+                    activeIndex = findNextPlayableIndex(activeIndex);
+                }
+
+                if (activeIndex < 0) {
+                    stage.innerHTML = '<div class="status-message"><div><h2>No player details</h2><p>Active matches are listed on the left. Add players to a match to show its details here.</p></div></div>';
+                    return;
+                }
+
+                var match = matches[activeIndex];
+                var state = resultClass(match);
+                var games = match.Matches || [];
+                var html = [
+                    '<section class="scoreboard">',
+                    '<div class="team-block home">',
+                    '<div class="label">Home</div>',
+                    '<div class="team-name">' + escapeHtml(text(match.HomeTeam, "Home")) + '</div>',
+                    '<div class="team-meta">' + escapeHtml(text(match.HomeClubId, "")) + '</div>',
+                    '</div>',
+                    '<div class="score-focus ' + state + '">',
+                    '<span class="score-number">' + escapeHtml(text(match.WonCount, "0")) + '</span>',
+                    '<span class="score-divider">-</span>',
+                    '<span class="score-number">' + escapeHtml(text(match.LostCount, "0")) + '</span>',
+                    '</div>',
+                    '<div class="team-block away">',
+                    '<div class="label">Away</div>',
+                    '<div class="team-name">' + escapeHtml(text(match.AwayTeam, "Away")) + '</div>',
+                    '<div class="team-meta">' + escapeHtml(text(match.AwayClubId, "")) + '</div>',
+                    '</div>',
+                    '</section>',
+                    '<section class="detail-grid">',
+                    '<div class="players">',
+                    '<div class="section-title"><h2>Players</h2><span class="label">' + escapeHtml(text(match.MatchNr, "")) + '</span></div>',
+                    '<div id="players-list" class="player-list"></div>',
+                    '</div>',
+                    '<div class="matches">',
+                    '<div class="section-title"><h2>Individual matches</h2><span class="label">' + games.length + ' games</span></div>',
+                    '<div id="game-grid" class="match-grid"></div>',
+                    '</div>',
+                    '</section>',
+                    '<div class="progress"><div id="progress-bar" class="progress-bar"></div></div>'
+                ].join("");
+
+                stage.innerHTML = html;
+                renderPlayers(match);
+                renderGames(match);
+                fitTeamNames();
+                updateProgress();
+            }
+
+            function fitTeamNames() {
+                var names = document.querySelectorAll(".team-name");
+                var i;
+                for (i = 0; i < names.length; i += 1) {
+                    var name = names[i];
+                    var size = 42;
+                    name.style.fontSize = size + "px";
+                    while ((name.scrollHeight > name.clientHeight || name.scrollWidth > name.clientWidth) && size > 22) {
+                        size -= 2;
+                        name.style.fontSize = size + "px";
+                    }
+                }
+            }
+
+            function renderPlayers(match) {
+                var list = document.getElementById("players-list");
+                if (!list) {
+                    return;
+                }
+                clear(list);
+                list.appendChild(playersForSide(match, "home"));
+                list.appendChild(playersForSide(match, "away"));
+            }
+
+            function renderGames(match) {
+                var grid = document.getElementById("game-grid");
+                var games = match.Matches || [];
+                if (!grid) {
+                    return;
+                }
+                clear(grid);
+
+                games.forEach(function (game) {
+                    var winner = winnerForGame(game);
+                    var card = create("article", "game");
+                    var header = create("div", "game-header");
+                    var homeNames = (game.HomePlayers || []).map(function (p) { return playerName(match.HomePlayers, p); }).join(" / ");
+                    var awayNames = (game.AwayPlayers || []).map(function (p) { return playerName(match.AwayPlayers, p); }).join(" / ");
+                    var versus = create("div", "versus");
+
+                    header.appendChild(create("div", "game-index", "Match " + text(game.MatchIndex, "")));
+                    header.appendChild(create("div", "winner " + winner.className, winner.text));
+                    card.appendChild(header);
+
+                    versus.appendChild(sideRow("home", homeNames || "-"));
+                    versus.appendChild(sideRow("away", awayNames || "-"));
+                    card.appendChild(versus);
+                    card.appendChild(create("div", "set-line", setPairs(game.Points)));
+                    grid.appendChild(card);
+                });
+            }
+
+            function sideRow(side, names) {
+                var row = create("div", "side-row");
+                row.appendChild(create("span", "side-label " + side, side === "home" ? "H" : "A"));
+                row.appendChild(create("span", "side-name", names));
+                return row;
+            }
+
+            function escapeHtml(value) {
+                return String(value)
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
+
+            function render() {
+                renderMatchList();
+                renderActiveMatch();
+                fitViewport();
+            }
+
+            function updateProgress() {
+                var bar = document.getElementById("progress-bar");
+                var nextIndex = findNextPlayableIndex(activeIndex + 1);
+                if (!bar || nextIndex < 0 || nextIndex === activeIndex) {
+                    if (bar) {
+                        bar.style.width = "0";
+                    }
+                    return;
+                }
+                var elapsed = Date.now() - lastRotation;
+                var percentage = Math.min(100, Math.max(0, elapsed / rotationMs * 100));
+                bar.style.width = percentage + "%";
+            }
+
+            function moveNext() {
+                var nextIndex = findNextPlayableIndex(activeIndex + 1);
+                if (nextIndex >= 0 && nextIndex !== activeIndex) {
+                    activeIndex = nextIndex;
+                    lastRotation = Date.now();
+                    render();
+                }
+            }
+
+            function tickRotation() {
+                var nextIndex = findNextPlayableIndex(activeIndex + 1);
+                if (nextIndex >= 0 && nextIndex !== activeIndex && Date.now() - lastRotation >= rotationMs) {
+                    moveNext();
+                    return;
+                }
+                updateProgress();
+            }
+
+            function fitViewport() {
+                var portrait = window.innerHeight > window.innerWidth;
+                var designWidth;
+                var designHeight;
+                var scale;
+                var left;
+                var top;
+
+                if (portrait) {
+                    app.classList.add("portrait");
+                } else {
+                    app.classList.remove("portrait");
+                }
+
+                designWidth = app.offsetWidth;
+                designHeight = app.offsetHeight;
+                scale = Math.min(window.innerWidth / designWidth, window.innerHeight / designHeight);
+                left = Math.max(0, (window.innerWidth - designWidth * scale) / 2);
+                top = Math.max(0, (window.innerHeight - designHeight * scale) / 2);
+
+                app.style.left = left + "px";
+                app.style.top = top + "px";
+                app.style.transform = "scale(" + scale + ")";
+            }
+
+            function normalizeActive(previousMatchNr) {
+                var i;
+                var fallbackIndex;
+                if (!matches.length) {
+                    activeIndex = 0;
+                    return;
+                }
+                if (previousMatchNr) {
+                    for (i = 0; i < matches.length; i += 1) {
+                        if (matches[i].MatchNr === previousMatchNr && hasPlayers(matches[i])) {
+                            activeIndex = i;
+                            return;
+                        }
+                    }
+                }
+                fallbackIndex = findNextPlayableIndex(activeIndex);
+                activeIndex = fallbackIndex >= 0 ? fallbackIndex : -1;
+            }
+
+            function fetchMatches() {
+                var previous = matches[activeIndex] && matches[activeIndex].MatchNr;
+                var request = new XMLHttpRequest();
+                request.open("GET", "/api/matches.json", true);
+                request.onreadystatechange = function () {
+                    if (request.readyState !== 4) {
+                        return;
+                    }
+                    if (request.status === 200) {
+                        try {
+                            var data = JSON.parse(request.responseText);
+                            matches = Array.isArray(data) ? data : [];
+                            normalizeActive(previous);
+                            render();
+                        } catch (error) {
+                            stage.innerHTML = '<div class="status-message"><div><h2>Invalid response</h2><p>Could not parse /api/matches.json.</p></div></div>';
+                        }
+                    } else {
+                        stage.innerHTML = '<div class="status-message"><div><h2>Service unavailable</h2><p>HTTP ' + request.status + '</p></div></div>';
+                    }
+                };
+                request.onerror = function () {
+                    stage.innerHTML = '<div class="status-message"><div><h2>Service unavailable</h2><p>Could not contact /api/matches.json.</p></div></div>';
+                };
+                request.send();
+            }
+
+            fetchMatches();
+            setInterval(fetchMatches, refreshMs);
+            setInterval(tickRotation, 100);
+            window.onresize = fitViewport;
+            fitViewport();
+        }());
+    </script>
+</body>
 </html>

@@ -226,6 +226,9 @@
     <Content Include="www\points.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="www\points2.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="www\style.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
