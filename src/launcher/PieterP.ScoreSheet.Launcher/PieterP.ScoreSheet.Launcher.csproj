@@ -220,6 +220,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="www\edit.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="www\main.js">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

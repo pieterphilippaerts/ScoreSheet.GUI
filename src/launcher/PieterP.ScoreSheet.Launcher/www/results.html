@@ -119,11 +119,27 @@
             border-left: 6px solid var(--draw);
             border-radius: 8px;
             background: var(--panel-soft);
+            cursor: pointer;
+            transition: transform 0.42s ease, opacity 0.42s ease, background 0.18s ease;
         }
 
         .match-card.active {
+            grid-column: 1 / -1;
             background: #ffffff;
             outline: 2px solid rgba(37, 99, 235, 0.22);
+        }
+
+        .match-card.promoted {
+            animation: promoteActive 0.48s ease;
+        }
+
+        @keyframes promoteActive {
+            from {
+                transform: translateY(18px);
+            }
+            to {
+                transform: translateY(0);
+            }
         }
 
         .match-card.winning {
@@ -263,15 +279,13 @@
         }
 
         .detail-grid {
-            display: grid;
+            display: flex;
             min-height: 0;
-            grid-template-columns: 270px minmax(0, 1fr);
-            gap: 14px;
+            flex-direction: column;
             padding: 14px;
             overflow: hidden;
         }
 
-        .players,
         .matches {
             display: flex;
             flex-direction: column;
@@ -302,10 +316,25 @@
             gap: 6px;
         }
 
+        .active-player-panel {
+            display: grid;
+            grid-column: 1 / -1;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 8px;
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: #ffffff;
+        }
+
         .player-group {
             display: grid;
             gap: 6px;
             min-height: 0;
+        }
+
+        .active-player-panel .player-list {
+            gap: 4px;
         }
 
         .player {
@@ -331,6 +360,17 @@
             font-weight: 900;
         }
 
+        .active-player-panel .player {
+            min-height: 34px;
+            padding: 4px 6px;
+        }
+
+        .active-player-panel .player-number {
+            width: 22px;
+            height: 22px;
+            font-size: 12px;
+        }
+
         .player-name {
             overflow: hidden;
             font-size: 14px;
@@ -349,16 +389,16 @@
 
         .match-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(4, minmax(0, 1fr));
             gap: 7px;
-            align-content: start;
-            padding-right: 2px;
+            align-content: stretch;
         }
 
         .game {
             display: grid;
             gap: 5px;
-            min-height: 132px;
+            min-height: 0;
             padding: 8px;
             border: 1px solid var(--border);
             border-radius: 8px;
@@ -409,27 +449,8 @@
 
         .side-row {
             display: grid;
-            grid-template-columns: 44px minmax(0, 1fr);
-            gap: 7px;
+            grid-template-columns: minmax(0, 1fr);
             align-items: start;
-        }
-
-        .side-label {
-            border-radius: 999px;
-            color: #fff;
-            font-size: 11px;
-            font-weight: 900;
-            line-height: 18px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .side-label.home {
-            background: var(--home);
-        }
-
-        .side-label.away {
-            background: var(--away);
         }
 
         .side-name {
@@ -509,17 +530,9 @@
             width: 100%;
         }
 
-        .app.portrait .detail-grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: 300px minmax(0, 1fr);
-        }
-
-        .app.portrait .player-list {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-        }
-
         .app.portrait .match-grid {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-template-rows: repeat(4, minmax(0, 1fr));
         }
     </style>
 </head>
@@ -550,6 +563,7 @@
             var lastRotation = Date.now();
             var rotationMs = 10000;
             var refreshMs = 2500;
+            var lastRenderedActiveKey = "";
             var app = document.querySelector(".app");
             var stage = document.getElementById("stage");
             var matchList = document.getElementById("match-list");
@@ -579,18 +593,25 @@
                 return "draw";
             }
 
-            function hasPlayerData(player) {
-                return !!player &&
-                    (text(player.Name, "").trim() !== "" ||
-                    text(player.ComputerNumber, "").trim() !== "");
+            function playerHasName(player) {
+                return !!player && text(player.Name, "").trim() !== "";
             }
 
-            function hasPlayers(match) {
-                return !!match &&
-                    Array.isArray(match.HomePlayers) &&
-                    Array.isArray(match.AwayPlayers) &&
-                    match.HomePlayers.some(hasPlayerData) &&
-                    match.AwayPlayers.some(hasPlayerData);
+            function matchHasPlayerNames(match) {
+                var homePlayers = match && Array.isArray(match.HomePlayers) ? match.HomePlayers : [];
+                var awayPlayers = match && Array.isArray(match.AwayPlayers) ? match.AwayPlayers : [];
+                return homePlayers.some(playerHasName) || awayPlayers.some(playerHasName);
+            }
+
+            function playableMatchCount() {
+                var count = 0;
+                var i;
+                for (i = 0; i < matches.length; i += 1) {
+                    if (matchHasPlayerNames(matches[i])) {
+                        count += 1;
+                    }
+                }
+                return count;
             }
 
             function findNextPlayableIndex(startIndex) {
@@ -601,7 +622,7 @@
                 }
                 for (i = 0; i < matches.length; i += 1) {
                     index = (startIndex + i + matches.length) % matches.length;
-                    if (hasPlayers(matches[index])) {
+                    if (matchHasPlayerNames(matches[index])) {
                         return index;
                     }
                 }
@@ -628,16 +649,14 @@
             function playerName(players, playerNumber) {
                 var index = number(playerNumber) - 1;
                 if (index < 0 || !players || !players[index]) {
-                    return playerNumber === 0 ? "Double" : "-";
+                    return number(playerNumber) === 0 ? "Double" : "-";
                 }
                 return text(players[index].Name, "Player " + playerNumber);
             }
 
             function playerMeta(player) {
-                if (player.Ranking) {
-                    return player.Ranking;
-                }
-                return "";
+                player = player || {};
+                return text(player.Ranking, "");
             }
 
             function playersForSide(match, side) {
@@ -650,7 +669,7 @@
 
                 block.appendChild(heading);
                 for (i = 0; i < (source || []).length; i += 1) {
-                    var player = source[i];
+                    var player = source[i] || {};
                     var item = create("div", "player");
                     item.appendChild(create("div", "player-number", i + 1));
                     var body = create("div");
@@ -658,6 +677,9 @@
                     body.appendChild(create("div", "player-meta", playerMeta(player)));
                     item.appendChild(body);
                     list.appendChild(item);
+                }
+                if (!list.childNodes.length) {
+                    list.appendChild(create("div", "player-meta", "No players"));
                 }
                 block.appendChild(list);
                 return block;
@@ -689,27 +711,112 @@
                 return { className: "pending", text: "Open" };
             }
 
+            function matchKey(match, index) {
+                return text(match.MatchNr, "match-" + index);
+            }
+
+            function orderedMatches() {
+                var result = [];
+                var i;
+                if (activeIndex >= 0 && activeIndex < matches.length) {
+                    result.push({ match: matches[activeIndex], index: activeIndex, active: true });
+                }
+                for (i = 0; i < matches.length; i += 1) {
+                    if (i !== activeIndex) {
+                        result.push({ match: matches[i], index: i, active: false });
+                    }
+                }
+                return result;
+            }
+
+            function currentMatchPositions() {
+                var positions = {};
+                var cards = matchList.querySelectorAll(".match-card[data-match-key]");
+                var i;
+                for (i = 0; i < cards.length; i += 1) {
+                    positions[cards[i].getAttribute("data-match-key")] = cards[i].getBoundingClientRect().top;
+                }
+                return positions;
+            }
+
+            function animateMatchList(oldPositions) {
+                var cards = matchList.querySelectorAll(".match-card[data-match-key]");
+                var i;
+                for (i = 0; i < cards.length; i += 1) {
+                    (function (card) {
+                        var previousTop = oldPositions[card.getAttribute("data-match-key")];
+                        var currentTop = card.getBoundingClientRect().top;
+                        var offset = previousTop === undefined ? 0 : previousTop - currentTop;
+                        if (!offset) {
+                            return;
+                        }
+                        card.style.transition = "none";
+                        card.style.transform = "translateY(" + offset + "px)";
+                        requestAnimationFrame(function () {
+                            card.style.transition = "";
+                            card.style.transform = "";
+                        });
+                    }(cards[i]));
+                }
+            }
+
+            function selectActive(index) {
+                var nextIndex;
+                if (index < 0 || index >= matches.length) {
+                    return;
+                }
+                nextIndex = matchHasPlayerNames(matches[index]) ? index : findNextPlayableIndex(index + 1);
+                if (nextIndex < 0 || nextIndex === activeIndex) {
+                    return;
+                }
+                activeIndex = nextIndex;
+                lastRotation = Date.now();
+                render();
+                fetchMatches();
+            }
+
             function renderMatchList() {
+                var oldPositions = currentMatchPositions();
+                var activeKey = activeIndex >= 0 && matches[activeIndex] ? matchKey(matches[activeIndex], activeIndex) : "";
                 clear(matchList);
                 matchCount.textContent = matches.length;
 
                 if (!matches.length) {
                     matchList.appendChild(create("div", "label", "No active matches"));
+                    lastRenderedActiveKey = "";
                     return;
                 }
 
-                matches.forEach(function (match, index) {
+                orderedMatches().forEach(function (entry) {
+                    var match = entry.match;
+                    var index = entry.index;
                     var state = resultClass(match);
-                    var card = create("div", "match-card " + state + (index === activeIndex && hasPlayers(match) ? " active" : ""));
+                    var card = create("div", "match-card " + state + (entry.active ? " active" : "") + (entry.active && activeKey !== lastRenderedActiveKey ? " promoted" : ""));
                     var teams = create("div", "teams-small");
                     var score = create("div", "score-small", text(match.WonCount, "0") + "-" + text(match.LostCount, "0"));
 
+                    card.setAttribute("data-match-key", matchKey(match, index));
+                    card.onclick = function () {
+                        selectActive(index);
+                    };
                     teams.appendChild(create("strong", "", text(match.HomeTeam, "Home") + " - " + text(match.AwayTeam, "Away")));
                     teams.appendChild(create("span", "", text(match.MatchNr, "") + " | " + text(match.Series, "")));
                     card.appendChild(teams);
                     card.appendChild(score);
                     matchList.appendChild(card);
+                    if (entry.active) {
+                        matchList.appendChild(createActivePlayers(match));
+                    }
                 });
+                animateMatchList(oldPositions);
+                lastRenderedActiveKey = activeKey;
+            }
+
+            function createActivePlayers(match) {
+                var panel = create("div", "active-player-panel");
+                panel.appendChild(playersForSide(match, "home"));
+                panel.appendChild(playersForSide(match, "away"));
+                return panel;
             }
 
             function renderActiveMatch() {
@@ -718,18 +825,19 @@
                     return;
                 }
 
-                if (!hasPlayers(matches[activeIndex])) {
-                    activeIndex = findNextPlayableIndex(activeIndex);
+                if (activeIndex < 0 || activeIndex >= matches.length || !matchHasPlayerNames(matches[activeIndex])) {
+                    activeIndex = findNextPlayableIndex(activeIndex + 1);
                 }
 
                 if (activeIndex < 0) {
-                    stage.innerHTML = '<div class="status-message"><div><h2>No player details</h2><p>Active matches are listed on the left. Add players to a match to show its details here.</p></div></div>';
+                    stage.innerHTML = '<div class="status-message"><div><h2>No player names</h2><p>Active matches are listed on the left. Add at least one player name to highlight a match.</p></div></div>';
                     return;
                 }
 
                 var match = matches[activeIndex];
                 var state = resultClass(match);
                 var games = match.Matches || [];
+                var visibleGames = games.slice(0, 16);
                 var html = [
                     '<section class="scoreboard">',
                     '<div class="team-block home">',
@@ -749,12 +857,8 @@
                     '</div>',
                     '</section>',
                     '<section class="detail-grid">',
-                    '<div class="players">',
-                    '<div class="section-title"><h2>Players</h2><span class="label">' + escapeHtml(text(match.MatchNr, "")) + '</span></div>',
-                    '<div id="players-list" class="player-list"></div>',
-                    '</div>',
                     '<div class="matches">',
-                    '<div class="section-title"><h2>Individual matches</h2><span class="label">' + games.length + ' games</span></div>',
+                    '<div class="section-title"><h2>Individual matches</h2><span class="label">' + visibleGames.length + ' games</span></div>',
                     '<div id="game-grid" class="match-grid"></div>',
                     '</div>',
                     '</section>',
@@ -762,7 +866,6 @@
                 ].join("");
 
                 stage.innerHTML = html;
-                renderPlayers(match);
                 renderGames(match);
                 fitTeamNames();
                 updateProgress();
@@ -782,19 +885,9 @@
                 }
             }
 
-            function renderPlayers(match) {
-                var list = document.getElementById("players-list");
-                if (!list) {
-                    return;
-                }
-                clear(list);
-                list.appendChild(playersForSide(match, "home"));
-                list.appendChild(playersForSide(match, "away"));
-            }
-
             function renderGames(match) {
                 var grid = document.getElementById("game-grid");
-                var games = match.Matches || [];
+                var games = (match.Matches || []).slice(0, 16);
                 if (!grid) {
                     return;
                 }
@@ -822,8 +915,7 @@
 
             function sideRow(side, names) {
                 var row = create("div", "side-row");
-                row.appendChild(create("span", "side-label " + side, side === "home" ? "H" : "A"));
-                row.appendChild(create("span", "side-name", names));
+                row.appendChild(create("span", "side-name " + side, names));
                 return row;
             }
 
@@ -836,7 +928,18 @@
                     .replace(/'/g, "&#039;");
             }
 
+            function ensurePlayableActive() {
+                if (!matches.length) {
+                    activeIndex = 0;
+                    return;
+                }
+                if (activeIndex < 0 || activeIndex >= matches.length || !matchHasPlayerNames(matches[activeIndex])) {
+                    activeIndex = findNextPlayableIndex(activeIndex + 1);
+                }
+            }
+
             function render() {
+                ensurePlayableActive();
                 renderMatchList();
                 renderActiveMatch();
                 fitViewport();
@@ -845,7 +948,7 @@
             function updateProgress() {
                 var bar = document.getElementById("progress-bar");
                 var nextIndex = findNextPlayableIndex(activeIndex + 1);
-                if (!bar || nextIndex < 0 || nextIndex === activeIndex) {
+                if (!bar || playableMatchCount() < 2 || nextIndex < 0 || nextIndex === activeIndex) {
                     if (bar) {
                         bar.style.width = "0";
                     }
@@ -862,12 +965,13 @@
                     activeIndex = nextIndex;
                     lastRotation = Date.now();
                     render();
+                    fetchMatches();
                 }
             }
 
             function tickRotation() {
                 var nextIndex = findNextPlayableIndex(activeIndex + 1);
-                if (nextIndex >= 0 && nextIndex !== activeIndex && Date.now() - lastRotation >= rotationMs) {
+                if (playableMatchCount() > 1 && nextIndex >= 0 && nextIndex !== activeIndex && Date.now() - lastRotation >= rotationMs) {
                     moveNext();
                     return;
                 }
@@ -908,7 +1012,7 @@
                 }
                 if (previousMatchNr) {
                     for (i = 0; i < matches.length; i += 1) {
-                        if (matches[i].MatchNr === previousMatchNr && hasPlayers(matches[i])) {
+                        if (matches[i].MatchNr === previousMatchNr && matchHasPlayerNames(matches[i])) {
                             activeIndex = i;
                             return;
                         }
@@ -931,6 +1035,9 @@
                             var data = JSON.parse(request.responseText);
                             matches = Array.isArray(data) ? data : [];
                             normalizeActive(previous);
+                            if ((matches[activeIndex] && matches[activeIndex].MatchNr) !== previous) {
+                                lastRotation = Date.now();
+                            }
                             render();
                         } catch (error) {
                             stage.innerHTML = '<div class="status-message"><div><h2>Invalid response</h2><p>Could not parse /api/matches.json.</p></div></div>';
