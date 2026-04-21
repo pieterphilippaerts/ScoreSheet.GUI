@@ -54,19 +54,22 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
         private RouteResult FileNotFound() {
             return new RouteResult() {
                 StatusCode = 404,
-                Result = "The requested item could not be found"
+                Result = "The requested item could not be found",
+                ContentType = "text/html"
             };
         }
         private RouteResult BadRequest() {
             return new RouteResult() {
                 StatusCode = 400,
-                Result = "The client sent an invalid request"
+                Result = "The client sent an invalid request",
+                ContentType = "text/html"
             };
         }
         private RouteResult NoContent() {
             return new RouteResult() {
-                StatusCode = 206,
-                Result = ""
+                StatusCode = 204,
+                Result = "",
+                ContentType = "text/html"
             };
         }
         private RouteResult Json(string result) {

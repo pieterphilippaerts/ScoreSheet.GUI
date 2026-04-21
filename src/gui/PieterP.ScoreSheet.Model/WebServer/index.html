@@ -1,38 +1,872 @@
-﻿<!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ScoreSheet Web Service</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScoreSheet Web Service API</title>
     <style>
+        :root {
+            color-scheme: light;
+            --bg: #f6f8fb;
+            --panel: #ffffff;
+            --panel-alt: #f8fafc;
+            --text: #1f2937;
+            --muted: #64748b;
+            --border: #d8dee8;
+            --border-strong: #b9c2d0;
+            --primary: #1663c7;
+            --primary-dark: #0f4f9f;
+            --get: #0f766e;
+            --put: #b45309;
+            --code-bg: #111827;
+            --code-text: #e5e7eb;
+            --success: #15803d;
+            --warning: #b45309;
+            --danger: #b91c1c;
+            --shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: monospace;
-            font-size: 18px;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Segoe UI", Arial, sans-serif;
+            font-size: 15px;
+            line-height: 1.55;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            min-height: 100vh;
+        }
+
+        aside {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: 28px 24px;
+            overflow-y: auto;
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        aside h1 {
+            margin: 0 0 6px;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        aside p {
+            margin: 0 0 28px;
+            color: #cbd5e1;
+        }
+
+        nav {
+            display: grid;
+            gap: 8px;
+        }
+
+        nav a {
+            display: block;
+            padding: 10px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-radius: 8px;
+            color: #e5e7eb;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.08);
+            text-decoration: none;
+        }
+
+        main {
+            padding: 36px;
+        }
+
+        .content {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            margin-bottom: 24px;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: var(--shadow);
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--primary-dark);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            margin: 34px 0 14px;
+            font-size: 25px;
+            letter-spacing: 0;
+        }
+
+        h3 {
+            margin: 0;
+            font-size: 19px;
+            letter-spacing: 0;
+        }
+
+        h4 {
+            margin: 22px 0 10px;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+
+        .hero h2 {
+            margin: 0 0 10px;
+            font-size: 34px;
+        }
+
+        .hero p {
+            max-width: 850px;
+            margin: 0;
+            color: var(--muted);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 12px;
+            margin: 20px 0 0;
+        }
+
+        .info-box {
+            padding: 14px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel-alt);
+        }
+
+        .info-label {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .section {
+            margin-bottom: 24px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--panel);
+            box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
+        }
+
+        .endpoint {
+            margin-bottom: 18px;
+            border: 1px solid var(--border-strong);
+            border-radius: 8px;
+            background: var(--panel);
+            overflow: hidden;
+        }
+
+        .endpoint-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--border);
+            background: var(--panel-alt);
+        }
+
+        .method {
+            display: inline-flex;
+            min-width: 58px;
+            height: 28px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .method.get {
+            background: var(--get);
+        }
+
+        .method.put {
+            background: var(--put);
+        }
+
+        .path {
+            font-family: Consolas, "Courier New", monospace;
+            font-size: 16px;
+            font-weight: 700;
+            overflow-wrap: anywhere;
+        }
+
+        .endpoint-body {
+            padding: 18px;
+        }
+
+        .summary {
+            margin-top: 0;
+            color: var(--muted);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0 20px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            padding: 11px 12px;
+            border-bottom: 1px solid var(--border);
+            text-align: left;
+            vertical-align: top;
+        }
+
+        th {
+            background: var(--panel-alt);
+            color: #334155;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        tr:last-child td {
+            border-bottom: 0;
+        }
+
+        code,
+        .mono {
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        code {
+            padding: 2px 5px;
+            border-radius: 4px;
+            background: #eef2f7;
+            color: #172033;
+            font-size: 0.95em;
+        }
+
+        pre {
+            margin: 10px 0 18px;
+            padding: 16px;
+            border-radius: 8px;
+            background: var(--code-bg);
+            color: var(--code-text);
+            overflow-x: auto;
+            line-height: 1.45;
+        }
+
+        pre code {
+            padding: 0;
+            background: transparent;
+            color: inherit;
+        }
+
+        .status {
+            display: inline-flex;
+            align-items: center;
+            min-width: 45px;
+            height: 24px;
+            justify-content: center;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .status.ok {
+            background: var(--success);
+        }
+
+        .status.empty {
+            background: var(--warning);
+        }
+
+        .status.error {
+            background: var(--danger);
+        }
+
+        .pill {
+            display: inline-flex;
+            padding: 2px 7px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: #fff;
+            color: var(--muted);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .note {
+            margin: 14px 0;
+            padding: 13px 14px;
+            border-left: 4px solid var(--primary);
+            border-radius: 6px;
+            background: #eef6ff;
+            color: #1e3a5f;
+        }
+
+        .schema-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .schema {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .schema-title {
+            padding: 12px 14px;
+            background: var(--panel-alt);
+            border-bottom: 1px solid var(--border);
+            font-weight: 800;
+        }
+
+        .schema-body {
+            padding: 14px;
+        }
+
+        .footer {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+            .layout {
+                display: block;
+            }
+
+            aside {
+                position: static;
+                height: auto;
+            }
+
+            main {
+                padding: 20px;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <p>The web service API and documentation are currently a work in progress. At this moment, the API supports the following functions:</p>
-    <ul>
-        <li><strong><a href="/api/matches.json">/api/matches.json</a></strong> (GET): Returns extensive information about the matches that are currently open in the application.</li>
-        <li>
-            <strong>/api/points.json</strong> (GET): Returns the points of a certain match. This method expects two URL parameters:
-            <ul>
-                <li><strong>MatchNr</strong>: The match ID (eg 'PVLBH06/003'). The score sheet with this match ID must be opened in the application.</li>
-                <li><strong>MatchIndex</strong>: The match number (eg. 1 for the first match, 2 for the second match, etc.)</li>
-            </ul>
-        </li>
-        <li>
-            <strong>/api/points.json</strong> (PUT): Adjusts the points of a certain match. This method expects two URL parameters:
-            <ul>
-                <li><strong>MatchNr</strong>: The match ID (eg 'PVLBH06/003'). The score sheet with this match ID must be opened in the application.</li>
-                <li><strong>MatchIndex</strong>: The match number (eg. 1 for the first match, 2 for the second match, etc.)</li>
-            </ul>
-            The request data must be a Json string that corresponds to the output from <strong>/api/points.json</strong> (GET).
-        </li>
-    </ul>
-    <p>
-        ScoreSheet also comes with one simple visualization (<a href="/points.html">/points.html</a>). You can adjust this visualization or upload your own
-        files (HTML, JavaScript, CSS, ...) in the directory <strong>$WWWDIR$</strong>
-    </p>
+    <div class="layout">
+        <aside>
+            <h1>ScoreSheet API</h1>
+            <p>Local JSON web service reference</p>
+            <nav aria-label="API sections">
+                <a href="#overview">Overview and setup</a>
+                <a href="#get-matches">GET /api/matches.json</a>
+                <a href="#get-points">GET /api/points.json</a>
+                <a href="#put-points">PUT /api/points.json</a>
+                <a href="#schemas">Schemas</a>
+                <a href="#visualization">Custom files</a>
+            </nav>
+        </aside>
+
+        <main>
+            <div class="content">
+                <section class="hero" id="overview">
+                    <p class="eyebrow">API documentation</p>
+                    <h2>ScoreSheet Web Service</h2>
+                    <p>
+                        The ScoreSheet web service exposes the score sheets that are currently open in the desktop application.
+                        It is intended for local integrations, live visualizations, and tools that need to read match metadata
+                        or update the point values of a specific individual match.
+                    </p>
+                    <div class="info-grid">
+                        <div class="info-box">
+                            <span class="info-label">Default URL</span>
+                            <span class="mono">http://localhost:6221/</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">Protocol</span>
+                            <span>HTTP only. HTTPS is not supported.</span>
+                        </div>
+                        <div class="info-box">
+                            <span class="info-label">Authentication</span>
+                            <span>No authentication is required.</span>
+                        </div>
+                    </div>
+
+                    <h4>Configuration</h4>
+                    <p>
+                        The host and port are configured in the ScoreSheet GUI. By default, ScoreSheet listens on
+                        <code>127.0.0.1</code> using port <code>6221</code>. The address <code>127.0.0.1</code> refers to the
+                        local computer, so the API is only reachable from that same computer.
+                    </p>
+                    <p>
+                        To make the API reachable from outside devices, such as tablets or smartphones used to update scores,
+                        configure ScoreSheet to listen on a public IP address assigned to the computer, or use <code>0.0.0.0</code>.
+                        The address <code>0.0.0.0</code> means that ScoreSheet listens on all IP addresses associated with the
+                        computer.
+                    </p>
+
+                    <h4>Windows permissions</h4>
+                    <p>
+                        ScoreSheet uses the HTTP server built into Windows to handle JSON requests. Programs without administrator
+                        privileges cannot listen on arbitrary HTTP URLs. To let ScoreSheet start the web service, either run
+                        ScoreSheet with administrator privileges, or have an administrator explicitly grant the user account the
+                        right to listen on the configured URL.
+                    </p>
+                    <p>
+                        For the default URL, an administrator can grant that right once by running this command in a console window:
+                    </p>
+                    <pre><code>netsh http add urlacl url=http://localhost:6221/ user=DOMAIN\user</code></pre>
+                    <p>
+                        Replace <code>DOMAIN\user</code> with the Windows account used to run ScoreSheet. If you changed the host
+                        or port in ScoreSheet, also change the URL in the command. Make sure to restart ScoreSheet after running the above command
+                    </p>
+                    <p>
+                        The JSON service
+                        status is shown on the Web Service settings page. The same page also shows startup errors when the service
+                        cannot be started.
+                    </p>
+
+                    <h4>Response headers</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Header</th>
+                                <th>Value</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>X-Powered-By</code></td>
+                                <td><code>ScoreSheet-&lt;version&gt;</code></td>
+                                <td>Returned by the built-in web server.</td>
+                            </tr>
+                            <tr>
+                                <td><code>Access-Control-Allow-Origin</code></td>
+                                <td><code>*</code></td>
+                                <td>Allows browser-based clients to call the API from another origin.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <section class="endpoint" id="get-matches">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="path">/api/matches.json</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <p class="summary">
+                            Returns one object for each score sheet that is currently open in ScoreSheet. Each object includes
+                            team information, players, global match totals, and all individual matches with their point arrays.
+                        </p>
+
+                        <h4>Parameters</h4>
+                        <p><span class="pill">No parameters</span></p>
+
+                        <h4>Responses</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Content type</th>
+                                    <th>Body</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="status ok">200</span></td>
+                                    <td><code>application/json</code></td>
+                                    <td>Array of <a href="#schema-match-result"><code>JsonMatchResult</code></a> objects.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Example request</h4>
+                        <pre><code>GET /api/matches.json HTTP/1.1
+Host: localhost:8080</code></pre>
+
+                        <h4>Example response</h4>
+                        <pre><code>[
+  {
+    "MatchCount": 16,
+    "HomeClubId": "VLB234",
+    "HomeTeam": "Meerdaal F",
+    "AwayClubId": "LK052",
+    "AwayTeam": "Schulen E",
+    "StartHour": "20:00",
+    "MatchNr": "PVLBH01/123",
+    "Level": 4,
+    "Series": "3A",
+    "Veterans": false,
+    "Men": true,
+    "Women": false,
+    "Youth": false,
+    "Interclub": true,
+    "HomeDouble": "1/2",
+    "AwayDouble": "1/3",
+    "HomePlayers": [],
+    "AwayPlayers": [],
+    "Matches": [],
+    "WonCount": 8,
+    "LostCount": 6,
+    "IsHomeFF": false,
+    "IsAwayFF": false
+  }
+]</code></pre>
+                    </div>
+                </section>
+
+                <section class="endpoint" id="get-points">
+                    <div class="endpoint-header">
+                        <span class="method get">GET</span>
+                        <span class="path">/api/points.json</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <p class="summary">
+                            Returns only the points for one individual match on an open score sheet. The response is a flat JSON
+                            array containing two strings per set: first the home-side score, then the away-side score.
+                        </p>
+
+                        <h4>Query parameters</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Required</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>MatchNr</code></td>
+                                    <td>Yes</td>
+                                    <td>String</td>
+                                    <td>
+                                        Match identifier of an open score sheet, for example <code>PVLBH06/003</code>.
+                                        URL-encode special characters such as <code>/</code> when calling the endpoint from a client.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><code>MatchIndex</code></td>
+                                    <td>Yes</td>
+                                    <td>Integer</td>
+                                    <td>
+                                        One-based individual match number on the score sheet. Valid values depend on the match system,
+                                        commonly <code>1</code> through <code>5</code>, <code>6</code>, <code>10</code>, <code>12</code>, or <code>16</code>.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Responses</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Content type</th>
+                                    <th>Body</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="status ok">200</span></td>
+                                    <td><code>application/json</code></td>
+                                    <td>Array of strings with two entries per set.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status error">400</span></td>
+                                    <td><code>text/html</code></td>
+                                    <td><code>The client sent an invalid request</code> when <code>MatchNr</code> is missing or empty.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status error">404</span></td>
+                                    <td><code>text/html</code></td>
+                                    <td>
+                                        <code>The requested item could not be found</code> when <code>MatchIndex</code> is missing or invalid,
+                                        the match number is not open, or the individual match index does not exist.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Example request</h4>
+                        <pre><code>GET /api/points.json?MatchNr=PVLBH06%2F003&amp;MatchIndex=1 HTTP/1.1
+Host: localhost:8080</code></pre>
+
+                        <h4>Example response</h4>
+                        <pre><code>["11","7","9","11","11","5","11","8","",""]</code></pre>
+
+                        <div class="note">
+                            Empty strings represent sets that have not been played or filled in yet. Score values can also contain
+                            special markers such as <code>WO</code> for walkover and <code>FF</code> for forfeit.
+                        </div>
+                    </div>
+                </section>
+
+                <section class="endpoint" id="put-points">
+                    <div class="endpoint-header">
+                        <span class="method put">PUT</span>
+                        <span class="path">/api/points.json</span>
+                    </div>
+                    <div class="endpoint-body">
+                        <p class="summary">
+                            Replaces the point values for one individual match on an open score sheet. The request body must contain
+                            the same flat string-array shape returned by <code>GET /api/points.json</code>.
+                        </p>
+
+                        <h4>Query parameters</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Required</th>
+                                    <th>Type</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>MatchNr</code></td>
+                                    <td>Yes</td>
+                                    <td>String</td>
+                                    <td>Match identifier of an open score sheet, for example <code>PVLBH06/003</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td><code>MatchIndex</code></td>
+                                    <td>Yes</td>
+                                    <td>Integer</td>
+                                    <td>One-based individual match number on the score sheet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Request body</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Type</th>
+                                    <th>Required shape</th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><code>string[]</code></td>
+                                    <td>Exactly two entries for each set configured for the individual match.</td>
+                                    <td>
+                                        Entries are applied in pairs: left score, right score. For a best-of-five match, send ten values.
+                                        Use empty strings for sets that should remain blank.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Responses</h4>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Status</th>
+                                    <th>Content type</th>
+                                    <th>Body</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="status empty">204</span></td>
+                                    <td><code>text/html</code></td>
+                                    <td>Empty body. Returned after the score values have been accepted and applied.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status error">400</span></td>
+                                    <td><code>text/html</code></td>
+                                    <td>
+                                        <code>The client sent an invalid request</code> when required parameters are missing or invalid,
+                                        the body is empty, the JSON cannot be parsed as a string array, or the number of entries does
+                                        not equal <code>set count * 2</code>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><span class="status error">404</span></td>
+                                    <td><code>text/html</code></td>
+                                    <td>
+                                        <code>The requested item could not be found</code> when the score sheet is not open or
+                                        the individual match index does not exist.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <h4>Example request</h4>
+                        <pre><code>PUT /api/points.json?MatchNr=PVLBH06%2F003&amp;MatchIndex=1 HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+["11","7","9","11","11","5","11","8","",""]</code></pre>
+
+                        <h4>Example response</h4>
+                        <pre><code>HTTP/1.1 204 No Content</code></pre>
+                    </div>
+                </section>
+
+                <section class="section" id="schemas">
+                    <h2>Schemas</h2>
+                    <p>
+                        Property names are emitted as shown below. In debug builds the JSON may be indented; in release builds it is compact.
+                    </p>
+
+                    <div class="schema-list">
+                        <article class="schema" id="schema-match-result">
+                            <div class="schema-title">JsonMatchResult</div>
+                            <div class="schema-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>MatchCount</code></td><td>Integer</td><td>Number of individual matches on the score sheet.</td></tr>
+                                        <tr><td><code>HomeClubId</code>, <code>AwayClubId</code></td><td>String</td><td>Club identifiers.</td></tr>
+                                        <tr><td><code>HomeTeam</code>, <code>AwayTeam</code></td><td>String</td><td>Team names.</td></tr>
+                                        <tr><td><code>StartHour</code></td><td>String</td><td>Scheduled start hour, typically formatted as <code>HH:mm</code>.</td></tr>
+                                        <tr><td><code>MatchNr</code></td><td>String</td><td>Match identifier used as <code>MatchNr</code> in points requests.</td></tr>
+                                        <tr><td><code>Level</code></td><td>Integer</td><td>Competition level. Known values include <code>1</code> Super, <code>2</code> National, <code>3</code> Regional, and <code>4</code> Provincial.</td></tr>
+                                        <tr><td><code>Series</code></td><td>String</td><td>Series or division label.</td></tr>
+                                        <tr><td><code>Veterans</code>, <code>Men</code>, <code>Women</code>, <code>Youth</code>, <code>Interclub</code></td><td>Boolean</td><td>Match category flags.</td></tr>
+                                        <tr><td><code>HomeDouble</code>, <code>AwayDouble</code></td><td>String or null</td><td>Selected double-player combination, for example <code>1/2</code>, <code>1/3</code>, or <code>2/3</code>.</td></tr>
+                                        <tr><td><code>HomePlayers</code>, <code>AwayPlayers</code></td><td>Array of <code>JsonPlayer</code></td><td>Players listed for each team.</td></tr>
+                                        <tr><td><code>Matches</code></td><td>Array of <code>JsonMatch</code></td><td>Individual match details and points.</td></tr>
+                                        <tr><td><code>WonCount</code>, <code>LostCount</code></td><td>Integer</td><td>Current score sheet match totals from the home-team perspective.</td></tr>
+                                        <tr><td><code>IsHomeFF</code>, <code>IsAwayFF</code></td><td>Boolean</td><td>Whether the home or away team is marked as forfeit.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <article class="schema">
+                            <div class="schema-title">JsonPlayer</div>
+                            <div class="schema-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>Name</code></td><td>String</td><td>Player name.</td></tr>
+                                        <tr><td><code>ComputerNumber</code></td><td>String</td><td>Player computer number.</td></tr>
+                                        <tr><td><code>Position</code></td><td>String</td><td>Position on the strength list.</td></tr>
+                                        <tr><td><code>Index</code></td><td>String</td><td>Player index used by the score sheet.</td></tr>
+                                        <tr><td><code>Ranking</code></td><td>String</td><td>Player ranking.</td></tr>
+                                        <tr><td><code>Captain</code></td><td>Boolean</td><td>Whether the player is marked as team captain.</td></tr>
+                                        <tr><td><code>IsWO</code></td><td>Boolean</td><td>Whether the player is marked as walkover.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <article class="schema">
+                            <div class="schema-title">JsonMatch</div>
+                            <div class="schema-body">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Property</th>
+                                            <th>Type</th>
+                                            <th>Description</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td><code>MatchIndex</code></td><td>Integer</td><td>One-based individual match number. Use this value as <code>MatchIndex</code> for point requests.</td></tr>
+                                        <tr><td><code>HomePlayers</code>, <code>AwayPlayers</code></td><td>Array of integers</td><td>Player numbers used in the individual match. Doubles are represented as <code>0</code>.</td></tr>
+                                        <tr><td><code>Points</code></td><td>Array of strings</td><td>Flat score array with two strings per set: home-side score, away-side score.</td></tr>
+                                        <tr><td><code>WonSets</code>, <code>LostSets</code></td><td>String</td><td>Set totals for the individual match from the home-side perspective.</td></tr>
+                                        <tr><td><code>WonMatches</code>, <code>LostMatches</code></td><td>String</td><td>Running match totals at this point in the score sheet.</td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </article>
+
+                        <article class="schema">
+                            <div class="schema-title">Point array</div>
+                            <div class="schema-body">
+                                <p>
+                                    A point array is a JSON string array. For each set, the first value is the left or home-side score
+                                    and the second value is the right or away-side score. The array length must match the number of sets
+                                    configured for that individual match multiplied by two.
+                                </p>
+                                <pre><code>[
+  "11", "7",
+  "9",  "11",
+  "11", "5",
+  "11", "8",
+  "",   ""
+]</code></pre>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <section class="section" id="visualization">
+                    <h2>Custom files</h2>
+                    <p>
+                        You can also host your own files through the ScoreSheet web server, including HTML, JavaScript, and CSS
+                        files. Put those files in the <code>www</code> directory in the ScoreSheet program folder. You can find the
+                        exact program folder location by starting ScoreSheet and opening the <strong>About ScoreSheet</strong>
+                        screen from the menu.
+                    </p>
+                    <pre><code>$WWWDIR$</code></pre>
+                    <p class="footer">
+                        By default, this directory contains <a href="/points.html"><code>points.html</code></a>, a visualization of
+                        the current status of the active matches. You can use it as an example for your own visualizations.
+                    </p>
+                </section>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

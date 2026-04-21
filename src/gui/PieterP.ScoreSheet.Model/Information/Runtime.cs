@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using Microsoft.Win32;
 using static PInvoke.Shell32;
-using static PInvoke.Kernel32;
 
 namespace PieterP.ScoreSheet.Model.Information {
     public class RuntimeInformation { 
