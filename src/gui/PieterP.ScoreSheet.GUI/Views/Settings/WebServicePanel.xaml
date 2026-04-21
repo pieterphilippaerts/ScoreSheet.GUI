@@ -43,7 +43,7 @@
             <TextBlock Foreground="Red" TextWrapping="Wrap" Margin="5" Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsCollapsed}}" Text="{x:Static l:Resources.WebService_Error}"/>
             <TextBlock Foreground="Green" Margin="5" Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Text="{x:Static l:Resources.WebService_Activated}"/>
             <Button Margin="5 0" Style="{StaticResource LinkButton}"  Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Command="{Binding OpenUrl}" Content="{x:Static l:Resources.WebService_OpenBrowser}"/>
-            <Button Margin="5 5" Style="{StaticResource LinkButton}"  Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Command="{Binding OpenMoreInfo}" Content="{x:Static l:Resources.WebService_OpenMoreInfo}"/>
+            <!--<Button Margin="5 5" Style="{StaticResource LinkButton}"  Visibility="{Binding IsServiceActive.Value, Converter={StaticResource TrueIsVisible}}" Command="{Binding OpenMoreInfo}" Content="{x:Static l:Resources.WebService_OpenMoreInfo}"/>-->
         </StackPanel>
         
         

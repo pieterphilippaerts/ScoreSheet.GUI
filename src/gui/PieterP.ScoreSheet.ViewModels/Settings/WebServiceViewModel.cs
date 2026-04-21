@@ -32,7 +32,7 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
             });
             this.IsServiceActive = ServiceLocator.Resolve<JsonService>().IsActive;
             this.OpenUrl = new RelayCommand(OnOpenUrl);
-            this.OpenMoreInfo = new RelayCommand(OnOpenMoreInfo);
+            //this.OpenMoreInfo = new RelayCommand(OnOpenMoreInfo);
             this.UnblockAddress = new RelayCommand(OnUnblockAddress);
         }
         private void OnOpenUrl() {
@@ -43,14 +43,14 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
             };
             Process.Start(psi);
         }
-        private void OnOpenMoreInfo() {
-            var service = ServiceLocator.Resolve<JsonService>();
-            var psi = new ProcessStartInfo {
-                FileName = "https://score.pieterp.be/Help/WebService",
-                UseShellExecute = true
-            };
-            Process.Start(psi);
-        }
+        //private void OnOpenMoreInfo() {
+        //    var service = ServiceLocator.Resolve<JsonService>();
+        //    var psi = new ProcessStartInfo {
+        //        FileName = "https://score.pieterp.be/Help/WebService",
+        //        UseShellExecute = true
+        //    };
+        //    Process.Start(psi);
+        //}
         private void OnUnblockAddress() {
             string url = $"http://{DatabaseManager.Current.Settings.JsonServiceHost.Value}:{ DatabaseManager.Current.Settings.JsonServicePort.Value }/";
             var not = new ShowMessageNotification(Safe.Format(Strings.WebService_UnblockAddressMessage, $"{ Environment.UserDomainName }\\{ Environment.UserName }", url), NotificationTypes.Question, NotificationButtons.YesNo);
@@ -71,7 +71,7 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
         public Cell<WebServiceHost> SelectedHost { get; private set; }
         public Cell<string> Port { get; private set; }
         public Cell<bool> IsServiceActive { get; private set; }
-        public ICommand OpenMoreInfo { get; private set; }
+        //public ICommand OpenMoreInfo { get; private set; }
         public ICommand OpenUrl { get; private set; }
         public ICommand UnblockAddress { get; private set; }
 
