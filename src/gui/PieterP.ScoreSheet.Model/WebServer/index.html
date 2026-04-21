@@ -417,8 +417,8 @@
                     </p>
                     <div class="info-grid">
                         <div class="info-box">
-                            <span class="info-label">Default URL</span>
-                            <span class="mono">http://localhost:6221/</span>
+                            <span class="info-label">URL(s)</span>
+                            <span class="mono">$APIURLS$</span>
                         </div>
                         <div class="info-box">
                             <span class="info-label">Protocol</span>
@@ -438,9 +438,7 @@
                     </p>
                     <p>
                         To make the API reachable from outside devices, such as tablets or smartphones used to update scores,
-                        configure ScoreSheet to listen on a public IP address assigned to the computer, or use <code>0.0.0.0</code>.
-                        The address <code>0.0.0.0</code> means that ScoreSheet listens on all IP addresses associated with the
-                        computer.
+                        configure ScoreSheet to listen on all IP addresses assigned to the computer (including public addresses).
                     </p>
 
                     <h4>Windows permissions</h4>
@@ -451,12 +449,11 @@
                         right to listen on the configured URL.
                     </p>
                     <p>
-                        For the default URL, an administrator can grant that right once by running this command in a console window:
+                        For the currently configured URL, an administrator can grant that right once by running this command in a console window:
                     </p>
-                    <pre><code>netsh http add urlacl url=http://localhost:6221/ user=DOMAIN\user</code></pre>
+                    <pre><code>netsh http add urlacl url=$APIURL$ user=DOMAIN\user</code></pre>
                     <p>
-                        Replace <code>DOMAIN\user</code> with the Windows account used to run ScoreSheet. If you changed the host
-                        or port in ScoreSheet, also change the URL in the command. Make sure to restart ScoreSheet after running the above command
+                        Replace <code>DOMAIN\user</code> with the Windows account used to run ScoreSheet. Make sure to restart ScoreSheet after running the above command
                     </p>
                     <p>
                         The JSON service
@@ -861,9 +858,9 @@ Content-Type: application/json
                     </p>
                     <pre><code>$WWWDIR$</code></pre>
                     <p>
-                        By default, this directory contains <a href="/results.html"><code>results.html</code></a>, a visualization of
+                        By default, this directory contains <a href="/results.html" target="_blank"><code>results.html</code></a>, a visualization of
                         the current status of the active matches. You can use it as an example for your own visualizations. It also contains
-                        <a href="/results.html"><code>edit_results.html</code></a> which allows you to update scores from a browser interface.
+                        <a href="/edit_results.html" target="_blank"><code>edit_results.html</code></a> which allows you to update scores from a browser interface.
                     </p>
                 </section>
             </div>

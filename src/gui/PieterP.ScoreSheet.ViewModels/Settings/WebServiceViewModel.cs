@@ -17,7 +17,7 @@ namespace PieterP.ScoreSheet.ViewModels.Settings {
         public WebServiceViewModel() {
             this.EnableJsonService = DatabaseManager.Current.Settings.EnableJsonService;
             this.AvailableHosts = new WebServiceHost[] {
-                new WebServiceHost() { Name = "localhost", Host = "127.0.0.1" },
+                new WebServiceHost() { Name = "localhost (127.0.0.1)", Host = "127.0.0.1" },
                 new WebServiceHost() { Name = Strings.WebService_AllIPs, Host = "*" }
             };
             var selectedHost = this.AvailableHosts.Where(h => h.Host.ToString() == DatabaseManager.Current.Settings.JsonServiceHost.Value).FirstOrDefault();

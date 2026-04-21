@@ -1,19 +1,21 @@
-﻿using System;
+﻿using PieterP.ScoreSheet.Model.Database;
+using PieterP.ScoreSheet.Model.Information;
+using PieterP.Shared;
+using PieterP.Shared.Cells;
+using PieterP.Shared.Services;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using PieterP.ScoreSheet.Model.Database;
-using PieterP.ScoreSheet.Model.Information;
-using PieterP.Shared;
-using PieterP.Shared.Cells;
-using PieterP.Shared.Services;
 
 namespace PieterP.ScoreSheet.Model.WebServer {
     using System.Collections.Specialized;
     using System.Linq;
+    using System.Net.Sockets;
+    using System.Net.NetworkInformation;
 #if NETSTANDARD
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
@@ -117,6 +119,8 @@ namespace PieterP.ScoreSheet.Model.WebServer {
         public Task SendIndex(HttpContext context) {
             var page = GetResourceString("PieterP.ScoreSheet.Model.WebServer.Index.html");
             page = page.Replace("$WWWDIR$", DatabaseManager.Current.WwwPath);
+            page = page.Replace("$APIURLS$", ListenerHelper.GetBoundUrls());
+            page = page.Replace("$APIURL$", ListenerHelper.GetBoundUrl());
             return SendReply(context, 200, Encoding.UTF8.GetBytes(page));
         }
         private string GetResourceString(string name) {
@@ -336,6 +340,8 @@ namespace PieterP.ScoreSheet.Model.WebServer {
         public Task SendIndex(HttpListenerContext context) {
             var page = GetResourceString("PieterP.ScoreSheet.Model.WebServer.Index.html");
             page = page.Replace("$WWWDIR$", DatabaseManager.Current.WwwPath);
+            page = page.Replace("$APIURLS$", ListenerHelper.GetBoundUrls());
+            page = page.Replace("$APIURL$", ListenerHelper.GetBoundUrl());
             return SendReply(context, 200, Encoding.UTF8.GetBytes(page));
         }
         private string GetResourceString(string name) {
@@ -398,6 +404,59 @@ namespace PieterP.ScoreSheet.Model.WebServer {
         private static string _poweredBy = "ScoreSheet-" + Application.Version.ToString(3);
     }
 #endif
+
+    static class ListenerHelper {
+        public static string GetBoundUrls() {
+            var host = DatabaseManager.Current.Settings.JsonServiceHost.Value;
+            if (host == "*") {
+                return string.Join("<br/>", GetListenerUrls(DatabaseManager.Current.Settings.JsonServicePort.Value));
+            } else {
+                return $"http://{host}:{DatabaseManager.Current.Settings.JsonServicePort.Value}/";
+            }
+        }
+        public static string GetBoundUrl() {
+            return $"http://{DatabaseManager.Current.Settings.JsonServiceHost.Value}:{DatabaseManager.Current.Settings.JsonServicePort.Value}/";
+        }
+        public static List<string> GetListenerUrls(int port) {
+            var result = new List<string>();
+
+            foreach (var ni in NetworkInterface.GetAllNetworkInterfaces()) {
+                // Skip interfaces that are not up
+                if (ni.OperationalStatus != OperationalStatus.Up)
+                    continue;
+
+                var ipProps = ni.GetIPProperties();
+
+                foreach (var ua in ipProps.UnicastAddresses) {
+                    var ip = ua.Address;
+
+                    // Skip unwanted address types
+                    if (IPAddress.IsLoopback(ip))
+                        continue;
+
+                    if (ip.AddressFamily != AddressFamily.InterNetwork &&
+                        ip.AddressFamily != AddressFamily.InterNetworkV6)
+                        continue;
+
+                    // Optional: skip link-local IPv6 (fe80::)
+                    if (ip.AddressFamily == AddressFamily.InterNetworkV6 &&
+                        ip.IsIPv6LinkLocal)
+                        continue;
+
+                    string formattedIp = ip.AddressFamily == AddressFamily.InterNetworkV6
+                        ? $"[{ip}]"   // IPv6 must be wrapped in brackets
+                        : ip.ToString();
+
+                    result.Add($"http://{formattedIp}:{port}/");
+                }
+            }
+
+            var l = result.Distinct().ToList();
+            l.Add($"http://localhost:{port}/");
+            return l;
+        }
+    }
+    
     public class RoutingContext { 
         public IDictionary<string, string> Query { get; set; }
         public string Body { get; set; }

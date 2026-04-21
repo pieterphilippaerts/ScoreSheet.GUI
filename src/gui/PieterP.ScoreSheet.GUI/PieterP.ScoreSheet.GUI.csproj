@@ -7,10 +7,10 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>scoresheet</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <Version>2025.2026.1</Version>
+    <Version>2025.2026.2</Version>
     <Authors>PieterP.be</Authors>
     <Product>PieterP.be ScoreSheet</Product>    
-    <Copyright>Copyright © 2011-2025, PieterP.be</Copyright>
+    <Copyright>Copyright © 2011-2026, PieterP.be</Copyright>
     <PackageProjectUrl>https://score.pieterp.be</PackageProjectUrl>
     <ApplicationIcon>images\logo.ico</ApplicationIcon>
     <LangVersion>8.0</LangVersion>
