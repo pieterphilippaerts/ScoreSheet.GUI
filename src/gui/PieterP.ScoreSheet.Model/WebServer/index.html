@@ -158,7 +158,7 @@
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(3, minmax(0, 1fr));
+            grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 12px;
             margin: 20px 0 0;
         }
@@ -168,6 +168,10 @@
             border: 1px solid var(--border);
             border-radius: 8px;
             background: var(--panel-alt);
+        }
+
+        .info-box.wide {
+            grid-column: 1 / -1;
         }
 
         .info-label {
@@ -416,7 +420,7 @@
                         or update the point values of a specific individual match.
                     </p>
                     <div class="info-grid">
-                        <div class="info-box">
+                        <div class="info-box wide">
                             <span class="info-label">URL(s)</span>
                             <span class="mono">$APIURLS$</span>
                         </div>
@@ -519,7 +523,7 @@
 
                         <h4>Example request</h4>
                         <pre><code>GET /api/matches.json HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: $APIHOST$</code></pre>
 
                         <h4>Example response</h4>
                         <pre><code>[
@@ -628,7 +632,7 @@ Host: localhost:8080</code></pre>
 
                         <h4>Example request</h4>
                         <pre><code>GET /api/points.json?MatchNr=PVLBH06%2F003&amp;MatchIndex=1 HTTP/1.1
-Host: localhost:8080</code></pre>
+Host: $APIHOST$</code></pre>
 
                         <h4>Example response</h4>
                         <pre><code>["11","7","9","11","11","5","11","8","",""]</code></pre>
@@ -735,7 +739,7 @@ Host: localhost:8080</code></pre>
 
                         <h4>Example request</h4>
                         <pre><code>PUT /api/points.json?MatchNr=PVLBH06%2F003&amp;MatchIndex=1 HTTP/1.1
-Host: localhost:8080
+Host: $APIHOST$
 Content-Type: application/json
 
 ["11","7","9","11","11","5","11","8","",""]</code></pre>

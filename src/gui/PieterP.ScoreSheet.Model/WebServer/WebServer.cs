@@ -121,6 +121,7 @@ namespace PieterP.ScoreSheet.Model.WebServer {
             page = page.Replace("$WWWDIR$", DatabaseManager.Current.WwwPath);
             page = page.Replace("$APIURLS$", ListenerHelper.GetBoundUrls());
             page = page.Replace("$APIURL$", ListenerHelper.GetBoundUrl());
+            page = page.Replace("$APIHOST$", ListenerHelper.GetBoundHostAndPort());
             return SendReply(context, 200, Encoding.UTF8.GetBytes(page));
         }
         private string GetResourceString(string name) {
@@ -342,6 +343,7 @@ namespace PieterP.ScoreSheet.Model.WebServer {
             page = page.Replace("$WWWDIR$", DatabaseManager.Current.WwwPath);
             page = page.Replace("$APIURLS$", ListenerHelper.GetBoundUrls());
             page = page.Replace("$APIURL$", ListenerHelper.GetBoundUrl());
+            page = page.Replace("$APIHOST$", ListenerHelper.GetBoundHostAndPort());
             return SendReply(context, 200, Encoding.UTF8.GetBytes(page));
         }
         private string GetResourceString(string name) {
@@ -417,7 +419,14 @@ namespace PieterP.ScoreSheet.Model.WebServer {
         public static string GetBoundUrl() {
             return $"http://{DatabaseManager.Current.Settings.JsonServiceHost.Value}:{DatabaseManager.Current.Settings.JsonServicePort.Value}/";
         }
-        public static List<string> GetListenerUrls(int port) {
+        public static string GetBoundHostAndPort() {
+            var host = DatabaseManager.Current.Settings.JsonServiceHost.Value;
+            if (host == "*") {
+                host = GetListenerHosts().First();
+            }
+            return $"{host}:{DatabaseManager.Current.Settings.JsonServicePort.Value}";
+        }
+        public static List<string> GetListenerHosts() {
             var result = new List<string>();
 
             foreach (var ni in NetworkInterface.GetAllNetworkInterfaces()) {
@@ -447,14 +456,15 @@ namespace PieterP.ScoreSheet.Model.WebServer {
                         ? $"[{ip}]"   // IPv6 must be wrapped in brackets
                         : ip.ToString();
 
-                    result.Add($"http://{formattedIp}:{port}/");
+                    result.Add(formattedIp);
                 }
             }
 
             var l = result.Distinct().ToList();
-            l.Add($"http://localhost:{port}/");
+            l.Add($"localhost");
             return l;
         }
+        public static List<string> GetListenerUrls(int port) => GetListenerHosts().Select(c => $"http://{c}:{port}/").ToList();
     }
     
     public class RoutingContext { 
