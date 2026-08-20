@@ -14,7 +14,7 @@
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Image Source="/images/about2.png" Grid.Column="0" VerticalAlignment="Bottom" Width="253" Height="350" />
+        <Image Source="/images/about3.png" Grid.Column="0" VerticalAlignment="Bottom" Width="253" Height="350" />
         <DockPanel LastChildFill="True" Grid.Column="1">
             <Grid DockPanel.Dock="Bottom" Margin="16 0 20 20">
                 <Grid.ColumnDefinitions>

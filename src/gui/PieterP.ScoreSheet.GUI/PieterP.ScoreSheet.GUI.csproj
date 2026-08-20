@@ -7,12 +7,12 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>scoresheet</AssemblyName>
     <SignAssembly>false</SignAssembly>
-    <Version>2025.2026.2</Version>
+    <Version>2026.2027.1</Version>
     <Authors>PieterP.be</Authors>
     <Product>PieterP.be ScoreSheet</Product>    
     <Copyright>Copyright © 2011-2026, PieterP.be</Copyright>
     <PackageProjectUrl>https://score.pieterp.be</PackageProjectUrl>
-    <ApplicationIcon>images\logo.ico</ApplicationIcon>
+    <ApplicationIcon>images\logo2.ico</ApplicationIcon>
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <Description>ScoreSheet is a table tennis manager for the Belgian table tennis competition</Description>
@@ -38,10 +38,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="images\about2.png" />
+    <None Remove="images\about3.png" />
     <None Remove="images\access.png" />
     <None Remove="images\app_48.png" />
-    <None Remove="images\bginfo.png" />
+    <None Remove="images\bginfo2.png" />
     <None Remove="images\box_48.png" />
     <None Remove="images\box_upload_48.png" />
     <None Remove="images\comment_warning_48.png" />
@@ -85,7 +85,7 @@
     <None Remove="images\ico_save.png" />
     <None Remove="images\ico_vttl.png" />
     <None Remove="images\lock_48.png" />
-    <None Remove="images\logo.ico" />
+    <None Remove="images\logo2.ico" />
     <None Remove="images\logo_org.jpg" />
     <None Remove="images\ma_long_logo.jpg" />
     <None Remove="images\navigate_48.png" />
@@ -95,7 +95,7 @@
     <None Remove="images\printer.png" />
     <None Remove="images\smile_sad_481.png" />
     <None Remove="images\spanner_48.png" />
-    <None Remove="images\splash25.png" />
+    <None Remove="images\splash26.png" />
     <None Remove="images\templates\aftt_logo.png" />
     <None Remove="images\templates\aftt_sponsors.png" />
     <None Remove="images\templates\sponsors.png" />
@@ -119,6 +119,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="images\logo2.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.2" />
   </ItemGroup>
 
@@ -132,10 +136,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="images\about2.png" />
+    <Resource Include="images\about3.png" />
     <Resource Include="images\access.png" />
     <Resource Include="images\app_48.png" />
-    <Resource Include="images\bginfo.png" />
+    <Resource Include="images\bginfo2.png" />
     <Resource Include="images\box_48.png" />
     <Resource Include="images\box_upload_48.png" />
     <Resource Include="images\comment_warning_48.png" />
@@ -179,7 +183,7 @@
     <Resource Include="images\ico_save.png" />
     <Resource Include="images\ico_vttl.png" />
     <Resource Include="images\lock_48.png" />
-    <Resource Include="images\logo.ico" />
+    <Resource Include="images\logo2.ico" />
     <Resource Include="images\logo_org.jpg" />
     <Resource Include="images\ma_long_logo.jpg" />
     <Resource Include="images\navigate_48.png" />
@@ -204,7 +208,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <SplashScreen Include="images\splash25.png" />
+    <SplashScreen Include="images\splash26.png" />
   </ItemGroup>
 
 </Project>

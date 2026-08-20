@@ -9,7 +9,7 @@
              d:DesignHeight="450" d:DesignWidth="800" Background="White">
     <DockPanel LastChildFill="True">
         <DockPanel.Background>
-            <ImageBrush ImageSource="/images/bginfo.png" AlignmentY="Bottom" AlignmentX="Right" TileMode="None" Stretch="Uniform" />
+            <ImageBrush ImageSource="/images/bginfo2.png" AlignmentY="Center" AlignmentX="Center" TileMode="None" Stretch="Uniform" />
         </DockPanel.Background>
         <TextBlock DockPanel.Dock="Bottom" TextAlignment="Right" FontWeight="Bold" FontSize="12" Margin="5 5 10 10" Foreground="#888888" Text="{x:Static l:Resources.MatchesOverview_Link}"/>
         <ContentControl Content="{Binding Content.Value}"/>
