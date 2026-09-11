@@ -77,7 +77,11 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             foreach (var m in _matches) {
                 if (m.MatchId != null) {
                     try {
-                        var match = await connector.GetMatchDetails(home, m.MatchId, await connector.GetActiveSeason());
+                        var storedSeason = DatabaseManager.Current.Settings.CurrentSeason.Value;
+                        var season = storedSeason != null
+                            ? new TabTSeason(storedSeason.Id, storedSeason.Name, false)
+                            : await connector.GetActiveSeason();
+                        var match = await connector.GetMatchDetails(home, m.MatchId, season);
                         if (match != null && match.Details != null) {
                             var am = AwayMatches.Where(c => c.MatchId == m.MatchId).FirstOrDefault();
                             if (am == null) {

@@ -257,4 +257,7 @@ even geduld a.u.b.</value>
   <data name="OrphanedMatch_InSeries" xml:space="preserve">
     <value>in afdeling {0} {1} {2}</value>
   </data>
+  <data name="UpdateFromInternet_SelectSeason" xml:space="preserve">
+    <value>Selecteer het seizoen:</value>
+  </data>
 </root>

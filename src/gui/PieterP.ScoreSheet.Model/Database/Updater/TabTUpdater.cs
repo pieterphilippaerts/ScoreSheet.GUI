@@ -23,7 +23,23 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             _hasDownloadedExtendedDivisions = false;
         }
 
-        public async Task<bool> UpdateClubs(CancellationToken cancellationToken) {
+        private async Task<TabTSeason> FindActiveSeason(IConnector connector, Season? selected = null) {
+            TabTSeason? season;
+            if (selected == null) {
+                selected = DatabaseManager.Current.Settings.CurrentSeason.Value;
+            }
+            if (selected == null) {
+                // default to the active season on the server
+                season = await connector.GetActiveSeason();
+                DatabaseManager.Current.Settings.CurrentSeason.Value = new Season() { Id = season.Id, Name = season.Name };
+                return season;
+            } else {
+                // choose the season the user has selected (can be a past season)
+                return season = new TabTSeason(selected.Id, selected.Name, false);
+            }
+        }
+
+        public async Task<bool> UpdateClubs(CancellationToken cancellationToken, Season? season) {
             UpdateProgress?.Invoke(TabTUpdater_BeginClubUpdate, false);
 
             var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
@@ -36,7 +52,9 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var newClubs = new List<Club>();
             try {
-                var clubs = await connector.GetClubsAsync(await connector.GetActiveSeason());
+                var selectedSeason = await FindActiveSeason(connector, season);
+
+                var clubs = await connector.GetClubsAsync(selectedSeason);
                 foreach (var club in clubs) {
                     if (cancellationToken.IsCancellationRequested) {
                         return Cancelled();
@@ -102,10 +120,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             DatabaseManager.Current.PlayerCategories.Update(data);
             return true;
         }
-        public async Task<bool> UpdateMatches(Club club, CancellationToken cancellationToken) {
-            // first update clubs; this is to avoid that we have an invalid list of clubs
-            // (can happen at the start of a competition year when clubs are added or removed)
-            await UpdateClubs(cancellationToken); // continue, even if this fails
+        public async Task<bool> UpdateMatches(Club club, Season? selectedSeason, CancellationToken cancellationToken) {
             
             UpdateProgress?.Invoke(TabTUpdater_BeginMatchUpdate, false);
 
@@ -120,9 +135,12 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             bool everythingOk = true;
 
             // get the active season
-            var season = await connector.GetActiveSeason();
-            DatabaseManager.Current.Settings.CurrentSeason.Value = new Season() { Id = season.Id, Name = season.Name };
+            var season = await FindActiveSeason(connector, selectedSeason);
             UpdateProgress?.Invoke(Safe.Format(TabTUpdater_DownloadingSeason, season.Name), false);
+
+            // first update clubs; this is to avoid that we have an invalid list of clubs
+            // (can happen at the start of a competition year when clubs are added or removed)
+            await UpdateClubs(cancellationToken, selectedSeason); // continue, even if this fails
 
             // get all the player categories for this season
             if (!await UpdatePlayerCategories(connector, season)) {
@@ -522,7 +540,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             var connector = connectorResult.Connector;
             if (connector == null)
                 return false;
-            return await RefreshMemberList(connector, clubId, category, await connector.GetActiveSeason());
+            return await RefreshMemberList(connector, clubId, category, await FindActiveSeason(connector));
         }
         private async Task<bool> RefreshMemberList(IConnector connector, string clubId, int category, TabTSeason season) {
             var ml = DatabaseManager.Current.Members[clubId, category];
@@ -606,7 +624,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var divisionList = new List<Division>();
             try {                
-                var divisions = await connector.GetDivisions((TabTDivisionRegion)level, await connector.GetActiveSeason());
+                var divisions = await connector.GetDivisions((TabTDivisionRegion)level, await FindActiveSeason(connector));
                 foreach (var division in divisions) {
                     var d = new Division();
                     d.Id = division.Id;
@@ -637,7 +655,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
 
             var matchList = new List<MatchStartInfo>();
             try {
-                var season = await connector.GetActiveSeason();
+                var season = await FindActiveSeason(connector);
                 var matches = await connector.GetMatches(division.Id, season);
                 foreach (var match in matches) {
                     var club = DatabaseManager.Current.Clubs[match.HomeClub];

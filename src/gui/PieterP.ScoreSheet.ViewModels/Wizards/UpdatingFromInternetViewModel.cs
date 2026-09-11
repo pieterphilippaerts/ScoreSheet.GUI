@@ -18,8 +18,9 @@ using static PieterP.ScoreSheet.Localization.Strings;
 
 namespace PieterP.ScoreSheet.ViewModels.Wizards {
     public class UpdatingFromInternetViewModel : WizardPanelViewModel {
-        public UpdatingFromInternetViewModel(WizardViewModel parent, Club club) : base(parent, new CancelCommand()) {
+        public UpdatingFromInternetViewModel(WizardViewModel parent, Club club, Season? season) : base(parent, new CancelCommand()) {
             _club = club;
+            _season = season;
             ((CancelCommand)this.Cancel).Parent = this;
             this.Messages = new ObservableCollection<object>();
             this.ButtonText = Cell.Create(Wizard_Cancel);
@@ -35,7 +36,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             // this is an ideal time, because we are probably connected to the internet
             ServiceLocator.Resolve<INetworkAvailabilityService>().TriggerManually();
 
-            if (!await DatabaseManager.Current.UpdateMatches(_club, OnProgress) && !IsCanceled) {
+            if (!await DatabaseManager.Current.UpdateMatches(_club, _season, OnProgress) && !IsCanceled) {
                 // uhoh.. error
                 NotificationManager.Current.Raise(new ShowMessageNotification(Wizard_UpdateError, NotificationTypes.Error));
             }
@@ -65,6 +66,7 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
         public override string Description => Wizard_UpdateDesc;
 
         private Club _club;
+        private Season? _season;
         private class ProgressItem {
             public ProgressItem(string message, bool isError) {
                 this.Message = message;

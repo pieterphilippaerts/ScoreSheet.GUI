@@ -124,17 +124,17 @@ namespace PieterP.ScoreSheet.Model.Database {
             if (mule.PlayerCategories != null)
                 PlayerCategories.Update(mule.PlayerCategories);
         }
-        public Task<bool> UpdateClubs() {
+        public Task<bool> UpdateClubs(Season? season) {
             cancellationTokenSource = new CancellationTokenSource();
             var updater = new TabTUpdater();
-            return updater.UpdateClubs(cancellationTokenSource.Token);
+            return updater.UpdateClubs(cancellationTokenSource.Token, season);
         }
-        public Task<bool> UpdateMatches(Club club, Action<string, bool>? progressCallback = null) {
+        public Task<bool> UpdateMatches(Club club, Season? season, Action<string, bool>? progressCallback = null) {
             cancellationTokenSource = new CancellationTokenSource();
             var updater = new TabTUpdater();
             if (progressCallback != null)
                 updater.UpdateProgress += progressCallback;
-            return updater.UpdateMatches(club, cancellationTokenSource.Token);
+            return updater.UpdateMatches(club, season, cancellationTokenSource.Token);
         }
         public Task<bool> RefreshMemberList(string clubId, int category) {
             var updater = new TabTUpdater();

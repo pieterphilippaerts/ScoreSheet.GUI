@@ -257,4 +257,7 @@ Veuillez patienter</value>
   <data name="OrphanedMatch_InSeries" xml:space="preserve">
     <value>en série {0} {1} {2}</value>
   </data>
+  <data name="UpdateFromInternet_SelectSeason" xml:space="preserve">
+    <value>Sélectionnez la saison :</value>
+  </data>
 </root>

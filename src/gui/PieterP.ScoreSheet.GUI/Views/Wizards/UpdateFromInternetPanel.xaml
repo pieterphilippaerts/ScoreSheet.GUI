@@ -29,6 +29,10 @@
             <StackPanel Orientation="Vertical">
                 <TextBlock TextWrapping="Wrap" Padding="20" Text="{x:Static l:Resources.UpdateFromInternet_Description}"/>
                 <StackPanel Orientation="Horizontal" Margin="0 10 0 0">
+                    <TextBlock Width="150" TextAlignment="Right" Margin="5" Text="{x:Static l:Resources.UpdateFromInternet_SelectSeason}"/>
+                    <ComboBox ItemsSource="{Binding Seasons.Value}" SelectedItem="{Binding SelectedSeason.Value}" DisplayMemberPath="Name" Width="250" Margin="5"></ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" >
                     <TextBlock Width="150" TextAlignment="Right" Margin="5" Text="{x:Static l:Resources.UpdateFromInternet_SelectProvince}"/>
                     <ComboBox ItemsSource="{Binding Provinces}" SelectedItem="{Binding SelectedProvince.Value}" DisplayMemberPath="Name" Width="250" Margin="5"></ComboBox>
                 </StackPanel>

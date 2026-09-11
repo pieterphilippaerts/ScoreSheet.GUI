@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Input;
+using PieterP.ScoreSheet.Connector;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Entities;
 using PieterP.ScoreSheet.Model.Database.Enums;
@@ -28,17 +29,22 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                 new ProvinceItem(Province.FlemishBrabantBrussels, "Vlaams Brabant"),
                 new ProvinceItem(Province.WestFlanders, "West-Vlaanderen")
             };
+            this.Seasons = Cell.Create<IEnumerable<Season>?>(null);
+            this.SelectedSeason = Cell.Create<Season?>(null);
             this.SelectedProvince = Cell.Create(this.Provinces.First());
             this.SelectedProvince.ValueChanged += SelectedProvince_ValueChanged;
             this.Clubs = Cell.Create<IEnumerable<Club>?>(DatabaseManager.Current.Clubs.ByProvince(this.SelectedProvince.Value.Province).OrderBy(c => c.UniqueIndex));
             this.SelectedClub = Cell.Create<Club?>(null);
-            this.Next = new RelayCommand(OnNext, () => SelectedClub.Value != null);
+            this.Next = new RelayCommand(OnNext, () => SelectedClub.Value != null && SelectedSeason.Value != null);
             this.SelectedClub.ValueChanged += () => Next.RaiseCanExecuteChanged();
+            this.SelectedSeason.ValueChanged += () => Next.RaiseCanExecuteChanged();
             this.RefreshClubs = new RelayCommand(OnRefreshClubs);
             this.IsUpdating = Cell.Create(false);
 
+            bool refreshClubs = false;
             if (this.Clubs.Value.Count() == 0) {
-                OnRefreshClubs();
+                // do the refresh later (after the season update) to not interfere with the season update
+                refreshClubs = true;
             } else {
                 // select default club
                 var homeClub = DatabaseManager.Current.Settings.HomeClubId.Value;
@@ -50,6 +56,8 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
                     }
                 }
             }
+            LoadSeasons(refreshClubs);
+
         }
 
         private void SelectedProvince_ValueChanged() {
@@ -57,17 +65,21 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
             this.Clubs.Value = DatabaseManager.Current.Clubs.ByProvince(this.SelectedProvince.Value.Province).OrderBy(c => c.UniqueIndex);
         }
 
+
         public IEnumerable<ProvinceItem> Provinces { get; private set; }
         public Cell<ProvinceItem> SelectedProvince { get; private set; }
         public Cell<IEnumerable<Club>?> Clubs { get; private set; }
         public Cell<Club?> SelectedClub { get; private set; }
+        public Cell<IEnumerable<Season>?> Seasons { get; private set; }
+        public Cell<Season?> SelectedSeason { get; private set; }
 
         public Cell<bool> IsUpdating { get; private set; }
         public ICommand RefreshClubs { get; private set; }
+        
         private async void OnRefreshClubs() {
             this.IsUpdating.Value = true;
 
-            if (await DatabaseManager.Current.UpdateClubs()) {
+            if (await DatabaseManager.Current.UpdateClubs(this.SelectedSeason.Value)) {
                 SelectedProvince_ValueChanged();
             } else {
                 // uhoh.. error
@@ -76,10 +88,57 @@ namespace PieterP.ScoreSheet.ViewModels.Wizards {
 
             this.IsUpdating.Value = false;
         }
+        private async void LoadSeasons(bool refreshClubs) {
+            this.IsUpdating.Value = true;
+            try {
+                var connectorFactory = ServiceLocator.Resolve<IConnectorFactory>();
+                var connectorResult = await connectorFactory.Create(true, false);
+                if (connectorResult.Connector != null) {
+                    var seasons = (await connectorResult.Connector.GetSeasonsAsync())
+                        .OrderByDescending(s => s.Id)
+                        .ToList();
+                    this.Seasons.Value = seasons.Select(c => new Season() { Id = c.Id, Name = c.Name }).ToList();
+                    var currentSeasonOnline = seasons.Where(c => c.IsCurrent).FirstOrDefault();
+                    var currentSeasonLocal = DatabaseManager.Current.Settings.CurrentSeason.Value;
+
+                    // Some logic to select the season to use: if the local season is newer than the online season, use that one.
+                    // Otherwise, use the online season. If neither is available, use the last season in the list.
+                    Season? selectedSeason = null;
+                    if (currentSeasonLocal != null && currentSeasonOnline != null) {
+                        if (currentSeasonLocal.Id >= currentSeasonOnline.Id) {
+                            // this assumes that higher Season Ids are newer
+                            selectedSeason = this.Seasons.Value.FirstOrDefault(c => c.Id == currentSeasonLocal.Id);
+                        }
+                        if (selectedSeason == null) {
+                            selectedSeason = this.Seasons.Value.FirstOrDefault(c => c.Id == currentSeasonOnline.Id);
+                        }
+                    } else if (currentSeasonLocal != null) {
+                        selectedSeason = this.Seasons.Value.FirstOrDefault(c => c.Id == currentSeasonLocal.Id);
+                    } else if (currentSeasonOnline != null) {
+                        selectedSeason = this.Seasons.Value.FirstOrDefault(c => c.Id == currentSeasonOnline.Id);
+                    } else {
+                        selectedSeason = this.Seasons.Value.FirstOrDefault();
+                    }
+                    this.SelectedSeason.Value = selectedSeason;
+
+                    if (currentSeasonLocal == null) {
+                        this.SelectedSeason.Value = this.Seasons.Value.FirstOrDefault(c => c.Id == currentSeasonOnline?.Id);
+                    }
+                }
+            }catch (Exception ex) {
+                // if the seasons list is not available, we can still continue, but log the error for debugging purposes
+                Logger.Log(ex);
+            } finally {
+                this.IsUpdating.Value = false;
+            }
+            if (refreshClubs) {
+                OnRefreshClubs();
+            }
+        }
 
         public RelayCommand<object> Next { get; private set; }
         private void OnNext() {
-            Parent.CurrentPanel.Value = new UpdatingFromInternetViewModel(Parent, SelectedClub.Value!);
+            Parent.CurrentPanel.Value = new UpdatingFromInternetViewModel(Parent, SelectedClub.Value!, SelectedSeason.Value);
         }
 
         public override string Title => Wizard_Update;
