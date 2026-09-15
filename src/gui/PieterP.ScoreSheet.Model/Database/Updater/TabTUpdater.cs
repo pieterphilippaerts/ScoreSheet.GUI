@@ -135,7 +135,9 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             bool everythingOk = true;
 
             // get the active season
+            DatabaseManager.Current.Settings.CurrentSeason.Value = null;
             var season = await FindActiveSeason(connector, selectedSeason);
+            DatabaseManager.Current.Settings.CurrentSeason.Value = new Season() { Id = season.Id, Name = season.Name };
             UpdateProgress?.Invoke(Safe.Format(TabTUpdater_DownloadingSeason, season.Name), false);
 
             // first update clubs; this is to avoid that we have an invalid list of clubs

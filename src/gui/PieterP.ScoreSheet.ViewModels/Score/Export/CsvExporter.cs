@@ -8,6 +8,7 @@ using PieterP.ScoreSheet.Localization;
 using PieterP.ScoreSheet.Model;
 using PieterP.ScoreSheet.Model.Database;
 using PieterP.ScoreSheet.Model.Database.Entities;
+using PieterP.ScoreSheet.Model.Information;
 using PieterP.Shared;
 using PieterP.Shared.Services;
 using static PieterP.ScoreSheet.Localization.Errors;
@@ -45,6 +46,7 @@ namespace PieterP.ScoreSheet.ViewModels.Score.Export {
             // season id
             if (db.Settings.CurrentSeason.Value == null) {
                 Logger.Log(LogType.Warning, CsvExporter_InvalidSeasonId);
+                output.Append(Application.DefaultSeasonId); // this should not happen
             } else {
                 output.Append(db.Settings.CurrentSeason.Value.Id);
             }
