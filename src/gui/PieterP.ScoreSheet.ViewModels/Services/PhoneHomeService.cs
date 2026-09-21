@@ -86,6 +86,7 @@ namespace PieterP.ScoreSheet.ViewModels.Services {
             info.ShowWatermark = s.ShowWatermark.Value;
             info.OverviewVisualization = s.OverviewVisualization.Value.ToString();
             info.SecondScreenVisualization = s.SecondScreenVisualization.Value.ToString();
+            info.CurrentSeason = s.CurrentSeason.Value?.ToString() ?? "(none)";
             return info;
         }
         public void Dispose() {

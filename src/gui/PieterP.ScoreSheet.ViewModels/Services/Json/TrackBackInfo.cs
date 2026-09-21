@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using System.Text;
 using PieterP.ScoreSheet.Model.Information;
 
@@ -33,5 +34,6 @@ namespace PieterP.ScoreSheet.ViewModels.Services.Json {
         public string? SecondScreenVisualization { get; set; }
         public bool AutoUploadEnabled { get; set; }
         public bool ShowWatermark { get; set; }
+        public string? CurrentSeason { get; set; }
     }
 }
