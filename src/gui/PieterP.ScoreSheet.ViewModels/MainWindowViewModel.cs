@@ -90,7 +90,7 @@ namespace PieterP.ScoreSheet.ViewModels {
 
             this.AppTitle = Cell.Derived(DatabaseManager.Current.Settings.HomeClub, hc => {
                 if (hc == null)
-                    return "ScoreSheet - PieterP.be";
+                    return $"ScoreSheet (v{Application.Version.ToString(3)}) - PieterP.be";
                 else
                     return hc + $" - ScoreSheet (v{Application.Version.ToString(3)}) - PieterP.be";
             });
