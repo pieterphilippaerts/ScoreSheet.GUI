@@ -75,12 +75,14 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
         }
 
         private void SetDefault(VersionViewModel vvm) {
+            this.SelectedVersion = vvm;
             foreach (var v in this.Versions) {
                 v.Default = v == vvm;
             }
             DatabaseManager.Current.LaunchSettings.DefaultVersion = vvm.AppVersion?.Version;
         }
         private void SetDefault(ProfileViewModel pvm) {
+            this.SelectedProfile = pvm;
             foreach (var p in this.Profiles) {
                 p.Default = p == pvm;
             }
@@ -115,9 +117,31 @@ namespace PieterP.ScoreSheet.Launcher.ViewModels {
         }
 
         public IList<VersionViewModel> Versions { get; private set; }
-        public VersionViewModel SelectedVersion { get; set; }
+        private VersionViewModel _selectedVersion;
+        public VersionViewModel SelectedVersion {
+            get {
+                return _selectedVersion;
+            }
+            set {
+                if (_selectedVersion == value)
+                    return;
+                _selectedVersion = value;
+                RaisePropertyChanged(nameof(SelectedVersion));
+            }
+        }
         public IList<ProfileViewModel> Profiles { get; private set; }
-        public ProfileViewModel SelectedProfile { get; set; }
+        private ProfileViewModel _selectedProfile;
+        public ProfileViewModel SelectedProfile {
+            get {
+                return _selectedProfile;
+            }
+            set {
+                if (_selectedProfile == value)
+                    return;
+                _selectedProfile = value;
+                RaisePropertyChanged(nameof(SelectedProfile));
+            }
+        }
         public bool Debug { get; set; }
         public bool ShowNewProfile { get; private set; }
         public string NewProfileName {

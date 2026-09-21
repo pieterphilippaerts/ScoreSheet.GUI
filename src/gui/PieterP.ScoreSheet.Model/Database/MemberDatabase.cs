@@ -1,12 +1,18 @@
-﻿using System;
+﻿using PieterP.ScoreSheet.Model.Database.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PieterP.ScoreSheet.Model.Database.Entities;
+using System.Xml.Linq;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PieterP.ScoreSheet.Model.Database {
     public class MemberDatabase : AbstractDatabase<List<MemberList>> {
         public MemberDatabase() : base("members.ssjs") {
+            Initialize();
+        }
+        [MemberNotNull(nameof(_index))]
+        protected override void Initialize() {
             _index = new Dictionary<string, List<MemberList>>();
             foreach (var ml in Database) {
                 if (ml.ClubId != null && ml.ClubId.Length > 0 && ml.Entries != null) {

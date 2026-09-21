@@ -109,6 +109,12 @@ namespace PieterP.ScoreSheet.Model.Database {
             Save();
             RaiseDataUpdated();
         }
+        public void Clear() {
+            this.Database = new T();
+            Initialize();
+            Save();
+            RaiseDataUpdated();
+        }
         protected virtual void Initialize() { }
         protected void RaiseDataUpdated() {
             DataUpdated?.Invoke(this);

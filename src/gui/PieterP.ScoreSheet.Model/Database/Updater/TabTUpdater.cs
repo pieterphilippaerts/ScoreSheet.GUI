@@ -135,6 +135,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             bool everythingOk = true;
 
             // get the active season
+            Season? previousSeason = DatabaseManager.Current.Settings.CurrentSeason.Value;
             DatabaseManager.Current.Settings.CurrentSeason.Value = null;
             var season = await FindActiveSeason(connector, selectedSeason);
             DatabaseManager.Current.Settings.CurrentSeason.Value = new Season() { Id = season.Id, Name = season.Name };
@@ -181,6 +182,11 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             }
             var teams = await connector.GetTeams(club.UniqueIndex!, season);
             UpdateProgress?.Invoke(Safe.Format(TabTUpdater_TeamsDownloaded, club.UniqueIndex), false);
+
+            // voordat we de ledenlijsten van de clubs downloaden, de database leegmaken indien die van een ander seizoen is
+            if (previousSeason?.Id != season.Id) {
+                DatabaseManager.Current.Members.Clear();
+            }
 
             // standaard alle clubs uit dezelfde provincie toevoegen
             foreach (var ce in DatabaseManager.Current.Clubs) {
@@ -290,7 +296,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                 if (match.HomeClub != "-" && match.AwayClub != "-") {
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidMatchDate, team.Team), true);
                 }
-                newMatch.WeekStart = await GuessWeek(connector, team.DivisionId, season, match.WeekName);
+                newMatch.WeekStart = await GuessWeek(connector, team.DivisionId, season, match.WeekName, divisions);
                 if (newMatch.WeekStart == null) {
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_NoWeek, team.Team, team.DivisionName), false);
                     UpdateProgress?.Invoke(Safe.Format(TabTUpdater_InvalidDateInfo, match.HomeTeam, match.AwayTeam, match.MatchId), false);
@@ -512,7 +518,7 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
             match.Veterans = veterans;
         }
 
-        private async Task<DateTime?> GuessWeek(IConnector connector, int divisionId, TabTSeason season, string weekName) {
+        private async Task<DateTime?> GuessWeek(IConnector connector, int divisionId, TabTSeason season, string weekName, IList<TabTDivision>? divisions = null) {
             var matches = await connector.GetMatches(divisionId, season, weekName);
             var dates = new Dictionary<DateTime, int>();
             // count which week starts are most common
@@ -526,14 +532,50 @@ namespace PieterP.ScoreSheet.Model.Database.Updater {
                     }
                 }
             }
-            var keys = dates.Keys.OrderByDescending(k => dates[k]).ToList();
-            if (keys.Count() > 0) { // make sure there are (non-bye) matches in this week
-                var max = dates[keys[0]];
-                var maxDates = keys.Where(k => dates[k] == max); // filter out all the dates that have the maximum number of matchcounts
-                if (maxDates.Count() == 1) { // if we have only one date that sticks out as the most likely, use this one
-                    return maxDates.First();
-                } // else: there are multiple dates that are equally likely; in this case, return null
+            if (dates.Keys.Count == 0) {
+                return null; // we can't guess a week if there are no matches with a date
             }
+            var keys = dates.Keys.OrderByDescending(k => dates[k]).ToList();
+            var max = dates[keys[0]];
+            var maxDates = keys.Where(k => dates[k] == max); // filter out all the dates that have the maximum number of matchcounts
+            if (maxDates.Count() == 1) { // if we have only one date that sticks out as the most likely, use this one
+                return maxDates.First();
+            } // else: there are multiple dates that are equally likely; in this case, we don't have a good result
+
+            //////////////////////////////////////////////////////////
+            // worst case, let's do a last ditch effort to find a date
+            if (divisions == null || keys.Count() == 0)
+                return null; // we can't do this if we don't have the divisions or dates
+            var division = divisions.FirstOrDefault(c => c.Id == divisionId);
+            if (division == null)
+                return null; // we can't find the division in the division list (weird)
+
+            // go through all the divisions with the same category, find the matches for each of these divisions for the same week, and see
+            // if we can find a weekstart that is common
+            foreach (var d in divisions) {
+                if (d.Id == divisionId || d.PlayerCategory != division.PlayerCategory || d.MatchSystemId != division.MatchSystemId || d.Region != division.Region)
+                    continue; // skip irrelevant divisions
+                // we have a relevant division; get the matches for this division for the same week
+                var otherMatches = await connector.GetMatches(d.Id, season, weekName);
+                // if otherMatches is not empty, loop through the matches and see if we can find a weekstart that is common with the original matches; if so, add 1 to the value in the dates dictionary for this weekstart
+                if (otherMatches != null) {
+                    foreach (var m in otherMatches) {
+                        if (m.DateSpecified) {
+                            var date = m.Date.FindStartOfWeek();
+                            if (dates.TryGetValue(date, out int value)) {
+                                dates[date] = value + 1;
+                            }
+                        }
+                    }
+                }
+            }
+            // search 
+            keys = dates.Keys.OrderByDescending(k => dates[k]).ToList();
+            max = dates[keys[0]];
+            maxDates = keys.Where(k => dates[k] == max); // filter out all the dates that have the maximum number of matchcounts
+            if (maxDates.Count() == 1) { // if we have only one date that sticks out as the most likely, use this one
+                return maxDates.First();
+            } // else: there are multiple dates that are equally likely; in this case, we don't have a good result
             return null;
         }
         public async Task<bool> RefreshMemberList(string clubId, int category) {

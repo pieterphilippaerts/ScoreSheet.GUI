@@ -3,11 +3,11 @@
   <PropertyGroup>
     <!--<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>-->
     <TargetFramework>net48</TargetFramework>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
     <AssemblyName>ScoreSheet.Localization</AssemblyName>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2026.2027.3</Version>
+    <Version>2026.2027.4</Version>
     <FileVersion></FileVersion>
   </PropertyGroup>
 

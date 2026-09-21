@@ -3,7 +3,7 @@
   <PropertyGroup>
     <!--<TargetFrameworks>netstandard2.1;net45</TargetFrameworks>-->
     <TargetFramework>net48</TargetFramework>
-    <LangVersion>8.0</LangVersion>
+    <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
@@ -16,7 +16,7 @@
     <!-- Set to false to transform files even if the output appears to be up-to-date (default is true)  -->
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
     <AssemblyVersion></AssemblyVersion>
-    <Version>2026.2027.3</Version>
+    <Version>2026.2027.4</Version>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>

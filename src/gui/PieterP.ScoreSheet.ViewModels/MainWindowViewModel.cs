@@ -92,7 +92,7 @@ namespace PieterP.ScoreSheet.ViewModels {
                 if (hc == null)
                     return "ScoreSheet - PieterP.be";
                 else
-                    return hc + " - ScoreSheet - PieterP.be";
+                    return hc + $" - ScoreSheet (v{Application.Version.ToString(3)}) - PieterP.be";
             });
 
             // initialize services
